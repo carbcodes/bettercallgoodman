@@ -1,0 +1,6 @@
+id: d12-pla-heavy-hook
+area: cad
+title: "PLA utility hook, 5 kg, 45 mm reach, 20 mm wide, upright"
+trap: "5 kg on a printed hook: the back plate needs ~7-9 mm plus a real fillet, across layers"
+control: false
+inputs: {material: PLA, load_n: 49.05, required_safety_factor: 2.0, layer_normal: z, load_rule: lowest_inside, max_reach_mm: 45, max_width_mm: 20}

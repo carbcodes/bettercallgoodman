@@ -1,0 +1,6 @@
+id: d10-pla-headphone-hanger
+area: cad
+title: "PLA headphone hanger, 0.4 kg at ~80 mm, 4 mm plate, printed upright"
+trap: "A 4 mm plate bending across layers, with the moment from an 80 mm lever"
+control: false
+inputs: {material: PLA, load_n: 3.92, required_safety_factor: 2.0, layer_normal: z, load_rule: lowest_inside, max_width_mm: 20, max_reach_mm: 95}
