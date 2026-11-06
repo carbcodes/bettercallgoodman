@@ -30,3 +30,14 @@ def test_cli_picks_up_neighbours_and_reports_bad_geometry(tmp_path, capsys):
     (tmp_path / "geometry.py").write_text("TOOL = 1.0\n")
     assert main(["motion", str(glb), str(jy), "--out", str(tmp_path / "o")]) == 2
     assert "W_Z_MIN" in capsys.readouterr().err
+
+
+def test_view_box_zooms_on_contact():
+    import numpy as np
+    import trimesh
+    from goodman.motion.report import view_box
+    big = trimesh.creation.box(extents=[400, 400, 400])
+    small = trimesh.creation.box(extents=[10, 10, 10])
+    small.apply_translation([150, 0, 0])
+    c, r = view_box([150.0, 0.0, 0.0], big, small)
+    assert np.allclose(c, [150, 0, 0]) and 40 <= r <= 60

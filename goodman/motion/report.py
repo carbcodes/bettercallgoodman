@@ -41,25 +41,40 @@ def posed_meshes(kin: Kinematics, parts: dict[str, trimesh.Trimesh], pose) -> di
     return out
 
 
+def view_box(contact, a: trimesh.Trimesh, b: trimesh.Trimesh) -> tuple[np.ndarray, float]:
+    """Cube centred on the contact, sized to show the smaller colliding part (1.5x its radius, min 40 mm)."""
+    small = min((a, b), key=lambda m: float(np.ptp(m.vertices, axis=0).max()))
+    radius = float(np.ptp(small.vertices, axis=0).max()) / 2
+    return np.asarray(contact, float), max(40.0, 1.5 * radius)
+
+
 def render_finding(path: Path, f: Finding, kin: Kinematics, parts: dict[str, trimesh.Trimesh]) -> None:
     posed = posed_meshes(kin, parts, f.worst_pose)
+    c, r = view_box(f.contact_point_mm, posed[f.parts[0]], posed[f.parts[1]])
     fig = plt.figure(figsize=(8, 7), dpi=120)
     ax = fig.add_subplot(projection="3d")
+
+    def near(tris):
+        return tris[(np.abs(tris.mean(axis=1) - c) <= 1.5 * r).all(axis=1)]
+
     for name, m in posed.items():
         if name in f.parts:
             continue
-        tris = m.vertices[m.faces[::10]]
-        ax.add_collection3d(Poly3DCollection(tris, facecolor="0.75", edgecolor="none", alpha=0.15))
-    for name, color in zip(f.parts, ("#d62728", "#ff7f0e")):
-        m = posed[name]
-        ax.add_collection3d(Poly3DCollection(m.vertices[m.faces], facecolor=color, edgecolor="none", alpha=0.9))
-    pts = np.vstack([posed[n].vertices for n in posed])
-    lo, hi = pts.min(axis=0), pts.max(axis=0)
-    c, r = (lo + hi) / 2, (hi - lo).max() / 2
+        tris = near(m.vertices[m.faces])
+        if len(tris):
+            ax.add_collection3d(Poly3DCollection(tris, facecolor="0.7", edgecolor="none", alpha=0.12))
+    order = sorted(f.parts, key=lambda n: -float(np.ptp(posed[n].vertices, axis=0).max()))  # big first, small on top
+    colors = {f.parts[0]: "#d62728", f.parts[1]: "#ff7f0e"}
+    for z, name in enumerate(order):
+        tris = near(posed[name].vertices[posed[name].faces])
+        alpha = 0.35 if z == 0 else 0.95
+        ax.add_collection3d(Poly3DCollection(tris, facecolor=colors[name], edgecolor="none", alpha=alpha,
+                                             zorder=z + 2, label=name))
     ax.set_xlim(c[0] - r, c[0] + r)
     ax.set_ylim(c[1] - r, c[1] + r)
     ax.set_zlim(c[2] - r, c[2] + r)
-    ax.scatter(*f.contact_point_mm, color="k", s=40)
+    ax.scatter(*f.contact_point_mm, color="k", s=40, zorder=10)
+    ax.legend(loc="upper left", fontsize=8)
     ax.view_init(elev=20, azim=-60)
     ax.set_xlabel("x mm")
     ax.set_ylabel("y mm")
