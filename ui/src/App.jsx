@@ -34,13 +34,15 @@ const TABS = [
 
 // Which process to judge a part by: PLA is printed, anything else is milled.
 const processOf = (t) => (t.inputs?.material === "PLA" ? "printing" : "cnc");
+// Words for each manufacturing verdict (printing has a middle one: prints, but only with supports).
+const VERDICT_WORD = { printable: "Printable", printable_with_supports: "Printable with supports", not_printable: "Not printable", machinable: "Machinable", not_machinable: "Not machinable" };
 const PROC = { printing: { name: "3D printing", ok: "Printable", bad: "Not printable" }, cnc: { name: "3-axis CNC", ok: "Machinable", bad: "Not machinable" } };
 
 // Printable / Not printable / Waiting for the manufacturing tab.
 function makeState(t, proc) {
   const r = t.dfm?.[proc];
   if (!r || r.error) return "waiting";
-  return r.verdict === "printable" || r.verdict === "machinable" ? "holds" : "breaks";
+  return ["printable", "printable_with_supports", "machinable"].includes(r.verdict) ? "holds" : "breaks";
 }
 
 // Holds / Breaks / Waiting, from Goodman's own measurement of the AI's part.
@@ -107,6 +109,16 @@ function Panel({ task }) {
           </div>
           {acc && <p className={`acc ${acc.tone}`}>{acc.text}</p>}
           <p className="where">Weakest spot: {where(r.why)}</p>
+          {task.printing && (
+            <p className={`acc ${task.printing.verdict === "not_printable" ? "bad" : "ok"}`}>
+              {task.printing.label}
+              {task.printing.verdict === "not_printable"
+                ? ` — ${task.printing.problems[0] || ""}`
+                : task.printing.support_needed
+                  ? ` — ${task.printing.support_summary}`
+                  : ""}
+            </p>
+          )}
           {bad.map((q) => (
             <p key={q.rule} className="acc bad">
               Too big: {q.rule} {q.value} mm, limit {q.limit} mm
@@ -136,7 +148,7 @@ function MakePanel({ task, proc, setProc }) {
           <button key={k} className={k === proc ? "on" : ""} onClick={() => setProc(k)}>{v.name}</button>
         ))}
       </div>
-      <div className={`verdict s-${s}`}>{s === "waiting" ? "Waiting" : s === "holds" ? P.ok : P.bad}</div>
+      <div className={`verdict s-${s}`}>{s === "waiting" ? "Waiting" : VERDICT_WORD[r.verdict] || (s === "holds" ? P.ok : P.bad)}</div>
       {r?.error && <p className="acc bad">{r.error}</p>}
       {s !== "waiting" && shown.length === 0 && <p className="acc ok">No problems found on the AI's real geometry.</p>}
       {shown.map((f, i) => (
@@ -187,7 +199,7 @@ export default function App() {
 
   const pr = proc || (task ? processOf(task) : "printing");
   const stateOf = tab === "make" ? (t) => makeState(t, proc || processOf(t)) : state;
-  const labelOf = tab === "make" ? (t, s) => (s === "waiting" ? "Waiting" : s === "holds" ? PROC[proc || processOf(t)].ok : PROC[proc || processOf(t)].bad) : (t, s) => LABEL[s];
+  const labelOf = tab === "make" ? (t, s) => (s === "waiting" ? "Waiting" : VERDICT_WORD[t.dfm?.[proc || processOf(t)]?.verdict] || "") : (t, s) => LABEL[s];
   const holds = tasks.filter((t) => stateOf(t) === "holds").length;
   const breaks = tasks.filter((t) => stateOf(t) === "breaks").length;
   const okWord = tab === "make" ? "pass" : "hold";

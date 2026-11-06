@@ -1,7 +1,7 @@
-"""python -m goodman.dfm printing <part.step> [--up 0 0 1] [--printer prusa_mk4] [--json]
+"""python -m goodman.dfm printing <part.step> [--up 0 0 1] [--printer prusa_mk4] [--no-supports] [--json]
 python -m goodman.dfm cnc <part.step> [--setups 0,0,1 0,0,-1] [--material Al6061-T6] [--json]
 
-Exit code 0 = printable / machinable, 1 = not, 2 = error.
+Exit code 0 = printable / printable_with_supports / machinable, 1 = not, 2 = error.
 """
 
 from __future__ import annotations
@@ -27,6 +27,8 @@ def main(argv=None) -> int:
     p.add_argument("--up", nargs=3, type=float, default=[0, 0, 1], metavar=("X", "Y", "Z"),
                    help="up direction on the print bed (default 0 0 1)")
     p.add_argument("--printer", default=None, help="printer key in goodman/rules/fdm.yaml")
+    p.add_argument("--no-supports", action="store_true",
+                   help="no support material: every overhang past the limit is a failure")
     p.add_argument("--json", action="store_true", help="print the result dict as JSON")
     c = sub.add_parser("cnc", help="3-axis CNC millability")
     c.add_argument("step")
@@ -40,7 +42,7 @@ def main(argv=None) -> int:
         from .report import format_text
         if a.cmd == "printing":
             from .printing import check_printing
-            res = check_printing(a.step, build_dir=tuple(a.up), printer=a.printer)
+            res = check_printing(a.step, build_dir=tuple(a.up), printer=a.printer, supports=not a.no_supports)
         else:
             from .cnc import check_cnc
             res = check_cnc(a.step, setups=a.setups, material=a.material)
@@ -51,7 +53,7 @@ def main(argv=None) -> int:
         print(f"error: {e}", file=sys.stderr)
         return 2
     print(json.dumps(res, indent=2) if a.json else format_text(res))
-    return 0 if res["verdict"] in ("printable", "machinable") else 1
+    return 0 if res["verdict"] in ("printable", "printable_with_supports", "machinable") else 1
 
 
 if __name__ == "__main__":

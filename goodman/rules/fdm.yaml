@@ -7,6 +7,15 @@ process: FDM
 nozzle_mm: 0.4
 
 rules:
+  supports_allowed:
+    value: true
+    meaning: >
+      Default: the printer may add support material, so overhangs, ledges, ceilings and long
+      bridges are warnings ("needs_support") and the verdict is printable_with_supports.
+      check_printing(supports=False) / --no-supports makes them failures again.
+    source: >
+      Prusa Knowledge Base, "Supports" (support is generated for any overhang past the limit);
+      Hubs FDM guide (overhangs past 45° are printable with support, at a surface-finish cost).
   overhang_max_deg:
     value: 45
     meaning: Largest angle from vertical a down-facing surface can have without support.
@@ -24,6 +33,28 @@ rules:
       Overhangs that stay within this height of the bed (bottom-edge fillets, small chamfers)
       are a warning, not a failure: the first ~5 layers droop by at most a fraction of this.
     source: assumption (1 mm = 5 layers at 0.2 mm; common slicer practice is to ignore them)
+  support_lift_mm:
+    value: 0.05
+    meaning: Rays that test whether support can be pulled out start this far below the overhang face.
+    source: assumption (numerical offset, well under one 0.2 mm layer)
+  support_escape_directions:
+    value: 16
+    meaning: >
+      Horizontal directions (plus straight down and 45° down) tried from under each supported
+      face; if no ray from any sample point leaves the part, the support is trapped and can't
+      be removed, which is a failure even with supports allowed.
+    source: assumption (16 directions = 22.5° steps; support is removed by pulling it sideways or down)
+  enclosed_cavity_max_mm3:
+    value: 0
+    meaning: >
+      Any sealed internal void fails, since support (or loose material) inside can never be removed.
+    source: Hubs FDM guide, "enclosed cavities need an escape hole for support material"; Prusa KB "Supports".
+  clean_bore_max_mm:
+    value: 5.0
+    meaning: >
+      Support may not stand inside a hole narrower than this: the bore must stay clean for a screw
+      and a tool can't get in to scrape the support off.
+    source: assumption (M3/M4 clearance holes are 3.4-4.5 mm; a 5 mm bore is the smallest a file or knife reaches)
   min_wall_mm:
     value: 0.8
     meaning: Thinnest wall that prints reliably (2 nozzle widths).

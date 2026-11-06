@@ -41,6 +41,17 @@ def _write_mesh(step: Path, out: Path) -> None:
                                "t": [i for t in tris for i in t]}))
 
 
+def _printing(step: Path, inp: dict) -> dict | None:
+    """FDM check of the part (goodman.dfm); None when build123d/OCP isn't installed."""
+    try:
+        from goodman.dfm import check_printing
+    except ImportError:
+        return None
+    up = {"x": (1, 0, 0), "y": (0, 1, 0), "z": (0, 0, 1)}.get(str(inp.get("layer_normal", "z")).lower(), (0, 0, 1))
+    r = check_printing(step, build_dir=up)
+    return {k: r[k] for k in ("verdict", "support_needed", "support_summary", "findings")}
+
+
 def check(d: Path) -> dict:
     task = yaml.safe_load((d / "task.yaml").read_text())
     inp = task["inputs"]
@@ -105,7 +116,7 @@ def check(d: Path) -> dict:
             "safety_factor": round(r.sf, 3), "lever_mm": round(r.lever_mm, 1), "load_point": [round(v, 2) for v in r.load_point],
             "bbox": bb, "volume_mm3": round(r.volume, 1), "notes": r.notes, "requirements": reqs, "claims": claims,
             "critical": describe(crit) if crit else None, "critical_note": crit.kt_note if crit else None,
-            "why": short, "why_long": why,
+            "why": short, "why_long": why, "printing": _printing(step, inp),
             "sections": [{"kind": s.kind, "at": round(s.at, 2), "depth": round(s.depth, 2), "zc": round(s.centroid[2], 2),
                           "xc": round(s.centroid[0], 2), "c": round(s.c, 2), "sigma": round(s.sigma, 2),
                           "strength": s.strength, "sf": round(s.sf, 3)} for s in r.sections]}

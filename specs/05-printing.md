@@ -26,4 +26,4 @@ Cite where each threshold comes from. Thresholds go in a YAML file, not in the c
 
 ## Implementation
 
-Built as `goodman/dfm/printing.py` (`check_printing(step_path, build_dir, printer)`, CLI `python -m goodman.dfm printing part.step --up 0 0 1`), working on any STEP solid. Thresholds and their sources are in `goodman/rules/fdm.yaml`. Test parts with known answers: `tests/fixtures/dfm/p0*.py`, run by `tests/test_dfm.py`.
+Built as `goodman/dfm/printing.py` (`check_printing(step_path, build_dir, printer)`, CLI `python -m goodman.dfm printing part.step --up 0 0 1`), working on any STEP solid. Thresholds and their sources are in `goodman/rules/fdm.yaml`. Supports are allowed by default: overhangs, ledges, ceilings and long bridges are `needs_support` warnings (area and support height) and the verdict is `printable_with_supports`; they fail only when the support could not be removed (sealed cavity, no open path) or would stand in a bore under 5 mm. `supports=False` / `--no-supports` makes every overhang past the limit a failure. Test parts with known answers: `tests/fixtures/dfm/p0*.py`, run by `tests/test_dfm.py`.
