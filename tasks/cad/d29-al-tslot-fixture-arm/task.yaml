@@ -1,0 +1,9 @@
+id: d29-al-tslot-fixture-arm
+area: cad
+process: cnc
+title: "6061 fixture arm, 8 kg at 190 mm, full-length M6 T-slot"
+trap: "the T-slot's hidden channel under the lips is an undercut a straight end mill can't reach; it needs a T-slot cutter"
+control: false
+expect: {strength: safe, dfm: not_machinable, overall: fail}
+checker_risk: "the slot is open at the tip, so a ray from the +x setup can see the lip undersides along the slot; the checker may pass it"
+inputs: {material: Al6061-T6, load_n: 78.48, required_safety_factor: 3.0, load_rule: fixed_x, load_x_mm: 190, max_reach_mm: 200}

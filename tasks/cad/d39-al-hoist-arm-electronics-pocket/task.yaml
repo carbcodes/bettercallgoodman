@@ -1,0 +1,8 @@
+id: d39-al-hoist-arm-electronics-pocket
+area: cad
+process: cnc
+title: "6061 hoist arm, 60 kg at 230 mm, 18.6 mm pocket in a 20 mm bar"
+trap: "combo: the pocket leaves 0.7 mm side walls (under 0.8 mm) with R2 corners 18 mm deep (4.5x tool), and the pocketed U-section near the root is far too weak for 60 kg"
+control: false
+expect: {strength: not_safe, dfm: not_machinable, overall: fail}
+inputs: {material: Al6061-T6, load_n: 588.6, required_safety_factor: 3.0, load_rule: fixed_x, load_x_mm: 230, max_reach_mm: 245}

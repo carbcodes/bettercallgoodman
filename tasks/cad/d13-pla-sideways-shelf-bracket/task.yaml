@@ -1,0 +1,8 @@
+id: d13-pla-sideways-shelf-bracket
+area: cad
+process: printing
+title: "PLA shelf bracket, 2 kg at 75 mm, printed upright"
+trap: "the flat arm sticks straight out sideways from an upright back plate, so its whole underside is a 90° overhang that needs support; the arm root also pulls across layers"
+control: false
+expect: {strength: safe, dfm: printable_with_supports, overall: pass}
+inputs: {material: PLA, load_n: 19.62, required_safety_factor: 2.0, layer_normal: z, load_rule: fixed_x, load_x_mm: 75, max_reach_mm: 80, max_width_mm: 20}

@@ -1,0 +1,8 @@
+id: d25-pla-slim-bag-hook-rim
+area: cad
+process: printing
+title: "PLA bag hook, 5 kg, 6 mm wide, 0.5 mm decorative rim"
+trap: "combo: 5 kg on a 6 mm wide hook at >= 55 mm lever across layers at the back plate is too weak; the 0.5 mm rim is under the 0.8 mm FDM minimum wall"
+control: false
+expect: {strength: not_safe, dfm: not_printable, overall: fail}
+inputs: {material: PLA, load_n: 49.05, required_safety_factor: 2.0, layer_normal: z, load_rule: lowest_inside, max_reach_mm: 70, max_width_mm: 6}

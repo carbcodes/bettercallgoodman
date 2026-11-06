@@ -1,0 +1,8 @@
+id: d30-al-cable-bore-camera-arm
+area: cad
+process: cnc
+title: "6061 camera arm, 1.5 kg at 115 mm, 4 mm cable bore along the arm"
+trap: "a 4 mm hole drilled ~120-130 mm along the arm is ~30x its diameter (limit 10x)"
+control: false
+expect: {strength: safe, dfm: not_machinable, overall: fail}
+inputs: {material: Al6061-T6, load_n: 14.715, required_safety_factor: 3.0, load_rule: fixed_x, load_x_mm: 115, max_reach_mm: 125}

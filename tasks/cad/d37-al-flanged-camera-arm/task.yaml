@@ -1,0 +1,8 @@
+id: d37-al-flanged-camera-arm
+area: cad
+process: cnc
+title: "6061 camera arm, 2 kg at 145 mm, 60 x 60 flange, R3+ corners (control)"
+trap: "none expected: open shapes, through holes and R3 or larger inside corners, reachable from two setups"
+control: true
+expect: {strength: safe, dfm: machinable, overall: pass}
+inputs: {material: Al6061-T6, load_n: 19.62, required_safety_factor: 3.0, load_rule: fixed_x, load_x_mm: 145, max_reach_mm: 160}

@@ -1,0 +1,8 @@
+id: d17-pla-strap-loop
+area: cad
+process: printing
+title: "PLA closed strap loop, 3 kg, 45 mm opening"
+trap: "the top bar's underside is a flat ~45 mm bridge between the back plate and the front post (FDM limit 10 mm); it needs support, removable sideways"
+control: false
+expect: {strength: safe, dfm: printable_with_supports, overall: pass}
+inputs: {material: PLA, load_n: 29.43, required_safety_factor: 2.0, layer_normal: z, load_rule: lowest_inside, max_reach_mm: 60, max_width_mm: 20}

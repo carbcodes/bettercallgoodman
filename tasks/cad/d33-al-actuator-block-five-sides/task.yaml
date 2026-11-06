@@ -1,0 +1,8 @@
+id: d33-al-actuator-block-five-sides
+area: cad
+process: cnc
+title: "6061 actuator block, 3 kg, features on five faces"
+trap: "features on five faces need four or more setups; legal under the six-setup rule, so it should pass (cost, not feasibility)"
+control: false
+expect: {strength: safe, dfm: machinable, overall: pass}
+inputs: {material: Al6061-T6, load_n: 29.43, required_safety_factor: 3.0, load_rule: fixed_x, load_x_mm: 70, max_reach_mm: 80}

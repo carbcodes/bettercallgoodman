@@ -1,0 +1,8 @@
+id: d28-al-battery-pocket-arm
+area: cad
+process: cnc
+title: "6061 sensor arm, 2 kg at 150 mm, 22 mm deep pocket with R1 corners"
+trap: "a 1 mm corner radius forces a 2 mm end mill, and the pocket is 22 mm deep (11x the tool diameter, limit 4x)"
+control: false
+expect: {strength: safe, dfm: not_machinable, overall: fail}
+inputs: {material: Al6061-T6, load_n: 19.62, required_safety_factor: 3.0, load_rule: fixed_x, load_x_mm: 150, max_reach_mm: 165}

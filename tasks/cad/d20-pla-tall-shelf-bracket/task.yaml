@@ -1,0 +1,8 @@
+id: d20-pla-tall-shelf-bracket
+area: cad
+process: printing
+title: "PLA shelf bracket, 5 kg at 150 mm, 240 mm tall back plate"
+trap: "a 240 mm tall back plate printed upright exceeds the MK4's 220 mm build height"
+control: false
+expect: {strength: safe, dfm: not_printable, overall: fail}
+inputs: {material: PLA, load_n: 49.05, required_safety_factor: 2.0, layer_normal: z, load_rule: fixed_x, load_x_mm: 150, max_reach_mm: 170, max_width_mm: 25}

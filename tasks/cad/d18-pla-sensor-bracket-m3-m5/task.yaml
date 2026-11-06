@@ -1,0 +1,8 @@
+id: d18-pla-sensor-bracket-m3-m5
+area: cad
+process: printing
+title: "PLA sensor bracket, 200 g, M5 wall screws and M3 sensor screws"
+trap: "M3 and M5 holes drawn at nominal 3.0 / 5.0 mm print 0.2-0.3 mm undersize, so the screws won't pass (warning only); the flat arm underside needs support"
+control: false
+expect: {strength: safe, dfm: printable_with_supports, overall: pass}
+inputs: {material: PLA, load_n: 1.962, required_safety_factor: 3.0, layer_normal: z, load_rule: fixed_x, load_x_mm: 55, max_reach_mm: 65, max_width_mm: 25}

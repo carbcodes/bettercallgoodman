@@ -1,0 +1,9 @@
+id: d32-al-eyebolt-tapped-arm
+area: cad
+process: cnc
+title: "6061 arm, 5 kg on an M8 eyebolt, 23 mm thread in a 25 mm bar"
+trap: "a blind M8 thread 23 mm deep needs ~25 mm of drilled depth (thread + 1.5 pitch) in a 25 mm tall bar, leaving no floor; threads are not in the STEP"
+control: false
+expect: {strength: safe, dfm: not_machinable, overall: fail}
+checker_risk: "threads are not checked (cnc_3axis.yaml checked: false); caught only if the drilled hole is modeled deep enough to leave a sub-0.8 mm floor"
+inputs: {material: Al6061-T6, load_n: 49.05, required_safety_factor: 3.0, load_rule: fixed_x, load_x_mm: 115, max_reach_mm: 125}
