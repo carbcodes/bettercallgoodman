@@ -68,7 +68,7 @@ export default function Viewer({ task }) {
     el.appendChild(renderer.domElement);
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xf4f2ed);
+    scene.background = new THREE.Color(0xffffff);
     scene.add(new THREE.HemisphereLight(0xffffff, 0xd8d2c6, 2.1));
     const key = new THREE.DirectionalLight(0xffffff, 1.5);
     key.position.set(-1, -2, 3);
@@ -83,7 +83,7 @@ export default function Viewer({ task }) {
     const size = bbox.getSize(new THREE.Vector3());
     const center = bbox.getCenter(new THREE.Vector3());
     const radius = size.length() / 2;
-    const grid = new THREE.GridHelper(radius * 4, 24, 0xd6d1c6, 0xe4e0d7);
+    const grid = new THREE.GridHelper(radius * 4, 24, 0xd5e3ee, 0xe9f0f6);
     grid.rotation.x = Math.PI / 2;
     grid.position.set(center.x, center.y, bbox.min.z - radius * 0.02);
     scene.add(grid);

@@ -9,23 +9,23 @@ import * as THREE from "three";
 
 export const COLORS = {
   ink: 0x1d1d1b,
-  part: 0xd8d4ca,
-  partDark: 0xa9a499,
+  part: 0xdfe5ea,
+  partDark: 0xaab4bd,
   steel: 0xbfc3c7,
   pcb: 0x55705e,
-  red: 0xd23f31,
+  red: 0xe5484d,
   blue: 0x20a4f3,
-  ghost: 0x8a877f,
+  ghost: 0x8a96a3,
 };
 
 // ---------------------------------------------------------------- colour map
 // t = sigma / allowable (allowable = strength / required SF). Pale -> blue up to
 // the allowable, red beyond it.
 const STOPS = [
-  [0.0, [0.925, 0.914, 0.886]],
+  [0.0, [0.91, 0.94, 0.965]],
   [0.5, [0.60, 0.80, 0.93]],
   [0.92, [0.09, 0.47, 0.78]],
-  [1.0, [0.82, 0.25, 0.19]],
+  [1.0, [0.898, 0.282, 0.302]],
 ];
 export function stressColor(t, out = new THREE.Color()) {
   if (t >= 1) return out.setRGB(...STOPS[3][1], THREE.SRGBColorSpace);
@@ -40,7 +40,7 @@ export function stressColor(t, out = new THREE.Color()) {
   }
   return out.setRGB(...STOPS[3][1], THREE.SRGBColorSpace);
 }
-export const COLORMAP_CSS = `linear-gradient(90deg, rgb(236,233,226) 0%, rgb(153,204,237) 46%, rgb(23,120,199) 85%, rgb(209,64,48) 92%, rgb(209,64,48) 100%)`;
+export const COLORMAP_CSS = `linear-gradient(90deg, rgb(232,240,246) 0%, rgb(153,204,237) 46%, rgb(23,120,199) 85%, rgb(229,72,77) 92%, rgb(229,72,77) 100%)`;
 
 // ---------------------------------------------------------------- helpers
 const mat = (color, extra = {}) => new THREE.MeshStandardMaterial({ color, roughness: 0.85, metalness: 0.0, ...extra });
