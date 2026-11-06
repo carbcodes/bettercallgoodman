@@ -143,7 +143,7 @@ def run_motion(args: argparse.Namespace) -> int:
         print(f"error: {e}", file=sys.stderr)
         return 2
     log(f"inputs: {glb.name}, {jy.name}, assembly.yaml={'yes' if asm else 'no'}, "
-        f"geometry.py={'yes (reach rule on)' if consts else 'no (full joint-limit box)'}")
+        f"geometry.py={'yes (reach rule on)' if consts else 'yes, no reach constants (full joint-limit box)' if geo else 'no (full joint-limit box)'}")
     world = CollisionWorld(parts)
     plan = plan_pairs(kin, world, parts, allow)
     log(f"pairs: {plan.stats}")

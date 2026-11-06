@@ -55,6 +55,8 @@ def test_reach_constants_parsed_not_executed(tmp_path, arm):
     (tmp_path / "g2.py").write_text("TOOL = 1.0\n")
     with pytest.raises(ValueError, match="W_Z_MIN"):
         load_reach_constants(tmp_path / "g2.py")
+    (tmp_path / "g3.py").write_text("BASE_SIZE = (220.0, 180.0, 8.0)\n")
+    assert load_reach_constants(tmp_path / "g3.py") is None
 
 
 def test_consistency_errors(tmp_path):

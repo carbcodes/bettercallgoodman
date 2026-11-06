@@ -150,8 +150,11 @@ class ReachConstants:
     TOOL: float
 
 
-def load_reach_constants(geometry_py: Path) -> ReachConstants:
-    """Read the reach-rule constants from geometry.py WITHOUT executing it (ast + literal_eval only)."""
+def load_reach_constants(geometry_py: Path) -> ReachConstants | None:
+    """Read the reach-rule constants from geometry.py WITHOUT executing it (ast + literal_eval only).
+
+    None when geometry.py defines none of them (not an arm with a firmware reach rule); an error when it
+    defines only some."""
     tree = ast.parse(Path(geometry_py).read_text())
     found: dict[str, float] = {}
     for node in tree.body:
@@ -170,6 +173,8 @@ def load_reach_constants(geometry_py: Path) -> ReachConstants:
                         found[t.id] = float(ast.literal_eval(v))
                     except (ValueError, TypeError, SyntaxError):
                         pass
+    if not found:
+        return None
     for name in REACH_NAMES:
         if name not in found:
             raise ValueError(f"geometry.py is missing {name}")

@@ -32,6 +32,13 @@ def test_cli_picks_up_neighbours_and_reports_bad_geometry(tmp_path, capsys):
     assert "W_Z_MIN" in capsys.readouterr().err
 
 
+def test_cli_geometry_without_reach_constants_sweeps_full_box(tmp_path, capsys):
+    glb, jy = write_c01(tmp_path)
+    (tmp_path / "geometry.py").write_text("BASE_SIZE = (220.0, 180.0, 8.0)\n")
+    assert main(["motion", str(glb), str(jy), "--out", str(tmp_path / "o")]) == 1
+    assert "no reach constants" in capsys.readouterr().err
+
+
 def test_view_box_zooms_on_contact():
     import numpy as np
     import trimesh
