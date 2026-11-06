@@ -357,6 +357,114 @@ function PoseBar({ design, sel, which, setWhich, ghost, setGhost, apiRef, onT })
   );
 }
 
+// The checker's own output, byte for byte: what `python -m goodman motion` printed (run.log) and
+// the motion_result.json it wrote. The 3D view is drawn from this file; this view is not.
+function useText(url) {
+  const [state, setState] = useState({ url: null, text: null, err: null });
+  useEffect(() => {
+    if (!url) return;
+    let live = true;
+    setState({ url, text: null, err: null });
+    fetch(`${url}?t=${Date.now()}`, { cache: "no-store" })
+      .then((r) => (r.ok ? r.text() : Promise.reject(new Error(`${r.status} ${r.statusText}`))))
+      .then((text) => live && setState({ url, text, err: null }))
+      .catch((e) => live && setState({ url, text: null, err: String(e.message || e) }));
+    return () => {
+      live = false;
+    };
+  }, [url]);
+  return state.url === url ? state : { text: null, err: null };
+}
+
+// [start, end) line ranges of each element of the top-level "collisions" array (json.dumps indent=2)
+function collisionBlocks(lines) {
+  const out = [];
+  let i = lines.findIndex((l) => l === '  "collisions": [');
+  if (i < 0) return out;
+  let start = null;
+  for (i += 1; i < lines.length; i++) {
+    const l = lines[i];
+    if (l === "    {") start = i;
+    else if ((l === "    }," || l === "    }") && start != null) {
+      out.push([start, i + 1]);
+      start = null;
+    } else if (l.startsWith("  ]")) break;
+  }
+  return out;
+}
+
+function RawView({ design, sel }) {
+  const [file, setFile] = useState("log");
+  const log = useText(design.raw?.log);
+  const res = useText(design.raw?.result);
+  const pre = useRef(null);
+  const hasLog = !!design.raw?.log;
+  const text = file === "log" ? (hasLog ? log.text : design.raw?.summary) : res.text;
+  const err = file === "log" ? log.err : res.err;
+  const lines = useMemo(() => (text == null ? [] : text.replace(/\n$/, "").split("\n")), [text]);
+
+  // which lines belong to the selected collision
+  const span = useMemo(() => {
+    if (sel?.kind !== "collision" || !lines.length) return null;
+    const [a, b] = sel.c.parts;
+    if (file === "json") return collisionBlocks(lines)[sel.c.idx] || null;
+    const i = lines.findIndex((l) => l.startsWith(`  - ${a} hits ${b} `) || l.startsWith(`  - ${b} hits ${a} `));
+    return i >= 0 ? [i, i + 1] : null;
+  }, [sel, lines, file]);
+
+  useEffect(() => {
+    const el = pre.current?.querySelector(".raw-hl");
+    if (el) el.scrollIntoView({ block: "center" });
+  }, [span, text]);
+
+  const url = file === "log" ? design.raw?.log : design.raw?.result;
+  const name = file === "log" ? (hasLog ? "run.log" : "printed summary") : "motion_result.json";
+  const W = String(lines.length).length;
+  const row = (l, i) => (
+    <span key={i} className="raw-line">
+      <i>{String(i + 1).padStart(W, " ")}</i>
+      {l || " "}
+    </span>
+  );
+  return (
+    <div className="raw">
+      <div className="raw-cmd mono">
+        <span className="raw-prompt">$</span> {design.raw?.command}
+      </div>
+      <div className="raw-bar">
+        <div className="seg small">
+          <button className={file === "log" ? "on" : ""} onClick={() => setFile("log")}>Terminal output</button>
+          <button className={file === "json" ? "on" : ""} onClick={() => setFile("json")}>motion_result.json</button>
+        </div>
+        <span className="raw-meta mono">
+          {name} · {num(lines.length)} lines
+          {url && (
+            <a href={url} target="_blank" rel="noreferrer">open file</a>
+          )}
+        </span>
+      </div>
+      {file === "log" && !hasLog && (
+        <p className="raw-note">This run kept no terminal log. Below is the summary the CLI prints, regenerated from motion_result.json by goodman.motion.report.summary_lines.</p>
+      )}
+      <pre className={`raw-pre mono ${file === "log" ? "wrap" : ""}`} ref={pre}>
+        {err ? (
+          `Couldn't load ${url}: ${err}`
+        ) : text == null ? (
+          "Loading…"
+        ) : span ? (
+          <>
+            {lines.slice(0, span[0]).map(row)}
+            <span className="raw-hl">{lines.slice(span[0], span[1]).map((l, k) => row(l, span[0] + k))}</span>
+            {lines.slice(span[1]).map((l, k) => row(l, span[1] + k))}
+          </>
+        ) : (
+          lines.map(row)
+        )}
+      </pre>
+    </div>
+  );
+}
+
 function DesignPanel({ design, sel, select }) {
   const S = STATUS[design.status] || STATUS.collides;
   const [q, setQ] = useState("");
@@ -453,6 +561,7 @@ export default function CollideTab({ motion }) {
   const [sel, setSel] = useState(null);
   const [which, setWhich] = useState("worst");
   const [ghost, setGhost] = useState(true);
+  const [mode, setMode] = useState("3d");
   const apiRef = useRef(null);
   const onT = useRef(null);
 
@@ -503,8 +612,16 @@ export default function CollideTab({ motion }) {
         })}
       </nav>
       <figure className="viewer" style={{ margin: 0 }}>
+        <div className="mode-switch">
+          <div className="seg">
+            <button className={mode === "3d" ? "on" : ""} onClick={() => setMode("3d")}>3D view</button>
+            <button className={mode === "raw" ? "on" : ""} onClick={() => setMode("raw")}>Raw checker output</button>
+          </div>
+          {mode === "3d" && <span className="mode-note">Drawn from motion_result.json</span>}
+        </div>
         <CollideViewer key={design.id} design={design} sel={sel} which={which} ghost={ghost} onT={onT} apiRef={apiRef} />
         <PoseBar design={design} sel={sel} which={which} setWhich={setWhich} ghost={ghost} setGhost={setGhost} apiRef={apiRef} onT={onT} />
+        {mode === "raw" && <RawView design={design} sel={sel} />}
       </figure>
       <DesignPanel design={design} sel={sel} select={setSel} />
     </div>

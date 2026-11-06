@@ -15,6 +15,12 @@ def test_motion_record_for_ui(tmp_path):
     assert (tmp_path / "public/motion/c01.glb").read_bytes() == glb.read_bytes()
     assert len(rec["collisions"]) == 1 and rec["collisions"][0]["contact_point_mm"]
     assert {j["id"] for j in rec["joints"]} and all("coupled" in j for j in rec["joints"])
+    # raw view: the checker's own result file, unchanged, and the command that made it
+    raw = rec["raw"]
+    assert (tmp_path / "public" / raw["result"]).read_bytes() == (out / "motion_result.json").read_bytes()
+    assert raw["command"].startswith("python -m goodman motion ") and raw["log"] is None
+    assert raw["summary"].startswith("verdict: collisions")
+    assert rec["collisions"][0]["idx"] == 0
 
 
 def test_motion_record_skips_missing_glb(tmp_path):

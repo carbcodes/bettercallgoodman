@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import json
 import re
+import shlex
 import shutil
 from datetime import datetime, timezone
 from pathlib import Path
@@ -273,8 +274,25 @@ def _motion_record(d: Path, root: Path, public: Path) -> dict | None:
     joints = [{k: j.get(k) for k in ("id", "parent", "origin", "axis", "home", "limits", "label", "parts")}
               | {"coupled": [[c["joint"], c["ratio"]] for c in (j.get("coupled") or [])]}
               for j in motion.get("joints", [])]
+    # the checker's own files, unchanged, for the UI's raw-output view
+    raw_dir = public / "motion" / d.name
+    _copy_if_changed(d / "motion_result.json", raw_dir / "motion_result.json")
+    log = d / "run.log"
+    if log.is_file():
+        _copy_if_changed(log, raw_dir / "run.log")
+    else:
+        from .motion.report import summary_lines
+    raw = {
+        "command": shlex.join(["python", "-m", "goodman", "motion", str(inp.get("glb")), str(inp.get("joints")),
+                               "--out", str(d.relative_to(root) if d.is_relative_to(root) else d)]),
+        "result": f"motion/{d.name}/motion_result.json",
+        "result_path": str(d.relative_to(root) / "motion_result.json") if d.is_relative_to(root) else str(d / "motion_result.json"),
+        "log": f"motion/{d.name}/run.log" if log.is_file() else None,
+        # older runs kept no log: the CLI's printed summary, regenerated from the result file
+        "summary": None if log.is_file() else "\n".join(summary_lines(res)),
+    }
     keep = ("parts", "joints", "first_contact", "worst", "contact_point_mm", "colliding_range", "why")
-    cols = sorted(({k: c.get(k) for k in keep} for c in res.get("collisions", [])),
+    cols = sorted(({k: c.get(k) for k in keep} | {"idx": i} for i, c in enumerate(res.get("collisions", []))),
                   key=lambda c: -(c["worst"] or {}).get("penetration_mm", 0))
     return {
         "id": d.name, "order": card.get("order", 99), "title": card.get("title", d.name),
@@ -283,7 +301,7 @@ def _motion_record(d: Path, root: Path, public: Path) -> dict | None:
         "compare_pose": card.get("compare_pose"),
         "verdict": res.get("verdict"), "stats": res.get("stats", {}), "reach_rule": inp.get("reach_rule"),
         "swept_joints": res.get("swept_joints", {}), "glb": f"motion/{d.name}.glb",
-        "joints": joints, "poses": motion.get("poses", []), "collisions": cols,
+        "joints": joints, "poses": motion.get("poses", []), "collisions": cols, "raw": raw,
     }
 
 
