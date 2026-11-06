@@ -164,7 +164,7 @@ export default function App() {
   const data = useData();
   const [tab, setTab] = useState("break");
   const [proc, setProc] = useState(null);
-  const tasks = useMemo(() => (data?.tasks || []).filter((t) => t.area === "cad").sort((a, b) => a.id.localeCompare(b.id)), [data]);
+  const tasks = useMemo(() => (data?.tasks || []).filter((t) => t.area === "cad" && t.result).sort((a, b) => a.id.localeCompare(b.id)), [data]);
   const ids = tasks.map((t) => t.id);
   const [picked, setPicked] = useState(() => decodeURIComponent(window.location.hash.replace(/^#\/?/, "")));
   const current = ids.includes(picked) ? picked : ids[0];

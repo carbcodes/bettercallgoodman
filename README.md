@@ -7,7 +7,7 @@ AI models now answer engineering questions with confidence: "this bracket holds 
 Goodman is a design checker. It works two ways:
 
 1. **AI designs the part.** Ask an AI for a part that must carry a load ("a PLA hook that holds 300 g, safety factor 2"). It writes the CAD code. Goodman runs that code, measures the real geometry it produced (lever arm, the cross-section at the wall, sharp corners), and works out on its own whether the part actually holds the load.
-2. **AI analyzes a part.** Ask an AI whether a described part is safe or fits. Goodman pulls out every number in its answer and recomputes each one with physics and geometry instead of opinion.
+2. **AI analyzes a part.** (Checker only: its ChatGPT runs came from unsaved temporary chats, so they were dropped from the evidence; the cases live on as test data in `tests/cases/strength/`.) Ask an AI whether a described part is safe or fits. Goodman pulls out every number in its answer and recomputes each one with physics and geometry instead of opinion.
 
 | Area | Owner | Checks |
 | --- | --- | --- |

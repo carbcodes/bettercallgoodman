@@ -1,7 +1,0 @@
-{"verdict":"does_not_fit","claims":[
-{"id":"k1","quantity":"collision_angle_deg","value":9.22,"unit":"°","quote":"It first makes contact at approximately 9.22° below horizontal."},
-{"id":"k2","quantity":"reach_deg","value":9.22,"unit":"°","quote":"Maximum angle before contact: 9.22°"},
-{"id":"k3","quantity":"min_clearance_mm","value":5,"unit":"mm","quote":"Initial clearance: 5 mm"}],
-"mentions":["part_thickness"],
-"notes":"Clearance of 5 mm is stated as the initial (not minimum) clearance. 9.22 deg given as both contact angle and max angle.",
-"extracted_by":"Claude Sonnet (blind extractor; saw only the answer)"}

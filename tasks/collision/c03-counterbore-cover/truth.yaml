@@ -1,6 +1,0 @@
-verdict: does_not_fit
-values:
-  min_clearance_mm: {value: -0.5, tol: 0.0}
-why: |
-  ISO 4762 M4: head diameter 7.0 mm (fits the 8.0 mm bore), head height k = 4.0 mm.
-  Counterbore depth 3.5 mm -> heads protrude 0.5 mm, so the cover rocks on the screw heads.

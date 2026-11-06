@@ -9,11 +9,11 @@ from goodman.checkers import strength
 from goodman.verdict import normalize_verdict
 
 ROOT = Path(__file__).resolve().parent.parent
-CASES = sorted(p.name for p in (ROOT / "tasks" / "strength").iterdir() if (p / "task.yaml").exists())
+CASES = sorted(p.name for p in (ROOT / "tests" / "cases" / "strength").iterdir() if (p / "task.yaml").exists())
 
 
 def _load(case):
-    d = ROOT / "tasks" / "strength" / case
+    d = ROOT / "tests" / "cases" / "strength" / case
     return yaml.safe_load(open(d / "task.yaml")), yaml.safe_load(open(d / "truth.yaml"))
 
 

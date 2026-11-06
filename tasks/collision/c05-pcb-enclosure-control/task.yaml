@@ -1,6 +1,0 @@
-id: c05-pcb-enclosure-control
-area: collision
-title: PCB enclosure that does fit (control)
-trap: none, genuinely fits with 1.4 mm clearance
-control: true
-inputs: {cavity_mm: [70, 50, 20.0], pcb_mm: [65, 45, 1.6], standoff_mm: 5, tallest_component_mm: 12.0, min_clearance_mm: 0.5}

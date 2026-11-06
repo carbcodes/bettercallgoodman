@@ -535,6 +535,47 @@ function thermalColumn(s) {
   };
 }
 
+// A solid arrow pointing down onto `tip`: cylinder shaft plus cone head.
+function loadArrow(tip, len, r) {
+  const g = new THREE.Group();
+  const head = Math.min(len * 0.3, r * 7);
+  const m = new THREE.MeshStandardMaterial({ color: COLORS.ink, roughness: 0.5 });
+  const shaft = new THREE.Mesh(new THREE.CylinderGeometry(r, r, len - head, 20), m);
+  shaft.rotation.x = Math.PI / 2;
+  shaft.position.set(tip[0], tip[1], tip[2] + head + (len - head) / 2);
+  const cone = new THREE.Mesh(new THREE.ConeGeometry(r * 2.6, head, 24), m);
+  cone.rotation.x = -Math.PI / 2;
+  cone.position.set(tip[0], tip[1], tip[2] + head / 2);
+  g.add(shaft, cone);
+  return g;
+}
+
+// Text that always faces the camera, `height` scene units tall.
+function label(text, at, height) {
+  const c = document.createElement("canvas");
+  const ctx = c.getContext("2d");
+  const font = 600 + " 56px Inter, system-ui, sans-serif";
+  ctx.font = font;
+  const w = Math.ceil(ctx.measureText(text).width) + 48;
+  c.width = w;
+  c.height = 88;
+  ctx.font = font;
+  ctx.fillStyle = "#ffffff";
+  ctx.beginPath();
+  ctx.roundRect(0, 0, w, 88, 44);
+  ctx.fill();
+  ctx.fillStyle = "#1c1c1c";
+  ctx.textBaseline = "middle";
+  ctx.fillText(text, 24, 46);
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, depthTest: false }));
+  sp.scale.set((height * w) / 88, height, 1);
+  sp.position.set(...at);
+  sp.renderOrder = 10;
+  return sp;
+}
+
 function designPart(s) {
   // The AI's own part (tessellated from its STEP), coloured by beam-theory stress on the
   // measured sections: arm cuts (x = const) and wall-leg cuts (z = const).
@@ -589,9 +630,15 @@ function designPart(s) {
   const size = bb.getSize(new THREE.Vector3());
   g.add(ghostBox(1.5, size.y * 2 + 40, size.z * 1.4 + 20, [-0.75, (bb.min.y + bb.max.y) / 2, (bb.min.z + bb.max.z) / 2], 0.07));
   if (s.load_point) {
+    // the load: a thick arrow into the exact load point, a dot where it acts, and its size
     const [lx, ly, lz] = s.load_point;
-    const len = Math.max(25, size.z * 0.5);
-    g.add(arrow([lx, ly, lz + len + 6], [0, 0, -1], len));
+    const span = Math.max(size.x, size.z);
+    const len = Math.max(25, span * 0.45);
+    g.add(loadArrow([lx, ly, lz], len, Math.max(1.2, span * 0.012)));
+    g.add(marker([lx, ly, lz], Math.max(1.2, span * 0.014), COLORS.ink));
+    const kg = s.load_n / 9.81;
+    const mass = kg >= 1 ? `${kg.toFixed(1)} kg` : `${Math.round(kg * 1000)} g`;
+    g.add(label(`${s.load_n.toFixed(1)} N  (${mass})`, [lx, ly, lz + len + span * 0.09], span * 0.11));
   }
   const worst = [...arm, ...leg].sort((p, q) => p.sf - q.sf)[0];
   const allow = worst ? worst.strength / (s.required_sf || 1) : 0;

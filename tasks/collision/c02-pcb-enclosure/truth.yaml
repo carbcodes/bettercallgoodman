@@ -1,6 +1,0 @@
-verdict: does_not_fit
-values:
-  min_clearance_mm: {value: -0.1, tol: 0.0}
-why: |
-  Floor 0 -> standoff top 5.0 -> board top 6.6 -> capacitor top 20.1 mm. Lid underside at 20.0.
-  Interference 0.1 mm; the requirement was +0.5 mm, so it misses by 0.6 mm.

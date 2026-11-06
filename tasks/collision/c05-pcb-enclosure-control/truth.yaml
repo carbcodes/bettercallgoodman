@@ -1,5 +1,0 @@
-verdict: fits
-values:
-  min_clearance_mm: {value: 1.4, tol: 0.0}
-why: |
-  5.0 + 1.6 + 12.0 = 18.6 mm; lid at 20.0 -> 1.4 mm clearance >= 0.5 mm. Fits.
