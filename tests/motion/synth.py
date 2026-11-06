@@ -42,3 +42,13 @@ def write_c01(dir: Path, pivot_z: float = 55.0) -> tuple[Path, Path]:
     jy = dir / "joints.yaml"
     jy.write_text(yaml.safe_dump(joints, sort_keys=False))
     return glb, jy
+
+
+def write_c01_with_far(dir: Path) -> tuple[Path, Path]:
+    glb, jy = write_c01(dir)
+    write_glb(glb, {
+        "base": _box([-30, -30, 0], [30, 30, 40]),
+        "link": _box([0, -7.5, 45], [120, 7.5, 65]),
+        "far": _box([997.5, -2.5, -2.5], [1002.5, 2.5, 2.5]),
+    })
+    return glb, jy
