@@ -1,0 +1,152 @@
+{
+  "python": "3.11.12",
+  "part_count": 237,
+  "joint_count": 7,
+  "positioning_dof": 5,
+  "independent_gripper_dof": 1,
+  "coupled_joint_count": 1,
+  "triangle_count": 46570,
+  "glb_sha256": "92511a54e1f40a4f92d2de2248dffd90d218a526adf19ed585a2689c2b4c12e0",
+  "references_valid": true,
+  "hash_matches": true,
+  "root_and_flat_graph_valid": true,
+  "all_meshes_closed_outward": true,
+  "geometry_literals_only": true,
+  "home_transforms_identity": true,
+  "printable_parts_single_solid": true,
+  "named_poses_safe_and_clear": true,
+  "named_pose_torque_budget_pass": true,
+  "dynamic_load_factor": 1.25,
+  "torque_budget_nm": {
+    "shoulder": 3.18,
+    "elbow": 1.23,
+    "wrist": 1.23,
+    "tool-roll": 0.3
+  },
+  "printed_part_count": 44,
+  "tpu_part_count": 2,
+  "estimated_total_mass_g": 2027.29,
+  "poses": [
+    {
+      "name": "home",
+      "wrist_mm": [
+        160.0,
+        0.0,
+        295.0
+      ],
+      "tip_mm": [
+        160.0,
+        0.0,
+        160.0
+      ],
+      "wrist_radius_mm": 160.0,
+      "safe_pose_rules": true,
+      "actual_pad_min_z_mm": 160.0,
+      "static_torque_nm_with_150g": {
+        "shoulder": 0.88042,
+        "elbow": 0.88,
+        "wrist": 0.00638,
+        "tool-roll": 0.0
+      },
+      "unexpected_moving_contacts": [],
+      "unlisted_same_body_contacts": []
+    },
+    {
+      "name": "reach-310mm",
+      "wrist_mm": [
+        310.35082,
+        0.0,
+        189.72322
+      ],
+      "tip_mm": [
+        310.35082,
+        0.0,
+        54.72322
+      ],
+      "wrist_radius_mm": 310.35082,
+      "safe_pose_rules": true,
+      "actual_pad_min_z_mm": 54.72322,
+      "static_torque_nm_with_150g": {
+        "shoulder": 2.13884,
+        "elbow": 0.88,
+        "wrist": 0.00638,
+        "tool-roll": 0.0
+      },
+      "unexpected_moving_contacts": [],
+      "unlisted_same_body_contacts": []
+    },
+    {
+      "name": "table-pick",
+      "wrist_mm": [
+        213.62055,
+        99.6129,
+        145.29107
+      ],
+      "tip_mm": [
+        213.62055,
+        99.6129,
+        10.29107
+      ],
+      "wrist_radius_mm": 235.7042,
+      "safe_pose_rules": true,
+      "actual_pad_min_z_mm": 11.17718,
+      "static_torque_nm_with_150g": {
+        "shoulder": 1.62031,
+        "elbow": 0.67285,
+        "wrist": 0.00638,
+        "tool-roll": 0.0
+      },
+      "unexpected_moving_contacts": [],
+      "unlisted_same_body_contacts": []
+    },
+    {
+      "name": "stowed",
+      "wrist_mm": [
+        122.56711,
+        0.0,
+        237.84602
+      ],
+      "tip_mm": [
+        122.56711,
+        0.0,
+        102.84602
+      ],
+      "wrist_radius_mm": 122.56711,
+      "safe_pose_rules": true,
+      "actual_pad_min_z_mm": 103.73213,
+      "static_torque_nm_with_150g": {
+        "shoulder": 0.59449,
+        "elbow": 0.82666,
+        "wrist": 0.00638,
+        "tool-roll": 0.0
+      },
+      "unexpected_moving_contacts": [],
+      "unlisted_same_body_contacts": []
+    },
+    {
+      "name": "handoff",
+      "wrist_mm": [
+        112.59408,
+        -195.01867,
+        252.22554
+      ],
+      "tip_mm": [
+        112.59408,
+        -195.01867,
+        117.22554
+      ],
+      "wrist_radius_mm": 225.18816,
+      "safe_pose_rules": true,
+      "actual_pad_min_z_mm": 116.81504,
+      "static_torque_nm_with_150g": {
+        "shoulder": 1.43018,
+        "elbow": 0.86371,
+        "wrist": 0.00927,
+        "tool-roll": 0.0
+      },
+      "unexpected_moving_contacts": [],
+      "unlisted_same_body_contacts": []
+    }
+  ],
+  "scope": "FCL checks named poses; continuous full workspace not certified. Purchase envelopes omit threads and motor internals."
+}

@@ -1,0 +1,14 @@
+{
+ "order": 5,
+ "title": "Mechy robot arm v4, run 1",
+ "source": "Mechy 24-hourrobotarm @ f6953e4",
+ "status": "collides",
+ "headline": "The gripper reaches down into the electronics bay and hits the Uno and CNC shield.",
+ "claim": {
+  "file": "geometry.py",
+  "text": "Gripper meets the lower shank only past −135°"
+ },
+ "notes": [
+  "Superseded by run 2."
+ ]
+}

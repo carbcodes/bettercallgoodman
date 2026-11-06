@@ -1,0 +1,10 @@
+inputs: assembly.glb, joints.yaml, assembly.yaml=yes, geometry.py=yes, no reach constants (full joint-limit box)
+pairs: {'pairs_total': 6328, 'pairs_same_body': 3486, 'pairs_ignored': 26, 'pairs_rejected_far': 1344, 'pairs_sampled': 1472}
+[1/6] joints crank: 3 body pairs, 1328 part pairs, 721 poses, 0 colliding pairs (7 s)
+[2/6] joints crank,grip: 2 body pairs, 80 part pairs, 32761 poses, 0 colliding pairs (17 s)
+[3/6] joints lid: 1 body pairs, 32 part pairs, 211 poses, 0 colliding pairs (17 s)
+[4/6] joints crank,lid: 2 body pairs, 27 part pairs, 9774 poses, 0 colliding pairs (17 s)
+[5/6] joints grip: 1 body pairs, 4 part pairs, 721 poses, 0 colliding pairs (18 s)
+[6/6] joints crank,grip,lid: 1 body pairs, 1 part pairs, 20013 poses, 0 colliding pairs (18 s)
+verdict: no_collisions (0 collisions)
+exit=0 secs=20

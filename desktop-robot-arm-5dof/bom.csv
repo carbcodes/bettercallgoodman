@@ -1,0 +1,238 @@
+part_id,quantity,category,owner_joint,specification,mass_g,source
+base-plate,1,printed,ground,PA12-CF 220x180x8; four 5.5 mm desk mounting holes; solid locally,378.138,generated STL
+base-column-1,1,printed,ground,"Printed compression standoff, M4 through bolt",10.317,generated STL
+base-column-1-bolt,1,hardware,ground,ISO 4762 M4x70; simplified thread,7.610,see DESIGN.md supplier references
+base-column-1-nut,1,hardware,ground,ISO 4032 M4 hex nut,0.838,see DESIGN.md supplier references
+base-column-2,1,printed,ground,"Printed compression standoff, M4 through bolt",10.317,generated STL
+base-column-2-bolt,1,hardware,ground,ISO 4762 M4x70; simplified thread,7.610,see DESIGN.md supplier references
+base-column-2-nut,1,hardware,ground,ISO 4032 M4 hex nut,0.838,see DESIGN.md supplier references
+base-column-3,1,printed,ground,"Printed compression standoff, M4 through bolt",10.317,generated STL
+base-column-3-bolt,1,hardware,ground,ISO 4762 M4x70; simplified thread,7.610,see DESIGN.md supplier references
+base-column-3-nut,1,hardware,ground,ISO 4032 M4 hex nut,0.838,see DESIGN.md supplier references
+base-column-4,1,printed,ground,"Printed compression standoff, M4 through bolt",10.317,generated STL
+base-column-4-bolt,1,hardware,ground,ISO 4762 M4x70; simplified thread,7.610,see DESIGN.md supplier references
+base-column-4-nut,1,hardware,ground,ISO 4032 M4 hex nut,0.838,see DESIGN.md supplier references
+yaw-bearing-carrier,1,printed,ground,"PA12-CF; two 6808-2RS seats 52.2 mm x 7.2, 13 mm spacing",71.967,generated STL
+yaw-motor,1,motor,ground,ROBOTIS XM430-W350-T,82.000,see DESIGN.md supplier references
+yaw-motor-socket-1,1,electronics,ground,JST 3-pin TTL servo socket envelope,0.300,see DESIGN.md supplier references
+yaw-motor-socket-2,1,electronics,ground,JST 3-pin TTL servo socket envelope,0.300,see DESIGN.md supplier references
+yaw-motor-saddle,1,printed,ground,"PA12-CF body cradle, zip-clamp ears and base screws",26.825,generated STL
+yaw-motor-strap-1,1,printed,ground,PA12-CF motor retention bar,0.965,generated STL
+yaw-saddle-1-1-bolt,1,hardware,ground,ISO 4762 M3x35; simplified thread,2.331,see DESIGN.md supplier references
+yaw-saddle-1-1-nut,1,hardware,ground,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+yaw-saddle-1-2-bolt,1,hardware,ground,ISO 4762 M3x35; simplified thread,2.331,see DESIGN.md supplier references
+yaw-saddle-1-2-nut,1,hardware,ground,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+yaw-motor-strap-2,1,printed,ground,PA12-CF motor retention bar,0.965,generated STL
+yaw-saddle-2-1-bolt,1,hardware,ground,ISO 4762 M3x35; simplified thread,2.331,see DESIGN.md supplier references
+yaw-saddle-2-1-nut,1,hardware,ground,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+yaw-saddle-2-2-bolt,1,hardware,ground,ISO 4762 M3x35; simplified thread,2.331,see DESIGN.md supplier references
+yaw-saddle-2-2-nut,1,hardware,ground,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+yaw-horn,1,purchased,yaw,HN12-N101 output horn envelope,5.000,see DESIGN.md supplier references
+yaw-spindle,1,printed,yaw,"PA12-CF hollow 39.9 mm journal; horn-driven, bearing-supported",26.200,generated STL
+yaw-horn-1-bolt,1,hardware,yaw,ISO 4762 M2x6; simplified thread,0.294,see DESIGN.md supplier references
+yaw-horn-2-bolt,1,hardware,yaw,ISO 4762 M2x6; simplified thread,0.294,see DESIGN.md supplier references
+yaw-horn-3-bolt,1,hardware,yaw,ISO 4762 M2x6; simplified thread,0.294,see DESIGN.md supplier references
+yaw-horn-4-bolt,1,hardware,yaw,ISO 4762 M2x6; simplified thread,0.294,see DESIGN.md supplier references
+yaw-bearing-1-outer,1,bearing,ground,40 x 52 x 7 mm sealed radial ball bearing outer race,17.884,see DESIGN.md supplier references
+yaw-bearing-1-inner,1,bearing,yaw,40 x 52 x 7 mm sealed radial ball bearing inner race,15.089,see DESIGN.md supplier references
+yaw-bearing-1-seal,1,bearing,ground,40 x 52 x 7 mm sealed radial ball bearing sealed ball/cage envelope,1.000,see DESIGN.md supplier references
+yaw-bearing-2-outer,1,bearing,ground,40 x 52 x 7 mm sealed radial ball bearing outer race,17.884,see DESIGN.md supplier references
+yaw-bearing-2-inner,1,bearing,yaw,40 x 52 x 7 mm sealed radial ball bearing inner race,15.089,see DESIGN.md supplier references
+yaw-bearing-2-seal,1,bearing,ground,40 x 52 x 7 mm sealed radial ball bearing sealed ball/cage envelope,1.000,see DESIGN.md supplier references
+yaw-turntable,1,printed,yaw,PA12-CF deck; underside engages spindle flange,85.979,generated STL
+yaw-deck-1-bolt,1,hardware,yaw,ISO 4762 M3x12; simplified thread,1.112,see DESIGN.md supplier references
+yaw-deck-2-bolt,1,hardware,yaw,ISO 4762 M3x12; simplified thread,1.112,see DESIGN.md supplier references
+yaw-deck-3-bolt,1,hardware,yaw,ISO 4762 M3x12; simplified thread,1.112,see DESIGN.md supplier references
+yaw-deck-4-bolt,1,hardware,yaw,ISO 4762 M3x12; simplified thread,1.112,see DESIGN.md supplier references
+electronics-tray,1,printed,ground,PA12-CF open electronics tray; accessible connectors,35.671,generated STL
+power-hub-pcb,1,electronics,ground,ROBOTIS U2D2 Power Hub 48x57; 10 A maximum,15.000,see DESIGN.md supplier references
+pcb-standoff-1,1,hardware,ground,M3x10 brass standoff,1.319,see DESIGN.md supplier references
+pcb-standoff-2,1,hardware,ground,M3x10 brass standoff,1.319,see DESIGN.md supplier references
+pcb-standoff-3,1,hardware,ground,M3x10 brass standoff,1.319,see DESIGN.md supplier references
+pcb-standoff-4,1,hardware,ground,M3x10 brass standoff,1.319,see DESIGN.md supplier references
+u2d2-controller,1,electronics,ground,ROBOTIS U2D2 USB / TTL interface; host PC runs controller,9.000,see DESIGN.md supplier references
+usb-micro-b-plug,1,electronics,ground,USB Micro-B cable plug; host cable omitted,3.000,see DESIGN.md supplier references
+dc-input-jack,1,electronics,ground,5.5/2.5 mm DC input barrel; 12 V,4.000,see DESIGN.md supplier references
+power-terminal,1,electronics,ground,5.08 mm two-position screw terminal; fused 12 V input,4.000,see DESIGN.md supplier references
+hub-jst-plug-1,1,electronics,ground,JST X3P 3-pin TTL power/data plug,1.000,see DESIGN.md supplier references
+hub-jst-plug-2,1,electronics,ground,JST X3P 3-pin TTL power/data plug,1.000,see DESIGN.md supplier references
+hub-jst-plug-3,1,electronics,ground,JST X3P 3-pin TTL power/data plug,1.000,see DESIGN.md supplier references
+stop-switch-body,1,electronics,ground,22 mm latching NC emergency stop; DC-rated power contact,25.000,see DESIGN.md supplier references
+stop-switch-pedestal,1,printed,ground,PA12-CF 22 mm switch mounting collar,10.498,generated STL
+stop-switch-nut,1,hardware,ground,M22 switch panel retaining nut,5.962,see DESIGN.md supplier references
+stop-switch-cap,1,electronics,ground,Emergency-stop mushroom cap,5.000,see DESIGN.md supplier references
+shoulder-motor,1,motor,yaw,ROBOTIS XM540-W270-T,165.000,see DESIGN.md supplier references
+shoulder-motor-socket-1,1,electronics,yaw,JST 3-pin TTL servo socket envelope,0.300,see DESIGN.md supplier references
+shoulder-motor-socket-2,1,electronics,yaw,JST 3-pin TTL servo socket envelope,0.300,see DESIGN.md supplier references
+shoulder-cradle,1,printed,yaw,PA12-CF open motor cradle; 0.5 mm diametral clearance,40.485,generated STL
+shoulder-keeper,1,printed,yaw,PA12-CF ventilated clamp cap,6.464,generated STL
+shoulder-clamp-1-bolt,1,hardware,yaw,ISO 4762 M3x70; simplified thread,4.185,see DESIGN.md supplier references
+shoulder-clamp-1-nut,1,hardware,yaw,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+shoulder-clamp-2-bolt,1,hardware,yaw,ISO 4762 M3x70; simplified thread,4.185,see DESIGN.md supplier references
+shoulder-clamp-2-nut,1,hardware,yaw,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+shoulder-clamp-3-bolt,1,hardware,yaw,ISO 4762 M3x70; simplified thread,4.185,see DESIGN.md supplier references
+shoulder-clamp-3-nut,1,hardware,yaw,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+shoulder-clamp-4-bolt,1,hardware,yaw,ISO 4762 M3x70; simplified thread,4.185,see DESIGN.md supplier references
+shoulder-clamp-4-nut,1,hardware,yaw,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+upper-link-left,1,printed,shoulder,"PA12-CF; continuous ribs, flat printed on broad side",31.486,generated STL
+upper-link-right,1,printed,shoulder,"PA12-CF; continuous ribs, flat printed on broad side",33.242,generated STL
+shoulder-horn,1,purchased,shoulder,HN13-N101 output horn envelope,9.000,see DESIGN.md supplier references
+shoulder-drive-spacer,1,printed,shoulder,PA12-CF horn to upper rail spacer,5.100,generated STL
+shoulder-horn-1-bolt,1,hardware,shoulder,ISO 4762 M2.5x18; simplified thread,0.927,see DESIGN.md supplier references
+shoulder-horn-2-bolt,1,hardware,shoulder,ISO 4762 M2.5x18; simplified thread,0.927,see DESIGN.md supplier references
+shoulder-horn-3-bolt,1,hardware,shoulder,ISO 4762 M2.5x18; simplified thread,0.927,see DESIGN.md supplier references
+shoulder-horn-4-bolt,1,hardware,shoulder,ISO 4762 M2.5x18; simplified thread,0.927,see DESIGN.md supplier references
+shoulder-idler-bracket,1,printed,yaw,PA12-CF stationary rear axle outrigger,7.721,generated STL
+shoulder-idler-axle,1,hardware,yaw,8 mm h6 ground steel stub axle; 2 shaft collars,8.192,see DESIGN.md supplier references
+shoulder-608-outer,1,bearing,shoulder,8 x 22 x 7 mm sealed radial ball bearing outer race,8.174,see DESIGN.md supplier references
+shoulder-608-inner,1,bearing,yaw,8 x 22 x 7 mm sealed radial ball bearing inner race,4.369,see DESIGN.md supplier references
+shoulder-608-seal,1,bearing,shoulder,8 x 22 x 7 mm sealed radial ball bearing sealed ball/cage envelope,1.000,see DESIGN.md supplier references
+shoulder-axle-collar-1,1,hardware,yaw,"8 mm shaft collar, radial set screw simplified",1.455,see DESIGN.md supplier references
+shoulder-axle-collar-2,1,hardware,yaw,"8 mm shaft collar, radial set screw simplified",1.455,see DESIGN.md supplier references
+upper-cross-tie-1,1,printed,shoulder,PA12-CF transverse rib; M3 through bolt,17.444,generated STL
+upper-cross-tie-1-bolt,1,hardware,shoulder,ISO 4762 M3x90; simplified thread,5.245,see DESIGN.md supplier references
+upper-cross-tie-1-nut,1,hardware,shoulder,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+upper-cross-tie-2,1,printed,shoulder,PA12-CF transverse rib; M3 through bolt,17.444,generated STL
+upper-cross-tie-2-bolt,1,hardware,shoulder,ISO 4762 M3x90; simplified thread,5.245,see DESIGN.md supplier references
+upper-cross-tie-2-nut,1,hardware,shoulder,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+elbow-motor,1,motor,shoulder,ROBOTIS XM430-W350-T,82.000,see DESIGN.md supplier references
+elbow-motor-socket-1,1,electronics,shoulder,JST 3-pin TTL servo socket envelope,0.300,see DESIGN.md supplier references
+elbow-motor-socket-2,1,electronics,shoulder,JST 3-pin TTL servo socket envelope,0.300,see DESIGN.md supplier references
+elbow-cradle,1,printed,shoulder,PA12-CF open motor cradle; 0.5 mm diametral clearance,44.550,generated STL
+elbow-keeper,1,printed,shoulder,PA12-CF ventilated clamp cap,6.325,generated STL
+elbow-clamp-1-bolt,1,hardware,shoulder,ISO 4762 M3x60; simplified thread,3.655,see DESIGN.md supplier references
+elbow-clamp-1-nut,1,hardware,shoulder,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+elbow-clamp-2-bolt,1,hardware,shoulder,ISO 4762 M3x60; simplified thread,3.655,see DESIGN.md supplier references
+elbow-clamp-2-nut,1,hardware,shoulder,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+elbow-clamp-3-bolt,1,hardware,shoulder,ISO 4762 M3x60; simplified thread,3.655,see DESIGN.md supplier references
+elbow-clamp-3-nut,1,hardware,shoulder,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+elbow-clamp-4-bolt,1,hardware,shoulder,ISO 4762 M3x60; simplified thread,3.655,see DESIGN.md supplier references
+elbow-clamp-4-nut,1,hardware,shoulder,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+elbow-mount-1-bolt,1,hardware,shoulder,ISO 4762 M3x85; simplified thread,4.980,see DESIGN.md supplier references
+elbow-mount-1-nut,1,hardware,shoulder,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+elbow-mount-2-bolt,1,hardware,shoulder,ISO 4762 M3x85; simplified thread,4.980,see DESIGN.md supplier references
+elbow-mount-2-nut,1,hardware,shoulder,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+forearm-link-left,1,printed,elbow,"PA12-CF; continuous ribs, flat printed on broad side",21.318,generated STL
+forearm-link-right,1,printed,elbow,"PA12-CF; continuous ribs, flat printed on broad side",22.392,generated STL
+elbow-horn,1,purchased,elbow,HN12-N101 output horn envelope,5.000,see DESIGN.md supplier references
+elbow-drive-spacer,1,printed,elbow,PA12-CF horn spacer,1.156,generated STL
+elbow-horn-1-bolt,1,hardware,elbow,ISO 4762 M2x12; simplified thread,0.435,see DESIGN.md supplier references
+elbow-horn-2-bolt,1,hardware,elbow,ISO 4762 M2x12; simplified thread,0.435,see DESIGN.md supplier references
+elbow-horn-3-bolt,1,hardware,elbow,ISO 4762 M2x12; simplified thread,0.435,see DESIGN.md supplier references
+elbow-horn-4-bolt,1,hardware,elbow,ISO 4762 M2x12; simplified thread,0.435,see DESIGN.md supplier references
+elbow-idler-bracket,1,printed,shoulder,PA12-CF stationary rear axle outrigger,2.090,generated STL
+elbow-idler-axle,1,hardware,shoulder,8 mm h6 ground steel stub axle; 2 shaft collars,7.022,see DESIGN.md supplier references
+elbow-idler-mount-1-bolt,1,hardware,shoulder,ISO 4762 M3x10; simplified thread,1.006,see DESIGN.md supplier references
+elbow-idler-mount-1-nut,1,hardware,shoulder,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+elbow-idler-mount-2-bolt,1,hardware,shoulder,ISO 4762 M3x10; simplified thread,1.006,see DESIGN.md supplier references
+elbow-idler-mount-2-nut,1,hardware,shoulder,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+elbow-608-outer,1,bearing,elbow,8 x 22 x 7 mm sealed radial ball bearing outer race,8.174,see DESIGN.md supplier references
+elbow-608-inner,1,bearing,shoulder,8 x 22 x 7 mm sealed radial ball bearing inner race,4.369,see DESIGN.md supplier references
+elbow-608-seal,1,bearing,elbow,8 x 22 x 7 mm sealed radial ball bearing sealed ball/cage envelope,1.000,see DESIGN.md supplier references
+elbow-axle-collar-1,1,hardware,shoulder,"8 mm shaft collar, radial set screw simplified",1.455,see DESIGN.md supplier references
+elbow-axle-collar-2,1,hardware,shoulder,"8 mm shaft collar, radial set screw simplified",1.455,see DESIGN.md supplier references
+forearm-cross-tie-1,1,printed,elbow,PA12-CF transverse rib; M3 through bolt,10.800,generated STL
+forearm-cross-tie-1-bolt,1,hardware,elbow,ISO 4762 M3x65; simplified thread,3.920,see DESIGN.md supplier references
+forearm-cross-tie-1-nut,1,hardware,elbow,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+forearm-cross-tie-2,1,printed,elbow,PA12-CF transverse rib; M3 through bolt,10.800,generated STL
+forearm-cross-tie-2-bolt,1,hardware,elbow,ISO 4762 M3x65; simplified thread,3.920,see DESIGN.md supplier references
+forearm-cross-tie-2-nut,1,hardware,elbow,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+wrist-motor,1,motor,elbow,ROBOTIS XM430-W350-T,82.000,see DESIGN.md supplier references
+wrist-motor-socket-1,1,electronics,elbow,JST 3-pin TTL servo socket envelope,0.300,see DESIGN.md supplier references
+wrist-motor-socket-2,1,electronics,elbow,JST 3-pin TTL servo socket envelope,0.300,see DESIGN.md supplier references
+wrist-cradle,1,printed,elbow,PA12-CF open motor cradle; 0.5 mm diametral clearance,31.272,generated STL
+wrist-keeper,1,printed,elbow,PA12-CF ventilated clamp cap,8.886,generated STL
+wrist-clamp-1-bolt,1,hardware,elbow,ISO 4762 M3x60; simplified thread,3.655,see DESIGN.md supplier references
+wrist-clamp-1-nut,1,hardware,elbow,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+wrist-clamp-2-bolt,1,hardware,elbow,ISO 4762 M3x60; simplified thread,3.655,see DESIGN.md supplier references
+wrist-clamp-2-nut,1,hardware,elbow,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+wrist-clamp-3-bolt,1,hardware,elbow,ISO 4762 M3x60; simplified thread,3.655,see DESIGN.md supplier references
+wrist-clamp-3-nut,1,hardware,elbow,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+wrist-clamp-4-bolt,1,hardware,elbow,ISO 4762 M3x60; simplified thread,3.655,see DESIGN.md supplier references
+wrist-clamp-4-nut,1,hardware,elbow,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+wrist-mount-1-bolt,1,hardware,elbow,ISO 4762 M3x60; simplified thread,3.655,see DESIGN.md supplier references
+wrist-mount-1-nut,1,hardware,elbow,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+wrist-mount-2-bolt,1,hardware,elbow,ISO 4762 M3x60; simplified thread,3.655,see DESIGN.md supplier references
+wrist-mount-2-nut,1,hardware,elbow,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+wrist-yoke-left,1,printed,wrist,PA12-CF pitch fork,15.613,generated STL
+wrist-yoke-right,1,printed,wrist,PA12-CF pitch fork,16.772,generated STL
+wrist-horn,1,purchased,wrist,HN12-N101 output horn envelope,5.000,see DESIGN.md supplier references
+wrist-drive-spacer,1,printed,wrist,PA12-CF pitch horn stand-off,4.336,generated STL
+wrist-horn-1-bolt,1,hardware,wrist,ISO 4762 M2x22; simplified thread,0.671,see DESIGN.md supplier references
+wrist-horn-2-bolt,1,hardware,wrist,ISO 4762 M2x22; simplified thread,0.671,see DESIGN.md supplier references
+wrist-horn-3-bolt,1,hardware,wrist,ISO 4762 M2x22; simplified thread,0.671,see DESIGN.md supplier references
+wrist-horn-4-bolt,1,hardware,wrist,ISO 4762 M2x22; simplified thread,0.671,see DESIGN.md supplier references
+wrist-idler-bracket,1,printed,elbow,PA12-CF stationary rear axle outrigger,6.274,generated STL
+wrist-idler-axle,1,hardware,elbow,8 mm h6 ground steel stub axle; 2 shaft collars,7.412,see DESIGN.md supplier references
+wrist-idler-mount-1-bolt,1,hardware,elbow,ISO 4762 M3x25; simplified thread,1.801,see DESIGN.md supplier references
+wrist-idler-mount-1-nut,1,hardware,elbow,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+wrist-idler-mount-2-bolt,1,hardware,elbow,ISO 4762 M3x25; simplified thread,1.801,see DESIGN.md supplier references
+wrist-idler-mount-2-nut,1,hardware,elbow,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+wrist-608-outer,1,bearing,wrist,8 x 22 x 7 mm sealed radial ball bearing outer race,8.174,see DESIGN.md supplier references
+wrist-608-inner,1,bearing,elbow,8 x 22 x 7 mm sealed radial ball bearing inner race,4.369,see DESIGN.md supplier references
+wrist-608-seal,1,bearing,wrist,8 x 22 x 7 mm sealed radial ball bearing sealed ball/cage envelope,1.000,see DESIGN.md supplier references
+wrist-axle-collar-1,1,hardware,elbow,"8 mm shaft collar, radial set screw simplified",1.455,see DESIGN.md supplier references
+wrist-axle-collar-2,1,hardware,elbow,"8 mm shaft collar, radial set screw simplified",1.455,see DESIGN.md supplier references
+roll-motor-bridge,1,printed,wrist,PA12-CF roll cradle with 0.5 mm body clearance,15.457,generated STL
+wrist-bridge-1-bolt,1,hardware,wrist,ISO 4762 M3x85; simplified thread,4.980,see DESIGN.md supplier references
+wrist-bridge-1-nut,1,hardware,wrist,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+wrist-bridge-2-bolt,1,hardware,wrist,ISO 4762 M3x85; simplified thread,4.980,see DESIGN.md supplier references
+wrist-bridge-2-nut,1,hardware,wrist,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+roll-motor,1,motor,wrist,ROBOTIS XC330-T288-T,23.000,see DESIGN.md supplier references
+roll-motor-socket-1,1,electronics,wrist,JST 3-pin TTL servo socket envelope,0.300,see DESIGN.md supplier references
+roll-motor-socket-2,1,electronics,wrist,JST 3-pin TTL servo socket envelope,0.300,see DESIGN.md supplier references
+roll-horn,1,purchased,tool-roll,HNX330-N101 output horn envelope,5.000,see DESIGN.md supplier references
+roll-retainer,1,printed,wrist,PA12-CF roll motor clamp cap,4.579,generated STL
+roll-clamp-1-bolt,1,hardware,wrist,ISO 4762 M3x25; simplified thread,1.801,see DESIGN.md supplier references
+roll-clamp-1-nut,1,hardware,wrist,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+roll-clamp-2-bolt,1,hardware,wrist,ISO 4762 M3x25; simplified thread,1.801,see DESIGN.md supplier references
+roll-clamp-2-nut,1,hardware,wrist,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+roll-clamp-3-bolt,1,hardware,wrist,ISO 4762 M3x25; simplified thread,1.801,see DESIGN.md supplier references
+roll-clamp-3-nut,1,hardware,wrist,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+roll-clamp-4-bolt,1,hardware,wrist,ISO 4762 M3x25; simplified thread,1.801,see DESIGN.md supplier references
+roll-clamp-4-nut,1,hardware,wrist,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+gripper-palm,1,printed,tool-roll,PA12-CF tool flange; HNX330 horn bolt pattern,12.586,generated STL
+roll-horn-1-bolt,1,hardware,tool-roll,ISO 4762 M2x8; simplified thread,0.341,see DESIGN.md supplier references
+roll-horn-2-bolt,1,hardware,tool-roll,ISO 4762 M2x8; simplified thread,0.341,see DESIGN.md supplier references
+roll-horn-3-bolt,1,hardware,tool-roll,ISO 4762 M2x8; simplified thread,0.341,see DESIGN.md supplier references
+roll-horn-4-bolt,1,hardware,tool-roll,ISO 4762 M2x8; simplified thread,0.341,see DESIGN.md supplier references
+gripper-motor,1,motor,tool-roll,ROBOTIS XC330-T288-T,23.000,see DESIGN.md supplier references
+gripper-motor-socket-1,1,electronics,tool-roll,JST 3-pin TTL servo socket envelope,0.300,see DESIGN.md supplier references
+gripper-motor-socket-2,1,electronics,tool-roll,JST 3-pin TTL servo socket envelope,0.300,see DESIGN.md supplier references
+gripper-motor-cradle,1,printed,tool-roll,PA12-CF gripper servo cradle under palm,14.354,generated STL
+gripper-palm-1-bolt,1,hardware,tool-roll,ISO 4762 M3x12; simplified thread,1.112,see DESIGN.md supplier references
+gripper-palm-1-nut,1,hardware,tool-roll,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+gripper-palm-2-bolt,1,hardware,tool-roll,ISO 4762 M3x12; simplified thread,1.112,see DESIGN.md supplier references
+gripper-palm-2-nut,1,hardware,tool-roll,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+gripper-motor-cap,1,printed,tool-roll,PA12-CF split clamp cap,4.973,generated STL
+gripper-clamp-1-bolt,1,hardware,tool-roll,ISO 4762 M3x32; simplified thread,2.172,see DESIGN.md supplier references
+gripper-clamp-1-nut,1,hardware,tool-roll,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+gripper-clamp-2-bolt,1,hardware,tool-roll,ISO 4762 M3x32; simplified thread,2.172,see DESIGN.md supplier references
+gripper-clamp-2-nut,1,hardware,tool-roll,ISO 4032 M3 hex nut,0.398,see DESIGN.md supplier references
+gripper-horn,1,purchased,grip,HNX330-N101 output horn envelope,5.000,see DESIGN.md supplier references
+gripper-jaw-left,1,printed,grip,PA12-CF m1 28T 20-degree involute gear + 41 mm finger; 0.2 mm backlash,5.604,generated STL
+gripper-pad-left,1,pad,grip,"TPU 95A pad, cyanoacrylate bond; mu >=0.5 assumed",0.662,generated STL
+gripper-jaw-right,1,printed,jaw-r,PA12-CF m1 28T 20-degree involute gear + 41 mm finger; 0.2 mm backlash,5.388,generated STL
+gripper-pad-right,1,pad,jaw-r,"TPU 95A pad, cyanoacrylate bond; mu >=0.5 assumed",0.662,generated STL
+gripper-horn-1-bolt,1,hardware,grip,ISO 4762 M2x8; simplified thread,0.341,see DESIGN.md supplier references
+gripper-horn-2-bolt,1,hardware,grip,ISO 4762 M2x8; simplified thread,0.341,see DESIGN.md supplier references
+gripper-horn-3-bolt,1,hardware,grip,ISO 4762 M2x8; simplified thread,0.341,see DESIGN.md supplier references
+gripper-horn-4-bolt,1,hardware,grip,ISO 4762 M2x8; simplified thread,0.341,see DESIGN.md supplier references
+jaw-idler-clevis,1,printed,tool-roll,PA12-CF double-supported follower pivot,3.046,generated STL
+jaw-idler-axle,1,hardware,tool-roll,5 mm h6 ground axle,4.852,see DESIGN.md supplier references
+jaw-105-outer,1,bearing,jaw-r,5 x 10 x 4 mm sealed radial ball bearing outer race,0.779,see DESIGN.md supplier references
+jaw-105-inner,1,bearing,tool-roll,5 x 10 x 4 mm sealed radial ball bearing inner race,0.501,see DESIGN.md supplier references
+jaw-105-seal,1,bearing,jaw-r,5 x 10 x 4 mm sealed radial ball bearing sealed ball/cage envelope,1.000,see DESIGN.md supplier references
+gear-guard,1,printed,tool-roll,PA12-CF rear gear guard; open bottom for fingers,4.048,generated STL
+base-harness,1,cable,ground,"3-core silicone jacket, fixed run; 50-80 mm loose service loops at pivots",0.586,see DESIGN.md supplier references
+base-harness-plug-1,1,electronics,ground,"JST X3P cable plug; keyed, crimped",0.800,see DESIGN.md supplier references
+base-harness-plug-2,1,electronics,ground,"JST X3P cable plug; keyed, crimped",0.800,see DESIGN.md supplier references
+upper-harness,1,cable,shoulder,"3-core silicone jacket, fixed run; 50-80 mm loose service loops at pivots",0.839,see DESIGN.md supplier references
+upper-harness-plug-1,1,electronics,shoulder,"JST X3P cable plug; keyed, crimped",0.800,see DESIGN.md supplier references
+upper-harness-plug-2,1,electronics,shoulder,"JST X3P cable plug; keyed, crimped",0.800,see DESIGN.md supplier references
+forearm-harness,1,cable,elbow,"3-core silicone jacket, fixed run; 50-80 mm loose service loops at pivots",0.887,see DESIGN.md supplier references
+forearm-harness-plug-1,1,electronics,elbow,"JST X3P cable plug; keyed, crimped",0.800,see DESIGN.md supplier references
+forearm-harness-plug-2,1,electronics,elbow,"JST X3P cable plug; keyed, crimped",0.800,see DESIGN.md supplier references
+wrist-harness,1,cable,wrist,"3-core silicone jacket, fixed run; 50-80 mm loose service loops at pivots",0.230,see DESIGN.md supplier references
+wrist-harness-plug-1,1,electronics,wrist,"JST X3P cable plug; keyed, crimped",0.800,see DESIGN.md supplier references
+wrist-harness-plug-2,1,electronics,wrist,"JST X3P cable plug; keyed, crimped",0.800,see DESIGN.md supplier references

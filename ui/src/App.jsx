@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Viewer from "./Viewer.jsx";
+import CollideTab from "./Collide.jsx";
 
 const fmt = (x) => (x == null ? "–" : x >= 100 ? x.toFixed(0) : x >= 10 ? x.toFixed(1) : x.toFixed(2));
 const cleanTitle = (t) => t.replace(/\s*\(AI-designed\)/i, "");
@@ -207,15 +208,6 @@ function MakePanel({ task, proc, setProc }) {
   );
 }
 
-function CollideTab() {
-  return (
-    <div className="soon">
-      <h2>Will it collide with itself?</h2>
-      <p>Range-of-motion and clearance checks for assemblies. Fabian's collision checker plugs in here.</p>
-    </div>
-  );
-}
-
 export default function App() {
   const data = useData();
   const [tab, setTab] = useState("break");
@@ -233,7 +225,7 @@ export default function App() {
 
   useEffect(() => {
     const on = (e) => {
-      if (e.metaKey || e.ctrlKey) return;
+      if (e.metaKey || e.ctrlKey || tab === "collide") return;
       if (["ArrowDown", "ArrowRight"].includes(e.key) && idx < ids.length - 1) go(ids[idx + 1]);
       if (["ArrowUp", "ArrowLeft"].includes(e.key) && idx > 0) go(ids[idx - 1]);
     };
@@ -271,7 +263,7 @@ export default function App() {
       {!data ? (
         <p className="loading">Loading…</p>
       ) : tab === "collide" ? (
-        <CollideTab />
+        <CollideTab motion={data.motion || []} />
       ) : (
         <div className="body">
           <Rail tasks={tasks} current={current} go={go} stateOf={stateOf} labelOf={labelOf} />

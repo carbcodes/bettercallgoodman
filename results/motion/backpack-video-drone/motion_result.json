@@ -1,0 +1,607 @@
+{
+  "verdict": "collisions",
+  "inputs": {
+    "glb": "backpack-video-drone/assembly.glb",
+    "joints": "backpack-video-drone/joints.yaml",
+    "assembly_yaml": "backpack-video-drone/assembly.yaml",
+    "geometry_py": "backpack-video-drone/geometry.py",
+    "glb_sha256": "d56445ec5746779d00fe90ce9be12bdd415fa21f2761d05d8e4d5722b026492f",
+    "joints_sha256": "ee97c1fbf3c2612eeccafd68ad9feb5f8c86bb4008fdcb30d731cf7abdd44ccd",
+    "reach_rule": null
+  },
+  "swept_joints": {
+    "fold-fl": [
+      -122.96347609890124,
+      0.0
+    ],
+    "rotor-fl": [
+      -180.0,
+      180.0
+    ],
+    "fold-fr": [
+      0.0,
+      122.96347609890125
+    ],
+    "rotor-fr": [
+      -180.0,
+      180.0
+    ],
+    "fold-rl": [
+      0.0,
+      122.9634760989012
+    ],
+    "rotor-rl": [
+      -180.0,
+      180.0
+    ],
+    "fold-rr": [
+      -122.96347609890122,
+      0.0
+    ],
+    "rotor-rr": [
+      -180.0,
+      180.0
+    ],
+    "camera-servo": [
+      -40.0,
+      40.0
+    ]
+  },
+  "collisions": [
+    {
+      "parts": [
+        "deck-1-bolt-upper",
+        "fl-propeller"
+      ],
+      "joints": [
+        "fold-fl",
+        "rotor-fl"
+      ],
+      "first_contact": {
+        "fold-fl": -122.96,
+        "rotor-fl": -135.44,
+        "fold-fr": 0.0,
+        "rotor-fr": 0.0,
+        "fold-rl": 0.0,
+        "rotor-rl": 0.0,
+        "fold-rr": 0.0,
+        "rotor-rr": 0.0,
+        "camera-servo": 0.0
+      },
+      "worst": {
+        "pose": {
+          "fold-fl": -122.96,
+          "rotor-fl": -134.0,
+          "fold-fr": 0.0,
+          "rotor-fr": 0.0,
+          "fold-rl": 0.0,
+          "rotor-rl": 0.0,
+          "fold-rr": 0.0,
+          "rotor-rr": 0.0,
+          "camera-servo": 0.0
+        },
+        "penetration_mm": 2.45
+      },
+      "contact_point_mm": [
+        -29.2,
+        -15.9,
+        43.8
+      ],
+      "colliding_range": {
+        "fold-fl": [
+          -122.96,
+          -116.96
+        ],
+        "rotor-fl": [
+          -138.0,
+          56.0
+        ]
+      },
+      "why": "deck-1-bolt-upper hits fl-propeller at fold-fl -123.0\u00b0, rotor-fl -135.4\u00b0; contact near (-29, -16, 44) mm",
+      "render": "renders/deck-1-bolt-upper__fl-propeller.png",
+      "pose_glb": "poses/deck-1-bolt-upper__fl-propeller.glb"
+    },
+    {
+      "parts": [
+        "deck-1-spacer",
+        "fl-propeller"
+      ],
+      "joints": [
+        "fold-fl",
+        "rotor-fl"
+      ],
+      "first_contact": {
+        "fold-fl": -122.96,
+        "rotor-fl": -142.44,
+        "fold-fr": 0.0,
+        "rotor-fr": 0.0,
+        "fold-rl": 0.0,
+        "rotor-rl": 0.0,
+        "fold-rr": 0.0,
+        "rotor-rr": 0.0,
+        "camera-servo": 0.0
+      },
+      "worst": {
+        "pose": {
+          "fold-fl": -122.96,
+          "rotor-fl": 50.0,
+          "fold-fr": 0.0,
+          "rotor-fr": 0.0,
+          "fold-rl": 0.0,
+          "rotor-rl": 0.0,
+          "fold-rr": 0.0,
+          "rotor-rr": 0.0,
+          "camera-servo": 0.0
+        },
+        "penetration_mm": 5.26
+      },
+      "contact_point_mm": [
+        -31.0,
+        -15.5,
+        44.2
+      ],
+      "colliding_range": {
+        "fold-fl": [
+          -122.96,
+          -114.96
+        ],
+        "rotor-fl": [
+          -142.0,
+          60.0
+        ]
+      },
+      "why": "deck-1-spacer hits fl-propeller at fold-fl -123.0\u00b0, rotor-fl -142.4\u00b0; contact near (-31, -15, 44) mm",
+      "render": "renders/deck-1-spacer__fl-propeller.png",
+      "pose_glb": "poses/deck-1-spacer__fl-propeller.glb"
+    },
+    {
+      "parts": [
+        "side-panel-left",
+        "fl-propeller"
+      ],
+      "joints": [
+        "fold-fl",
+        "rotor-fl"
+      ],
+      "first_contact": {
+        "fold-fl": -121.34,
+        "rotor-fl": -114.38,
+        "fold-fr": 0.0,
+        "rotor-fr": 0.0,
+        "fold-rl": 0.0,
+        "rotor-rl": 0.0,
+        "fold-rr": 0.0,
+        "rotor-rr": 0.0,
+        "camera-servo": 0.0
+      },
+      "worst": {
+        "pose": {
+          "fold-fl": -122.96,
+          "rotor-fl": -180.0,
+          "fold-fr": 0.0,
+          "rotor-fr": 0.0,
+          "fold-rl": 0.0,
+          "rotor-rl": 0.0,
+          "fold-rr": 0.0,
+          "rotor-rr": 0.0,
+          "camera-servo": 0.0
+        },
+        "penetration_mm": 3.8
+      },
+      "contact_point_mm": [
+        -9.3,
+        -19.2,
+        43.7
+      ],
+      "colliding_range": {
+        "fold-fl": [
+          -122.96,
+          -110.96
+        ],
+        "rotor-fl": [
+          -180.0,
+          180.0
+        ]
+      },
+      "why": "side-panel-left hits fl-propeller at fold-fl -121.3\u00b0, rotor-fl -114.4\u00b0; contact near (-9, -19, 44) mm",
+      "render": "renders/side-panel-left__fl-propeller.png",
+      "pose_glb": "poses/side-panel-left__fl-propeller.glb"
+    },
+    {
+      "parts": [
+        "deck-2-bolt-upper",
+        "fr-propeller"
+      ],
+      "joints": [
+        "fold-fr",
+        "rotor-fr"
+      ],
+      "first_contact": {
+        "fold-fl": 0.0,
+        "rotor-fl": 0.0,
+        "fold-fr": 122.48,
+        "rotor-fr": -60.0,
+        "fold-rl": 0.0,
+        "rotor-rl": 0.0,
+        "fold-rr": 0.0,
+        "rotor-rr": 0.0,
+        "camera-servo": 0.0
+      },
+      "worst": {
+        "pose": {
+          "fold-fl": 0.0,
+          "rotor-fl": 0.0,
+          "fold-fr": 120.0,
+          "rotor-fr": -48.0,
+          "fold-rl": 0.0,
+          "rotor-rl": 0.0,
+          "fold-rr": 0.0,
+          "rotor-rr": 0.0,
+          "camera-servo": 0.0
+        },
+        "penetration_mm": 2.45
+      },
+      "contact_point_mm": [
+        -29.9,
+        15.7,
+        43.8
+      ],
+      "colliding_range": {
+        "fold-fr": [
+          118.0,
+          122.96
+        ],
+        "rotor-fr": [
+          -60.0,
+          136.0
+        ]
+      },
+      "why": "deck-2-bolt-upper hits fr-propeller at fold-fr 122.5\u00b0, rotor-fr -60.0\u00b0; contact near (-30, 16, 44) mm",
+      "render": "renders/deck-2-bolt-upper__fr-propeller.png",
+      "pose_glb": "poses/deck-2-bolt-upper__fr-propeller.glb"
+    },
+    {
+      "parts": [
+        "deck-2-spacer",
+        "fr-propeller"
+      ],
+      "joints": [
+        "fold-fr",
+        "rotor-fr"
+      ],
+      "first_contact": {
+        "fold-fl": 0.0,
+        "rotor-fl": 0.0,
+        "fold-fr": 122.84,
+        "rotor-fr": -42.0,
+        "fold-rl": 0.0,
+        "rotor-rl": 0.0,
+        "fold-rr": 0.0,
+        "rotor-rr": 0.0,
+        "camera-servo": 0.0
+      },
+      "worst": {
+        "pose": {
+          "fold-fl": 0.0,
+          "rotor-fl": 0.0,
+          "fold-fr": 122.96,
+          "rotor-fr": 127.5,
+          "fold-rl": 0.0,
+          "rotor-rl": 0.0,
+          "fold-rr": 0.0,
+          "rotor-rr": 0.0,
+          "camera-servo": 0.0
+        },
+        "penetration_mm": 5.11
+      },
+      "contact_point_mm": [
+        -30.4,
+        16.1,
+        44.2
+      ],
+      "colliding_range": {
+        "fold-fr": [
+          116.0,
+          122.96
+        ],
+        "rotor-fr": [
+          -64.0,
+          140.0
+        ]
+      },
+      "why": "deck-2-spacer hits fr-propeller at fold-fr 122.8\u00b0, rotor-fr -42.0\u00b0; contact near (-30, 16, 44) mm",
+      "render": "renders/deck-2-spacer__fr-propeller.png",
+      "pose_glb": "poses/deck-2-spacer__fr-propeller.glb"
+    },
+    {
+      "parts": [
+        "side-panel-right",
+        "fr-propeller"
+      ],
+      "joints": [
+        "fold-fr",
+        "rotor-fr"
+      ],
+      "first_contact": {
+        "fold-fl": 0.0,
+        "rotor-fl": 0.0,
+        "fold-fr": 122.06,
+        "rotor-fr": -166.0,
+        "fold-rl": 0.0,
+        "rotor-rl": 0.0,
+        "fold-rr": 0.0,
+        "rotor-rr": 0.0,
+        "camera-servo": 0.0
+      },
+      "worst": {
+        "pose": {
+          "fold-fl": 0.0,
+          "rotor-fl": 0.0,
+          "fold-fr": 116.0,
+          "rotor-fr": -38.0,
+          "fold-rl": 0.0,
+          "rotor-rl": 0.0,
+          "fold-rr": 0.0,
+          "rotor-rr": 0.0,
+          "camera-servo": 0.0
+        },
+        "penetration_mm": 3.8
+      },
+      "contact_point_mm": [
+        -25.9,
+        19.8,
+        43.8
+      ],
+      "colliding_range": {
+        "fold-fr": [
+          112.0,
+          122.96
+        ],
+        "rotor-fr": [
+          -180.0,
+          180.0
+        ]
+      },
+      "why": "side-panel-right hits fr-propeller at fold-fr 122.1\u00b0, rotor-fr -166.0\u00b0; contact near (-26, 20, 44) mm",
+      "render": "renders/side-panel-right__fr-propeller.png",
+      "pose_glb": "poses/side-panel-right__fr-propeller.glb"
+    }
+  ],
+  "ignored_pairs": [
+    {
+      "parts": [
+        "servo-horn-screw",
+        "camera-cradle"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "servo-output-horn",
+        "camera-cradle"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "camera-idler-bearing",
+        "camera-idler-axle"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "fl-mount",
+        "fl-arm"
+      ],
+      "reason": "in contact at home"
+    },
+    {
+      "parts": [
+        "fl-stop-deployed",
+        "fl-arm"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "fl-stop-stowed",
+        "fl-arm"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "fl-bearing-lower",
+        "fl-motor-shaft"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "fl-bearing-upper",
+        "fl-motor-shaft"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "fl-clevis",
+        "fl-bushing"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "fl-shoulder-axle",
+        "fl-bushing"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "fr-mount",
+        "fr-arm"
+      ],
+      "reason": "in contact at home"
+    },
+    {
+      "parts": [
+        "fr-stop-deployed",
+        "fr-arm"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "fr-stop-stowed",
+        "fr-arm"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "fr-bearing-lower",
+        "fr-motor-shaft"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "fr-bearing-upper",
+        "fr-motor-shaft"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "fr-clevis",
+        "fr-bushing"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "fr-shoulder-axle",
+        "fr-bushing"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "rl-mount",
+        "rl-arm"
+      ],
+      "reason": "in contact at home"
+    },
+    {
+      "parts": [
+        "rl-stop-deployed",
+        "rl-arm"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "rl-stop-stowed",
+        "rl-arm"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "rl-bearing-lower",
+        "rl-motor-shaft"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "rl-bearing-upper",
+        "rl-motor-shaft"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "rl-clevis",
+        "rl-bushing"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "rl-shoulder-axle",
+        "rl-bushing"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "rr-mount",
+        "rr-arm"
+      ],
+      "reason": "in contact at home"
+    },
+    {
+      "parts": [
+        "rr-stop-deployed",
+        "rr-arm"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "rr-stop-stowed",
+        "rr-arm"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "rr-bearing-lower",
+        "rr-motor-shaft"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "rr-bearing-upper",
+        "rr-motor-shaft"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "rr-clevis",
+        "rr-bushing"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "rr-shoulder-axle",
+        "rr-bushing"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "tilt-servo-case",
+        "servo-output-horn"
+      ],
+      "reason": "allow_contact"
+    }
+  ],
+  "stats": {
+    "pairs_total": 23005,
+    "pairs_same_body": 8009,
+    "pairs_ignored": 32,
+    "pairs_rejected_far": 5331,
+    "pairs_sampled": 9633,
+    "poses_checked": 518959,
+    "poses_unreachable": 0,
+    "pairs_unreachable": 0,
+    "seconds": 77.4
+  }
+}

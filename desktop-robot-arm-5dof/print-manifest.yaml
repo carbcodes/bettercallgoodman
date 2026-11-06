@@ -1,0 +1,416 @@
+units: mm
+parts:
+- part: base-plate
+  file: stl/base-plate.stl
+  material: PA12-CF
+  size_mm:
+  - 220.0
+  - 180.0
+  - 8.0
+  solid_mass_g: 378.14
+  quantity: 1
+- part: base-column-1
+  file: stl/base-column-1.stl
+  material: PA12-CF
+  size_mm:
+  - 14.0
+  - 14.0
+  - 63.0
+  solid_mass_g: 10.32
+  quantity: 1
+- part: base-column-2
+  file: stl/base-column-2.stl
+  material: PA12-CF
+  size_mm:
+  - 14.0
+  - 14.0
+  - 63.0
+  solid_mass_g: 10.32
+  quantity: 1
+- part: base-column-3
+  file: stl/base-column-3.stl
+  material: PA12-CF
+  size_mm:
+  - 14.0
+  - 14.0
+  - 63.0
+  solid_mass_g: 10.32
+  quantity: 1
+- part: base-column-4
+  file: stl/base-column-4.stl
+  material: PA12-CF
+  size_mm:
+  - 14.0
+  - 14.0
+  - 63.0
+  solid_mass_g: 10.32
+  quantity: 1
+- part: yaw-bearing-carrier
+  file: stl/yaw-bearing-carrier.stl
+  material: PA12-CF
+  size_mm:
+  - 82.0
+  - 82.0
+  - 28.0
+  solid_mass_g: 71.97
+  quantity: 1
+- part: yaw-motor-saddle
+  file: stl/yaw-motor-saddle.stl
+  material: PA12-CF
+  size_mm:
+  - 54.0
+  - 45.0
+  - 29.5
+  solid_mass_g: 26.83
+  quantity: 1
+- part: yaw-motor-strap-1
+  file: stl/yaw-motor-strap-1.stl
+  material: PA12-CF
+  size_mm:
+  - 54.0
+  - 4.0
+  - 4.0
+  solid_mass_g: 0.96
+  quantity: 1
+- part: yaw-motor-strap-2
+  file: stl/yaw-motor-strap-2.stl
+  material: PA12-CF
+  size_mm:
+  - 54.0
+  - 4.0
+  - 4.0
+  solid_mass_g: 0.96
+  quantity: 1
+- part: yaw-spindle
+  file: stl/yaw-spindle.stl
+  material: PA12-CF
+  size_mm:
+  - 39.9
+  - 39.9
+  - 28.0
+  solid_mass_g: 26.2
+  quantity: 1
+- part: yaw-turntable
+  file: stl/yaw-turntable.stl
+  material: PA12-CF
+  size_mm:
+  - 108.0
+  - 108.0
+  - 8.0
+  solid_mass_g: 85.98
+  quantity: 1
+- part: electronics-tray
+  file: stl/electronics-tray.stl
+  material: PA12-CF
+  size_mm:
+  - 64.0
+  - 75.0
+  - 18.0
+  solid_mass_g: 35.67
+  quantity: 1
+- part: stop-switch-pedestal
+  file: stl/stop-switch-pedestal.stl
+  material: PA12-CF
+  size_mm:
+  - 46.0
+  - 46.0
+  - 10.0
+  solid_mass_g: 10.5
+  quantity: 1
+- part: shoulder-cradle
+  file: stl/shoulder-cradle.stl
+  material: PA12-CF
+  size_mm:
+  - 55.5
+  - 42.0
+  - 46.775
+  solid_mass_g: 40.48
+  quantity: 1
+- part: shoulder-keeper
+  file: stl/shoulder-keeper.stl
+  material: PA12-CF
+  size_mm:
+  - 53.5
+  - 42.0
+  - 4.0
+  solid_mass_g: 6.46
+  quantity: 1
+- part: upper-link-left
+  file: stl/upper-link-left.stl
+  material: PA12-CF
+  size_mm:
+  - 40.0
+  - 199.0
+  - 8.0
+  solid_mass_g: 31.49
+  quantity: 1
+- part: upper-link-right
+  file: stl/upper-link-right.stl
+  material: PA12-CF
+  size_mm:
+  - 40.0
+  - 199.0
+  - 6.0
+  solid_mass_g: 33.24
+  quantity: 1
+- part: shoulder-drive-spacer
+  file: stl/shoulder-drive-spacer.stl
+  material: PA12-CF
+  size_mm:
+  - 26.0
+  - 9.5
+  - 26.0
+  solid_mass_g: 5.1
+  quantity: 1
+- part: shoulder-idler-bracket
+  file: stl/shoulder-idler-bracket.stl
+  material: PA12-CF
+  size_mm:
+  - 20.0
+  - 31.5
+  - 55.5
+  solid_mass_g: 7.72
+  quantity: 1
+- part: upper-cross-tie-1
+  file: stl/upper-cross-tie-1.stl
+  material: PA12-CF
+  size_mm:
+  - 18.0
+  - 70.0
+  - 12.0
+  solid_mass_g: 17.44
+  quantity: 1
+- part: upper-cross-tie-2
+  file: stl/upper-cross-tie-2.stl
+  material: PA12-CF
+  size_mm:
+  - 18.0
+  - 70.0
+  - 12.0
+  solid_mass_g: 17.44
+  quantity: 1
+- part: elbow-cradle
+  file: stl/elbow-cradle.stl
+  material: PA12-CF
+  size_mm:
+  - 50.5
+  - 70.0
+  - 43.225
+  solid_mass_g: 44.55
+  quantity: 1
+- part: elbow-keeper
+  file: stl/elbow-keeper.stl
+  material: PA12-CF
+  size_mm:
+  - 48.5
+  - 38.0
+  - 4.0
+  solid_mass_g: 6.32
+  quantity: 1
+- part: forearm-link-left
+  file: stl/forearm-link-left.stl
+  material: PA12-CF
+  size_mm:
+  - 194.0
+  - 40.0
+  - 8.0
+  solid_mass_g: 21.32
+  quantity: 1
+- part: forearm-link-right
+  file: stl/forearm-link-right.stl
+  material: PA12-CF
+  size_mm:
+  - 194.0
+  - 40.0
+  - 5.0
+  solid_mass_g: 22.39
+  quantity: 1
+- part: elbow-drive-spacer
+  file: stl/elbow-drive-spacer.stl
+  material: PA12-CF
+  size_mm:
+  - 20.0
+  - 4.0
+  - 20.0
+  solid_mass_g: 1.16
+  quantity: 1
+- part: elbow-idler-bracket
+  file: stl/elbow-idler-bracket.stl
+  material: PA12-CF
+  size_mm:
+  - 20.0
+  - 6.0
+  - 36.0
+  solid_mass_g: 2.09
+  quantity: 1
+- part: forearm-cross-tie-1
+  file: stl/forearm-cross-tie-1.stl
+  material: PA12-CF
+  size_mm:
+  - 12.0
+  - 49.0
+  - 16.0
+  solid_mass_g: 10.8
+  quantity: 1
+- part: forearm-cross-tie-2
+  file: stl/forearm-cross-tie-2.stl
+  material: PA12-CF
+  size_mm:
+  - 12.0
+  - 49.0
+  - 16.0
+  solid_mass_g: 10.8
+  quantity: 1
+- part: wrist-cradle
+  file: stl/wrist-cradle.stl
+  material: PA12-CF
+  size_mm:
+  - 38.975
+  - 49.0
+  - 50.5
+  solid_mass_g: 31.27
+  quantity: 1
+- part: wrist-keeper
+  file: stl/wrist-keeper.stl
+  material: PA12-CF
+  size_mm:
+  - 4.0
+  - 49.0
+  - 48.5
+  solid_mass_g: 8.89
+  quantity: 1
+- part: wrist-yoke-left
+  file: stl/wrist-yoke-left.stl
+  material: PA12-CF
+  size_mm:
+  - 44.0
+  - 72.0
+  - 8.0
+  solid_mass_g: 15.61
+  quantity: 1
+- part: wrist-yoke-right
+  file: stl/wrist-yoke-right.stl
+  material: PA12-CF
+  size_mm:
+  - 44.0
+  - 72.0
+  - 5.0
+  solid_mass_g: 16.77
+  quantity: 1
+- part: wrist-drive-spacer
+  file: stl/wrist-drive-spacer.stl
+  material: PA12-CF
+  size_mm:
+  - 20.0
+  - 15.0
+  - 20.0
+  solid_mass_g: 4.34
+  quantity: 1
+- part: wrist-idler-bracket
+  file: stl/wrist-idler-bracket.stl
+  material: PA12-CF
+  size_mm:
+  - 56.25
+  - 23.0
+  - 20.0
+  solid_mass_g: 6.27
+  quantity: 1
+- part: roll-motor-bridge
+  file: stl/roll-motor-bridge.stl
+  material: PA12-CF
+  size_mm:
+  - 44.0
+  - 71.0
+  - 6.0
+  solid_mass_g: 15.46
+  quantity: 1
+- part: roll-retainer
+  file: stl/roll-retainer.stl
+  material: PA12-CF
+  size_mm:
+  - 30.0
+  - 44.0
+  - 4.0
+  solid_mass_g: 4.58
+  quantity: 1
+- part: gripper-palm
+  file: stl/gripper-palm.stl
+  material: PA12-CF
+  size_mm:
+  - 56.0
+  - 38.0
+  - 5.0
+  solid_mass_g: 12.59
+  quantity: 1
+- part: gripper-motor-cradle
+  file: stl/gripper-motor-cradle.stl
+  material: PA12-CF
+  size_mm:
+  - 36.0
+  - 28.0
+  - 47.5
+  solid_mass_g: 14.35
+  quantity: 1
+- part: gripper-motor-cap
+  file: stl/gripper-motor-cap.stl
+  material: PA12-CF
+  size_mm:
+  - 4.0
+  - 28.0
+  - 37.0
+  solid_mass_g: 4.97
+  quantity: 1
+- part: gripper-jaw-left
+  file: stl/gripper-jaw-left.stl
+  material: PA12-CF
+  size_mm:
+  - 29.996
+  - 52.498
+  - 11.0
+  solid_mass_g: 5.6
+  quantity: 1
+- part: gripper-pad-left
+  file: stl/gripper-pad-left.stl
+  material: TPU 95A
+  size_mm:
+  - 3.0
+  - 12.0
+  - 16.0
+  solid_mass_g: 0.66
+  quantity: 1
+- part: gripper-jaw-right
+  file: stl/gripper-jaw-right.stl
+  material: PA12-CF
+  size_mm:
+  - 29.865
+  - 52.432
+  - 11.0
+  solid_mass_g: 5.39
+  quantity: 1
+- part: gripper-pad-right
+  file: stl/gripper-pad-right.stl
+  material: TPU 95A
+  size_mm:
+  - 3.0
+  - 12.0
+  - 16.0
+  solid_mass_g: 0.66
+  quantity: 1
+- part: jaw-idler-clevis
+  file: stl/jaw-idler-clevis.stl
+  material: PA12-CF
+  size_mm:
+  - 9.0
+  - 28.0
+  - 21.0
+  solid_mass_g: 3.05
+  quantity: 1
+- part: gear-guard
+  file: stl/gear-guard.stl
+  material: PA12-CF
+  size_mm:
+  - 64.0
+  - 3.0
+  - 34.0
+  solid_mass_g: 4.05
+  quantity: 1

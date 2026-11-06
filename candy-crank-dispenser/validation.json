@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "python": "3.11.12",
+  "part_count": 113,
+  "joint_count": 4,
+  "driven_joint_count": 1,
+  "triangle_count": 46892,
+  "printable_part_count": 21,
+  "glb_sha256": "65697151599760fba6cf51021c06e5d82c22c800ea799440ff81aea8861c33e5",
+  "glb_bytes": 4056760,
+  "home_bounds_mm": [
+    [
+      -72.0,
+      -114.0,
+      0.0
+    ],
+    [
+      72.0,
+      89.0,
+      251.0
+    ]
+  ],
+  "checks": [
+    "GLB loaded back with trimesh",
+    "single assembly root and exact required quaternion",
+    "unique direct-child part nodes and one mesh each",
+    "all joint parts, parents and drivers exist",
+    "unique moving-part assignment",
+    "coupling resolves and all named poses satisfy limits",
+    "GLB SHA-256 matches joints.yaml",
+    "closed outward-wound positive-volume meshes",
+    "triangle count below 50000",
+    "geometry.py literal constants only",
+    "all printable STLs manifold, mm, bed at z=0, under 220 mm longest dimension"
+  ],
+  "limitations": [
+    "Rigid-body geometry; compliant click-flexure deformation and bearing internals are not simulated",
+    "Candy dimensions, dose reliability, torque, durability and food-contact suitability require physical prototype testing",
+    "0..360 crank/grip ranges are periodic coordinate windows, not physical end stops"
+  ]
+}

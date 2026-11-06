@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import json
 import re
+import shutil
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -249,10 +250,50 @@ def _cad_record(d: Path) -> dict:
     }
 
 
+def _copy_if_changed(src: Path, dst: Path) -> None:
+    if dst.exists() and dst.stat().st_size == src.stat().st_size and dst.stat().st_mtime >= src.stat().st_mtime:
+        return
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(src, dst)
+
+
+def _motion_record(d: Path, root: Path, public: Path) -> dict | None:
+    """One collision-sweep result (results/motion/<id>/) for the 'Will it collide with itself?' tab.
+
+    The design's GLB is copied to ui/public/motion/<id>.glb so the browser can pose it at each collision."""
+    res, card = _read_json(d / "motion_result.json"), _read_json(d / "card.json") or {}
+    if not res:
+        return None
+    inp = res.get("inputs", {})
+    glb, jy = (root / inp.get("glb", ""), root / inp.get("joints", ""))
+    if not glb.is_file() or not jy.is_file():
+        return None
+    _copy_if_changed(glb, public / "motion" / f"{d.name}.glb")
+    motion = yaml.safe_load(jy.read_text())
+    joints = [{k: j.get(k) for k in ("id", "parent", "origin", "axis", "home", "limits", "label", "parts")}
+              | {"coupled": [[c["joint"], c["ratio"]] for c in (j.get("coupled") or [])]}
+              for j in motion.get("joints", [])]
+    keep = ("parts", "joints", "first_contact", "worst", "contact_point_mm", "colliding_range", "why")
+    cols = sorted(({k: c.get(k) for k in keep} for c in res.get("collisions", [])),
+                  key=lambda c: -(c["worst"] or {}).get("penetration_mm", 0))
+    return {
+        "id": d.name, "order": card.get("order", 99), "title": card.get("title", d.name),
+        "source": card.get("source"), "status": card.get("status") or ("collides" if cols else "clear"),
+        "headline": card.get("headline"), "claim": card.get("claim"), "notes": card.get("notes", []),
+        "compare_pose": card.get("compare_pose"),
+        "verdict": res.get("verdict"), "stats": res.get("stats", {}), "reach_rule": inp.get("reach_rule"),
+        "swept_joints": res.get("swept_joints", {}), "glb": f"motion/{d.name}.glb",
+        "joints": joints, "poses": motion.get("poses", []), "collisions": cols,
+    }
+
+
 def build(root: Path) -> dict:
+    root = Path(root)
     tasks = [(_cad_record if p.parent.parent.name == "cad" else _task_record)(p.parent)
-             for p in sorted(Path(root).glob("tasks/*/*/task.yaml"))]
-    return {"generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"), "tasks": tasks}
+             for p in sorted(root.glob("tasks/*/*/task.yaml"))]
+    motion = [m for d in sorted(root.glob("results/motion/*/")) if (m := _motion_record(d, root, root / "ui" / "public"))]
+    motion.sort(key=lambda m: (m["order"], m["id"]))
+    return {"generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"), "tasks": tasks, "motion": motion}
 
 
 def cmd_export(args) -> int:
@@ -264,5 +305,6 @@ def cmd_export(args) -> int:
     counts: dict[str, int] = {}
     for t in data["tasks"]:
         counts[t["outcome"]] = counts.get(t["outcome"], 0) + 1
-    print(f"wrote {out}: {len(data['tasks'])} tasks ({', '.join(f'{v} {k}' for k, v in sorted(counts.items()))})")
+    print(f"wrote {out}: {len(data['tasks'])} tasks ({', '.join(f'{v} {k}' for k, v in sorted(counts.items()))}), "
+          f"{len(data['motion'])} collision sweeps")
     return 0
