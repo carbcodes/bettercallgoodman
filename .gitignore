@@ -9,3 +9,4 @@ results/motion/*/poses/
 ui/node_modules/
 ui/dist/
 ui/public/data.json
+ui/public/motion/
