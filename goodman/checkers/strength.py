@@ -15,6 +15,9 @@ Models (select with `model:` in task.yaml; otherwise inferred from inputs):
   cantilever_step         end-loaded cantilever, critical section at a shoulder step
   column                  axial compression: direct stress + Euler/Johnson buckling
   arm_torque              gravity torque of a horizontal arm vs. a servo rating
+  cantilever_fatigue      round cantilever, fluctuating load: static + modified Goodman
+  simple_beam             simply supported beam, centre load: stress + deflection
+  thermal_column          axially restrained bar heated by dT: thermal stress + buckling
 """
 
 from __future__ import annotations
@@ -151,7 +154,7 @@ def _section(sec: dict) -> tuple[dict, float, float]:
         d = sec["diameter_mm"]
         return round_section(d), d, d
     if "depth_mm" in sec:
-        b, h = sec["thickness_mm"], sec["depth_mm"]
+        b, h = sec.get("thickness_mm", sec.get("width_mm")), sec["depth_mm"]
     else:
         b, h = sec["width_mm"], sec["thickness_mm"]
     return rect_section(b, h), b, h
@@ -319,17 +322,182 @@ def model_arm_torque(inp: dict, mats: dict) -> StrengthResult:
     return StrengthResult(model="arm_torque", verdict=verdict, values=values, steps=steps, alternatives=alts)
 
 
+# ------------------------------------------- fatigue (s06), beam (s07), thermal (s08)
+
+def marin_ka(sut: float, surface: str) -> float:
+    """Marin surface factor ka = a * Sut^b (Shigley 10th ed. Table 6-2, Sut in MPa)."""
+    a, b = {"ground": (1.58, -0.085), "machined": (4.51, -0.265), "cold_drawn": (4.51, -0.265),
+            "hot_rolled": (57.7, -0.718), "as_forged": (272.0, -0.995)}[surface]
+    return a * sut**b
+
+
+def model_cantilever_fatigue(inp: dict, mats: dict) -> StrengthResult:
+    """Round cantilever under a fluctuating tip load: static yield check plus
+    modified-Goodman infinite-life check (Shigley 10th ed. Ch. 6).
+    Se' = 0.5 Sut (Sut <= 1400 MPa), ka from Table 6-2; kb, kc, kd, ke taken as 1
+    (matches the hand calc; kb for a 12 mm non-rotating bar is ~1, so this is a
+    small simplification)."""
+    mat = mats.get(inp.get("material", ""), {})
+    sy = float(inp.get("yield_mpa", mat.get("yield_mpa")))
+    sut = float(inp.get("ultimate_mpa", mat.get("ultimate_mpa")))
+    d, L = float(inp["diameter_mm"]), float(inp["lever_mm"])
+    fmin, fmax = float(inp.get("load_min_n", 0)), float(inp["load_max_n"])
+    req = float(inp.get("required_safety_factor", 1.0))
+    Z = round_section(d)["Z"]
+    m_max, m_min = fmax * L, fmin * L
+    s_max, s_min = m_max / Z, m_min / Z
+    s_a, s_m = (s_max - s_min) / 2, (s_max + s_min) / 2
+    sf_static = sy / s_max
+    se_prime = 0.5 * sut
+    ka = marin_ka(sut, inp.get("surface", "machined"))
+    se = ka * se_prime
+    n_goodman = 1 / (s_a / se + s_m / sut)
+    # Gerber (Shigley Eq. 6-47), for reference only
+    n_gerber = 0.5 * (sut / s_m) ** 2 * (s_a / se) * (-1 + math.sqrt(1 + (2 * s_m * se / (sut * s_a)) ** 2)) if s_m else se / s_a
+    sf = min(sf_static, n_goodman)
+    verdict = "safe" if sf >= req else "not_safe"
+    hz = inp.get("frequency_hz")
+    steps = [
+        f"Z = pi*d^3/32 = {Z:.1f} mm^3; M_max = {fmax:g} x {L:g} = {m_max:.0f} N*mm -> sigma_max = {s_max:.1f} MPa",
+        f"static SF = Sy/sigma_max = {sy:g}/{s_max:.1f} = {sf_static:.2f}",
+        f"cycle {fmin:g} -> {fmax:g} N: sigma_a = {s_a:.1f} MPa, sigma_m = {s_m:.1f} MPa"
+        + (f"; {hz:g} Hz x 8 h/day = {hz * 3600 * 8 * 365:.1e} cycles/year -> infinite life" if hz else ""),
+        f"Se' = 0.5 Sut = {se_prime:.0f} MPa; ka ({inp.get('surface', 'machined')}) = {ka:.3f}; kb..ke ~ 1 -> Se = {se:.1f} MPa",
+        f"Goodman: 1/n = {s_a:.1f}/{se:.1f} + {s_m:.1f}/{sut:g} = {1 / n_goodman:.3f} -> n_f = {n_goodman:.2f} (Gerber {n_gerber:.2f})",
+        f"SF = min({sf_static:.2f}, {n_goodman:.2f}) = {sf:.2f} vs required {req:g} -> {verdict}",
+    ]
+    values = {"moment_nmm": m_max, "max_stress_mpa": s_max, "alternating_stress_mpa": s_a, "mean_stress_mpa": s_m,
+              "static_safety_factor": sf_static, "stress_safety_factor": sf_static, "fatigue_safety_factor": n_goodman,
+              "fatigue_sf": n_goodman, "safety_factor": sf, "endurance_limit_mpa": se, "material_strength_mpa": sy,
+              "load_n": fmax, "section_modulus_mm3": Z}
+    alts: dict = {}
+    static_why = f"checked static stress only (SF {sf_static:.2f}); the 0-{fmax:g} N cycle fails Goodman fatigue (n_f {n_goodman:.2f})"
+    _alt(alts, "safety_factor", sf_static, static_why)
+    _alt(alts, "fatigue_safety_factor", sf_static, static_why)
+    _alt(alts, "fatigue_sf", sf_static, static_why)
+    for q in ("fatigue_safety_factor", "fatigue_sf", "safety_factor"):
+        _alt(alts, q, 1 / (s_a / se_prime + s_m / sut), f"skipped the machined-surface factor (ka = {ka:.2f}), used Se = Se' = {se_prime:.0f} MPa")
+        _alt(alts, q, n_gerber, f"used the Gerber criterion ({n_gerber:.2f}); the spec'd check is modified Goodman ({n_goodman:.2f})")
+        _alt(alts, q, se / s_max, f"treated the 0-{fmax:g} N load as fully reversed (sigma_a = {s_max:.0f} MPa)")
+        _alt(alts, q, se_prime / s_max, "treated the load as fully reversed and skipped the surface factor")
+        _alt(alts, q, 1 / (s_a / se + s_m / sy), "used Soderberg (yield on the mean axis) instead of Goodman")
+    _alt(alts, "max_stress_mpa", m_max / (math.pi * d**3 / 16), "used the polar section modulus pi*d^3/16")
+    _alt(alts, "max_stress_mpa", s_a, f"gave the alternating stress ({s_a:.1f} MPa) as the peak")
+    return StrengthResult(model="cantilever_fatigue", verdict=verdict, values=values, steps=steps, alternatives=alts,
+                          notes=["kb (size), kc, kd, ke taken as 1, as in the hand calc"])
+
+
+def model_simple_beam(inp: dict, mats: dict) -> StrengthResult:
+    """Simply supported beam, central point load: M = PL/4, delta = PL^3/(48EI).
+    Bending depth is the dimension in the load direction (depth_mm)."""
+    mat = mats.get(inp.get("material", ""), {})
+    E = float(inp.get("E_mpa", mat.get("E_mpa")))
+    sy = float(inp.get("yield_mpa", mat.get("yield_mpa")))
+    P, L = float(inp["load_n"]), float(inp["span_mm"])
+    req = float(inp.get("required_safety_factor", 1.0))
+    dmax = inp.get("max_deflection_mm")
+    props, b, h = _section(inp["section"])
+    M = P * L / 4
+    s = M / props["Z"]
+    sf = sy / s
+    defl = P * L**3 / (48 * E * props["I"])
+    ok_defl = dmax is None or defl <= float(dmax)
+    verdict = "safe" if sf >= req and ok_defl else "not_safe"
+    strong = rect_section(h, b)  # same bar turned on edge
+    s_strong, d_strong = M / strong["Z"], P * L**3 / (48 * E * strong["I"])
+    steps = [
+        f"M = P*L/4 = {P:g}*{L:g}/4 = {M:.0f} N*mm",
+        f"bending about the axis with depth h = {h:g} mm (b = {b:g}): Z = b*h^2/6 = {props['Z']:.1f} mm^3, I = b*h^3/12 = {props['I']:.1f} mm^4",
+        f"sigma = M/Z = {s:.1f} MPa -> SF = {sy:g}/{s:.1f} = {sf:.2f} vs required {req:g}",
+        f"delta = P*L^3/(48*E*I) = {defl:.1f} mm" + (f" vs limit {dmax:g} mm" if dmax is not None else ""),
+        f"-> {verdict}" + ("" if ok_defl else " (deflection)") + ("" if sf >= req else " (stress)"),
+    ]
+    values = {"moment_nmm": M, "max_stress_mpa": s, "safety_factor": sf, "deflection_mm": defl,
+              "material_strength_mpa": sy, "load_n": P, "section_modulus_mm3": props["Z"]}
+    alts: dict = {}
+    axis = f"used the {b:g} mm width as the bending depth (strong axis); lying flat, it bends about the weak axis (h = {h:g} mm)"
+    _alt(alts, "max_stress_mpa", s_strong, axis)
+    _alt(alts, "safety_factor", sy / s_strong, axis)
+    _alt(alts, "deflection_mm", d_strong, axis)
+    _alt(alts, "section_modulus_mm3", strong["Z"], axis)
+    _alt(alts, "moment_nmm", P * L, "used the cantilever moment P*L; the bar is simply supported (P*L/4)")
+    _alt(alts, "moment_nmm", P * L / 8, "used the uniformly-distributed-load moment (wL^2/8 form); the load is a point load at mid-span")
+    _alt(alts, "max_stress_mpa", (P * L / 8) / props["Z"], "treated the point load as uniformly distributed (M = PL/8)")
+    _alt(alts, "deflection_mm", 5 * P * L**3 / (384 * E * props["I"]), "used the uniform-load deflection 5PL^3/(384EI); the load is a point load")
+    _alt(alts, "deflection_mm", P * L**3 / (3 * E * props["I"]), "used the cantilever deflection PL^3/(3EI)")
+    return StrengthResult(model="simple_beam", verdict=verdict, values=values, steps=steps, alternatives=alts)
+
+
+def model_thermal_column(inp: dict, mats: dict) -> StrengthResult:
+    """Bar fully restrained axially and heated: sigma = E*alpha*dT, F = sigma*A,
+    compared with yield and with the column buckling load for its end condition."""
+    mat = mats.get(inp.get("material", ""), {})
+    E = float(inp.get("E_mpa", mat.get("E_mpa")))
+    sy = float(inp.get("yield_mpa", mat.get("yield_mpa")))
+    alpha, dT = float(inp["alpha_per_c"]), float(inp["delta_t_c"])
+    d, L = float(inp["diameter_mm"]), float(inp["length_mm"])
+    end = inp.get("end_condition", "fixed_fixed")
+    K = K_FACTORS[end]
+    props = round_section(d)
+    A, I = props["A"], props["I"]
+    s_th = E * alpha * dT
+    F = s_th * A
+    p_cr, mode, slender, trans = column_critical_load(E, sy, A, I, L, K)
+    dT_cr = p_cr / (E * alpha * A)
+    sf_stress, sf_buckle = sy / s_th, p_cr / F
+    sf = min(sf_stress, sf_buckle)
+    req = float(inp.get("required_safety_factor", 1.0))
+    verdict = "safe" if sf >= req else "not_safe"
+    steps = [
+        f"restrained: sigma = E*alpha*dT = {E:g}*{alpha:g}*{dT:g} = {s_th:.1f} MPa -> yield SF = {sf_stress:.2f}",
+        f"A = pi*d^2/4 = {A:.1f} mm^2 -> axial force F = sigma*A = {F:.0f} N",
+        f"I = pi*d^4/64 = {I:.1f} mm^4; K = {K:g} ({end}); KL/r = {slender:.0f} vs transition {trans:.0f} -> {mode}",
+        f"P_cr = {p_cr:.0f} N -> buckling SF = {p_cr:.0f}/{F:.0f} = {sf_buckle:.2f}; buckles once dT > {dT_cr:.1f} C",
+        f"SF = min({sf_stress:.2f}, {sf_buckle:.2f}) = {sf:.2f} vs required {req:g} -> {verdict}",
+    ]
+    values = {"thermal_stress_mpa": s_th, "max_stress_mpa": s_th, "thermal_force_n": F, "load_n": F,
+              "buckling_load_n": p_cr, "critical_temperature_rise_c": dT_cr, "safety_factor": sf,
+              "stress_safety_factor": sf_stress, "buckling_safety_factor": sf_buckle, "material_strength_mpa": sy,
+              "slenderness": slender}
+    alts: dict = {}
+    only = f"checked thermal stress only (SF {sf_stress:.1f}); the {F:.0f} N restrained force exceeds the {p_cr:.0f} N buckling load"
+    _alt(alts, "safety_factor", sf_stress, only)
+    _alt(alts, "stress_safety_factor", sf_stress, only)
+    for name, k in K_FACTORS.items():
+        if k != K:
+            pk = euler_load(E, I, L, k)
+            why = f"used {name} end conditions (K = {k:g}); both ends are clamped ({end}, K = {K:g})"
+            _alt(alts, "buckling_load_n", pk, why)
+            _alt(alts, "critical_temperature_rise_c", pk / (E * alpha * A), why)
+            _alt(alts, "buckling_safety_factor", pk / F, why)
+    _alt(alts, "buckling_load_n", sy * A, f"gave the squash (yield) load Sy*A = {sy * A:.0f} N, not the buckling load")
+    _alt(alts, "thermal_force_n", s_th * math.pi * d**2, "used pi*d^2 for the area (diameter as radius)")
+    _alt(alts, "thermal_stress_mpa", s_th / 2, "halved the restrained thermal stress")
+    _alt(alts, "thermal_stress_mpa", E * alpha * 50, "used the absolute temperature (50 C) instead of the 30 C rise")
+    _alt(alts, "thermal_force_n", E * alpha * 50 * A, "used the absolute temperature (50 C) instead of the 30 C rise")
+    return StrengthResult(model="thermal_column", verdict=verdict, values=values, steps=steps, alternatives=alts)
+
+
 MODELS = {
     "cantilever_root_fillet": model_cantilever_root_fillet,
     "cantilever_step": model_cantilever_step,
     "column": model_column,
     "arm_torque": model_arm_torque,
+    "cantilever_fatigue": model_cantilever_fatigue,
+    "simple_beam": model_simple_beam,
+    "thermal_column": model_thermal_column,
 }
 
 
 def infer_model(inp: dict) -> str:
     if "stall_torque_kgcm" in inp:
         return "arm_torque"
+    if "delta_t_c" in inp:
+        return "thermal_column"
+    if "load_max_n" in inp:
+        return "cantilever_fatigue"
+    if "span_mm" in inp:
+        return "simple_beam"
     if "end_condition" in inp or ("length_mm" in inp and "lever_mm" not in inp):
         return "column"
     if "step" in inp:
@@ -350,7 +518,7 @@ def check(task: dict) -> StrengthResult:
 MISSING_WHY = {
     "layer_direction_strength": "Answer never considers print orientation: the load acts across layers (~half the datasheet strength)",
     "stress_concentration": "Answer never accounts for the stress concentration at the corner/step radius",
-    "buckling": "Answer checks stress only and never checks buckling",
-    "fatigue": "Answer never checks fatigue under the cyclic load",
+    "buckling": "Answer checks stress only and never checks buckling (for a restrained, heated rod: the thermal force vs. the buckling load)",
+    "fatigue": "Answer checks static stress only and never checks fatigue under the cyclic load (Goodman line)",
     "unit_conversion": "Answer never converts the kg*cm rating consistently",
 }

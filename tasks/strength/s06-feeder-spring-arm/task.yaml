@@ -3,4 +3,5 @@ area: strength
 title: Feeder spring arm, 0-300 N at 20 Hz for years
 trap: Static check passes (SF 2.09); the cyclic load fails Goodman fatigue (SF ~1.54)
 control: false
+model: cantilever_fatigue   # strength checker model (goodman/checkers/strength.py)
 inputs: {material: 1018_CD, yield_mpa: 370, ultimate_mpa: 440, surface: machined, diameter_mm: 12, lever_mm: 100, load_min_n: 0, load_max_n: 300, frequency_hz: 20, required_safety_factor: 2.0}

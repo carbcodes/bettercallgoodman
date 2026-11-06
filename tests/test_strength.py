@@ -17,8 +17,8 @@ def _load(case):
     return yaml.safe_load(open(d / "task.yaml")), yaml.safe_load(open(d / "truth.yaml"))
 
 
-def test_five_cases_present():
-    assert len(CASES) == 5
+def test_eight_cases_present():
+    assert len(CASES) == 8
 
 
 @pytest.mark.parametrize("case", CASES)

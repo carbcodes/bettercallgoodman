@@ -1,6 +1,7 @@
 id: s07-flat-bar-shelf
 area: strength
 title: 40x5 aluminum flat bar shelf, lying flat
-trap: Lying flat (wide face up) means bending about the weak axis (h = 5 mm): stress 225 MPa and 27 mm sag; using the 40 mm depth gives 28 MPa and 0.4 mm
+trap: "Lying flat (wide face up) means bending about the weak axis (h = 5 mm): stress 225 MPa and 27 mm sag; using the 40 mm depth gives 28 MPa and 0.4 mm"
 control: false
+model: simple_beam   # strength checker model (goodman/checkers/strength.py)
 inputs: {material: Al6061-T6, E_mpa: 68900, yield_mpa: 276, section: {type: rect, width_mm: 40, depth_mm: 5}, span_mm: 500, load_n: 300, support: simply_supported_center_load, required_safety_factor: 1.5, max_deflection_mm: 2.0}

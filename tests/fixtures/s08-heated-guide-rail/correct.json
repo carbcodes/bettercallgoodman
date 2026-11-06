@@ -1,0 +1,34 @@
+{
+  "task_id": "s08-heated-guide-rail",
+  "verdict": "not_safe",
+  "claims": [
+    {
+      "id": "k1",
+      "quantity": "thermal_stress_mpa",
+      "value": 72,
+      "quote": "thermal stress 72 MPa"
+    },
+    {
+      "id": "k2",
+      "quantity": "thermal_force_n",
+      "value": 3619,
+      "quote": "axial force about 3.6 kN"
+    },
+    {
+      "id": "k3",
+      "quantity": "buckling_load_n",
+      "value": 1587,
+      "quote": "buckling load 1587 N"
+    },
+    {
+      "id": "k4",
+      "quantity": "critical_temperature_rise_c",
+      "value": 13.2,
+      "quote": "buckles above about 13 °C rise"
+    }
+  ],
+  "mentions": [
+    "buckling"
+  ],
+  "reviewed_by": "fixture (hand-written for tests)"
+}

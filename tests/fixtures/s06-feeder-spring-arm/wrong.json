@@ -1,0 +1,20 @@
+{
+  "task_id": "s06-feeder-spring-arm",
+  "verdict": "safe",
+  "claims": [
+    {
+      "id": "k1",
+      "quantity": "max_stress_mpa",
+      "value": 176.8,
+      "quote": "max stress about 177 MPa"
+    },
+    {
+      "id": "k2",
+      "quantity": "safety_factor",
+      "value": 2.09,
+      "quote": "safety factor 2.09"
+    }
+  ],
+  "mentions": [],
+  "reviewed_by": "fixture (hand-written for tests)"
+}

@@ -39,6 +39,11 @@ QUANTITIES = {
         "stall_torque_nm": ("N·m", "the motor's rated/stall torque as the answer used it"),
         "torque_margin": ("", "available torque divided by required torque"),
         "deflection_mm": ("mm", "tip or maximum deflection"),
+        "fatigue_safety_factor": ("", "safety factor against fatigue (Goodman, Gerber, Soderberg...) under the cyclic load"),
+        "static_safety_factor": ("", "safety factor against yield under the peak load only, if given separately from fatigue"),
+        "thermal_stress_mpa": ("MPa", "stress caused by restrained thermal expansion"),
+        "thermal_force_n": ("N", "axial force caused by restrained thermal expansion"),
+        "critical_temperature_rise_c": ("°C", "temperature rise at which the part starts to buckle or fail"),
     },
     "collision": {
         "min_clearance_mm": ("mm", "smallest gap between parts; negative means overlap/interference"),
@@ -79,6 +84,8 @@ UNITS = {
     "kg·cm": ("N·mm", G * 10), "kgcm": ("N·mm", G * 10), "kgf·cm": ("N·mm", G * 10), "lbf·in": ("N·mm", 112.985),
     "mm": ("mm", 1.0), "cm": ("mm", 10.0), "m": ("mm", 1000.0), "in": ("mm", 25.4),
     "mm3": ("mm³", 1.0), "mm³": ("mm³", 1.0), "cm3": ("mm³", 1000.0), "cm³": ("mm³", 1000.0),
+    "°c": ("°C", 1.0), "c": ("°C", 1.0), "degc": ("°C", 1.0), "k": ("°C", 1.0), "kelvin": ("°C", 1.0),
+    "°f": ("°C", 5 / 9), "degf": ("°C", 5 / 9),  # temperature DIFFERENCES only, so no offset
     "deg": ("deg", 1.0), "°": ("deg", 1.0), "degrees": ("deg", 1.0),
     "": ("", 1.0),
 }
@@ -104,7 +111,7 @@ Rules:
 - A range ("20-30 MPa") becomes "low" and "high" instead of "value".
 - quote must appear verbatim in the answer (same characters, same symbols). Keep it short: the phrase that states the number.
 - Never compute or infer a number the answer doesn't state. Never add quantities that aren't in the table.
-- "unit" is the unit exactly as the answer wrote it (MPa, psi, N, kg·cm, N·m, mm, in, deg; "" for a plain ratio).
+- "unit" is the unit exactly as the answer wrote it (MPa, psi, N, kg·cm, N·m, mm, in, deg, °C; "" for a plain ratio).
 
 Quantities (name: meaning):
 {quantities}
@@ -154,6 +161,8 @@ def convert(quantity: str, value: float, unit: str, area: str) -> tuple[float, s
             return value, f"unit '{unit}' is not a torque"
         return value * factor / 1000.0, None
     if want in ("", "deg") and have == "":
+        return value, None
+    if want == "°C" and have == "deg":  # "a 13° rise": a bare degree sign on a temperature
         return value, None
     if have != want:
         return value, f"unit '{unit}' doesn't match {quantity} ({want or 'ratio'})"

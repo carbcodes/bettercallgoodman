@@ -1,0 +1,32 @@
+{
+  "task_id": "s07-flat-bar-shelf",
+  "verdict": "safe",
+  "claims": [
+    {
+      "id": "k1",
+      "quantity": "moment_nmm",
+      "value": 37500,
+      "quote": "M = 37,500 N·mm"
+    },
+    {
+      "id": "k2",
+      "quantity": "max_stress_mpa",
+      "value": 28.1,
+      "quote": "stress only 28 MPa"
+    },
+    {
+      "id": "k3",
+      "quantity": "safety_factor",
+      "value": 9.8,
+      "quote": "SF about 9.8"
+    },
+    {
+      "id": "k4",
+      "quantity": "deflection_mm",
+      "value": 0.43,
+      "quote": "deflection 0.43 mm"
+    }
+  ],
+  "mentions": [],
+  "reviewed_by": "fixture (hand-written for tests)"
+}

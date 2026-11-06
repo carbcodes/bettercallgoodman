@@ -93,3 +93,25 @@ def test_unsafe_side_error_still_refuted():
     r = evaluate(ROOT / "tasks" / "strength" / "s05-steel-shelf-control", _shelf("safe", 8.0))
     assert r["claims"][0]["status"] == "refuted"
     assert r["outcome"] == "caught"
+
+
+def test_new_case_whys_name_the_mistake():
+    r = _run("s06-feeder-spring-arm", "wrong")
+    assert "checked static stress only" in _why(r, "k2") and "Goodman" in _why(r, "k2")
+    assert [m["topic"] for m in r["missing"]] == ["fatigue"]
+
+    r = _run("s07-flat-bar-shelf", "wrong")
+    for cid in ("k2", "k3", "k4"):
+        assert "strong axis" in _why(r, cid), _why(r, cid)
+
+    r = _run("s08-heated-guide-rail", "wrong")
+    assert "checked thermal stress only" in _why(r, "k2")
+    assert [m["topic"] for m in r["missing"]] == ["buckling"]
+
+
+def test_s08_pinned_ends_buckling_named():
+    claims = {"task_id": "s08-heated-guide-rail", "verdict": "not_safe", "mentions": ["buckling"], "claims": [
+        {"id": "k1", "quantity": "buckling_load_n", "value": 397, "quote": "P_cr = 397 N"}]}
+    r = evaluate(ROOT / "tasks" / "strength" / "s08-heated-guide-rail", claims)
+    assert r["claims"][0]["status"] == "conservative"  # low buckling load, right verdict
+    assert "pinned_pinned" in r["claims"][0]["why"]

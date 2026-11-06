@@ -94,9 +94,11 @@ def _diagnose(claim: dict, actual: float, tol: float, alternatives: list) -> str
 
 # Which way a wrong number errs toward caution: overstating demand or understating capacity.
 HIGHER_IS_CAUTIOUS = {"load_n", "moment_nmm", "nominal_stress_mpa", "max_stress_mpa", "stress_concentration_kt",
-                      "required_torque_nm", "required_torque_kgcm", "deflection_mm"}
+                      "required_torque_nm", "required_torque_kgcm", "deflection_mm",
+                      "thermal_stress_mpa", "thermal_force_n"}
 LOWER_IS_CAUTIOUS = {"material_strength_mpa", "safety_factor", "stress_safety_factor", "buckling_safety_factor",
-                     "buckling_load_n", "stall_torque_nm", "torque_margin", "section_modulus_mm3"}
+                     "buckling_load_n", "stall_torque_nm", "torque_margin", "section_modulus_mm3",
+                     "fatigue_safety_factor", "static_safety_factor", "critical_temperature_rise_c"}
 
 
 def _conservative(q: str, claim: dict, actual: float) -> bool:

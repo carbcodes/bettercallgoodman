@@ -1,0 +1,28 @@
+{
+  "task_id": "s06-feeder-spring-arm",
+  "verdict": "not_safe",
+  "claims": [
+    {
+      "id": "k1",
+      "quantity": "max_stress_mpa",
+      "value": 176.8,
+      "quote": "peak bending stress 176.8 MPa"
+    },
+    {
+      "id": "k2",
+      "quantity": "static_safety_factor",
+      "value": 2.09,
+      "quote": "static SF 2.09"
+    },
+    {
+      "id": "k3",
+      "quantity": "fatigue_safety_factor",
+      "value": 1.54,
+      "quote": "Goodman fatigue SF about 1.54"
+    }
+  ],
+  "mentions": [
+    "fatigue"
+  ],
+  "reviewed_by": "fixture (hand-written for tests)"
+}
