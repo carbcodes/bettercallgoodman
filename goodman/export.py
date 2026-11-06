@@ -191,7 +191,8 @@ def _cad_record(d: Path) -> dict:
                   "verdict": (result or {}).get("goodman_verdict"), "steps": [], "notes": (result or {}).get("notes", []),
                   "values": {}},
         "attempt": None if attempt is None else {"file": attempt_file, "model": attempt.get("model"),
-                                                 "date": attempt.get("date"), "answer": attempt.get("answer", "")},
+                                                 "date": attempt.get("date"), "chat_url": attempt.get("chat_url"),
+                                                 "answer": attempt.get("answer", "")},
         "claims": claims, "result": result, "result_source": "result.json" if result else None,
         "outcome": (result or {}).get("outcome", "pending"),
         "scene": None if not (result and mesh) else {

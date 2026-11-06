@@ -135,7 +135,6 @@ export default function Viewer({ task }) {
   return (
     <figure className="viewer" style={{ margin: 0 }}>
       <div className="viewer-canvas" ref={host}>
-        <span className="viewer-tag">{tag}</span>
         {failed && <div className="viewer-fallback">WebGL is not available in this browser.</div>}
         {!built && <div className="viewer-fallback">No 3D view for this case yet.</div>}
       </div>
