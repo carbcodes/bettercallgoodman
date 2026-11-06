@@ -1,0 +1,1 @@
+A cargo drone's landing frame has an 8 mm 7075-T6 strut (E 71.7 GPa, yield 503 MPa), 200 mm long, clamped rigidly into the body at its top and pinned to the skid at the bottom. On a hard landing it takes 1500 N of compression. We want a safety factor of 2. Is the strut OK? End your answer with a short summary: your verdict (safe / not safe) and the key numbers you relied on.

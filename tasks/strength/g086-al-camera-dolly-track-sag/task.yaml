@@ -1,0 +1,7 @@
+id: g086-al-camera-dolly-track-sag
+area: strength
+title: 6061 camera dolly track that sags
+trap: "[deflection] Stress is fine (SF 7.7) but the centre sags 12.5 mm against a 2 mm limit"
+control: false
+model: simple_beam
+inputs: {material: Al6061-T6, E_mpa: 68900, yield_mpa: 276, section: {type: rect, width_mm: 60, depth_mm: 10}, span_mm: 1200, load_n: 120, support: simply_supported_center_load, required_safety_factor: 1.5, max_deflection_mm: 2.0}

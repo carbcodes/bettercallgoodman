@@ -1,0 +1,7 @@
+id: g094-7075-test-beam-control
+area: strength
+title: 7075 bar on edge in a test frame (control)
+trap: "[control] none, genuinely safe: SF 2.9"
+control: true
+model: simple_beam
+inputs: {material: Al7075-T6, E_mpa: 71700, yield_mpa: 503, section: {type: rect, width_mm: 12, depth_mm: 30}, span_mm: 500, load_n: 2500, support: simply_supported_center_load, required_safety_factor: 1.5}

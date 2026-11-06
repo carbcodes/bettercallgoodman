@@ -1,0 +1,7 @@
+id: g058-shaft-behind-bracket
+area: strength
+title: Arm length measured from the bracket face instead of the servo shaft
+trap: "[lever_arm] The servo shaft is 80 mm behind the bracket face, so the lever is 250 mm, not 170 mm: need 18.8 kg·cm, margin 1.07 vs 1.5"
+control: false
+model: arm_torque
+inputs: {stall_torque_kgcm: 20, arm_length_mm: 250, arm_mass_kg: 0.1, tip_mass_kg: 0.7, required_margin: 1.5}

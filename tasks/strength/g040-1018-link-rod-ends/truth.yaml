@@ -1,0 +1,12 @@
+verdict: not_safe
+values:
+  buckling_load_n: {value: 3880, tol: 0.05}
+  max_stress_mpa: {value: 45.8, tol: 0.05}
+  safety_factor: {value: 1.08, tol: 0.1}
+must_mention: [buckling]
+why: |
+  A = π·10²/4 = 78.5 mm²; σ = P/A = 3600/78.5 = 45.8 MPa → stress SF = 370/45.8 = 8.07.
+  I = π·10⁴/64 = 491 mm⁴, r = d/4 = 2.5 mm; pinned-pinned → K = 1; KL/r = 200 vs transition √(2π²E/Sy) = 103 → Euler.
+  P_cr = π²·E·I/(K·L)² = π²·200000·491/(1·500)² = 3876 N → buckling SF = 3876/3600 = 1.08.
+  SF = min(8.07, 1.08) = 1.08 vs required 2 → not safe.
+source: "Shigley 10th ed. §4-11 to 4-13 (Euler and Johnson columns, end-condition constants)"

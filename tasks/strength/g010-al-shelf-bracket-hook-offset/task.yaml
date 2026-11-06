@@ -1,0 +1,7 @@
+id: g010-al-shelf-bracket-hook-offset
+area: strength
+title: Aluminum bracket with a hanging hook beyond its tip
+trap: "[lever_arm] The bag hangs from a hook 90 mm beyond the bracket's end, so the lever is 200 mm, not 110 mm: SF 1.17"
+control: false
+model: cantilever_root_fillet
+inputs: {material: Al6061-T6, yield_mpa: 276, load_n: 147.2, lever_mm: 200, section: {type: rect, width_mm: 25, thickness_mm: 6}, fillet_mm: 3.0, required_safety_factor: 2.0}

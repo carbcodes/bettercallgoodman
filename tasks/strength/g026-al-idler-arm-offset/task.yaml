@@ -1,0 +1,7 @@
+id: g026-al-idler-arm-offset
+area: strength
+title: 6061 idler arm with the pulley offset beyond its end
+trap: "[lever_arm] The idler axle sits 90 mm beyond the end of the arm, so the lever from the step is 180 mm, not 90 mm: SF 1.10"
+control: false
+model: cantilever_step
+inputs: {material: Al6061-T6, yield_mpa: 276, load_n: 300, lever_mm: 180, section: {type: rect, thickness_mm: 10, depth_mm: 15}, step: {D_mm: 25, d_mm: 15, r_mm: 2.0}, required_safety_factor: 2.0}

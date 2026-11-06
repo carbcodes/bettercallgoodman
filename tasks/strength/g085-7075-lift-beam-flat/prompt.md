@@ -1,0 +1,1 @@
+For lifting a small engine block out of a test stand we made a short spreader from a 20 x 5 mm 7075-T6 bar (E 71.7 GPa, yield 503 MPa). It rests on two supports 300 mm apart, wide face up, and the hoist hook pulls 590 N at the middle. We need 1.5. Is it OK? End your answer with a short summary: your verdict (safe / not safe) and the key numbers you relied on.

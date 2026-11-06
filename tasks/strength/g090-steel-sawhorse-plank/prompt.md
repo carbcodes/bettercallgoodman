@@ -1,0 +1,1 @@
+For a temporary work platform I'm laying a 50 x 10 mm mild steel bar (E 200 GPa, yield 250 MPa) flat across two sawhorses 800 mm apart (it just rests on them), and an 85 kg person may stand in the middle. Safety factor of 2. Is it OK? End your answer with a short summary: your verdict (safe / not safe) and the key numbers you relied on.

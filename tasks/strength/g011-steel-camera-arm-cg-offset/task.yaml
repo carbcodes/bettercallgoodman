@@ -1,0 +1,7 @@
+id: g011-steel-camera-arm-cg-offset
+area: strength
+title: Steel camera arm with the camera CG forward of the arm end
+trap: "[lever_arm] The camera's centre of mass sits 120 mm forward of the arm's end on its quick-release plate, so the lever is 240 mm, not 120 mm: SF 1.63"
+control: false
+model: cantilever_root_fillet
+inputs: {material: mild_steel, yield_mpa: 250, load_n: 63.8, lever_mm: 240, section: {type: rect, width_mm: 20, thickness_mm: 6}, fillet_mm: 3.0, required_safety_factor: 2.5}

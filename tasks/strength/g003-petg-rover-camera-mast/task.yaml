@@ -1,0 +1,7 @@
+id: g003-petg-rover-camera-mast
+area: strength
+title: PETG camera mast bracket on a rover, printed upright
+trap: "[layer_direction] Printed with the arm vertical, so the bending stress pulls the PETG apart across its passes (18 MPa interlayer, SF 1.18); with the 47 MPa datasheet value it looks fine at 3.07"
+control: false
+model: cantilever_root_fillet
+inputs: {material: PETG, print_orientation: upright_layers_horizontal, load_n: 26.49, lever_mm: 60, section: {type: rect, width_mm: 30, thickness_mm: 5}, fillet_mm: 2.5, required_safety_factor: 2.0}

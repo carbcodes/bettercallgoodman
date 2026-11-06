@@ -1,0 +1,7 @@
+id: g023-pla-clamp-lever-step
+area: strength
+title: PLA clamp lever with a square step, printed flat
+trap: "[stress_concentration] Printed flat so the PLA in-layer 50 MPa applies and nominal SF is 2.8, but the 0.5 mm step (D/d 2) gives Kt 2.26: SF 1.26"
+control: false
+model: cantilever_step
+inputs: {material: PLA, print_orientation: flat, load_n: 30, lever_mm: 50, section: {type: rect, thickness_mm: 8, depth_mm: 8}, step: {D_mm: 16, d_mm: 8, r_mm: 0.5}, required_safety_factor: 2.0}

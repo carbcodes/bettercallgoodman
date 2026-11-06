@@ -1,0 +1,7 @@
+id: g081-steel-garage-shelf-flat
+area: strength
+title: Mild steel flat bar shelf rail lying flat
+trap: "[weak_axis] The 50 x 6 bar lies flat, so it bends across its 6 mm depth: σ 209 MPa, SF 1.19; on edge it would be SF 10.0"
+control: false
+model: simple_beam
+inputs: {material: mild_steel, E_mpa: 200000, yield_mpa: 250, section: {type: rect, width_mm: 50, depth_mm: 6}, span_mm: 800, load_n: 314, support: simply_supported_center_load, required_safety_factor: 2.0}

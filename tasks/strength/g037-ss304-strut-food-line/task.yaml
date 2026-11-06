@@ -1,0 +1,7 @@
+id: g037-ss304-strut-food-line
+area: strength
+title: 304 stainless strut in a food-line frame
+trap: "[buckling] Compressive stress passes easily (SF 9.7) but the 12 mm rod over 900 mm fails by Euler buckling: P_cr 2394 N, SF 0.96"
+control: false
+model: column
+inputs: {material: SS304, E_mpa: 193000, yield_mpa: 215, diameter_mm: 12, length_mm: 900, end_condition: pinned_pinned, load_n: 2500, required_safety_factor: 2.5}

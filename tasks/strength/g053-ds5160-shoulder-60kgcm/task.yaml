@@ -1,0 +1,7 @@
+id: g053-ds5160-shoulder-60kgcm
+area: strength
+title: 60 kg·cm servo on a large arm shoulder
+trap: "[stall_vs_usable] Needed 44.2 kg·cm is below the 60 kg·cm stall rating, so it looks fine, but the required margin of 2 needs 88.5 kg·cm: margin only 1.36"
+control: false
+model: arm_torque
+inputs: {stall_torque_kgcm: 60, arm_length_mm: 300, arm_mass_kg: 0.35, tip_mass_kg: 1.3, required_margin: 2.0}

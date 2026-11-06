@@ -1,0 +1,7 @@
+id: g015-petg-cable-tray-arm-control
+area: strength
+title: PETG cable tray arm printed flat (control)
+trap: "[control] none, genuinely safe: printed on its side, so the bending runs along the extruded paths (47 MPa); SF 9.5"
+control: true
+model: cantilever_root_fillet
+inputs: {material: PETG, print_orientation: on_side, load_n: 7.85, lever_mm: 80, section: {type: rect, width_mm: 15, thickness_mm: 8}, fillet_mm: 3.0, required_safety_factor: 2.0}

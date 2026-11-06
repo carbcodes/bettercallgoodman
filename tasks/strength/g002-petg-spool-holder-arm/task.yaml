@@ -1,0 +1,7 @@
+id: g002-petg-spool-holder-arm
+area: strength
+title: PETG spool holder arm printed standing up
+trap: "[layer_direction] The arm was printed pointing up, so its bending stress acts across the print's stacked passes: PETG interlayer strength 18 MPa gives SF 1.21, while the 47 MPa datasheet figure would give 3.15"
+control: false
+model: cantilever_root_fillet
+inputs: {material: PETG, print_orientation: upright_layers_horizontal, load_n: 29.43, lever_mm: 90, section: {type: rect, width_mm: 20, thickness_mm: 8}, fillet_mm: 4.0, required_safety_factor: 2.0}

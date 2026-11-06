@@ -1,0 +1,7 @@
+id: g101-1018-heat-fixture-yield
+area: strength
+title: 1018 rod clamped in a heat-treat fixture
+trap: "[thermal_restraint] Nobody applies a load, but fully restrained heating gives σ = EαΔT = 288 MPa: yield SF 1.28"
+control: false
+model: thermal_column
+inputs: {material: 1018_CR, E_mpa: 200000, yield_mpa: 370, alpha_per_c: 1.2e-05, diameter_mm: 25, length_mm: 150, end_condition: fixed_fixed, delta_t_c: 120, required_safety_factor: 2.0}

@@ -1,0 +1,7 @@
+id: g071-forged-1018-hook-zero-max
+area: strength
+title: As-forged 1018 hook arm loaded 0 to max
+trap: "[fatigue] Static SF 1.61 passes, but the cyclic bending fails modified Goodman: Se 140 MPa, n_f 0.93 (Gerber 1.12) vs 1.5"
+control: false
+model: cantilever_fatigue
+inputs: {material: 1018_CD, yield_mpa: 370, ultimate_mpa: 440, surface: as_forged, diameter_mm: 18, lever_mm: 75, load_min_n: 0, load_max_n: 1750, frequency_hz: 1, required_safety_factor: 1.5}

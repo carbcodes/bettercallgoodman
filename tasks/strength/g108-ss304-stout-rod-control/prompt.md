@@ -1,0 +1,1 @@
+In a washdown frame, a 16 mm annealed 304 stainless rod (E 193 GPa, yield 215 MPa, expansion 17.3e-6 per °C), 400 mm long, is welded at both ends to a rigid frame and gets 25 °C warmer than the frame during cleaning. Will it be fine? End your answer with a short summary: your verdict (OK / not OK) and the key numbers you relied on.

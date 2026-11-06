@@ -1,0 +1,10 @@
+verdict: will_hold
+values:
+  required_torque_nm: {value: 0.523, tol: 0.05}
+  required_torque_kgcm: {value: 5.33, tol: 0.05}
+  torque_margin: {value: 3.82, tol: 0.05}
+why: |
+  Tip: 0.5 kg × 9.81 × 0.1016 m = 0.498 N·m. Arm (uniform, CG at L/2): 0.05 × 9.81 × 0.0508 = 0.025 N·m.
+  Required = 0.523 N·m = 5.3 kg·cm (1 kg·cm = 0.0981 N·m).
+  Rating 20.39 kg·cm = 2.00 N·m; margin = 20.39/5.3 = 3.82 vs required 2 (needs 10.7 kg·cm) → will hold.
+source: "Statics (torque = weight × lever arm, uniform arm at L/2); 1 kg·cm = 0.0981 N·m"

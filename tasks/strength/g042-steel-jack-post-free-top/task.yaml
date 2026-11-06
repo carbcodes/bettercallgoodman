@@ -1,0 +1,7 @@
+id: g042-steel-jack-post-free-top
+area: strength
+title: Steel post welded at the base with a free top
+trap: "[end_condition] Welded base, unbraced top: fixed-free (K 2), P_cr 1960 N, SF 0.98; treating it as pinned-pinned gives 7840 N and a false pass"
+control: false
+model: column
+inputs: {material: mild_steel, E_mpa: 200000, yield_mpa: 250, diameter_mm: 16, length_mm: 900, end_condition: fixed_free, load_n: 2000, required_safety_factor: 2.0}

@@ -1,0 +1,7 @@
+id: g025-abs-pegboard-clip-upright
+area: strength
+title: ABS pegboard arm printed upright with a sharp step
+trap: "[layer_direction] Printed upright, so bending acts across ABS's stacked passes (29.7 MPa), and the 0.5 mm step adds Kt 2.24: SF 1.27"
+control: false
+model: cantilever_step
+inputs: {material: ABS, print_orientation: upright_layers_horizontal, load_n: 18.6, lever_mm: 60, section: {type: rect, thickness_mm: 10, depth_mm: 8}, step: {D_mm: 14, d_mm: 8, r_mm: 0.5}, required_safety_factor: 2.0}

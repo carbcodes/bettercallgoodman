@@ -1,0 +1,7 @@
+id: g046-1018-welded-strut-control
+area: strength
+title: 1018 strut welded at both ends (control)
+trap: "[control] none, genuinely safe: SF 11.7 (stocky, Johnson range)"
+control: true
+model: column
+inputs: {material: 1018_CR, E_mpa: 200000, yield_mpa: 370, diameter_mm: 12, length_mm: 350, end_condition: fixed_fixed, load_n: 3000, required_safety_factor: 2.5}

@@ -1,0 +1,7 @@
+id: g072-1040-agitator-paddle-arm
+area: strength
+title: 1040 agitator paddle arm, reversed
+trap: "[fatigue] Static SF 1.64 passes, but the cyclic bending fails modified Goodman: Se 245 MPa, n_f 0.82 (Gerber 0.82) vs 1.5"
+control: false
+model: cantilever_fatigue
+inputs: {material: 1040_CD, yield_mpa: 490, ultimate_mpa: 590, surface: machined, diameter_mm: 12, lever_mm: 80, load_min_n: -635, load_max_n: 635, frequency_hz: 12, required_safety_factor: 1.5}

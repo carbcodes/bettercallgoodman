@@ -1,0 +1,7 @@
+id: g001-pla-blower-wall-hook
+area: strength
+title: PLA wall hook for a 4 kg leaf blower, printed upright
+trap: "[layer_direction] Printed standing on the wall plate's end, so the bending at the root pulls the print apart across its stacked passes: PLA across-layer 30 MPa gives SF 1.27; the 50 MPa datasheet value would give 2.12"
+control: false
+model: cantilever_root_fillet
+inputs: {material: PLA, print_orientation: upright_layers_horizontal, load_n: 39.24, lever_mm: 75, section: {type: rect, width_mm: 25, thickness_mm: 6}, fillet_mm: 3.0, required_safety_factor: 2.0}

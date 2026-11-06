@@ -1,0 +1,7 @@
+id: g031-petg-camera-arm-control
+area: strength
+title: PETG action-camera arm printed flat (control)
+trap: "[control] none, genuinely safe: printed flat, bending along the extruded paths (47 MPa); SF 6.4"
+control: true
+model: cantilever_step
+inputs: {material: PETG, print_orientation: flat, load_n: 15, lever_mm: 60, section: {type: rect, thickness_mm: 10, depth_mm: 10}, step: {D_mm: 16, d_mm: 10, r_mm: 3.0}, required_safety_factor: 2.0}

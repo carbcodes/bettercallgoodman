@@ -1,0 +1,1 @@
+A 20 mm mild steel spacer rod (E 200 GPa, yield 250 MPa, expansion 12e-6 per °C), 300 mm long, is welded between two rigid frame plates. In use it warms 20 °C above the plates. Will it be OK? End your answer with a short summary: your verdict (OK / not OK) and the key numbers you relied on.

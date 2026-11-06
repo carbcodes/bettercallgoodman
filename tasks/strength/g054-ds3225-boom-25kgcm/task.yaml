@@ -1,0 +1,7 @@
+id: g054-ds3225-boom-25kgcm
+area: strength
+title: 25 kg·cm servo lifting a sensor boom
+trap: "[stall_vs_usable] Needed 17.8 kg·cm is below the 25 kg·cm stall rating, so it looks fine, but the required margin of 2 needs 35.6 kg·cm: margin only 1.40"
+control: false
+model: arm_torque
+inputs: {stall_torque_kgcm: 25, arm_length_mm: 220, arm_mass_kg: 0.12, tip_mass_kg: 0.75, required_margin: 2.0}

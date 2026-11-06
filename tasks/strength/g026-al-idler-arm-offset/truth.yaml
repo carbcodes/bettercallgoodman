@@ -1,0 +1,11 @@
+verdict: not_safe
+values:
+  moment_nmm: {value: 54000, tol: 0.05}
+  max_stress_mpa: {value: 250, tol: 0.2}
+  safety_factor: {value: 1.1, tol: 0.25}
+why: |
+  M = F·L = 300 N × 180 mm = 54000 N·mm.
+  Z = b·h²/6 = 10·15²/6 = 375.0 mm³ → σ_nom = M/Z = 144.0 MPa.
+  Shoulder step D/d = 25/15 = 1.67, r/d = 2/15 = 0.133 → Kt = 1.74 (Peterson Chart 3.10 fit, bending) → σ_max = 1.74·144.0 = 250.3 MPa.
+  Strength: yield 276 MPa. SF = 276/250.3 = 1.10 vs required 2 → not safe.
+source: "Shigley 10th ed. §3-10 (bending stress); Kt: Pilkey & Pilkey, Peterson's Stress Concentration Factors 3rd ed., Chart 3.10 (stepped flat bar in bending, polynomial fit also in Roark 7th ed. Table 17.1)"

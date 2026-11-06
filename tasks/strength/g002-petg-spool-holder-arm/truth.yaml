@@ -1,0 +1,12 @@
+verdict: not_safe
+values:
+  moment_nmm: {value: 2650, tol: 0.05}
+  max_stress_mpa: {value: 14.9, tol: 0.2}
+  safety_factor: {value: 1.21, tol: 0.25}
+must_mention: [layer_direction_strength]
+why: |
+  M = F·L = 29.43 N × 90 mm = 2649 N·mm.
+  Z = b·h²/6 = 20·8²/6 = 213.3 mm³ → σ_nom = M/Z = 12.4 MPa.
+  Root corner r/h = 4/8 = 0.500; corner into a much larger body taken as a shoulder with D/d = 2 (Peterson Chart 3.10 fit) → Kt = 1.20 → σ_max = 1.20·12.4 = 14.9 MPa.
+  Strength: PETG across-layer strength 18 MPa (materials.yaml). SF = 18/14.9 = 1.21 vs required 2 → not safe.
+source: "Shigley 10th ed. §3-10 (bending stress); Kt: Pilkey & Pilkey, Peterson's Stress Concentration Factors 3rd ed., Chart 3.10 (stepped flat bar in bending, polynomial fit also in Roark 7th ed. Table 17.1)"

@@ -1,0 +1,1 @@
+In a steam sterilizer rack, a 20 mm annealed 304 stainless rod (E 193 GPa, yield 215 MPa, expansion 17.3e-6 per °C), 250 mm long, is welded between two thick outer plates that stay near room temperature. Steam heats the rod 100 °C above the plates. It mustn't yield. Is it OK? End your answer with a short summary: your verdict (OK / not OK) and the key numbers you relied on.

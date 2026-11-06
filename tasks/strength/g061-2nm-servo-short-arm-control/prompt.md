@@ -1,0 +1,1 @@
+A servo rated 2.0 N·m (stall) tilts a 4 in arm on a sorting machine. The arm weighs 50 g spread evenly and the paddle at its end is 0.5 kg. We need a margin of 2 with the arm horizontal. Is the servo OK? End your answer with a short summary: your verdict (will hold / won't hold) and the key numbers you relied on.

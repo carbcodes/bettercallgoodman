@@ -1,0 +1,7 @@
+id: g047-ss304-shelf-post-control
+area: strength
+title: 304 stainless shelf post (control)
+trap: "[control] none, genuinely safe: SF 8.1"
+control: true
+model: column
+inputs: {material: SS304, E_mpa: 193000, yield_mpa: 215, diameter_mm: 10, length_mm: 250, end_condition: pinned_pinned, load_n: 1500, required_safety_factor: 2.0}

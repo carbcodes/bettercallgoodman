@@ -1,0 +1,7 @@
+id: g027-steel-counterweight-arm-offset
+area: strength
+title: 1018 counterweight arm with an extension bracket
+trap: "[lever_arm] The weight hangs 100 mm beyond the end of the 80 mm arm, so the lever from the step is 180 mm: SF 1.54"
+control: false
+model: cantilever_step
+inputs: {material: 1018_CR, yield_mpa: 370, load_n: 204.6, lever_mm: 180, section: {type: rect, thickness_mm: 10, depth_mm: 12}, step: {D_mm: 20, d_mm: 12, r_mm: 2.0}, required_safety_factor: 2.5}

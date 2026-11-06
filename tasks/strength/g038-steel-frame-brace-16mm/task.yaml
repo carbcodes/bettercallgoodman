@@ -1,0 +1,7 @@
+id: g038-steel-frame-brace-16mm
+area: strength
+title: Steel compression brace in a machine frame
+trap: "[buckling] Compressive stress passes easily (SF 11.2) but the 16 mm rod over 1200 mm fails by Euler buckling: P_cr 4410 N, SF 0.98"
+control: false
+model: column
+inputs: {material: mild_steel, E_mpa: 200000, yield_mpa: 250, diameter_mm: 16, length_mm: 1200, end_condition: pinned_pinned, load_n: 4500, required_safety_factor: 2.0}

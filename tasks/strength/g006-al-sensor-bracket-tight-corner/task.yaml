@@ -1,0 +1,7 @@
+id: g006-al-sensor-bracket-tight-corner
+area: strength
+title: 6061 sensor bracket milled with a 0.4 mm inside corner
+trap: "[stress_concentration] Nominal SF 2.8 looks comfortable, but the 0.4 mm inside corner gives Kt 2.22: SF 1.27"
+control: false
+model: cantilever_root_fillet
+inputs: {material: Al6061-T6, yield_mpa: 276, load_n: 78.48, lever_mm: 150, section: {type: rect, width_mm: 20, thickness_mm: 6}, fillet_mm: 0.4, required_safety_factor: 2.0}

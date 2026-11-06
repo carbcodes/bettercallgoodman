@@ -1,0 +1,7 @@
+id: g018-abs-router-shelf-control
+area: strength
+title: ABS router shelf bracket printed flat (control)
+trap: "[control] none, genuinely safe: printed lying flat, bending along the extruded paths (33.4 MPa); SF 8.6"
+control: true
+model: cantilever_root_fillet
+inputs: {material: ABS, print_orientation: flat, load_n: 5.4, lever_mm: 90, section: {type: rect, width_mm: 25, thickness_mm: 6}, fillet_mm: 3.0, required_safety_factor: 2.0}

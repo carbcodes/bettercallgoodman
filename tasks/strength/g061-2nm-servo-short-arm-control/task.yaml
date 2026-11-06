@@ -1,0 +1,7 @@
+id: g061-2nm-servo-short-arm-control
+area: strength
+title: 2.0 N·m servo with a 4 in arm (control)
+trap: "[control] none, genuinely holds: 2.0 N·m = 20.4 kg·cm, need 5.33 kg·cm, margin 3.82"
+control: true
+model: arm_torque
+inputs: {stall_torque_kgcm: 20.39, arm_length_mm: 101.6, arm_mass_kg: 0.05, tip_mass_kg: 0.5, required_margin: 2.0}

@@ -1,0 +1,7 @@
+id: g039-steel-tie-rod-loft-bed
+area: strength
+title: Steel rod welded at both ends in a loft bed frame
+trap: "[buckling] Even with both ends welded (K 0.5), the 10 mm rod over 1 m buckles first: P_cr 3876 N, SF 1.11 (stress SF 5.6)"
+control: false
+model: column
+inputs: {material: mild_steel, E_mpa: 200000, yield_mpa: 250, diameter_mm: 10, length_mm: 1000, end_condition: fixed_fixed, load_n: 3500, required_safety_factor: 2.0}

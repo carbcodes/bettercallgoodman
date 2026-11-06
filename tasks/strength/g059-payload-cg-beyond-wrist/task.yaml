@@ -1,0 +1,7 @@
+id: g059-payload-cg-beyond-wrist
+area: strength
+title: Payload centre of mass beyond the end of the arm
+trap: "[lever_arm] The bottle's centre of mass is 100 mm beyond the 150 mm arm, so the lever is 250 mm: need 13.8 kg·cm, margin 1.09 vs 1.5"
+control: false
+model: arm_torque
+inputs: {stall_torque_kgcm: 15, arm_length_mm: 250, arm_mass_kg: 0, tip_mass_kg: 0.55, required_margin: 1.5}

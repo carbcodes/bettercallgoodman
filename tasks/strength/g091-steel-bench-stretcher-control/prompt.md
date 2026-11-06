@@ -1,0 +1,1 @@
+The stretcher of our welding bench is a 50 x 10 mm mild steel bar (E 200 GPa, yield 250 MPa) standing on edge (50 mm vertical), spanning 1 m between the legs on simple supports. Up to 1000 N can rest at its middle. We want a safety factor of 2. Is it OK? End your answer with a short summary: your verdict (safe / not safe) and the key numbers you relied on.

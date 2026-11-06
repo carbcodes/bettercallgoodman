@@ -1,0 +1,11 @@
+verdict: safe
+values:
+  moment_nmm: {value: 265, tol: 0.05}
+  max_stress_mpa: {value: 2.65, tol: 0.2}
+  safety_factor: {value: 18.9, tol: 0.25}
+why: |
+  M = F·L = 4.41 N × 60 mm = 265 N·mm.
+  Z = b·h²/6 = 20·6²/6 = 120.0 mm³ → σ_nom = M/Z = 2.2 MPa.
+  Root corner r/h = 3/6 = 0.500; corner into a much larger body taken as a shoulder with D/d = 2 (Peterson Chart 3.10 fit) → Kt = 1.20 → σ_max = 1.20·2.2 = 2.7 MPa.
+  Strength: PLA in-layer strength 50 MPa (materials.yaml). SF = 50/2.7 = 18.86 vs required 2 → safe.
+source: "Shigley 10th ed. §3-10 (bending stress); Kt: Pilkey & Pilkey, Peterson's Stress Concentration Factors 3rd ed., Chart 3.10 (stepped flat bar in bending, polynomial fit also in Roark 7th ed. Table 17.1)"

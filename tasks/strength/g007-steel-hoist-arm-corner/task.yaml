@@ -1,0 +1,7 @@
+id: g007-steel-hoist-arm-corner
+area: strength
+title: 1018 steel jib arm with a 0.5 mm inside radius
+trap: "[stress_concentration] Nominal stress gives SF 2.2; the 0.5 mm root radius raises it by Kt 2.60 to SF 0.86"
+control: false
+model: cantilever_root_fillet
+inputs: {material: 1018_CR, yield_mpa: 370, load_n: 667.2, lever_mm: 254.0, section: {type: rect, width_mm: 38.1, thickness_mm: 12.7}, fillet_mm: 0.5, required_safety_factor: 2.0}

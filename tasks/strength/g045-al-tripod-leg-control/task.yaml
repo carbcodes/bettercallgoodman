@@ -1,0 +1,7 @@
+id: g045-al-tripod-leg-control
+area: strength
+title: 6061 camera tripod centre post (control)
+trap: "[control] none, genuinely safe: P_cr 13673 N gives SF 6.8"
+control: true
+model: column
+inputs: {material: Al6061-T6, E_mpa: 68900, yield_mpa: 276, diameter_mm: 16, length_mm: 400, end_condition: pinned_pinned, load_n: 2000, required_safety_factor: 2.0}

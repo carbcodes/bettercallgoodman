@@ -1,0 +1,7 @@
+id: g009-ss304-flowmeter-bracket
+area: strength
+title: 304 stainless flowmeter bracket with a 0.5 mm corner
+trap: "[stress_concentration] Nominal SF 2.6; the 0.5 mm inside corner (Kt 2.07) brings it to SF 1.27"
+control: false
+model: cantilever_root_fillet
+inputs: {material: SS304, load_n: 117.7, lever_mm: 125, section: {type: rect, width_mm: 30, thickness_mm: 6}, fillet_mm: 0.5, required_safety_factor: 2.0}

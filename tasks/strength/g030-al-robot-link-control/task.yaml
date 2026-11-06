@@ -1,0 +1,7 @@
+id: g030-al-robot-link-control
+area: strength
+title: 6061 robot arm link with a 3 mm step radius (control)
+trap: "[control] none, genuinely safe: SF 5.1, Kt 1.52 at the 3 mm step"
+control: true
+model: cantilever_step
+inputs: {material: Al6061-T6, yield_mpa: 276, load_n: 60, lever_mm: 200, section: {type: rect, thickness_mm: 8, depth_mm: 16}, step: {D_mm: 24, d_mm: 16, r_mm: 3.0}, required_safety_factor: 2.0}

@@ -1,0 +1,7 @@
+id: g110-7075-short-rod-control
+area: strength
+title: Short 10 mm 7075 rod, 30 °C (control)
+trap: "[control] none, genuinely OK: SF 5.5"
+control: true
+model: thermal_column
+inputs: {material: Al7075-T6, E_mpa: 71700, yield_mpa: 503, alpha_per_c: 2.36e-05, diameter_mm: 10, length_mm: 250, end_condition: fixed_fixed, delta_t_c: 30}

@@ -1,0 +1,7 @@
+id: g050-ds3218-elbow-margin
+area: strength
+title: 20 kg·cm servo on a robot elbow, margin 2
+trap: "[stall_vs_usable] Needed 13.8 kg·cm is below the 20 kg·cm stall rating, so it looks fine, but the required margin of 2 needs 27.6 kg·cm: margin only 1.45"
+control: false
+model: arm_torque
+inputs: {stall_torque_kgcm: 20, arm_length_mm: 200, arm_mass_kg: 0.08, tip_mass_kg: 0.65, required_margin: 2.0}

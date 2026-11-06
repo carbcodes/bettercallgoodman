@@ -1,0 +1,1 @@
+Our test rig flips a part on a 12 in long arm driven by a servo rated 400 oz-in of stall torque. The arm weighs 0.25 lb spread evenly and the part plus fixture at the end weigh 2.0 lb. It has to hold the arm horizontal with a margin of 1.5. Is the servo big enough? End your answer with a short summary: your verdict (will hold / won't hold) and the key numbers you relied on.

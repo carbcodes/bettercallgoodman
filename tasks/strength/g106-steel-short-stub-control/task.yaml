@@ -1,0 +1,7 @@
+id: g106-steel-short-stub-control
+area: strength
+title: Short 20 mm steel stub, small warm-up (control)
+trap: "[control] none, genuinely OK: σ 48 MPa (SF 5.2), restrained force 15080 N vs P_cr 76302 N"
+control: true
+model: thermal_column
+inputs: {material: mild_steel, E_mpa: 200000, yield_mpa: 250, alpha_per_c: 1.2e-05, diameter_mm: 20, length_mm: 300, end_condition: fixed_fixed, delta_t_c: 20}

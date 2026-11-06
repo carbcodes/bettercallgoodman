@@ -1,0 +1,1 @@
+In our cold room a stainless shelf is propped by 10 mm annealed 304 rods (E 193 GPa, yield 215 MPa), 250 mm long, pinned top and bottom. Each carries up to 1500 N. Safety factor 2. Are they OK? End your answer with a short summary: your verdict (safe / not safe) and the key numbers you relied on.

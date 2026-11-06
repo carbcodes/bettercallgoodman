@@ -1,0 +1,1 @@
+On a solar panel test frame a 12 mm 6061-T6 rod (E 68.9 GPa, yield 276 MPa, expansion 23.6e-6 per °C), 1.0 m long, is clamped rigidly at both ends to a steel base that stays cool in the shade. In summer the rod gets 35 °C hotter than the base. Is it OK? End your answer with a short summary: your verdict (OK / not OK) and the key numbers you relied on.

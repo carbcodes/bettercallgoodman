@@ -1,0 +1,1 @@
+In a load frame, a 12 mm wide, 30 mm tall 7075-T6 bar (E 71.7 GPa, yield 503 MPa) rests on rollers 500 mm apart and is pushed down at its centre with 2.5 kN. We need 1.5 on yield. Is the bar OK? End your answer with a short summary: your verdict (safe / not safe) and the key numbers you relied on.

@@ -1,0 +1,7 @@
+id: g060-35kgcm-light-arm-control
+area: strength
+title: 35 kg·cm servo with a light arm (control)
+trap: "[control] none, genuinely holds: need 9.75 kg·cm, margin 3.59 vs 2"
+control: true
+model: arm_torque
+inputs: {stall_torque_kgcm: 35, arm_length_mm: 150, arm_mass_kg: 0.1, tip_mass_kg: 0.6, required_margin: 2.0}

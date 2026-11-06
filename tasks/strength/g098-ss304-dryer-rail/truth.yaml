@@ -1,0 +1,14 @@
+verdict: not_safe
+values:
+  thermal_stress_mpa: {value: 134, tol: 0.05}
+  thermal_force_n: {value: 15105, tol: 0.05}
+  buckling_load_n: {value: 5390, tol: 0.05}
+  safety_factor: {value: 0.357, tol: 0.1}
+must_mention: [buckling]
+why: |
+  Fully restrained: σ = E·α·ΔT = 193000·1.73e-05·40 = 133.6 MPa → yield SF = 215/133.6 = 1.61.
+  A = π·12²/4 = 113.1 mm² → axial force F = σ·A = 15105 N.
+  I = π·12⁴/64 = 1018 mm⁴; fixed-fixed → K = 0.5; KL/r = 200 vs transition 133 → Euler: P_cr = 5386 N.
+  Buckling SF = 5386/15105 = 0.36; the rod would bow once ΔT > P_cr/(E·α·A) = 14.3 °C.
+  SF = min(1.61, 0.36) = 0.36 vs required 1 → not OK.
+source: "Shigley 10th ed. §3-14 (restrained thermal stress σ = EαΔT) and §4-11 to 4-13 (column buckling); CTE and E: ASM Aerospace Specification Metals / MatWeb (6061-T6 and 7075-T6 23.6e-6/°C, AISI 304 17.3e-6/°C, carbon steel ~12e-6/°C)"

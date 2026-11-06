@@ -1,0 +1,1 @@
+A 10 mm 1018 cold-rolled steel rod (E 200 GPa, yield 370 MPa, expansion 12e-6 per °C), 200 mm between pins, links two rigid brackets and warms 30 °C more than they do. Is it OK? End your answer with a short summary: your verdict (OK / not OK) and the key numbers you relied on.

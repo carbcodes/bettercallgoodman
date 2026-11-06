@@ -1,0 +1,1 @@
+On our durability-test fixture a pneumatic cylinder presses a part down through an 8 mm mild steel rod (E 200 GPa, yield 250 MPa), 600 mm long between its two clevis pins. The cylinder pushes with 1500 N. We want a safety factor of 2. Is the rod OK? End your answer with a short summary: your verdict (safe / not safe) and the key numbers you relied on.

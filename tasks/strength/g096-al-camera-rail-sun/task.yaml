@@ -1,0 +1,7 @@
+id: g096-al-camera-rail-sun
+area: strength
+title: 6061 camera rail clamped at both ends in the sun
+trap: "[thermal_restraint] Restrained thermal stress 49 MPa is well under yield, but the restrained force 3831 N exceeds P_cr 2086 N: the rod bows above about +16 °C"
+control: false
+model: thermal_column
+inputs: {material: Al6061-T6, E_mpa: 68900, yield_mpa: 276, alpha_per_c: 2.36e-05, diameter_mm: 10, length_mm: 800, end_condition: fixed_fixed, delta_t_c: 30}

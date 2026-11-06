@@ -1,0 +1,7 @@
+id: g079-1035-shaker-rod-control
+area: strength
+title: 1035 shaker rod at low reversed stress (control)
+trap: "[control] none, genuinely safe: static SF 6.5, n_f 3.31 vs 1.5"
+control: true
+model: cantilever_fatigue
+inputs: {material: 1035_CD, yield_mpa: 460, ultimate_mpa: 550, surface: machined, diameter_mm: 10, lever_mm: 60, load_min_n: -115, load_max_n: 115, frequency_hz: 20, required_safety_factor: 1.5}

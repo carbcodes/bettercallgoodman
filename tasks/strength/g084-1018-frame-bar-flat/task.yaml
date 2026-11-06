@@ -1,0 +1,7 @@
+id: g084-1018-frame-bar-flat
+area: strength
+title: 1018 bar carrying a motor, mounted flat
+trap: "[weak_axis] The 25 x 10 bar lies flat, so it bends across its 10 mm depth: σ 308 MPa, SF 1.20; on edge it would be SF 3.0"
+control: false
+model: simple_beam
+inputs: {material: 1018_CR, E_mpa: 200000, yield_mpa: 370, section: {type: rect, width_mm: 25, depth_mm: 10}, span_mm: 1000, load_n: 513, support: simply_supported_center_load, required_safety_factor: 2.0}

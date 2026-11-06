@@ -18,7 +18,11 @@ def _load(case):
 
 
 def test_eight_cases_present():
-    assert len(CASES) == 8
+    assert len([c for c in CASES if c.startswith("s")]) == 8
+
+
+def test_generated_cases_present():
+    assert 100 <= len([c for c in CASES if c.startswith("g")]) <= 200
 
 
 @pytest.mark.parametrize("case", CASES)

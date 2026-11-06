@@ -1,0 +1,7 @@
+id: g028-al-pedal-arm-flat
+area: strength
+title: 6061 pedal arm loaded across its thin direction
+trap: "[weak_axis] The 25 mm wide arm is thinned to 6 mm and pushed on its wide face, so it bends across the 6 mm (Z = 150 mm³, SF 1.01); taking 25 mm as the depth gives SF ~4.2"
+control: false
+model: cantilever_step
+inputs: {material: Al6061-T6, yield_mpa: 276, load_n: 306, lever_mm: 100, section: {type: rect, thickness_mm: 25, depth_mm: 6}, step: {D_mm: 10, d_mm: 6, r_mm: 2.0}, required_safety_factor: 2.0}

@@ -1,0 +1,7 @@
+id: g055-nm-rated-servo-lb-in
+area: strength
+title: Servo rated in N·m with a payload given in pounds and inches
+trap: "[torque_units] The rating is 1.8 N·m = 18.4 kg·cm (not 18 or 180 kg·cm); need 17.7 kg·cm, margin 1.03 vs 1.5"
+control: false
+model: arm_torque
+inputs: {stall_torque_kgcm: 18.35, arm_length_mm: 228.6, arm_mass_kg: 0.1, tip_mass_kg: 0.726, required_margin: 1.5}

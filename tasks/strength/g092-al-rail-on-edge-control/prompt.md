@@ -1,0 +1,1 @@
+A 50 x 6 mm 6061-T6 bar (E 68.9 GPa, yield 276 MPa) stands on edge (50 mm vertical) across a 700 mm gap on simple supports as a cable-tray beam, with 400 N at mid-span. We need 1.5 on yield and less than 3 mm of sag. Will it do? End your answer with a short summary: your verdict (safe / not safe) and the key numbers you relied on.

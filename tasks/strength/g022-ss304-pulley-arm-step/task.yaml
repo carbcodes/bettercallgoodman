@@ -1,0 +1,7 @@
+id: g022-ss304-pulley-arm-step
+area: strength
+title: 304 stainless pulley arm with a 0.3 mm step radius
+trap: "[stress_concentration] Nominal SF 2.7; the 0.3 mm step radius (D/d 1.8) gives Kt 2.81: SF 0.97"
+control: false
+model: cantilever_step
+inputs: {material: SS304, load_n: 165, lever_mm: 80, section: {type: rect, thickness_mm: 10, depth_mm: 10}, step: {D_mm: 18, d_mm: 10, r_mm: 0.3}, required_safety_factor: 2.0}

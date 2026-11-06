@@ -1,0 +1,7 @@
+id: g098-ss304-dryer-rail
+area: strength
+title: 304 stainless rail in a food dryer
+trap: "[thermal_restraint] Restrained thermal stress 134 MPa is well under yield, but the restrained force 15105 N exceeds P_cr 5386 N: the rod bows above about +14 °C"
+control: false
+model: thermal_column
+inputs: {material: SS304, E_mpa: 193000, yield_mpa: 215, alpha_per_c: 1.73e-05, diameter_mm: 12, length_mm: 1200, end_condition: fixed_fixed, delta_t_c: 40}

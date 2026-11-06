@@ -1,0 +1,7 @@
+id: g093-ss304-square-bar-control
+area: strength
+title: 304 stainless square bar beam (control)
+trap: "[control] none, genuinely safe: SF 3.5"
+control: true
+model: simple_beam
+inputs: {material: SS304, E_mpa: 193000, yield_mpa: 215, section: {type: rect, width_mm: 25, depth_mm: 25}, span_mm: 800, load_n: 800, support: simply_supported_center_load, required_safety_factor: 2.0}

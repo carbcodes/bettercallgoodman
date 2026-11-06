@@ -1,0 +1,1 @@
+A food dehydrator line has a 12 mm annealed 304 stainless guide rail (E 193 GPa, yield 215 MPa, expansion 17.3e-6 per °C), 1.2 m long, rigidly clamped at both ends to the cool outer frame. In production the rail runs 40 °C above the frame. It must stay straight. Will it? End your answer with a short summary: your verdict (OK / not OK) and the key numbers you relied on.

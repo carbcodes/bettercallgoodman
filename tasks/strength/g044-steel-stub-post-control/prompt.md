@@ -1,0 +1,1 @@
+We're adding a 20 mm mild steel round support (E 200 GPa, yield 250 MPa), 300 mm long and pinned at both ends, under a workbench vise mount. It carries up to 5 kN in compression. Safety factor of 2. Is it OK? End your answer with a short summary: your verdict (safe / not safe) and the key numbers you relied on.

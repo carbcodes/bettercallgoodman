@@ -1,0 +1,7 @@
+id: g073-ground-1035-cam-follower-arm
+area: strength
+title: Ground 1035 cam-follower arm, reversed
+trap: "[fatigue] Static SF 1.58 passes, but the cyclic bending fails modified Goodman: Se 254 MPa, n_f 0.88 (Gerber 0.88) vs 1.5"
+control: false
+model: cantilever_fatigue
+inputs: {material: 1035_CD, yield_mpa: 460, ultimate_mpa: 550, surface: ground, diameter_mm: 10, lever_mm: 50, load_min_n: -570, load_max_n: 570, frequency_hz: 30, required_safety_factor: 1.5}

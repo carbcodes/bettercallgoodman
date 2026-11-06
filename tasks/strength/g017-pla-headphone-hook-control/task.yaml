@@ -1,0 +1,7 @@
+id: g017-pla-headphone-hook-control
+area: strength
+title: PLA headphone hook printed on its side (control)
+trap: "[control] none, genuinely safe: printed on its side, so bending acts along the extruded paths (50 MPa); SF 18.9"
+control: true
+model: cantilever_root_fillet
+inputs: {material: PLA, print_orientation: on_side, load_n: 4.41, lever_mm: 60, section: {type: rect, width_mm: 20, thickness_mm: 6}, fillet_mm: 3.0, required_safety_factor: 2.0}

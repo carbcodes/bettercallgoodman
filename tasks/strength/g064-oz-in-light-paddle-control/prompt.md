@@ -1,0 +1,1 @@
+We use a 400 oz-in (stall) servo to swing an 8 in diverter arm on a parcel line. The arm weighs 0.15 lb spread evenly and the paddle at the end is 0.75 lb. We size for a margin of 2 with the arm horizontal. Is the servo fine? End your answer with a short summary: your verdict (will hold / won't hold) and the key numbers you relied on.

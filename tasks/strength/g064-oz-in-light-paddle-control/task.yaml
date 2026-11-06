@@ -1,0 +1,7 @@
+id: g064-oz-in-light-paddle-control
+area: strength
+title: 400 oz·in servo with a light paddle (control)
+trap: "[control] none, genuinely holds: 400 oz·in = 28.8 kg·cm, need 7.60 kg·cm, margin 3.79"
+control: true
+model: arm_torque
+inputs: {stall_torque_kgcm: 28.8, arm_length_mm: 203.2, arm_mass_kg: 0.068, tip_mass_kg: 0.34, required_margin: 2.0}

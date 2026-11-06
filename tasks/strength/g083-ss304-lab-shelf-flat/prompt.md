@@ -1,0 +1,1 @@
+In the lab we're using a 40 x 5 mm annealed 304 stainless flat bar (E 193 GPa, yield 215 MPa), lying flat, as a shelf rail across a 600 mm gap. A 20.3 kg water bath sits in the middle. Safety factor of 2 on yield. Is the rail OK? End your answer with a short summary: your verdict (safe / not safe) and the key numbers you relied on.

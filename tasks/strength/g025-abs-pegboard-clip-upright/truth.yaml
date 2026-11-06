@@ -1,0 +1,12 @@
+verdict: not_safe
+values:
+  moment_nmm: {value: 1120, tol: 0.05}
+  max_stress_mpa: {value: 23.5, tol: 0.2}
+  safety_factor: {value: 1.27, tol: 0.25}
+must_mention: [layer_direction_strength, stress_concentration]
+why: |
+  M = F·L = 18.6 N × 60 mm = 1116 N·mm.
+  Z = b·h²/6 = 10·8²/6 = 106.7 mm³ → σ_nom = M/Z = 10.5 MPa.
+  Shoulder step D/d = 14/8 = 1.75, r/d = 0.5/8 = 0.062 → Kt = 2.24 (Peterson Chart 3.10 fit, bending) → σ_max = 2.24·10.5 = 23.5 MPa.
+  Strength: ABS across-layer strength 29.7 MPa (materials.yaml). SF = 29.7/23.5 = 1.27 vs required 2 → not safe.
+source: "Shigley 10th ed. §3-10 (bending stress); Kt: Pilkey & Pilkey, Peterson's Stress Concentration Factors 3rd ed., Chart 3.10 (stepped flat bar in bending, polynomial fit also in Roark 7th ed. Table 17.1)"

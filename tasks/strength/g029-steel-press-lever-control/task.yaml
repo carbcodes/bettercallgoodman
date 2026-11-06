@@ -1,0 +1,7 @@
+id: g029-steel-press-lever-control
+area: strength
+title: 1018 press lever with a generous step radius (control)
+trap: "[control] none, genuinely safe: 4 mm step radius keeps Kt at 1.50; SF 4.6"
+control: true
+model: cantilever_step
+inputs: {material: 1018_CR, yield_mpa: 370, load_n: 300, lever_mm: 120, section: {type: rect, thickness_mm: 10, depth_mm: 20}, step: {D_mm: 30, d_mm: 20, r_mm: 4.0}, required_safety_factor: 2.0}

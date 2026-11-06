@@ -1,0 +1,7 @@
+id: g005-abs-tool-holder-arm
+area: strength
+title: ABS cordless drill holder printed upright with a 1 mm corner
+trap: "[layer_direction] Printed upright: the root bending acts across ABS's stacked passes (29.7 MPa) and the 1 mm corner adds Kt 1.66; SF 1.29"
+control: false
+model: cantilever_root_fillet
+inputs: {material: ABS, print_orientation: upright_layers_horizontal, load_n: 29.43, lever_mm: 85, section: {type: rect, width_mm: 30, thickness_mm: 6}, fillet_mm: 1.0, required_safety_factor: 2.0}

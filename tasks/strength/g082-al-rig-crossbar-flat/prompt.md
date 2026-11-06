@@ -1,0 +1,1 @@
+On a small test rig a 30 x 4 mm 6061-T6 flat bar (E 68.9 GPa, yield 276 MPa) spans 400 mm between two uprights, lying flat with its wide face up, and a 22.5 kg weight stack sits at mid-span. We need 1.5 on yield. Will the cross bar hold? End your answer with a short summary: your verdict (safe / not safe) and the key numbers you relied on.

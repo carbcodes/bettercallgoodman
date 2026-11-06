@@ -1,0 +1,7 @@
+id: g070-1045-crank-pin-reversed
+area: strength
+title: 1045 crank pin with reversed bending, SF 2
+trap: "[fatigue] Static SF 2.10 passes, but the cyclic bending fails modified Goodman: Se 257 MPa, n_f 1.02 (Gerber 1.02) vs 2"
+control: false
+model: cantilever_fatigue
+inputs: {material: 1045_CD, yield_mpa: 530, ultimate_mpa: 630, surface: machined, diameter_mm: 14, lever_mm: 70, load_min_n: -970, load_max_n: 970, frequency_hz: 15, required_safety_factor: 2.0}

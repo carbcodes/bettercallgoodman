@@ -1,0 +1,1 @@
+A machine frame has a diagonal brace made from 16 mm mild steel round bar (E 200 GPa, yield 250 MPa), 1.2 m long between pin joints. Under the heaviest loading it carries 4.5 kN in compression. We want a safety factor of 2. Is the brace OK? End your answer with a short summary: your verdict (safe / not safe) and the key numbers you relied on.

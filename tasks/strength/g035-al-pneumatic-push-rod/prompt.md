@@ -1,0 +1,1 @@
+We're replacing a steel pushrod on a pneumatic clamping rig with a 10 mm diameter 6061-T6 aluminum rod (E 68.9 GPa, yield 276 MPa) to save weight. It's 700 mm long, with a pinned eye at each end, and it pushes with 750 N. Safety factor 2, please. Will it work? End your answer with a short summary: your verdict (safe / not safe) and the key numbers you relied on.

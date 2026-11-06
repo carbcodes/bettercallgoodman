@@ -1,0 +1,7 @@
+id: g056-oz-in-rated-arm
+area: strength
+title: 400 oz·in servo with a 12 in arm
+trap: "[torque_units] 400 oz·in = 28.8 kg·cm = 2.83 N·m; need 29.4 kg·cm, margin 0.98 vs 1.5"
+control: false
+model: arm_torque
+inputs: {stall_torque_kgcm: 28.8, arm_length_mm: 304.8, arm_mass_kg: 0.113, tip_mass_kg: 0.907, required_margin: 1.5}

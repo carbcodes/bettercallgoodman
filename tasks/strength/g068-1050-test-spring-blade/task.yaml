@@ -1,0 +1,7 @@
+id: g068-1050-test-spring-blade
+area: strength
+title: 1050 cantilever flexure on a vibration table
+trap: "[fatigue] Static SF 1.76 passes, but the cyclic bending fails modified Goodman: Se 275 MPa, n_f 0.83 (Gerber 0.83) vs 1.5"
+control: false
+model: cantilever_fatigue
+inputs: {material: 1050_CD, yield_mpa: 580, ultimate_mpa: 690, surface: machined, diameter_mm: 12, lever_mm: 100, load_min_n: -560, load_max_n: 560, frequency_hz: 60, required_safety_factor: 1.5}

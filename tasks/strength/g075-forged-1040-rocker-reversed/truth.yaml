@@ -1,0 +1,14 @@
+verdict: not_safe
+values:
+  max_stress_mpa: {value: 200, tol: 0.05}
+  static_safety_factor: {value: 2.45, tol: 0.05}
+  fatigue_safety_factor: {value: 0.701, tol: 0.15}
+must_mention: [fatigue]
+why: |
+  Z = π·d³/32 = π·16³/32 = 402.1 mm³; M_max = 1150 × 70 = 80500 N·mm → σ_max = 200.2 MPa.
+  Static SF = Sy/σ_max = 490/200.2 = 2.45.
+  Load -1150 → 1150 N: σ_a = 200.2 MPa, σ_m = 0.0 MPa.
+  Se' = 0.5·Sut = 295 MPa; ka (as forged) = 272·590^-0.995 = 0.476; kb..ke ≈ 1 → Se = 140.4 MPa.
+  Modified Goodman: 1/n = 200.2/140.4 + 0.0/590 = 1.426 → n_f = 0.70 (Gerber 0.70).
+  SF = min(2.45, 0.70) = 0.70 vs required 2 → not safe.
+source: "Shigley 10th ed. Ch. 6 (Se' = 0.5 Sut, Marin surface factor Table 6-2, modified Goodman Eq. 6-41, Gerber Eq. 6-42); Steel Sy/Sut: Shigley 10th ed. Table A-20 (deterministic ASTM minimum strengths)"

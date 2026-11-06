@@ -1,0 +1,7 @@
+id: g078-1050-ground-spindle-stub-control
+area: strength
+title: Ground 1050 stub loaded 0 to max (control)
+trap: "[control] none, genuinely safe: static SF 5.2, n_f 3.89 vs 2"
+control: true
+model: cantilever_fatigue
+inputs: {material: 1050_CD, yield_mpa: 580, ultimate_mpa: 690, surface: ground, diameter_mm: 20, lever_mm: 60, load_min_n: 0, load_max_n: 1450, frequency_hz: 3, required_safety_factor: 2.0}

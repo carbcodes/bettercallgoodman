@@ -1,0 +1,7 @@
+id: g052-wrist-servo-9kgcm
+area: strength
+title: 9.4 kg·cm servo at a gripper wrist
+trap: "[stall_vs_usable] Needed 6.9 kg·cm is below the 9.4 kg·cm stall rating, so it looks fine, but the required margin of 2 needs 13.8 kg·cm: margin only 1.36"
+control: false
+model: arm_torque
+inputs: {stall_torque_kgcm: 9.4, arm_length_mm: 120, arm_mass_kg: 0.05, tip_mass_kg: 0.55, required_margin: 2.0}

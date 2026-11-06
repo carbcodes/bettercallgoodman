@@ -1,0 +1,7 @@
+id: g102-steel-furnace-guide-rail
+area: strength
+title: Steel guide rail near a furnace
+trap: "[thermal_restraint] Restrained thermal stress 108 MPa is well under yield, but the restrained force 21715 N exceeds P_cr 11289 N: the rod bows above about +23 °C"
+control: false
+model: thermal_column
+inputs: {material: mild_steel, E_mpa: 200000, yield_mpa: 250, alpha_per_c: 1.2e-05, diameter_mm: 16, length_mm: 1500, end_condition: fixed_fixed, delta_t_c: 45}

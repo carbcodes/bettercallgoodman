@@ -1,0 +1,7 @@
+id: g095-steel-flat-short-span-control
+area: strength
+title: Mild steel flat bar on a short span (control)
+trap: "[control] none, genuinely safe: even lying flat, SF 4.2 and sag 0.80 mm"
+control: true
+model: simple_beam
+inputs: {material: mild_steel, E_mpa: 200000, yield_mpa: 250, section: {type: rect, width_mm: 40, depth_mm: 10}, span_mm: 400, load_n: 400, support: simply_supported_center_load, required_safety_factor: 2.0, max_deflection_mm: 2.0}

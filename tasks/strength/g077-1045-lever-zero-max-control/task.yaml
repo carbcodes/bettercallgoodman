@@ -1,0 +1,7 @@
+id: g077-1045-lever-zero-max-control
+area: strength
+title: 1045 lever loaded 0 to max at low stress (control)
+trap: "[control] none, genuinely safe: static SF 5.9, n_f 4.08 vs 2"
+control: true
+model: cantilever_fatigue
+inputs: {material: 1045_CD, yield_mpa: 530, ultimate_mpa: 630, surface: machined, diameter_mm: 16, lever_mm: 80, load_min_n: 0, load_max_n: 450, frequency_hz: 5, required_safety_factor: 2.0}

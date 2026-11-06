@@ -1,0 +1,7 @@
+id: g087-1018-measuring-bridge-sag
+area: strength
+title: 1018 measuring bridge that sags
+trap: "[deflection] Stress is fine (SF 10.3) but the centre sags 2.7 mm against a 1 mm limit"
+control: false
+model: simple_beam
+inputs: {material: 1018_CR, E_mpa: 200000, yield_mpa: 370, section: {type: rect, width_mm: 40, depth_mm: 25}, span_mm: 1500, load_n: 400, support: simply_supported_center_load, required_safety_factor: 2.0, max_deflection_mm: 1.0}

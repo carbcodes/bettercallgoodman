@@ -1,0 +1,7 @@
+id: g040-1018-link-rod-ends
+area: strength
+title: 1018 link with rod-end bearings treated as fixed
+trap: "[end_condition] Rod-end bearings are pinned (K 1): P_cr 3876 N, SF 1.08; assuming fixed ends gives P_cr 15503 N and a false pass"
+control: false
+model: column
+inputs: {material: 1018_CR, E_mpa: 200000, yield_mpa: 370, diameter_mm: 10, length_mm: 500, end_condition: pinned_pinned, load_n: 3600, required_safety_factor: 2.0}

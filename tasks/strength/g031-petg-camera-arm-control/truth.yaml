@@ -1,0 +1,11 @@
+verdict: safe
+values:
+  moment_nmm: {value: 900, tol: 0.05}
+  max_stress_mpa: {value: 7.4, tol: 0.2}
+  safety_factor: {value: 6.35, tol: 0.25}
+why: |
+  M = F·L = 15 N × 60 mm = 900 N·mm.
+  Z = b·h²/6 = 10·10²/6 = 166.7 mm³ → σ_nom = M/Z = 5.4 MPa.
+  Shoulder step D/d = 16/10 = 1.60, r/d = 3/10 = 0.300 → Kt = 1.37 (Peterson Chart 3.10 fit, bending) → σ_max = 1.37·5.4 = 7.4 MPa.
+  Strength: PETG in-layer strength 47 MPa (materials.yaml). SF = 47/7.4 = 6.35 vs required 2 → safe.
+source: "Shigley 10th ed. §3-10 (bending stress); Kt: Pilkey & Pilkey, Peterson's Stress Concentration Factors 3rd ed., Chart 3.10 (stepped flat bar in bending, polynomial fit also in Roark 7th ed. Table 17.1)"

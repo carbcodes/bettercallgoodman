@@ -1,0 +1,7 @@
+id: g065-feeder-pin-reversed
+area: strength
+title: 1018 vibrating feeder pin, fully reversed
+trap: "[fatigue] Static SF 1.61 passes, but the cyclic bending fails modified Goodman: Se 198 MPa, n_f 0.86 (Gerber 0.86) vs 1.5"
+control: false
+model: cantilever_fatigue
+inputs: {material: 1018_CD, yield_mpa: 370, ultimate_mpa: 440, surface: machined, diameter_mm: 10, lever_mm: 60, load_min_n: -375, load_max_n: 375, frequency_hz: 50, required_safety_factor: 1.5}

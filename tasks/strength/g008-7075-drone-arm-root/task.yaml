@@ -1,0 +1,7 @@
+id: g008-7075-drone-arm-root
+area: strength
+title: 7075 drone arm machined with a sharp root corner
+trap: "[stress_concentration] Nominal SF 2.2, but the 0.3 mm corner where the arm leaves the hub has Kt 2.42: SF 0.90"
+control: false
+model: cantilever_root_fillet
+inputs: {material: Al7075-T6, yield_mpa: 503, load_n: 62.78, lever_mm: 220, section: {type: rect, width_mm: 10, thickness_mm: 6}, fillet_mm: 0.3, required_safety_factor: 1.5}

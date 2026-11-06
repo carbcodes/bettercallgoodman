@@ -1,0 +1,7 @@
+id: g041-al-strut-shoulder-bolts
+area: strength
+title: 6061 strut on shoulder bolts treated as fixed
+trap: "[end_condition] A single shoulder bolt through each end lets the strut rotate, so it is pinned (K 1): P_cr 1923 N, SF 1.07; fixed ends would give 7691 N"
+control: false
+model: column
+inputs: {material: Al6061-T6, E_mpa: 68900, yield_mpa: 276, diameter_mm: 12, length_mm: 600, end_condition: pinned_pinned, load_n: 1800, required_safety_factor: 2.0}

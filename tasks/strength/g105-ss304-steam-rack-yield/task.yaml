@@ -1,0 +1,7 @@
+id: g105-ss304-steam-rack-yield
+area: strength
+title: 304 tie rod clamped in a steam sterilizer
+trap: "[thermal_restraint] Nobody applies a load, but fully restrained heating gives σ = EαΔT = 334 MPa: yield SF 0.64"
+control: false
+model: thermal_column
+inputs: {material: SS304, E_mpa: 193000, yield_mpa: 215, alpha_per_c: 1.73e-05, diameter_mm: 20, length_mm: 250, end_condition: fixed_fixed, delta_t_c: 100}

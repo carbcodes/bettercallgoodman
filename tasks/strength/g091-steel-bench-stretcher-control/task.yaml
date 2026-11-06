@@ -1,0 +1,7 @@
+id: g091-steel-bench-stretcher-control
+area: strength
+title: Steel bench stretcher on edge (control)
+trap: "[control] none, genuinely safe: on edge, SF 4.2"
+control: true
+model: simple_beam
+inputs: {material: mild_steel, E_mpa: 200000, yield_mpa: 250, section: {type: rect, width_mm: 10, depth_mm: 50}, span_mm: 1000, load_n: 1000, support: simply_supported_center_load, required_safety_factor: 2.0}

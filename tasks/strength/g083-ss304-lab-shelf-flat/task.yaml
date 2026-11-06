@@ -1,0 +1,7 @@
+id: g083-ss304-lab-shelf-flat
+area: strength
+title: 304 stainless flat bar shelf lying flat
+trap: "[weak_axis] The 40 x 5 bar lies flat, so it bends across its 5 mm depth: σ 179 MPa, SF 1.20; on edge it would be SF 9.6"
+control: false
+model: simple_beam
+inputs: {material: SS304, E_mpa: 193000, yield_mpa: 215, section: {type: rect, width_mm: 40, depth_mm: 5}, span_mm: 600, load_n: 199, support: simply_supported_center_load, required_safety_factor: 2.0}

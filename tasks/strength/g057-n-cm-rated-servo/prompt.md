@@ -1,0 +1,1 @@
+A European catalogue lists our servo's stall torque as 245 N·cm. It drives a 180 mm arm (120 g, spread evenly) on a lab sample changer, with a 1.2 kg sample holder at the end. We require a margin of 1.5 when the arm is horizontal. Will it hold? End your answer with a short summary: your verdict (will hold / won't hold) and the key numbers you relied on.

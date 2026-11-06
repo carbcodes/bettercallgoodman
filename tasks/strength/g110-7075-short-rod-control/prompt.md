@@ -1,0 +1,1 @@
+A drone test stand has a 10 mm 7075-T6 rod (E 71.7 GPa, yield 503 MPa, expansion 23.6e-6 per °C), 250 mm long, clamped rigidly at both ends in a steel frame. Motor heat warms it 30 °C above the frame. Is it OK? End your answer with a short summary: your verdict (OK / not OK) and the key numbers you relied on.

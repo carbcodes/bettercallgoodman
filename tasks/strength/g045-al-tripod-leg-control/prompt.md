@@ -1,0 +1,1 @@
+For a heavy studio camera stand we're using a solid 16 mm 6061-T6 rod (E 68.9 GPa, yield 276 MPa), 400 mm long between pinned joints, as a compression strut carrying up to 2000 N. We want a safety factor of 2. Is the strut OK? End your answer with a short summary: your verdict (safe / not safe) and the key numbers you relied on.

@@ -1,0 +1,7 @@
+id: g012-steel-pipe-hanger-offset
+area: strength
+title: Steel hanger arm with the pipe clamp hanging past its tip
+trap: "[lever_arm] The pipe's centreline is 80 mm past the end of the arm (clamp offset), so the lever is 181.6 mm: SF 1.29"
+control: false
+model: cantilever_root_fillet
+inputs: {material: 1018_CR, yield_mpa: 370, load_n: 222.4, lever_mm: 181.6, section: {type: rect, width_mm: 25.4, thickness_mm: 6.35}, fillet_mm: 3.0, required_safety_factor: 2.0}

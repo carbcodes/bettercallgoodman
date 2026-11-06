@@ -1,0 +1,1 @@
+In a spring tester, an 8 mm 6061-T6 aluminum post (E 68.9 GPa, yield 276 MPa) is clamped firmly in the base and rises 300 mm. A spring being tested is compressed on its top end with up to 350 N, and the top of the post is not guided. Safety factor 2. Is it OK? End your answer with a short summary: your verdict (safe / not safe) and the key numbers you relied on.

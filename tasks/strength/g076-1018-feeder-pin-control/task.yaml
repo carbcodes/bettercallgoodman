@@ -1,0 +1,7 @@
+id: g076-1018-feeder-pin-control
+area: strength
+title: 1018 feeder pin at low stress (control)
+trap: "[control] none, genuinely safe: static SF 6.1, n_f 3.27 vs 1.5"
+control: true
+model: cantilever_fatigue
+inputs: {material: 1018_CD, yield_mpa: 370, ultimate_mpa: 440, surface: machined, diameter_mm: 12, lever_mm: 50, load_min_n: -205, load_max_n: 205, frequency_hz: 50, required_safety_factor: 1.5}

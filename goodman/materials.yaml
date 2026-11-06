@@ -46,3 +46,44 @@ mild_steel:
   ultimate_mpa: 440
   density_kg_m3: 7870
   source: Shigley 10th ed. Table A-20, AISI 1018 cold drawn (Sy 370 MPa, Sut 440 MPa); E 207 GPa Table A-5 rounded to 205 GPa
+
+PETG:
+  printed: true
+  E_mpa: 1500
+  in_layer_strength_mpa: 47     # printed specimens, horizontal (XY)
+  across_layer_strength_mpa: 18 # interlayer adhesion
+  density_kg_m3: 1270
+  source: >
+    Prusament PETG technical datasheet v1.1 (Prusa Polymers, 2022): printed-specimen tensile yield
+    strength 47 +/- 2 MPa (horizontal, ISO 527-1), tensile modulus 1.5 GPa, interlayer adhesion
+    18 +/- 4 MPa, density 1.27 g/cm3.
+    https://storage.googleapis.com/prusa3d-content-prod-14e8-wordpress-prusament-prod/2023/10/9f8d2165-tds_prusament-petg_n_en.pdf
+    APPROXIMATE: printed-part strength depends on printer, temperature and layer height.
+
+ABS:
+  printed: true
+  E_mpa: 2250
+  in_layer_strength_mpa: 33.4   # X-Y
+  across_layer_strength_mpa: 29.7 # Z
+  density_kg_m3: 1040
+  source: >
+    Polymaker PolyLite ABS technical datasheet V5.5: tensile strength 33.4 MPa (X-Y) and 29.7 MPa (Z),
+    Young's modulus 2247 MPa (X-Y), density 1.04 g/cm3 (ISO 527, specimens printed in a 90 C chamber,
+    100% infill). https://cdn.shopify.com/s/files/1/0548/7299/7945/files/PolyLite_ABS_TDS_EN_V5.4.pdf
+    APPROXIMATE: Z strength from an open-frame printer is usually lower than this.
+
+Al7075-T6:
+  printed: false
+  E_mpa: 71700
+  yield_mpa: 503
+  ultimate_mpa: 572
+  density_kg_m3: 2810
+  source: ASM Aerospace Specification Metals / MatWeb, Aluminum 7075-T6 (Sy 503 MPa, Sut 572 MPa, E 71.7 GPa)
+
+SS304:
+  printed: false
+  E_mpa: 193000
+  yield_mpa: 215
+  ultimate_mpa: 505
+  density_kg_m3: 8000
+  source: ASM Aerospace Specification Metals / MatWeb, AISI 304 annealed (Sy 215 MPa, Sut 505 MPa, E 193 GPa)

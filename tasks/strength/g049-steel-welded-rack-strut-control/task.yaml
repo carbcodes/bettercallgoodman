@@ -1,0 +1,7 @@
+id: g049-steel-welded-rack-strut-control
+area: strength
+title: Steel rack strut welded at both ends (control)
+trap: "[control] none, genuinely safe: SF 11.0"
+control: true
+model: column
+inputs: {material: mild_steel, E_mpa: 200000, yield_mpa: 250, diameter_mm: 12, length_mm: 500, end_condition: fixed_fixed, load_n: 2000, required_safety_factor: 2.0}

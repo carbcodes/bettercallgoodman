@@ -1,0 +1,11 @@
+verdict: safe
+values:
+  moment_nmm: {value: 63000, tol: 0.05}
+  max_stress_mpa: {value: 88.8, tol: 0.2}
+  safety_factor: {value: 2.82, tol: 0.25}
+why: |
+  M = F·L = 350 N × 180 mm = 63000 N·mm.
+  Z = b·h²/6 = 50·10²/6 = 833.3 mm³ → σ_nom = M/Z = 75.6 MPa.
+  Root corner r/h = 6/10 = 0.600; corner into a much larger body taken as a shoulder with D/d = 2 (Peterson Chart 3.10 fit) → Kt = 1.17 → σ_max = 1.17·75.6 = 88.8 MPa.
+  Strength: yield 250 MPa. SF = 250/88.8 = 2.82 vs required 2 → safe.
+source: "Shigley 10th ed. §3-10 (bending stress); Kt: Pilkey & Pilkey, Peterson's Stress Concentration Factors 3rd ed., Chart 3.10 (stepped flat bar in bending, polynomial fit also in Roark 7th ed. Table 17.1)"

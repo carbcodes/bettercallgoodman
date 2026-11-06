@@ -1,0 +1,7 @@
+id: g032-7075-quad-arm-control
+area: strength
+title: 7075 quadcopter arm with a 3 mm step radius (control)
+trap: "[control] none, genuinely safe: SF 8.7 vs 1.5; 3 mm radius gives Kt 1.42"
+control: true
+model: cantilever_step
+inputs: {material: Al7075-T6, yield_mpa: 503, load_n: 49.1, lever_mm: 200, section: {type: rect, thickness_mm: 10, depth_mm: 12}, step: {D_mm: 20, d_mm: 12, r_mm: 3.0}, required_safety_factor: 1.5}

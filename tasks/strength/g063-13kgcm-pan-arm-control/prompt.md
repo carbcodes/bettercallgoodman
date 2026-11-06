@@ -1,0 +1,1 @@
+A 13 kg·cm (stall) servo swings a 100 mm arm (30 g, spread evenly) holding a 250 g distance sensor at its end on our rover. We want a margin of 2 with the arm horizontal. Good enough? End your answer with a short summary: your verdict (will hold / won't hold) and the key numbers you relied on.

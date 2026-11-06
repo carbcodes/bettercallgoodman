@@ -1,0 +1,7 @@
+id: g044-steel-stub-post-control
+area: strength
+title: Short 20 mm steel post (control)
+trap: "[control] none, genuinely safe: short and stocky (KL/r 60, Johnson range), SF 13.9"
+control: true
+model: column
+inputs: {material: mild_steel, E_mpa: 200000, yield_mpa: 250, diameter_mm: 20, length_mm: 300, end_condition: pinned_pinned, load_n: 5000, required_safety_factor: 2.0}

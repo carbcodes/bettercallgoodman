@@ -1,0 +1,11 @@
+verdict: safe
+values:
+  moment_nmm: {value: 486, tol: 0.05}
+  max_stress_mpa: {value: 3.9, tol: 0.2}
+  safety_factor: {value: 8.57, tol: 0.25}
+why: |
+  M = F·L = 5.4 N × 90 mm = 486 N·mm.
+  Z = b·h²/6 = 25·6²/6 = 150.0 mm³ → σ_nom = M/Z = 3.2 MPa.
+  Root corner r/h = 3/6 = 0.500; corner into a much larger body taken as a shoulder with D/d = 2 (Peterson Chart 3.10 fit) → Kt = 1.20 → σ_max = 1.20·3.2 = 3.9 MPa.
+  Strength: ABS in-layer strength 33.4 MPa (materials.yaml). SF = 33.4/3.9 = 8.57 vs required 2 → safe.
+source: "Shigley 10th ed. §3-10 (bending stress); Kt: Pilkey & Pilkey, Peterson's Stress Concentration Factors 3rd ed., Chart 3.10 (stepped flat bar in bending, polynomial fit also in Roark 7th ed. Table 17.1)"

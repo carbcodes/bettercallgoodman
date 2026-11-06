@@ -1,0 +1,1 @@
+A 25 mm square annealed 304 stainless bar (E 193 GPa, yield 215 MPa) spans 800 mm between two simple supports in a clean-room fixture and carries 800 N at its centre. We want a safety factor of 2. Is it fine? End your answer with a short summary: your verdict (safe / not safe) and the key numbers you relied on.

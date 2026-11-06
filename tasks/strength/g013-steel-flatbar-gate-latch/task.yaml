@@ -1,0 +1,7 @@
+id: g013-steel-flatbar-gate-latch
+area: strength
+title: Mild steel flat bar mounted flat, loaded on its wide face
+trap: "[weak_axis] The 40 x 5 bar is mounted flat, so it bends about its 5 mm depth (Z = 167 mm³, SF 0.46); using 40 mm as the depth gives SF ~4"
+control: false
+model: cantilever_root_fillet
+inputs: {material: mild_steel, yield_mpa: 250, load_n: 400, lever_mm: 200, section: {type: rect, width_mm: 40, thickness_mm: 5}, fillet_mm: 4.0, required_safety_factor: 2.0}

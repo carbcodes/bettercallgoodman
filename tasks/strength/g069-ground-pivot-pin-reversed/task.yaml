@@ -1,0 +1,7 @@
+id: g069-ground-pivot-pin-reversed
+area: strength
+title: Ground 1018 pivot pin in a rocking fixture
+trap: "[fatigue] Static SF 1.55 passes, but the cyclic bending fails modified Goodman: Se 207 MPa, n_f 0.87 (Gerber 0.87) vs 1.5"
+control: false
+model: cantilever_fatigue
+inputs: {material: 1018_CD, yield_mpa: 370, ultimate_mpa: 440, surface: ground, diameter_mm: 8, lever_mm: 40, load_min_n: -300, load_max_n: 300, frequency_hz: 10, required_safety_factor: 1.5}

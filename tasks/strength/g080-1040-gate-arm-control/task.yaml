@@ -1,0 +1,7 @@
+id: g080-1040-gate-arm-control
+area: strength
+title: 1040 gate arm loaded 0 to max (control)
+trap: "[control] none, genuinely safe: static SF 6.1, n_f 4.32 vs 2"
+control: true
+model: cantilever_fatigue
+inputs: {material: 1040_CD, yield_mpa: 490, ultimate_mpa: 590, surface: machined, diameter_mm: 14, lever_mm: 90, load_min_n: 0, load_max_n: 240, frequency_hz: 0.2, required_safety_factor: 2.0}

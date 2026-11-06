@@ -1,0 +1,7 @@
+id: g103-al-solar-frame-rail
+area: strength
+title: 6061 rail in a solar test frame
+trap: "[thermal_restraint] Restrained thermal stress 57 MPa is well under yield, but the restrained force 6437 N exceeds P_cr 2769 N: the rod bows above about +15 °C"
+control: false
+model: thermal_column
+inputs: {material: Al6061-T6, E_mpa: 68900, yield_mpa: 276, alpha_per_c: 2.36e-05, diameter_mm: 12, length_mm: 1000, end_condition: fixed_fixed, delta_t_c: 35}

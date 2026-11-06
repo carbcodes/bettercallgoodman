@@ -1,0 +1,1 @@
+Our arm's shoulder uses a 60 kg·cm (stall) servo. The arm reaches 300 mm, weighs 300 g spread evenly, and carries 0.8 kg at the end. We want a margin of 1.5 when the arm is straight out. Will it hold? End your answer with a short summary: your verdict (will hold / won't hold) and the key numbers you relied on.

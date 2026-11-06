@@ -1,0 +1,7 @@
+id: g088-steel-shelf-on-brackets
+area: strength
+title: Steel shelf plate resting loose on brackets
+trap: "[end_condition] The bar only rests on its supports, so it is simply supported (M = PL/4): SF 1.25; a fixed-end assumption (M = PL/8) gives a false SF 2.50"
+control: false
+model: simple_beam
+inputs: {material: mild_steel, E_mpa: 200000, yield_mpa: 250, section: {type: rect, width_mm: 60, depth_mm: 8}, span_mm: 900, load_n: 569, support: simply_supported_center_load, required_safety_factor: 2.0}

@@ -1,0 +1,7 @@
+id: g062-60kgcm-shoulder-control
+area: strength
+title: 60 kg·cm shoulder servo with margin to spare (control)
+trap: "[control] none, genuinely holds: need 28.5 kg·cm, margin 2.11 vs 1.5"
+control: true
+model: arm_torque
+inputs: {stall_torque_kgcm: 60, arm_length_mm: 300, arm_mass_kg: 0.3, tip_mass_kg: 0.8, required_margin: 1.5}

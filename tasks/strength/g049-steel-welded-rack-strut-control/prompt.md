@@ -1,0 +1,1 @@
+A heavy-duty tool rack uses 12 mm mild steel rods (E 200 GPa, yield 250 MPa), 500 mm long, welded solidly at both ends, as vertical props. Each carries up to 2 kN. Safety factor 2. Are the props OK? End your answer with a short summary: your verdict (safe / not safe) and the key numbers you relied on.

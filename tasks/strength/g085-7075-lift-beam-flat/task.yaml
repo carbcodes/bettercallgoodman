@@ -1,0 +1,7 @@
+id: g085-7075-lift-beam-flat
+area: strength
+title: 7075 lifting bar mounted flat
+trap: "[weak_axis] The 20 x 5 bar lies flat, so it bends across its 5 mm depth: σ 531 MPa, SF 0.95; on edge it would be SF 3.8"
+control: false
+model: simple_beam
+inputs: {material: Al7075-T6, E_mpa: 71700, yield_mpa: 503, section: {type: rect, width_mm: 20, depth_mm: 5}, span_mm: 300, load_n: 590, support: simply_supported_center_load, required_safety_factor: 1.5}

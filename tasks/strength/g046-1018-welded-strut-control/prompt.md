@@ -1,0 +1,1 @@
+In a robot cell guard frame, a 12 mm 1018 cold-rolled steel rod (E 200 GPa, yield 370 MPa), 350 mm long, is welded rigidly at both ends and carries 3000 N of compression. We require 2.5. Is it fine? End your answer with a short summary: your verdict (safe / not safe) and the key numbers you relied on.

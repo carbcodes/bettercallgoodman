@@ -1,0 +1,7 @@
+id: g016-al-robot-sensor-arm-control
+area: strength
+title: 6061 sensor arm on a mobile robot (control)
+trap: "[control] none, genuinely safe: SF 20.0; the 4 mm root radius keeps Kt at 1.20"
+control: true
+model: cantilever_root_fillet
+inputs: {material: Al6061-T6, yield_mpa: 276, load_n: 23.5, lever_mm: 130, section: {type: rect, width_mm: 25, thickness_mm: 8}, fillet_mm: 4.0, required_safety_factor: 2.0}

@@ -1,0 +1,7 @@
+id: g100-al-pin-ended-strut-heat
+area: strength
+title: 6061 strut on pins between rigid walls
+trap: "[end_condition] Pinned ends (K 1): P_cr 547 N < restrained force 1635 N, SF 0.33; assuming fixed ends gives P_cr 2188 N and a false pass"
+control: false
+model: thermal_column
+inputs: {material: Al6061-T6, E_mpa: 68900, yield_mpa: 276, alpha_per_c: 2.36e-05, diameter_mm: 8, length_mm: 500, end_condition: pinned_pinned, delta_t_c: 20}

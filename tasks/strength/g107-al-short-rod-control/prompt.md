@@ -1,0 +1,1 @@
+A 12 mm 6061-T6 rod (E 68.9 GPa, yield 276 MPa, expansion 23.6e-6 per °C), 300 mm long, is clamped rigidly at both ends in a lab fixture and warms 15 °C above the fixture. Is that OK? End your answer with a short summary: your verdict (OK / not OK) and the key numbers you relied on.

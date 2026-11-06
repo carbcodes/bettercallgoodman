@@ -1,0 +1,7 @@
+id: g020-steel-tool-post-step
+area: strength
+title: 1018 tool-post arm stepped with a 0.5 mm radius
+trap: "[stress_concentration] Nominal SF 2.6 passes; the 0.5 mm shoulder radius (D/d 1.67, r/d 0.026) gives Kt 2.90: SF 0.90"
+control: false
+model: cantilever_step
+inputs: {material: 1018_CR, yield_mpa: 370, load_n: 1068, lever_mm: 101.6, section: {type: rect, thickness_mm: 12.7, depth_mm: 19.05}, step: {D_mm: 31.75, d_mm: 19.05, r_mm: 0.5}, required_safety_factor: 2.0}

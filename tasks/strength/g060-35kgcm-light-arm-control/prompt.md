@@ -1,0 +1,1 @@
+A 35 kg·cm (stall) servo drives a 150 mm arm weighing 100 g, spread evenly, with a 0.6 kg gripper and part at the end. We need a margin of 2 holding it horizontal. Will it hold? End your answer with a short summary: your verdict (will hold / won't hold) and the key numbers you relied on.

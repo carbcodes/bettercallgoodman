@@ -1,0 +1,7 @@
+id: g089-al-bar-on-vee-blocks
+area: strength
+title: 6061 bar resting in two V-blocks
+trap: "[end_condition] The bar only rests on its supports, so it is simply supported (M = PL/4): SF 1.25; a fixed-end assumption (M = PL/8) gives a false SF 2.50"
+control: false
+model: simple_beam
+inputs: {material: Al6061-T6, E_mpa: 68900, yield_mpa: 276, section: {type: rect, width_mm: 25, depth_mm: 12}, span_mm: 600, load_n: 883, support: simply_supported_center_load, required_safety_factor: 2.0}

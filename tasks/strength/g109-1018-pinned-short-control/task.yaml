@@ -1,0 +1,7 @@
+id: g109-1018-pinned-short-control
+area: strength
+title: Short 1018 rod on pins, 30 °C (control)
+trap: "[control] none, genuinely OK: SF 3.6"
+control: true
+model: thermal_column
+inputs: {material: 1018_CR, E_mpa: 200000, yield_mpa: 370, alpha_per_c: 1.2e-05, diameter_mm: 10, length_mm: 200, end_condition: pinned_pinned, delta_t_c: 30}

@@ -1,0 +1,7 @@
+id: g082-al-rig-crossbar-flat
+area: strength
+title: 6061 flat bar cross member lying flat
+trap: "[weak_axis] The 30 x 4 bar lies flat, so it bends across its 4 mm depth: σ 276 MPa, SF 1.00; on edge it would be SF 7.5"
+control: false
+model: simple_beam
+inputs: {material: Al6061-T6, E_mpa: 68900, yield_mpa: 276, section: {type: rect, width_mm: 30, depth_mm: 4}, span_mm: 400, load_n: 221, support: simply_supported_center_load, required_safety_factor: 1.5}

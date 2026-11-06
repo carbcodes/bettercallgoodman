@@ -1,0 +1,7 @@
+id: g097-steel-oven-tie-rod-yield
+area: strength
+title: Mild steel tie rod heated 150 °C between massive blocks
+trap: "[thermal_restraint] Nobody applies a load, but fully restrained heating gives σ = EαΔT = 360 MPa: yield SF 0.69"
+control: false
+model: thermal_column
+inputs: {material: mild_steel, E_mpa: 200000, yield_mpa: 250, alpha_per_c: 1.2e-05, diameter_mm: 20, length_mm: 200, end_condition: fixed_fixed, delta_t_c: 150}

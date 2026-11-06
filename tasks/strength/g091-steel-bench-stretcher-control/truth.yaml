@@ -1,0 +1,13 @@
+verdict: safe
+values:
+  moment_nmm: {value: 250000, tol: 0.05}
+  max_stress_mpa: {value: 60, tol: 0.05}
+  safety_factor: {value: 4.17, tol: 0.05}
+  deflection_mm: {value: 1, tol: 0.1}
+why: |
+  Simply supported, centre load: M = P·L/4 = 1000·1000/4 = 250000 N·mm.
+  Bending depth is the dimension in the load direction, h = 50 mm (b = 10 mm): Z = b·h²/6 = 4166.7 mm³, I = b·h³/12 = 104166.7 mm⁴.
+  σ = M/Z = 60.0 MPa → SF = 250/60.0 = 4.17 vs required 2.
+  δ = P·L³/(48·E·I) = 1000·1000³/(48·200000·104166.7) = 1.00 mm.
+  → safe.
+source: "Shigley 10th ed. Table A-9 case 5 (simply supported, centre load: M = PL/4, δ = PL³/48EI)"

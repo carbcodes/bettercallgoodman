@@ -1,0 +1,7 @@
+id: g074-forged-1045-press-arm-zero-max
+area: strength
+title: Forged 1045 press-fixture arm loaded 0 to max
+trap: "[fatigue] Static SF 1.76 passes, but the cyclic bending fails modified Goodman: Se 140 MPa, n_f 0.76 (Gerber 0.89) vs 1.5"
+control: false
+model: cantilever_fatigue
+inputs: {material: 1045_CD, yield_mpa: 530, ultimate_mpa: 630, surface: as_forged, diameter_mm: 25, lever_mm: 120, load_min_n: 0, load_max_n: 3850, frequency_hz: 0.5, required_safety_factor: 1.5}

@@ -1,0 +1,1 @@
+In my garage I'm laying a 50 mm x 6 mm mild steel flat bar (E 200 GPa, yield 250 MPa) across two wall brackets 800 mm apart, wide face up, and setting a 32 kg box of fasteners in the middle. I want a safety factor of 2 against yield. Is the bar OK? End your answer with a short summary: your verdict (safe / not safe) and the key numbers you relied on.

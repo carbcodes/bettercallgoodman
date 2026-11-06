@@ -1,0 +1,1 @@
+An indexing table carries a ground 20 mm cold-drawn 1050 steel stub (yield 580 MPa, tensile 690 MPa) sticking out 60 mm. Each index loads its end from 0 to 1450 N and back, three times a second, for years. Generous root radius. We want 2. Is it OK? End your answer with a short summary: your verdict (safe / not safe) and the key numbers you relied on.

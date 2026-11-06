@@ -1,0 +1,12 @@
+verdict: not_safe
+values:
+  moment_nmm: {value: 13200, tol: 0.05}
+  max_stress_mpa: {value: 222, tol: 0.2}
+  safety_factor: {value: 0.967, tol: 0.25}
+must_mention: [stress_concentration]
+why: |
+  M = F·L = 165 N × 80 mm = 13200 N·mm.
+  Z = b·h²/6 = 10·10²/6 = 166.7 mm³ → σ_nom = M/Z = 79.2 MPa.
+  Shoulder step D/d = 18/10 = 1.80, r/d = 0.3/10 = 0.030 → Kt = 2.81 (Peterson Chart 3.10 fit, bending) → σ_max = 2.81·79.2 = 222.2 MPa.
+  Strength: SS304 yield 215 MPa (materials.yaml). SF = 215/222.2 = 0.97 vs required 2 → not safe.
+source: "Shigley 10th ed. §3-10 (bending stress); Kt: Pilkey & Pilkey, Peterson's Stress Concentration Factors 3rd ed., Chart 3.10 (stepped flat bar in bending, polynomial fit also in Roark 7th ed. Table 17.1)"

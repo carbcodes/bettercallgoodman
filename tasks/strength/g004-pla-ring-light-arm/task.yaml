@@ -1,0 +1,7 @@
+id: g004-pla-ring-light-arm
+area: strength
+title: PLA ring light arm for a desk, printed upright
+trap: "[layer_direction] Printed upright, so the root bending acts across PLA's stacked passes (30 MPa): SF 1.48; the 50 MPa datasheet number gives 2.47"
+control: false
+model: cantilever_root_fillet
+inputs: {material: PLA, print_orientation: upright_layers_horizontal, load_n: 21.58, lever_mm: 200, section: {type: rect, width_mm: 24, thickness_mm: 8}, fillet_mm: 4.0, required_safety_factor: 2.5}

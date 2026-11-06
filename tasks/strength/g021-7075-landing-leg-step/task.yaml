@@ -1,0 +1,7 @@
+id: g021-7075-landing-leg-step
+area: strength
+title: 7075 drone landing leg stepped with a 0.3 mm radius
+trap: "[stress_concentration] Nominal SF 2.2 vs 1.5 required; the 0.3 mm step (r/d 0.03) gives Kt 2.78: SF 0.79"
+control: false
+model: cantilever_step
+inputs: {material: Al7075-T6, yield_mpa: 503, load_n: 255, lever_mm: 120, section: {type: rect, thickness_mm: 8, depth_mm: 10}, step: {D_mm: 16, d_mm: 10, r_mm: 0.3}, required_safety_factor: 1.5}

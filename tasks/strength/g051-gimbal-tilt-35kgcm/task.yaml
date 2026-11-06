@@ -1,0 +1,7 @@
+id: g051-gimbal-tilt-35kgcm
+area: strength
+title: 35 kg·cm servo tilting a camera on an arm
+trap: "[stall_vs_usable] Needed 28.8 kg·cm is below the 35 kg·cm stall rating, so it looks fine, but the required margin of 2 needs 57.5 kg·cm: margin only 1.22"
+control: false
+model: arm_torque
+inputs: {stall_torque_kgcm: 35, arm_length_mm: 250, arm_mass_kg: 0.1, tip_mass_kg: 1.1, required_margin: 2.0}

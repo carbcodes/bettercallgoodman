@@ -1,0 +1,7 @@
+id: g043-al-plunger-post-free-top
+area: strength
+title: 6061 post clamped at the base with a free top
+trap: "[end_condition] Clamped base, free top: fixed-free (K 2), P_cr 380 N, SF 1.09; a pinned-pinned assumption gives 1519 N"
+control: false
+model: column
+inputs: {material: Al6061-T6, E_mpa: 68900, yield_mpa: 276, diameter_mm: 8, length_mm: 300, end_condition: fixed_free, load_n: 350, required_safety_factor: 2.0}

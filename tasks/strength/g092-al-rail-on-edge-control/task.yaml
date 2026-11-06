@@ -1,0 +1,7 @@
+id: g092-al-rail-on-edge-control
+area: strength
+title: 6061 bar on edge with a sag limit (control)
+trap: "[control] none, genuinely safe: SF 9.9, sag 0.66 mm vs 3 mm"
+control: true
+model: simple_beam
+inputs: {material: Al6061-T6, E_mpa: 68900, yield_mpa: 276, section: {type: rect, width_mm: 6, depth_mm: 50}, span_mm: 700, load_n: 400, support: simply_supported_center_load, required_safety_factor: 1.5, max_deflection_mm: 3.0}

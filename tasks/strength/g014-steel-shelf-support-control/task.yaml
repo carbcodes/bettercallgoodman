@@ -1,0 +1,7 @@
+id: g014-steel-shelf-support-control
+area: strength
+title: Mild steel shelf support with a generous root radius (control)
+trap: "[control] none, genuinely safe: SF 2.8 with a 6 mm root radius (Kt 1.17)"
+control: true
+model: cantilever_root_fillet
+inputs: {material: mild_steel, yield_mpa: 250, load_n: 350, lever_mm: 180, section: {type: rect, width_mm: 50, thickness_mm: 10}, fillet_mm: 6.0, required_safety_factor: 2.0}

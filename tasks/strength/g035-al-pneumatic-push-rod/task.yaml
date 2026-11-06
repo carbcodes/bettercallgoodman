@@ -1,0 +1,7 @@
+id: g035-al-pneumatic-push-rod
+area: strength
+title: 6061 push rod between two pinned eyes
+trap: "[buckling] Compressive stress passes easily (SF 28.9) but the 10 mm rod over 700 mm fails by Euler buckling: P_cr 681 N, SF 0.91"
+control: false
+model: column
+inputs: {material: Al6061-T6, E_mpa: 68900, yield_mpa: 276, diameter_mm: 10, length_mm: 700, end_condition: pinned_pinned, load_n: 750, required_safety_factor: 2.0}

@@ -1,0 +1,7 @@
+id: g034-steel-hold-down-push-rod
+area: strength
+title: Mild steel push rod on a test fixture
+trap: "[buckling] Compressive stress passes easily (SF 8.4) but the 8 mm rod over 600 mm fails by Euler buckling: P_cr 1102 N, SF 0.73"
+control: false
+model: column
+inputs: {material: mild_steel, E_mpa: 200000, yield_mpa: 250, diameter_mm: 8, length_mm: 600, end_condition: pinned_pinned, load_n: 1500, required_safety_factor: 2.0}

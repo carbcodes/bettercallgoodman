@@ -1,0 +1,7 @@
+id: g063-13kgcm-pan-arm-control
+area: strength
+title: 13 kg·cm servo on a short sensor arm (control)
+trap: "[control] none, genuinely holds: need 2.65 kg·cm, margin 4.91 vs 2"
+control: true
+model: arm_torque
+inputs: {stall_torque_kgcm: 13, arm_length_mm: 100, arm_mass_kg: 0.03, tip_mass_kg: 0.25, required_margin: 2.0}

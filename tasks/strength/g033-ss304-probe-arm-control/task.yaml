@@ -1,0 +1,7 @@
+id: g033-ss304-probe-arm-control
+area: strength
+title: 304 stainless probe arm with a 2 mm step radius (control)
+trap: "[control] none, genuinely safe: SF 4.9, Kt 1.57"
+control: true
+model: cantilever_step
+inputs: {material: SS304, load_n: 100, lever_mm: 80, section: {type: rect, thickness_mm: 12, depth_mm: 12}, step: {D_mm: 18, d_mm: 12, r_mm: 2.0}, required_safety_factor: 2.0}

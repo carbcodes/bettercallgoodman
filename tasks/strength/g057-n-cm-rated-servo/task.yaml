@@ -1,0 +1,7 @@
+id: g057-n-cm-rated-servo
+area: strength
+title: Servo rated in N·cm on a 180 mm arm
+trap: "[torque_units] 245 N·cm is 25.0 kg·cm (divide by 9.81), not 245 kg·cm; need 22.7 kg·cm, margin 1.10 vs 1.5"
+control: false
+model: arm_torque
+inputs: {stall_torque_kgcm: 24.97, arm_length_mm: 180, arm_mass_kg: 0.12, tip_mass_kg: 1.2, required_margin: 1.5}

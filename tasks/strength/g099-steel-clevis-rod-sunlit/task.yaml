@@ -1,0 +1,7 @@
+id: g099-steel-clevis-rod-sunlit
+area: strength
+title: Steel rod with clevis ends between fixed brackets
+trap: "[end_condition] Pinned ends (K 1): P_cr 2692 N < restrained force 4712 N, SF 0.57; assuming fixed ends gives P_cr 10766 N and a false pass"
+control: false
+model: thermal_column
+inputs: {material: mild_steel, E_mpa: 200000, yield_mpa: 250, alpha_per_c: 1.2e-05, diameter_mm: 10, length_mm: 600, end_condition: pinned_pinned, delta_t_c: 25}

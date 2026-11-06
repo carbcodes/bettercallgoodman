@@ -1,0 +1,7 @@
+id: g107-al-short-rod-control
+area: strength
+title: Short 12 mm 6061 rod, 15 °C (control)
+trap: "[control] none, genuinely OK: SF 8.4"
+control: true
+model: thermal_column
+inputs: {material: Al6061-T6, E_mpa: 68900, yield_mpa: 276, alpha_per_c: 2.36e-05, diameter_mm: 12, length_mm: 300, end_condition: fixed_fixed, delta_t_c: 15}

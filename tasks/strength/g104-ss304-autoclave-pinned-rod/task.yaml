@@ -1,0 +1,7 @@
+id: g104-ss304-autoclave-pinned-rod
+area: strength
+title: 304 rod on pins in an autoclave rack
+trap: "[end_condition] Pinned ends (K 1): P_cr 5844 N < restrained force 10489 N, SF 0.56; assuming fixed ends gives P_cr 23376 N and a false pass"
+control: false
+model: thermal_column
+inputs: {material: SS304, E_mpa: 193000, yield_mpa: 215, alpha_per_c: 1.73e-05, diameter_mm: 10, length_mm: 400, end_condition: pinned_pinned, delta_t_c: 40}

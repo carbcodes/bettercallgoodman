@@ -1,0 +1,1 @@
+Under a drill press table I'm adding a 40 x 10 mm mild steel bar (E 200 GPa, yield 250 MPa), lying flat, across a 400 mm gap on two ledges. It carries 400 N at the middle. Safety factor 2, and I'd like under 2 mm of sag. Is it OK? End your answer with a short summary: your verdict (safe / not safe) and the key numbers you relied on.

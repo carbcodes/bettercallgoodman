@@ -1,0 +1,7 @@
+id: g036-7075-free-tip-plunger
+area: strength
+title: 7075 rod clamped at one end, pushed on its free tip
+trap: "[buckling] Compressive stress passes easily (SF 83.7) but the 6 mm rod over 250 mm fails by Euler buckling: P_cr 180 N, SF 1.06"
+control: false
+model: column
+inputs: {material: Al7075-T6, E_mpa: 71700, yield_mpa: 503, diameter_mm: 6, length_mm: 250, end_condition: fixed_free, load_n: 170, required_safety_factor: 2.0}
