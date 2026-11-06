@@ -33,7 +33,7 @@ const TABS = [
 ];
 
 // Which process to judge a part by: PLA is printed, anything else is milled.
-const processOf = (t) => (t.inputs?.material === "PLA" ? "printing" : "cnc");
+const processOf = (t) => t.process || (t.inputs?.material === "PLA" ? "printing" : "cnc");
 // Words for each manufacturing verdict (printing has a middle one: prints, but only with supports).
 const VERDICT_WORD = { printable: "Printable", printable_with_supports: "Printable with supports", not_printable: "Not printable", machinable: "Machinable", not_machinable: "Not machinable" };
 const SHORT_WORD = { printable: "Prints", printable_with_supports: "Needs supports", not_printable: "Can't print", machinable: "Machinable", not_machinable: "Can't mill" };
@@ -139,7 +139,7 @@ function Panel({ task }) {
   );
 }
 
-function MakePanel({ task, proc, setProc }) {
+function MakePanel({ task, proc }) {
   const r = task.dfm?.[proc];
   const s = makeState(task, proc);
   const P = PROC[proc];
@@ -159,11 +159,7 @@ function MakePanel({ task, proc, setProc }) {
   return (
     <aside className="panel">
       <h1 className="panel-title">{cleanTitle(task.title)}</h1>
-      <div className="seg">
-        {Object.entries(PROC).map(([k, v]) => (
-          <button key={k} className={k === proc ? "on" : ""} onClick={() => setProc(k)}>{v.name}</button>
-        ))}
-      </div>
+      <div className="seg"><button className="on">{P.name}</button></div>
       <div className={`verdict s-${s}`}>{word}</div>
       {note && s !== "waiting" && <p className="where">{note}</p>}
       {r?.error && <p className="acc bad">{r.error}</p>}
@@ -187,9 +183,6 @@ function MakePanel({ task, proc, setProc }) {
             <span key={i} className="chip" title={f.why}>✓ {ruleName(f.rule)}</span>
           ))}
         </div>
-      )}
-      {proc === "cnc" && task.inputs?.material === "PLA" && (
-        <p className="where">This part is PLA, so milling is only a what-if (checked as Al 6061).</p>
       )}
       {proc === "cnc" && <p className="where">Judged with the part flipped to any of its six sides.</p>}
       {task.prompt && (
@@ -219,7 +212,6 @@ function CollideTab() {
 export default function App() {
   const data = useData();
   const [tab, setTab] = useState("break");
-  const [proc, setProc] = useState(null);
   const tasks = useMemo(() => (data?.tasks || []).filter((t) => t.area === "cad" && t.result).sort((a, b) => a.id.localeCompare(b.id)), [data]);
   const ids = tasks.map((t) => t.id);
   const [picked, setPicked] = useState(() => decodeURIComponent(window.location.hash.replace(/^#\/?/, "")));
@@ -241,9 +233,9 @@ export default function App() {
     return () => window.removeEventListener("keydown", on);
   });
 
-  const pr = proc || (task ? processOf(task) : "printing");
-  const stateOf = tab === "make" ? (t) => makeState(t, proc || processOf(t)) : state;
-  const labelOf = tab === "make" ? (t, s) => (s === "waiting" ? "Waiting" : SHORT_WORD[t.dfm?.[proc || processOf(t)]?.verdict] || "") : (t, s) => LABEL[s];
+  const pr = task ? processOf(task) : "printing";
+  const stateOf = tab === "make" ? (t) => makeState(t, processOf(t)) : state;
+  const labelOf = tab === "make" ? (t, s) => (s === "waiting" ? "Waiting" : SHORT_WORD[t.dfm?.[processOf(t)]?.verdict] || "") : (t, s) => LABEL[s];
   const holds = tasks.filter((t) => ["holds", "warn"].includes(stateOf(t))).length;
   const breaks = tasks.filter((t) => stateOf(t) === "breaks").length;
   const okWord = tab === "make" ? "pass" : "hold";
@@ -276,7 +268,7 @@ export default function App() {
         <div className="body">
           <Rail tasks={tasks} current={current} go={go} stateOf={stateOf} labelOf={labelOf} />
           {task && <Viewer task={tab === "make" ? { ...task, id: `${task.id}:${pr}`, scene: dfmScene } : task} />}
-          {task && (tab === "make" ? <MakePanel task={task} proc={pr} setProc={setProc} /> : <Panel task={task} />)}
+          {task && (tab === "make" ? <MakePanel task={task} proc={pr} /> : <Panel task={task} />)}
         </div>
       )}
     </div>

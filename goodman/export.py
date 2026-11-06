@@ -174,22 +174,27 @@ def _task_record(d: Path) -> dict:
 SIX_SETUPS = [(0, 0, 1), (0, 0, -1), (1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0)]
 
 
-def _dfm(d: Path, inp: dict) -> dict | None:
-    """Printing and 3-axis CNC checks (goodman.dfm) on the AI's STEP part, if there is one."""
+def _process(task: dict) -> str:
+    """Which manufacturing check judges this case: task.yaml `process:`, else PLA is printed and anything else milled."""
+    inp = task.get("inputs") or {}
+    return task.get("process") or ("printing" if inp.get("material") == "PLA" else "cnc")
+
+
+def _dfm(d: Path, inp: dict, process: str) -> dict | None:
+    """The one manufacturing check (goodman.dfm) that matches the case's process, on the AI's STEP part."""
     step = d / "part.step"
     if not step.exists():
         return None
     out = {}
     try:
-        from .dfm.printing import check_printing
-        out["printing"] = check_printing(str(step))
+        if process == "printing":
+            from .dfm.printing import check_printing
+            out["printing"] = check_printing(str(step))
+        else:
+            from .dfm.cnc import check_cnc
+            out["cnc"] = check_cnc(str(step), setups=SIX_SETUPS, material="Al6061-T6")
     except Exception as e:  # optional geometry stack, or a STEP it cannot read
-        out["printing"] = {"error": f"{type(e).__name__}: {e}"}
-    try:
-        from .dfm.cnc import check_cnc
-        out["cnc"] = check_cnc(str(step), setups=SIX_SETUPS, material="Al6061-T6")
-    except Exception as e:
-        out["cnc"] = {"error": f"{type(e).__name__}: {e}"}
+        out[process] = {"error": f"{type(e).__name__}: {e}"}
     out["material"] = inp.get("material")
     return out
 
@@ -237,7 +242,8 @@ def _cad_record(d: Path) -> dict:
                                                  "answer": attempt.get("answer", "")},
         "claims": claims, "result": result, "result_source": "result.json" if result else None,
         "outcome": (result or {}).get("outcome", "pending"),
-        "dfm": _dfm(d, inp),
+        "process": _process(task),
+        "dfm": _dfm(d, inp, _process(task)),
         "mesh": mesh,
         "printing": _printing_summary((result or {}).get("printing")),
         "scene": None if not (result and mesh) else {
