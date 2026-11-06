@@ -1,0 +1,10 @@
+{
+  "task_id": "d01-pla-wall-hook",
+  "model": "GPT-6 (checked in model picker before sending; picker also listed 'Usage limit reached' next to GPT-6)",
+  "interface": "ChatGPT web (temporary chat) via Chrome",
+  "date": "2026-11-06T13:39:42-05:00",
+  "prompt": "I need a wall hook to hang a 300 g bag. It will be 3D printed in PLA at 100% infill, printed lying flat on its side, and screwed to the wall with two M4 screws through a flat back plate. The bag's strap hangs at the hook's lowest inside point. It shouldn't stick out more than 60 mm from the wall. I need a safety factor of at least 2. Write one self-contained build123d Python script that builds the part as a single solid and exports it with export_step to \"part.step\" in the current folder. Use millimetres and this frame: the wall or mounting face is the plane x = 0 and the part extends in +x; z is up and gravity acts in -z. After the script, end your answer with a short summary: the safety factor you expect and the critical dimension of the load-carrying section.",
+  "answer": "",
+  "code": [],
+  "notes": "NO ANSWER PRODUCED. Prompt sent once in a fresh temporary chat. The page stalled with the status 'Connection interrupted. Waiting for the complete answer' under 'Thinking' and stayed that way for about 3 minutes with no assistant answer, so no answer or code block was captured. Not regenerated, per the rules. The DOM has no [data-message-author-role=\"assistant\"] elements, so the requested selectors returned nothing. No attempt_script.py written (no export_step block exists). Model checked in the picker before sending."
+}

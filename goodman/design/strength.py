@@ -69,8 +69,10 @@ class DesignResult:
 
 def _section_props(faces) -> tuple[float, tuple, list]:
     props = GProp_GProps()
-    for f in faces:
-        BRepGProp.SurfaceProperties_s(f.wrapped, props)
+    for f in faces:  # SurfaceProperties_s resets its target, so sum each face's own props
+        p = GProp_GProps()
+        BRepGProp.SurfaceProperties_s(f.wrapped, p)
+        props.Add(p)
     c = props.CentreOfMass()
     return props.Mass(), (c.X(), c.Y(), c.Z()), props
 

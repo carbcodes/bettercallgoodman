@@ -48,3 +48,16 @@ def test_runner_refuses_unsafe_scripts(code):
 def test_runner_reports_crash():
     step, why = runner.run("from build123d import *\nexport_step(undefined_part, 'part.step')")
     assert step is None and "NameError" in why
+
+
+def test_split_section_counts_both_pieces():
+    # two 20 x 6 strips side by side (a slotted plate): area and I must include both
+    step, log = runner.run(
+        "from build123d import *\n"
+        "a = Pos(0, 15, 0) * Box(100, 20, 6, align=(Align.MIN, Align.CENTER, Align.CENTER))\n"
+        "b = Pos(0, -15, 0) * Box(100, 20, 6, align=(Align.MIN, Align.CENTER, Align.CENTER))\n"
+        "export_step(a + b, 'part.step')\n")
+    assert step, log
+    r = analyze(step, {"material": "Al6061-T6", "load_n": 10, "required_safety_factor": 2})
+    assert r.critical.area == pytest.approx(240, rel=0.01)
+    assert r.critical.sigma == pytest.approx(10 * 100 * 3 / 720, rel=0.03)
