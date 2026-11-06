@@ -228,10 +228,6 @@ export default function App() {
   const pr = task ? processOf(task) : "printing";
   const stateOf = tab === "make" ? (t) => makeState(t, processOf(t)) : state;
   const labelOf = tab === "make" ? (t, s) => (s === "waiting" ? "Waiting" : SHORT_WORD[t.dfm?.[processOf(t)]?.verdict] || "") : (t, s) => LABEL[s];
-  const holds = tasks.filter((t) => ["holds", "warn"].includes(stateOf(t))).length;
-  const breaks = tasks.filter((t) => stateOf(t) === "breaks").length;
-  const okWord = tab === "make" ? "pass" : "hold";
-  const badWord = tab === "make" ? "fail" : "break";
   const dfmScene = useMemo(
     () => (task?.mesh && task.dfm?.[pr]?.findings ? { kind: "dfm", mesh: task.mesh, findings: task.dfm[pr].findings.filter((f) => !(f.rule === "setups" && f.severity === "fail")) } : null),
     [task, pr],
@@ -245,12 +241,6 @@ export default function App() {
             <button key={t.id} className={t.id === tab ? "on" : ""} onClick={() => setTab(t.id)}>{t.label}</button>
           ))}
         </nav>
-        {tab !== "collide" && (
-          <div className="counts">
-            <span className="o-accepted"><b className="mono">{holds}</b> {okWord}</span>
-            <span className={breaks ? "o-caught" : "zero"}><b className="mono">{breaks}</b> {badWord}</span>
-          </div>
-        )}
       </header>
       {!data ? (
         <p className="loading">Loading…</p>
