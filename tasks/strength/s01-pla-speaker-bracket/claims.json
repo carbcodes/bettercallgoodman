@@ -1,0 +1,56 @@
+{
+  "task_id": "s01-pla-speaker-bracket",
+  "verdict": "not_safe",
+  "claims": [
+    {
+      "id": "k1",
+      "quantity": "load_n",
+      "quote": "Applied force 29.43 N",
+      "unit_as_written": "N",
+      "value": 29.43
+    },
+    {
+      "id": "k2",
+      "quantity": "moment_nmm",
+      "quote": "Root bending moment 3.53 N·m",
+      "unit_as_written": "N·m",
+      "value": 3530.0
+    },
+    {
+      "id": "k3",
+      "quantity": "max_stress_mpa",
+      "quote": "Nominal bending stress 29.43 MPa",
+      "unit_as_written": "MPa",
+      "value": 29.43
+    },
+    {
+      "id": "k4",
+      "quantity": "material_strength_mpa",
+      "quote": "Representative PLA tensile yield 51 MPa",
+      "unit_as_written": "MPa",
+      "value": 51.0
+    },
+    {
+      "id": "k5",
+      "quantity": "safety_factor",
+      "quote": "Calculated nominal safety factor 1.73",
+      "unit_as_written": "",
+      "value": 1.73
+    },
+    {
+      "id": "k6",
+      "quantity": "deflection_mm",
+      "quote": "15–20 mm of tip deflection",
+      "unit_as_written": "mm",
+      "low": 15.0,
+      "high": 20.0
+    }
+  ],
+  "mentions": [
+    "stress_concentration",
+    "layer_direction_strength"
+  ],
+  "notes": "Moment also given as 3531.6 N⋅mm in body. No numeric Kt stated (only fillet r/t=0.167, 1 mm fillet). Stress is nominal only; answer says corner would add more. Other PLA strengths listed (59, 83 MPa) but 51 used.",
+  "extracted_by": "Claude Sonnet (blind extractor; saw only the answer)",
+  "reviewed_by": null
+}

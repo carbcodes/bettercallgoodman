@@ -1,0 +1,61 @@
+{
+  "task_id": "s05-steel-shelf-control",
+  "verdict": "safe",
+  "claims": [
+    {
+      "id": "k1",
+      "quantity": "load_n",
+      "quote": "the 200 N load acts vertically downward",
+      "unit_as_written": "N",
+      "value": 200.0
+    },
+    {
+      "id": "k2",
+      "quantity": "moment_nmm",
+      "quote": "M=FL=200(150)=30,000 N⋅mm",
+      "unit_as_written": "N⋅mm",
+      "value": 30000.0
+    },
+    {
+      "id": "k3",
+      "quantity": "nominal_stress_mpa",
+      "quote": "Nominal bending stress: 70.3 MPa",
+      "unit_as_written": "MPa",
+      "value": 70.3
+    },
+    {
+      "id": "k4",
+      "quantity": "stress_concentration_kt",
+      "quote": "≈1.6",
+      "unit_as_written": "",
+      "value": 1.6
+    },
+    {
+      "id": "k5",
+      "quantity": "max_stress_mpa",
+      "quote": "Estimated peak stress with fillet: 112.5 MPa",
+      "unit_as_written": "MPa",
+      "value": 112.5
+    },
+    {
+      "id": "k6",
+      "quantity": "material_strength_mpa",
+      "quote": "Yield strength: 370 MPa",
+      "unit_as_written": "MPa",
+      "value": 370.0
+    },
+    {
+      "id": "k7",
+      "quantity": "safety_factor",
+      "quote": "Estimated actual safety factor: 3.29",
+      "unit_as_written": "",
+      "value": 3.29
+    }
+  ],
+  "mentions": [
+    "stress_concentration"
+  ],
+  "notes": "Headline says factor of safety 3.3; summary says 3.29. Kt 1.6 is described as an approximate/representative estimate. Section modulus not stated.",
+  "extracted_by": "Claude Sonnet (blind extractor; saw only the answer)",
+  "reviewed_by": null
+}

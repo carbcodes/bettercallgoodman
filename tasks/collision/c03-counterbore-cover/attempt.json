@@ -1,0 +1,9 @@
+{
+  "task_id": "c03-counterbore-cover",
+  "model": "GPT-6 (selected in ChatGPT model picker; picker also listed 'Usage limit reached' next to GPT-6 and GPT-5.6 Sol)",
+  "interface": "ChatGPT web (temporary chat) via Chrome",
+  "date": "2026-11-06T13:03:46-05:00",
+  "prompt": "I have an aluminum plate held down with M4 socket head cap screws (ISO 4762). Each screw sits in a counterbore 8.0 mm in diameter and 3.5 mm deep. A flat cover plate then goes directly on top of this plate, over the screws. Will the cover plate sit flat? End your answer with a short summary: your verdict (fits / doesn't fit) and the key numbers you relied on.",
+  "answer": "No. The cover plate will not sit flat. The M4 socket head cap screws protrude above the aluminum plate.\n\nAccording to ISO 4762, the M4 socket head dimensions are:\n\nDimension\n\nValue\n\nHead diameter (maximum)\n\n7.00 mm\n\nHead height (maximum)\n\n4.00 mm\n\nHead height (minimum)\n\n3.82 mm\n\nCounterbore diameter\n\n8.00 mm\n\nCounterbore depth\n\n3.50 mm\n\nRoyMech\n+2\n\nThe problem is the counterbore depth:\n\nMinimum protrusion: 3.82 − 3.50 = 0.32 mm\n\nMaximum protrusion: 4.00 − 3.50 = 0.50 mm\n\nThe 8.0 mm counterbore diameter is sufficient for the 7.0 mm screw head.\n\nSummary: DOESN'T FIT. The screw heads protrude 0.32–0.50 mm. Increase the counterbore depth to at least 4.0 mm to accommodate ISO 4762 M4 screws.",
+  "notes": "fresh temporary chat, first answer, no regeneration. Answer text taken from the page via get_page_text (main element, from 'No. The cover plate' through the summary); 'Worked for 16s' and trailing UI text excluded. Table cells kept as extracted (one value per line). Model name: picker's checked item was GPT-6 (verified for this task)."
+}

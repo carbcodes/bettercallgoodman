@@ -1,0 +1,56 @@
+{
+  "task_id": "s01-pla-speaker-bracket",
+  "outcome": "caught",
+  "ai_verdict": "not_safe",
+  "true_verdict": "not_safe",
+  "claims": [
+    {
+      "id": "k1",
+      "status": "confirmed",
+      "claimed": 29.43,
+      "actual": 29.43,
+      "why": "Within 5% of Goodman's 29.4"
+    },
+    {
+      "id": "k2",
+      "status": "confirmed",
+      "claimed": 3530.0,
+      "actual": 3531.6,
+      "why": "Within 5% of Goodman's 3532"
+    },
+    {
+      "id": "k3",
+      "status": "refuted",
+      "claimed": 29.43,
+      "actual": 48.7652,
+      "why": "Claimed 29.4, actual 48.8: matches nominal stress 29.4 MPa: missed the stress concentration at the 1 mm fillet at the root corner (Kt ~ 1.7)"
+    },
+    {
+      "id": "k4",
+      "status": "refuted",
+      "claimed": 51.0,
+      "actual": 30.0,
+      "why": "Claimed 51, actual 30: used in-layer/datasheet PLA strength; printed upright, the load acts across layers (~30 MPa)"
+    },
+    {
+      "id": "k5",
+      "status": "refuted",
+      "claimed": 1.73,
+      "actual": 0.6152,
+      "why": "Claimed 1.73, actual 0.615: used in-layer/datasheet PLA strength (50 MPa) and nominal stress: load acts across layers (~30 MPa) and missed Kt ~ 1.7"
+    },
+    {
+      "id": "k6",
+      "status": "cannot_check",
+      "claimed": [
+        15.0,
+        20.0
+      ],
+      "actual": null,
+      "why": "Goodman does not model 'deflection_mm' for this task (model cantilever_root_fillet)"
+    }
+  ],
+  "missing": [],
+  "checker": "strength",
+  "checker_version": "0.1"
+}

@@ -1,0 +1,10 @@
+{"verdict":"not_safe","claims":[
+{"id":"k1","quantity":"load_n","value":29.43,"unit":"N","quote":"Applied force 29.43 N"},
+{"id":"k2","quantity":"moment_nmm","value":3.53,"unit":"N·m","quote":"Root bending moment 3.53 N·m"},
+{"id":"k3","quantity":"max_stress_mpa","value":29.43,"unit":"MPa","quote":"Nominal bending stress 29.43 MPa"},
+{"id":"k4","quantity":"material_strength_mpa","value":51,"unit":"MPa","quote":"Representative PLA tensile yield 51 MPa"},
+{"id":"k5","quantity":"safety_factor","value":1.73,"unit":"","quote":"Calculated nominal safety factor 1.73"},
+{"id":"k6","quantity":"deflection_mm","low":15,"high":20,"unit":"mm","quote":"15–20 mm of tip deflection"}],
+"mentions":["stress_concentration","layer_direction_strength"],
+"notes":"Moment also given as 3531.6 N⋅mm in body. No numeric Kt stated (only fillet r/t=0.167, 1 mm fillet). Stress is nominal only; answer says corner would add more. Other PLA strengths listed (59, 83 MPa) but 51 used.",
+"extracted_by":"Claude Sonnet (blind extractor; saw only the answer)"}

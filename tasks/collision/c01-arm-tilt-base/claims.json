@@ -1,0 +1,33 @@
+{
+  "task_id": "c01-arm-tilt-base",
+  "verdict": "does_not_fit",
+  "claims": [
+    {
+      "id": "k1",
+      "quantity": "collision_angle_deg",
+      "quote": "It first makes contact at approximately 9.22° below horizontal.",
+      "unit_as_written": "°",
+      "value": 9.22
+    },
+    {
+      "id": "k2",
+      "quantity": "reach_deg",
+      "quote": "Maximum angle before contact: 9.22°",
+      "unit_as_written": "°",
+      "value": 9.22
+    },
+    {
+      "id": "k3",
+      "quantity": "min_clearance_mm",
+      "quote": "Initial clearance: 5 mm",
+      "unit_as_written": "mm",
+      "value": 5.0
+    }
+  ],
+  "mentions": [
+    "part_thickness"
+  ],
+  "notes": "Clearance of 5 mm is stated as the initial (not minimum) clearance. 9.22 deg given as both contact angle and max angle.",
+  "extracted_by": "Claude Sonnet (blind extractor; saw only the answer)",
+  "reviewed_by": null
+}
