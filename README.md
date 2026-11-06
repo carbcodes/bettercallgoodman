@@ -12,7 +12,6 @@ Goodman is a design checker. It works two ways:
 | Area | Owner | Checks |
 | --- | --- | --- |
 | Design (CAD) | Carlos | Runs the AI's CAD code, measures the part, checks it carries the load |
-
 | Strength | Carlos | Stress, deflection, safety factor, buckling, fatigue, stress concentration |
 | Simulation | Fabian | Collisions, clearances, range of motion |
 | 3D printing (stretch) | Fabian | Overhangs, thin walls, bed contact, hole sizes |
