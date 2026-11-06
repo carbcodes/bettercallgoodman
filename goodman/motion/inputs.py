@@ -19,7 +19,15 @@ ROOT_NODE = "assembly"
 REACH_NAMES = ("W_Z_MIN", "W_Z_NEAR", "NEAR_R", "TIP_Z_MIN", "TOOL")
 
 
-def load_parts(glb: Path) -> dict[str, trimesh.Trimesh]:
+class PartSet(dict):
+    """dict[name, Trimesh] that also remembers GLB parts dropped for having no triangles."""
+
+    def __init__(self, *args, dropped: set[str] | None = None, **kw):
+        super().__init__(*args, **kw)
+        self.dropped: set[str] = set(dropped or ())
+
+
+def load_parts(glb: Path) -> PartSet:
     """Every part mesh at its home pose, in mm, Z-up assembly frame, keyed by GLB node name."""
     scene = trimesh.load(Path(glb), force="scene")
     parents = scene.graph.transforms.parents
@@ -45,12 +53,13 @@ def load_parts(glb: Path) -> dict[str, trimesh.Trimesh]:
         m = mesh.copy()
         m.apply_transform(to_asm @ T_world)
         pieces[part].append(m)
-    parts: dict[str, trimesh.Trimesh] = {}
+    parts = PartSet()
     for name in sorted(pieces):
         meshes = pieces[name]
         m = trimesh.util.concatenate(meshes) if meshes else None
         if m is None or len(m.faces) == 0 or m.area <= 0:
             warnings.warn(f"part {name} has no triangles; skipped", UserWarning, stacklevel=2)
+            parts.dropped.add(name)
             continue
         m.apply_scale(1000.0)
         parts[name] = m
@@ -80,6 +89,9 @@ def load_joints(path: Path) -> MotionFile:
     d = yaml.safe_load(Path(path).read_text())
     joints = []
     for j in d.get("joints") or []:
+        kind = j.get("type", "revolute")
+        if kind != "revolute":
+            raise ValueError(f"joint {j['id']}: type {kind} not supported (revolute only)")
         axis = np.asarray(j["axis"], float)
         joints.append(Joint(
             id=str(j["id"]),
@@ -96,9 +108,13 @@ def load_joints(path: Path) -> MotionFile:
 
 
 def check_consistency(glb: Path, motion: MotionFile, parts: dict[str, trimesh.Trimesh]) -> None:
+    dropped = getattr(parts, "dropped", set())
     for j in motion.joints:
         for p in j.parts:
-            if p not in parts:
+            if p in dropped:
+                warnings.warn(f"part {p} (joint {j.id}) has no triangles in the GLB; it is not checked",
+                              UserWarning, stacklevel=2)
+            elif p not in parts:
                 raise ValueError(f"joints.yaml part not in GLB: {p} (joint {j.id})")
     if motion.glb_sha256:
         actual = hashlib.sha256(Path(glb).read_bytes()).hexdigest()

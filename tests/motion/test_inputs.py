@@ -85,3 +85,22 @@ def test_zero_triangle_part_dropped(tmp_path):
     write_glb(tmp_path / "a.glb", {"box": trimesh.creation.box(extents=[10, 10, 10]), "ghost": empty})
     with pytest.warns(UserWarning, match="ghost"):
         assert set(load_parts(tmp_path / "a.glb")) == {"box"}
+
+
+def test_empty_part_on_a_joint_warns_and_continues(tmp_path):
+    from tests.motion.synth import _box
+    glb, jy = write_c01(tmp_path)
+    empty = trimesh.Trimesh(vertices=np.zeros((0, 3)), faces=np.zeros((0, 3), int))
+    write_glb(glb, {"base": _box([-30, -30, 0], [30, 30, 40]), "link": empty})
+    with pytest.warns(UserWarning, match="link"):
+        parts = load_parts(glb)
+        check_consistency(glb, load_joints(jy), parts)
+    assert set(parts) == {"base"}
+
+
+def test_non_revolute_joint_rejected(tmp_path):
+    jy = tmp_path / "joints.yaml"
+    jy.write_text("joints:\n- {id: slide, type: prismatic, parent: null, origin: [0,0,0], axis: [1,0,0], "
+                  "parts: [a], home: 0, limits: [0, 10]}\n")
+    with pytest.raises(ValueError, match="slide.*prismatic"):
+        load_joints(jy)

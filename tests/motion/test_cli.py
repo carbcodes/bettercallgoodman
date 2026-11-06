@@ -41,3 +41,10 @@ def test_view_box_zooms_on_contact():
     small.apply_translation([150, 0, 0])
     c, r = view_box([150.0, 0.0, 0.0], big, small)
     assert np.allclose(c, [150, 0, 0]) and 40 <= r <= 60
+
+
+def test_summary_flags_unreachable_pairs():
+    from goodman.motion.report import summary_lines
+    res = {"verdict": "no_collisions", "collisions": [], "stats": {"pairs_unreachable": 2}}
+    text = "\n".join(summary_lines(res))
+    assert "2 body pairs" in text and "not checked" in text

@@ -128,5 +128,8 @@ def write_result(out: Path, result: SweepResult, meta: dict, kin: Kinematics | N
 
 def summary_lines(res: dict) -> list[str]:
     lines = [f"verdict: {res['verdict']} ({len(res['collisions'])} collisions)"]
+    unreachable = res.get("stats", {}).get("pairs_unreachable", 0)
+    if unreachable:
+        lines.append(f"  ! {unreachable} body pairs not checked: no reachable pose under the reach rule")
     lines += [f"  - {c['why']}" for c in res["collisions"]]
     return lines
