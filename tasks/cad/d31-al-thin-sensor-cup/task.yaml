@@ -1,0 +1,8 @@
+id: d31-al-thin-sensor-cup
+area: cad
+process: cnc
+title: "6061 sensor arm, 0.5 kg, cup with 0.6 mm side wall"
+trap: "the cup's 0.6 mm side wall is under the 0.8 mm minimum for aluminum; it chatters and deflects under the cutter"
+control: false
+expect: {strength: safe, dfm: not_machinable, overall: fail}
+inputs: {material: Al6061-T6, load_n: 4.905, required_safety_factor: 3.0, load_rule: fixed_x, load_x_mm: 100, max_reach_mm: 120}
