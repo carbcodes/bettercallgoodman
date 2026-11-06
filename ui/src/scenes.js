@@ -672,11 +672,11 @@ function dfmPart(s) {
   g.add(solid);
   const bb = new THREE.Box3().setFromObject(g);
   const r = Math.max(2.5, bb.getSize(new THREE.Vector3()).length() * 0.025);
-  let fails = 0;
+  let fails = 0, warns = 0;
   for (const f of s.findings) {
     if (!f.location || f.severity === "info") continue;
     const fail = f.severity === "fail";
-    if (fail) fails++;
+    if (fail) fails++; else warns++;
     const m = new THREE.Mesh(
       new THREE.SphereGeometry(fail ? r : r * 0.7, 20, 14),
       new THREE.MeshBasicMaterial({ color: fail ? COLORS.red : 0xf0a020, transparent: true, opacity: 0.85, depthTest: false }),
@@ -688,7 +688,7 @@ function dfmPart(s) {
   return {
     group: g,
     view: [0.55, -1.0, 0.45],
-    legend: { kind: fails ? "contact" : "clear", text: fails ? `${fails} problem spot${fails > 1 ? "s" : ""} marked in red` : "No problem spots" },
+    legend: { kind: fails ? "contact" : warns ? "warn" : "clear", text: [fails && `${fails} problem${fails > 1 ? "s" : ""} (red)`, warns && `${warns} heads-up${warns > 1 ? "s" : ""} (amber)`].filter(Boolean).join(" · ") || "No problem spots" },
     notes: [],
   };
 }

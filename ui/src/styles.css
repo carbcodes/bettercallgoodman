@@ -171,3 +171,22 @@ table.claims { width: 100%; border-collapse: collapse; font-size: 13.5px; }
 .explain li::marker { color: var(--blue-ink); font-weight: 600; }
 .explain b.ok { color: var(--blue-ink); }
 .explain b.bad { color: var(--red); }
+
+/* manufacture panel */
+.verdict.s-warn { background: #fff4e0; color: #a35f00; }
+.pill.s-warn { background: #fff4e0; color: #a35f00; }
+.verdict { font-size: 28px; }
+.finds { display: flex; flex-direction: column; gap: 8px; }
+.find { border-radius: 12px; padding: 10px 14px; background: var(--bg); }
+.find.bad { background: var(--red-soft); }
+.find.warn { background: #fff4e0; }
+.find-head { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+.find.bad .find-head b { color: var(--red); }
+.find.warn .find-head b { color: #a35f00; }
+.find-head .mono { font-size: 12px; color: var(--muted); }
+.find-tag { margin-left: auto; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.find p { margin: 4px 0 0; font-size: 12.5px; line-height: 1.4; color: var(--ink); opacity: 0.8; }
+.passed { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: auto; }
+.passed-head { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
+.chip { font-size: 12px; padding: 3px 10px; border-radius: 999px; background: var(--blue-soft); color: var(--blue-ink); }
+.contact.amber { color: #a35f00; }

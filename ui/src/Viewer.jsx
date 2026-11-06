@@ -38,7 +38,7 @@ function Legend({ legend }) {
   const red = legend.kind === "contact";
   return (
     <div className="legend">
-      <div className={`contact mono ${red ? "red" : "blue"}`}>
+      <div className={`contact mono ${red ? "red" : legend.kind === "warn" ? "amber" : "blue"}`}>
         <span className="swatch" /> {legend.text}
       </div>
     </div>
@@ -135,8 +135,9 @@ export default function Viewer({ task }) {
       const w = el.clientWidth, h = el.clientHeight;
       renderer.setSize(w, h, false);
       camera.aspect = w / h;
+      camera.position.copy(center).addScaledVector(dir, camR / Math.sin((15 * Math.PI) / 180) / Math.min(1, camera.aspect * 1.25));
       // design parts: push the part up and left so the explanation card has the bottom right
-      if (task.area === "cad") camera.setViewOffset(w, h, w * 0.14, h * 0.1, w, h);
+      if (task.scene?.kind === "design") camera.setViewOffset(w, h, w * 0.14, h * 0.1, w, h);
       camera.updateProjectionMatrix();
     };
     resize();

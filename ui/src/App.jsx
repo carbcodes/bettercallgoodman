@@ -36,13 +36,17 @@ const TABS = [
 const processOf = (t) => (t.inputs?.material === "PLA" ? "printing" : "cnc");
 // Words for each manufacturing verdict (printing has a middle one: prints, but only with supports).
 const VERDICT_WORD = { printable: "Printable", printable_with_supports: "Printable with supports", not_printable: "Not printable", machinable: "Machinable", not_machinable: "Not machinable" };
+const SHORT_WORD = { printable: "Prints", printable_with_supports: "Needs supports", not_printable: "Can't print", machinable: "Machinable", not_machinable: "Can't mill" };
+const RULE_NAME = { overhang: "Overhang", needs_support: "Needs support", overhang_hole_top: "Hole tops", overhang_near_bed: "Bottom edge", bridge: "Bridge", min_wall: "Thin wall", hole_undersize: "Hole size", bed_contact: "Bed contact", build_volume: "Build volume", undercut: "Undercut", setups: "Setups", thin_wall: "Thin wall", hole_depth: "Hole depth", inside_corner: "Inside corner", pocket_depth: "Pocket depth" };
+const ruleName = (r) => RULE_NAME[r] || r.replace(/_/g, " ").replace(/^./, (c) => c.toUpperCase());
 const PROC = { printing: { name: "3D printing", ok: "Printable", bad: "Not printable" }, cnc: { name: "3-axis CNC", ok: "Machinable", bad: "Not machinable" } };
 
 // Printable / Not printable / Waiting for the manufacturing tab.
 function makeState(t, proc) {
   const r = t.dfm?.[proc];
   if (!r || r.error) return "waiting";
-  return ["printable", "printable_with_supports", "machinable"].includes(r.verdict) ? "holds" : "breaks";
+  if (r.verdict === "printable_with_supports") return "warn";
+  return ["printable", "machinable"].includes(r.verdict) ? "holds" : "breaks";
 }
 
 // Holds / Breaks / Waiting, from Goodman's own measurement of the AI's part.
@@ -139,7 +143,17 @@ function MakePanel({ task, proc, setProc }) {
   const r = task.dfm?.[proc];
   const s = makeState(task, proc);
   const P = PROC[proc];
-  const shown = (r?.findings || []).filter((f) => f.severity !== "info");
+  const word = s === "waiting" ? "Waiting" : VERDICT_WORD[r.verdict] || (s === "breaks" ? P.bad : P.ok);
+  // one card per rule: fails first, then warnings, repeats folded into a count
+  const groups = [];
+  for (const f of r?.findings || []) {
+    if (f.severity === "info") continue;
+    const g = groups.find((x) => x.rule === f.rule && x.severity === f.severity);
+    if (g) g.n++;
+    else groups.push({ rule: f.rule, severity: f.severity, why: f.why, n: 1 });
+  }
+  const passed = (r?.findings || []).filter((f) => f.severity === "info" && ["bed_contact", "min_wall", "build_volume", "thin_wall", "hole_depth"].includes(f.rule));
+  const note = proc === "printing" ? r?.support_summary : null;
   return (
     <aside className="panel">
       <h1 className="panel-title">{cleanTitle(task.title)}</h1>
@@ -148,14 +162,30 @@ function MakePanel({ task, proc, setProc }) {
           <button key={k} className={k === proc ? "on" : ""} onClick={() => setProc(k)}>{v.name}</button>
         ))}
       </div>
-      <div className={`verdict s-${s}`}>{s === "waiting" ? "Waiting" : VERDICT_WORD[r.verdict] || (s === "holds" ? P.ok : P.bad)}</div>
+      <div className={`verdict s-${s}`}>{word}</div>
+      {note && s !== "waiting" && <p className="where">{note}</p>}
       {r?.error && <p className="acc bad">{r.error}</p>}
-      {s !== "waiting" && shown.length === 0 && <p className="acc ok">No problems found on the AI's real geometry.</p>}
-      {shown.map((f, i) => (
-        <p key={i} className={`acc ${f.severity === "fail" ? "bad" : "warn"}`}>
-          <b>{f.rule.replace(/_/g, " ")}</b> · {f.why}
-        </p>
-      ))}
+      {s !== "waiting" && groups.length === 0 && <p className="acc ok">No problems on the AI's real geometry.</p>}
+      <div className="finds">
+        {groups.map((g) => (
+          <div key={g.rule + g.severity} className={`find ${g.severity === "fail" ? "bad" : "warn"}`}>
+            <div className="find-head">
+              <b>{ruleName(g.rule)}</b>
+              {g.n > 1 && <span className="mono">×{g.n}</span>}
+              <span className="find-tag">{g.severity === "fail" ? "Problem" : "Heads-up"}</span>
+            </div>
+            <p>{g.why}</p>
+          </div>
+        ))}
+      </div>
+      {passed.length > 0 && (
+        <div className="passed">
+          <span className="passed-head">Passed</span>
+          {passed.map((f, i) => (
+            <span key={i} className="chip" title={f.why}>✓ {ruleName(f.rule)}</span>
+          ))}
+        </div>
+      )}
       {proc === "cnc" && task.inputs?.material === "PLA" && (
         <p className="where">This part is PLA, so milling is only a what-if (checked as Al 6061).</p>
       )}
@@ -199,8 +229,8 @@ export default function App() {
 
   const pr = proc || (task ? processOf(task) : "printing");
   const stateOf = tab === "make" ? (t) => makeState(t, proc || processOf(t)) : state;
-  const labelOf = tab === "make" ? (t, s) => (s === "waiting" ? "Waiting" : VERDICT_WORD[t.dfm?.[proc || processOf(t)]?.verdict] || "") : (t, s) => LABEL[s];
-  const holds = tasks.filter((t) => stateOf(t) === "holds").length;
+  const labelOf = tab === "make" ? (t, s) => (s === "waiting" ? "Waiting" : SHORT_WORD[t.dfm?.[proc || processOf(t)]?.verdict] || "") : (t, s) => LABEL[s];
+  const holds = tasks.filter((t) => ["holds", "warn"].includes(stateOf(t))).length;
   const breaks = tasks.filter((t) => stateOf(t) === "breaks").length;
   const okWord = tab === "make" ? "pass" : "hold";
   const badWord = tab === "make" ? "fail" : "break";
