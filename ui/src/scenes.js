@@ -456,11 +456,93 @@ function gearCollar(s) {
   };
 }
 
+function cantileverFatigue(s) {
+  // Round arm drawn as a square bar of side d; colour is the peak of each load cycle.
+  const g = new THREE.Group();
+  const L = s.length_mm, d = s.diameter_mm, F = s.load_n;
+  const I = (Math.PI * d ** 4) / 64;
+  const allow = s.strength / (s.required_sf || 1);
+  const arm = (x, y, z) => (F * Math.max(L - x, 0) * Math.min(Math.abs(z), d / 2)) / I / allow;
+  g.add(stressBox(L, d, d, [L / 2, 0, 0], [120, 1, 16], arm));
+  g.add(box(14, 30, 30, COLORS.partDark, [-7, 0, 0]));
+  // the drive pushes 0 -> F -> 0: ghost of the arm at its other extreme
+  g.add(ghostBox(L, d, d, [L / 2, 0, 0], 0.08));
+  g.add(arrow([L, 0, 45], [0, 0, -1], 35));
+  g.add(arrow([L, 0, -45], [0, 0, 1], 35, COLORS.muted ?? COLORS.ink));
+  return {
+    group: g,
+    view: [0.45, -1.0, 0.4],
+    legend: { kind: "stress", allow, strength: s.strength, requiredSf: s.required_sf, peak: s.sigma_max, nominal: s.sigma_max, kt: 1 },
+    notes: [],
+  };
+}
+
+function simpleBeam(s) {
+  // Flat bar on two supports, centre load; drawn at its true computed sag.
+  const g = new THREE.Group();
+  const L = s.span_mm, b = s.width_mm, h = s.depth_mm, P = s.load_n, E = s.E_mpa;
+  const I = (b * h ** 3) / 12;
+  const allow = s.strength / (s.required_sf || 1);
+  const M = (x) => (P * Math.min(x, L - x)) / 2;
+  const sag = (x) => {
+    const u = Math.min(x, L - x);
+    return (P * u * (3 * L * L - 4 * u * u)) / (48 * E * I);
+  };
+  const bar = stressBox(L, b, h, [L / 2, 0, 0], [200, 2, 6], (x, y, z) => (M(x) * Math.abs(z)) / I / allow);
+  const pos = bar.geometry.attributes.position;
+  for (let i = 0; i < pos.count; i++) pos.setZ(i, pos.getZ(i) - sag(pos.getX(i)));
+  pos.needsUpdate = true;
+  bar.geometry.computeVertexNormals();
+  bar.clear();
+  g.add(withEdges(bar, 0.2));
+  for (const x of [0, L]) g.add(box(16, b * 1.6, 30, COLORS.partDark, [x, 0, -h / 2 - 15]));
+  // where it should be (2 mm allowed): straight reference line
+  g.add(line([[0, 0, h / 2], [L, 0, h / 2]], COLORS.ink, 0.35, true));
+  g.add(arrow([L / 2, 0, 90], [0, 0, -1], 70));
+  return {
+    group: g,
+    view: [0.2, -1.0, 0.25],
+    legend: { kind: "stress", allow, strength: s.strength, requiredSf: s.required_sf, peak: s.sigma_max, nominal: s.sigma_max, kt: 1 },
+    notes: [],
+  };
+}
+
+function thermalColumn(s) {
+  // Rod clamped at both ends; heating pushes it against the clamps until it bows.
+  const g = new THREE.Group();
+  const L = s.length_mm, d = s.diameter_mm;
+  const allow = s.strength;
+  const rod = cylZ(d / 2, L, 0, [0, 0, L / 2], 32);
+  rod.material = new THREE.MeshStandardMaterial({ color: stressColor(s.sigma / allow), roughness: 0.8 });
+  g.add(rod);
+  for (const z of [0, L]) g.add(box(40, 40, 24, COLORS.partDark, [0, 0, z === 0 ? -12 : L + 12]));
+  // fixed-fixed first mode: (1 - cos 2*pi*z/L) / 2, amplitude exaggerated
+  const A = L * 0.06;
+  const pts = [];
+  for (let i = 0; i <= 64; i++) {
+    const z = (L * i) / 64;
+    pts.push(new THREE.Vector3((A * (1 - Math.cos((2 * Math.PI * z) / L))) / 2, 0, z));
+  }
+  g.add(new THREE.Mesh(
+    new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 96, d / 2, 16, false),
+    new THREE.MeshStandardMaterial({ color: COLORS.red, roughness: 0.7, transparent: true, opacity: 0.55 }),
+  ));
+  return {
+    group: g,
+    view: [1.0, -1.0, 0.2],
+    legend: { kind: "stress", allow, strength: s.strength, requiredSf: 1, peak: s.sigma, nominal: s.sigma, kt: 1 },
+    notes: [],
+  };
+}
+
 const BUILDERS = {
   cantilever_root_fillet: cantileverL,
   cantilever_step: cantileverStep,
   column,
   arm_torque: armTorque,
+  cantilever_fatigue: cantileverFatigue,
+  simple_beam: simpleBeam,
+  thermal_column: thermalColumn,
   "arm-tilt-base": armTiltBase,
   "pcb-enclosure": pcbEnclosure,
   "pcb-enclosure-control": pcbEnclosure,

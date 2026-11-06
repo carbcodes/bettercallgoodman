@@ -14,14 +14,11 @@ function Legend({ legend }) {
         <div className="legend-bar" style={{ background: COLORMAP_CSS }}>
           <span className="tick" style={{ left: "92%" }} />
         </div>
-        <div className="legend-scale mono">
-          <span>0</span>
-          <span style={{ left: "92%" }}>allowable {fmt(legend.allow)} MPa</span>
-        </div>
         <div className="legend-read mono">
-          peak {fmt(legend.peak, 1)} MPa
-          {legend.kt > 1.001 ? ` (Kt ${legend.kt.toFixed(2)} × ${fmt(legend.nominal, 1)})` : ""}
-          <span className="muted"> · allowable = {fmt(legend.strength)} MPa / SF {legend.requiredSf}</span>
+          <span>
+            peak <b>{fmt(legend.peak, 1)} MPa</b>
+          </span>
+          <span>allowable {fmt(legend.allow)} MPa</span>
         </div>
       </div>
     );
@@ -31,17 +28,18 @@ function Legend({ legend }) {
     return (
       <div className="legend">
         <div className="torque-bars mono">
-          <div><span>stall rating</span><i style={{ width: `${(legend.have / max) * 100}%` }} /><b>{fmt(legend.have, 1)} kg·cm</b></div>
+          <div><span>servo stall</span><i style={{ width: `${(legend.have / max) * 100}%` }} /><b>{fmt(legend.have, 1)} kg·cm</b></div>
           <div><span>needed</span><i className="red" style={{ width: `${(legend.need / max) * 100}%` }} /><b>{fmt(legend.need, 1)}</b></div>
-          <div><span>needed × {legend.requiredMargin}</span><i className="red faint" style={{ width: `${((legend.need * legend.requiredMargin) / max) * 100}%` }} /><b>{fmt(legend.need * legend.requiredMargin, 1)}</b></div>
+          <div><span>× {legend.requiredMargin} margin</span><i className="red faint" style={{ width: `${((legend.need * legend.requiredMargin) / max) * 100}%` }} /><b>{fmt(legend.need * legend.requiredMargin, 1)}</b></div>
         </div>
       </div>
     );
   }
+  const red = legend.kind === "contact";
   return (
     <div className="legend">
-      <div className={`legend-read mono ${legend.kind === "contact" ? "red-text" : "blue-text"}`}>
-        <span className={`swatch ${legend.kind === "contact" ? "red" : "blue"}`} /> {legend.text}
+      <div className={`contact mono ${red ? "red" : "blue"}`}>
+        <span className="swatch" /> {legend.text}
       </div>
     </div>
   );
@@ -95,7 +93,7 @@ export default function Viewer({ task }) {
     const camera = new THREE.PerspectiveCamera(30, 1, camR / 100, radius * 40);
     camera.up.set(0, 0, 1);
     const dir = new THREE.Vector3(...spec.view).normalize();
-    camera.position.copy(center).addScaledVector(dir, camR * 3.1);
+    camera.position.copy(center).addScaledVector(dir, camR / Math.sin((15 * Math.PI) / 180));
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.target.copy(center);
     controls.enableDamping = true;
@@ -133,27 +131,15 @@ export default function Viewer({ task }) {
     };
   }, [task.id, task.scene]);
 
-  const isStrength = task.area === "strength";
+  const tag = task.area === "strength" ? (task.scene?.kind === "arm_torque" ? "Torque" : "Beam-theory stress") : "Geometry";
   return (
-    <figure className="viewer">
-      <div className="viewer-head">
-        <span className="label">{isStrength ? (task.scene.kind === "arm_torque" ? "Torque at the shoulder" : "Beam-theory stress, not FEA") : "Geometry and contact"}</span>
-        <span className="muted small">drag to orbit · scroll to zoom</span>
-      </div>
+    <figure className="viewer" style={{ margin: 0 }}>
       <div className="viewer-canvas" ref={host}>
+        <span className="viewer-tag">{tag}</span>
         {failed && <div className="viewer-fallback">WebGL is not available in this browser.</div>}
-        {!built && <div className="viewer-fallback">No 3D view for this case.</div>}
+        {!built && <div className="viewer-fallback">No 3D view for this case yet.</div>}
       </div>
-      {built && (
-        <figcaption>
-          <Legend legend={built.legend} />
-          <ul className="viewer-notes">
-            {built.notes.map((n) => (
-              <li key={n}>{n}</li>
-            ))}
-          </ul>
-        </figcaption>
-      )}
+      {built && <Legend legend={built.legend} />}
     </figure>
   );
 }

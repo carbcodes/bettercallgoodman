@@ -88,6 +88,18 @@ def _scene(task: dict, checker: dict | None, truth: dict) -> dict:
                      sigma=vals.get("max_stress_mpa"), buckling_load_n=vals.get("buckling_load_n"),
                      strength=vals.get("material_strength_mpa"), safety_factor=vals.get("safety_factor"),
                      end_condition=inp.get("end_condition"))
+        elif model == "cantilever_fatigue":
+            s.update(length_mm=inp["lever_mm"], diameter_mm=inp["diameter_mm"], load_n=inp["load_max_n"],
+                     sigma_max=vals.get("max_stress_mpa"), strength=vals.get("material_strength_mpa"),
+                     required_sf=inp.get("required_safety_factor"))
+        elif model == "simple_beam":
+            sec = inp["section"]
+            s.update(span_mm=inp["span_mm"], width_mm=sec["width_mm"], depth_mm=sec["depth_mm"], load_n=inp["load_n"],
+                     E_mpa=inp["E_mpa"], sigma_max=vals.get("max_stress_mpa"), strength=vals.get("material_strength_mpa"),
+                     required_sf=inp.get("required_safety_factor"))
+        elif model == "thermal_column":
+            s.update(length_mm=inp["length_mm"], diameter_mm=inp["diameter_mm"], sigma=vals.get("thermal_stress_mpa"),
+                     strength=vals.get("material_strength_mpa"))
         elif model == "arm_torque":
             s.update(arm_length_mm=inp["arm_length_mm"], arm_mass_kg=inp.get("arm_mass_kg", 0),
                      tip_mass_kg=inp.get("tip_mass_kg", 0), stall_kgcm=inp["stall_torque_kgcm"],
