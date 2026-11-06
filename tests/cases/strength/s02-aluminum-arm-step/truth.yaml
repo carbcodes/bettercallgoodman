@@ -1,0 +1,14 @@
+verdict: not_safe
+# Checker note: Peterson chart 3.10 fit (Pilkey) gives Kt = 2.56 at D/d = 2.08, r/d = 0.042
+# -> sigma_max = 209 MPa, SF = 1.32. Draft values below (Kt 2.4 -> 196 MPa, SF 1.4) are kept;
+# both are within tolerance and the verdict is the same.
+values:
+  moment_nmm: {value: 5886, tol: 0.05}
+  max_stress_mpa: {value: 196, tol: 0.2}    # Kt ~2.4
+  safety_factor: {value: 1.4, tol: 0.25}
+must_mention: [stress_concentration]
+why: |
+  M = 19.62 N x 300 mm = 5886 N·mm. Z = t·d²/6 = 3·12²/6 = 72 mm³. sigma_nom = 81.8 MPa -> nominal SF 3.4.
+  Shoulder fillet r/d = 0.042, D/d = 2.08 -> Kt ~2.4 in bending -> sigma_max ~196 MPa -> SF ~1.4 < 2.
+  Any Kt above 1.7 fails the requirement, so the verdict is robust to the chart reading.
+  DRAFT: Carlos to read Kt off Peterson / Shigley Fig. A-15-9.

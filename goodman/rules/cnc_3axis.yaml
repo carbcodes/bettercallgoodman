@@ -1,0 +1,61 @@
+# 3-axis CNC milling rules, used by goodman/dfm/cnc.py.
+# Every number has a source; "assumption" marks values we chose. Units: mm, degrees.
+
+process: CNC milling, 3-axis
+
+rules:
+  inside_corner_radius_vs_tool:
+    value: 1.0
+    meaning: >
+      A vertical inside corner needs radius >= tool radius (ratio 1.0), so the largest
+      end mill that can cut a corner of radius r has diameter 2r. A sharp (r = 0) vertical
+      inside corner cannot be milled at all.
+    source: >
+      Spec 06. Hubs (Protolabs Network), "CNC machining design guide", internal edges:
+      a rotating tool always leaves a radius equal to its own; Protolabs, "Design guidelines:
+      CNC milling" (inside corners have the tool's radius).
+  min_tool_diameter_mm:
+    value: 1.0
+    meaning: Smallest practical end mill; inside radii under half this need EDM or a specialty tool.
+    source: assumption (shop practice; sub-1 mm micro end mills are specialty tooling and very slow)
+  pocket_depth_to_tool_max:
+    value: 4
+    meaning: Pocket (corner) depth may be at most this many tool diameters.
+    source: >
+      Spec 06 (~4x). Hubs, "CNC machining design guide", cavities: recommended depth 4x width,
+      end mills have a cutting length of ~3-4x their diameter.
+  hole_depth_to_diameter_max:
+    value: 10
+    meaning: Drilled holes deeper than this many diameters are unreliable (drill walk, chip packing).
+    source: >
+      Spec 06 (~10x). Hubs, "CNC machining design guide", holes: recommended depth 4x diameter,
+      typical 10x, feasible 40x with special tooling.
+  min_wall_mm:
+    by_material:
+      Al6061-T6: 0.8
+      mild_steel: 0.8
+      1018_CR: 0.8
+      plastic: 1.5
+    default: 0.8
+    meaning: Walls thinner than this chatter and deflect under the cutter.
+    source: >
+      Spec 06 (aluminum 0.8 mm). Hubs, "CNC machining design guide", walls: recommended minimum
+      0.8 mm for metals, 1.5 mm for plastics.
+  undercut_normal_tol_deg:
+    value: 1.0
+    meaning: A face is visible from a setup if its normal is within 90° + this of the tool axis.
+    source: assumption (numerical tolerance for vertical walls)
+  reach_fraction_min:
+    value: 0.98
+    meaning: A face counts as reachable from a setup if at least this fraction of its sample points can see the spindle.
+    source: assumption (tolerates ray-cast noise at face borders)
+  thread_depth_margin_pitch:
+    value: 1.5
+    meaning: A tapped thread needs the drilled depth to exceed the thread depth by ~1.5 pitch (blind holes).
+    source: Spec 06; Machinery's Handbook, tapping (allow chip room and the tap's chamfered lead).
+    checked: false   # STEP solids carry no thread callouts; see Known limits in the PR
+  tolerance_tight_mm:
+    value: 0.025
+    meaning: Tolerances tighter than +/- this on non-critical features drive cost.
+    source: Spec 06; Protolabs standard machining tolerance is +/-0.13 mm (0.005 in).
+    checked: false   # tolerances are not in a STEP solid

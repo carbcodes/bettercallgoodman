@@ -28,3 +28,7 @@ Cite where each threshold comes from. Thresholds go in a YAML file.
 3. **Control**: a plate with through holes and 3 mm corner radii on 10 mm pockets.
 
 Bonus demo case: a bracket that fails **both** strength (sharp corner → stress concentration) and CNC (sharp corner → can't be milled). One fix, a proper fillet, solves both.
+
+## Implementation
+
+Built as `goodman/dfm/cnc.py` (`check_cnc(step_path, setups, material)`, CLI `python -m goodman.dfm cnc part.step --setups 0,0,1 0,0,-1`), working on any STEP solid. Thresholds and their sources are in `goodman/rules/cnc_3axis.yaml`; threads and tolerances are listed there but not checked, since a STEP solid carries no callouts. Test parts: `tests/fixtures/dfm/m0*.py`, run by `tests/test_dfm.py`.

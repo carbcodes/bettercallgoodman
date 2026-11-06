@@ -14,6 +14,10 @@ Rules that shape everything below:
 
 Grading (100 points): problem quality and realism 25, correctness and fairness 25, verification quality 25, experimental evidence 10, technical communication 15. Ties are broken by correctness, then verification, then problem.
 
+## Direction change (1:40 PM)
+
+The headline is now **AI designs, Goodman checks**: ChatGPT writes CAD code for a part that must carry a load, and Goodman runs it, measures the real geometry, and checks it with the same strength models. The text-answer cases below stay as the second mode (AI analyzes, Goodman checks). See `specs/10-cad.md`.
+
 ## The idea
 
 An AI's design answer is a bundle of **claims**: numbers ("max stress 32 MPa"), verdicts ("safe", "no collision") and omissions (it never mentions buckling). Goodman turns that bundle into checks:
@@ -59,6 +63,8 @@ Each person writes their own cases **and** their correct answers. Whoever writes
 | 3:50 | Zip and submit at hackerhousecampus.com/mercor/submit | |
 
 **Hard rule:** don't start stretch work until all core cases run end to end.
+
+**Next step after the core:** [08 · automatic setup](08-auto-setup.md). Today a person writes each `task.yaml`; the upgrade has Goodman build it from the question and measures how often it gets the setup right.
 
 ## Case mix (per area)
 

@@ -1,6 +1,0 @@
-id: s03-steel-rod-brace
-area: strength
-title: Pinned 6 mm steel brace in compression
-trap: Direct compressive stress gives SF ~9, but the rod buckles (Euler load ~785 N) below the 800 N load
-control: false
-inputs: {material: mild_steel, E_mpa: 200000, yield_mpa: 250, diameter_mm: 6, length_mm: 400, end_condition: pinned_pinned, load_n: 800, required_safety_factor: 2.0}

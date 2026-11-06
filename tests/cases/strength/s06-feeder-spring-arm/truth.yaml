@@ -1,0 +1,13 @@
+verdict: not_safe
+values:
+  max_stress_mpa: {value: 176.8, tol: 0.05}
+  fatigue_safety_factor: {value: 1.54, tol: 0.15}
+must_mention: [fatigue]
+why: |
+  Z = pi·d³/32 = pi·12³/32 = 169.6 mm³. M_max = 300·100 = 30000 N·mm -> sigma_max = 176.8 MPa.
+  Static SF = 370/176.8 = 2.09 (passes, which is the trap).
+  Load cycles 0 -> 300 N: sigma_a = sigma_m = 88.4 MPa. 20 Hz x 8 h/day -> ~2e8 cycles per year: infinite life needed.
+  Se' = 0.5·Sut = 220 MPa; machined surface ka = 4.51·Sut^-0.265 = 0.90; size, load, temperature factors ~1 -> Se ~198 MPa.
+  Goodman: 1/n = 88.4/198 + 88.4/440 = 0.447 + 0.201 = 0.648 -> n = 1.54 < 2. Not safe.
+  (Gerber, less conservative, gives ~1.9: still < 2.)
+source: Shigley 10th ed., Ch. 6 (Se' = 0.5 Sut, Marin surface factor Table 6-2, modified Goodman Eq. 6-41)

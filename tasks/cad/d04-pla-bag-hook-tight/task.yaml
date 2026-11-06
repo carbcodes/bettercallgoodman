@@ -1,0 +1,6 @@
+id: d04-pla-bag-hook-tight
+area: cad
+title: "PLA bag hook, 2 kg, 40 mm reach, 15 mm wide, printed upright"
+trap: "Narrow and printed upright: the back plate bends across layers and needs ~5-8 mm thickness with a real fillet"
+control: false
+inputs: {material: PLA, load_n: 19.62, required_safety_factor: 2.0, layer_normal: z, load_rule: lowest_inside, max_reach_mm: 40, max_width_mm: 15}

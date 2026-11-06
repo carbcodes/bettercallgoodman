@@ -1,7 +1,0 @@
-verdict: does_not_fit
-values:
-  min_clearance_mm: {value: -1.0, tol: 0.0}
-why: |
-  40T tip diameter = m(z + 2) = 42 mm -> tip radius 21 mm. Collar radius 10 mm.
-  21 + 10 = 31 mm > 30 mm center distance -> the teeth cut 1.0 mm into the collar.
-  Pitch-radius reasoning (20 + 10 = 30) suggests just touching, which is still wrong.

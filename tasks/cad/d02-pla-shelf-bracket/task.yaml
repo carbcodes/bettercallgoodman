@@ -1,0 +1,6 @@
+id: d02-pla-shelf-bracket
+area: cad
+title: "PLA shelf bracket, 2 kg at 150 mm (AI-designed)"
+trap: "Printed upright, the wall leg bends across its layers at the corner (about half the datasheet strength)"
+control: false
+inputs: {material: PLA, load_n: 19.62, required_safety_factor: 2.0, layer_normal: z, load_rule: fixed_x, load_x_mm: 150, max_width_mm: 25}

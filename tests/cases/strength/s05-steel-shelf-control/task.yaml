@@ -1,0 +1,7 @@
+id: s05-steel-shelf-control
+area: strength
+title: 1018 steel shelf support (control)
+trap: none, genuinely safe with SF ~4.4
+control: true
+model: cantilever_root_fillet   # strength checker model (goodman/checkers/strength.py)
+inputs: {material: 1018_CR, yield_mpa: 370, load_n: 200, lever_mm: 150, section: {type: rect, width_mm: 40, thickness_mm: 8}, fillet_mm: 5, required_safety_factor: 2.0}

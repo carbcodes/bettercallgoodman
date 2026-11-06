@@ -1,0 +1,20 @@
+{
+  "task_id": "s08-heated-guide-rail",
+  "verdict": "safe",
+  "claims": [
+    {
+      "id": "k1",
+      "quantity": "thermal_stress_mpa",
+      "value": 72,
+      "quote": "thermal stress 72 MPa"
+    },
+    {
+      "id": "k2",
+      "quantity": "safety_factor",
+      "value": 3.47,
+      "quote": "safety factor about 3.5 against yield"
+    }
+  ],
+  "mentions": [],
+  "reviewed_by": "fixture (hand-written for tests)"
+}

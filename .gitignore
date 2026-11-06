@@ -1,6 +1,11 @@
-.venv/
 __pycache__/
+*.pyc
+.pytest_cache/
+.venv/
 .superpowers/
-motion-out/
 .cache/
+motion-out/
 results/motion/*/poses/
+ui/node_modules/
+ui/dist/
+ui/public/data.json

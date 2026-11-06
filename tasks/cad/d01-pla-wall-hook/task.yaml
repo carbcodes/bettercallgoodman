@@ -1,0 +1,6 @@
+id: d01-pla-wall-hook
+area: cad
+title: "PLA wall hook for a 300 g bag (AI-designed)"
+trap: "Thin hook root, and the strap load sits further out than the AI assumes"
+control: false
+inputs: {material: PLA, load_n: 2.943, required_safety_factor: 2.0, layer_normal: y, load_rule: lowest_inside, max_reach_mm: 60}

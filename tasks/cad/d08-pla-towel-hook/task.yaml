@@ -1,0 +1,6 @@
+id: d08-pla-towel-hook
+area: cad
+title: "PLA towel hook, 1.5 kg, 12 mm wide, printed upright"
+trap: "12 mm wide and upright: the back plate needs ~5 mm plus fillet, across layers"
+control: false
+inputs: {material: PLA, load_n: 14.72, required_safety_factor: 2.0, layer_normal: z, load_rule: lowest_inside, max_reach_mm: 60, max_width_mm: 12}

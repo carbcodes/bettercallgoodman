@@ -1,1 +1,0 @@
-I have an aluminum plate held down with M4 socket head cap screws (ISO 4762). Each screw sits in a counterbore 8.0 mm in diameter and 3.5 mm deep. A flat cover plate then goes directly on top of this plate, over the screws. Will the cover plate sit flat? End your answer with a short summary: your verdict (fits / doesn't fit) and the key numbers you relied on.

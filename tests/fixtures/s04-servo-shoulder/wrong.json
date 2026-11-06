@@ -1,0 +1,20 @@
+{
+  "task_id": "s04-servo-shoulder",
+  "verdict": "will_hold",
+  "claims": [
+    {
+      "id": "k1",
+      "quantity": "required_torque_kgcm",
+      "value": 1.41,
+      "quote": "needs about 1.41 kg·cm"
+    },
+    {
+      "id": "k2",
+      "quantity": "safety_factor",
+      "value": 7.8,
+      "quote": "margin of about 7.8"
+    }
+  ],
+  "mentions": [],
+  "reviewed_by": "fixture (hand-written for tests)"
+}

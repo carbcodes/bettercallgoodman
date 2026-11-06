@@ -1,0 +1,11 @@
+verdict: not_safe
+values:
+  moment_nmm: {value: 37500, tol: 0.05}
+  max_stress_mpa: {value: 225, tol: 0.05}
+  safety_factor: {value: 1.23, tol: 0.05}
+  deflection_mm: {value: 27.2, tol: 0.1}
+why: |
+  Simply supported, center load: M = P·L/4 = 300·500/4 = 37500 N·mm.
+  Wide face up -> bending about the weak axis: Z = b·h²/6 = 40·5²/6 = 166.7 mm³ -> sigma = 225 MPa -> SF = 276/225 = 1.23 < 1.5.
+  I = 40·5³/12 = 416.7 mm⁴; deflection = P·L³/(48·E·I) = 300·500³/(48·68900·416.7) = 27.2 mm >> 2 mm.
+  Using the 40 mm as depth (strong axis) would give 28 MPa and 0.43 mm, which is the wrong orientation. Not safe on both counts.

@@ -1,0 +1,11 @@
+{
+  "task_id": "d12-pla-heavy-hook",
+  "chat_url": "https://chatgpt.com/c/6aee2f6c-fe10-83e9-b0b5-c01892f41c0b",
+  "model": "GPT-6",
+  "interface": "ChatGPT web (normal chat) via Chrome",
+  "date": "2026-11-06T14:58:06-05:00",
+  "prompt": "I need a utility hook for a 5 kg tool bag, 3D printed in PLA at 100% infill and printed standing upright on the end of its back plate, so the layers are horizontal. It screws to the wall through a back plate and the strap hangs at the hook's lowest inside point. It must stay within 45 mm of the wall and be no wider than 20 mm. I need a safety factor of at least 2. Write one self-contained build123d Python script that builds the part as a single solid and exports it with export_step to \"part.step\" in the current folder. Use millimetres and this frame: the wall or mounting face is the plane x = 0 and the part extends in +x; z is up and gravity acts in -z. After the script, end your answer with a short summary: the safety factor you expect and the critical dimension of the load-carrying section.",
+  "answer": "",
+  "code": [],
+  "notes": "stalled: ChatGPT stopped generating mid-answer (~1050 chars), no complete answer captured; ChatGPT memory off (confirmed by the user)"
+}

@@ -4,10 +4,14 @@
 
 AI models now answer engineering questions with confidence: "this bracket holds 20 kg with a safety factor of 2", "the arm clears the base through its full range", "this part is ready to mill". Those answers often sound right and are wrong.
 
-Goodman is a design checker. It reads an AI's answer to a real design task, pulls out every engineering claim it makes, and checks each one with physics and geometry instead of opinion:
+Goodman is a design checker. It works two ways:
+
+1. **AI designs the part.** Ask an AI for a part that must carry a load ("a PLA hook that holds 300 g, safety factor 2"). It writes the CAD code. Goodman runs that code, measures the real geometry it produced (lever arm, the cross-section at the wall, sharp corners), and works out on its own whether the part actually holds the load.
+2. **AI analyzes a part.** (Checker only: its ChatGPT runs came from unsaved temporary chats, so they were dropped from the evidence; the cases live on as test data in `tests/cases/strength/`.) Ask an AI whether a described part is safe or fits. Goodman pulls out every number in its answer and recomputes each one with physics and geometry instead of opinion.
 
 | Area | Owner | Checks |
 | --- | --- | --- |
+| Design (CAD) | Carlos | Runs the AI's CAD code, measures the part, checks it carries the load |
 | Strength | Carlos | Stress, deflection, safety factor, buckling, fatigue, stress concentration |
 | Simulation | Fabian | Collisions, clearances, range of motion |
 | 3D printing (stretch) | Fabian | Overhangs, thin walls, bed contact, hole sizes |
@@ -27,3 +31,17 @@ Built for Mercor Hack Day at Georgia Tech, November 6, 2026.
 6. [3D printing checker](specs/05-printing.md) (stretch)
 7. [CNC milling checker](specs/06-cnc.md) (stretch)
 8. [Write-up and demo](specs/07-writeup-demo.md)
+9. [Next step: automatic setup](specs/08-auto-setup.md): Goodman sets up each problem itself, measured against our hand-written setups
+
+## Presentation UI
+
+A local page that walks through the demo: the pitch, the ten cases with their outcomes, each case end to end (prompt, the AI's answer with the extracted claims highlighted, Goodman's check line by line, the verdict and its why, and a 3D view), and the results table.
+
+```
+npm --prefix ui install      # once
+npm --prefix ui run dev      # http://127.0.0.1:5173 (the desktop app uses .claude/launch.json, port 5180)
+```
+
+`dev` first runs `python -m goodman export`, which writes `ui/public/data.json` from `tasks/` (task, prompt, truth, the strength checker's calculation, and any attempt/claims/result files present). While the server runs, the data is re-exported whenever the page refreshes its data (every 15 s or on focus), so new attempts and results show up without a restart. Cases without a result show as pending.
+
+The strength 3D views colour the part with the checker's own beam-theory model (σ = M·c/I along the length and through the depth, Kt as a local peak at the fillet or step), relative to the allowable stress (strength / required SF). They are pictures of the closed-form check, not FEA. Collision views draw the task geometry with the contact or overlap in red. Arrow keys switch cases.

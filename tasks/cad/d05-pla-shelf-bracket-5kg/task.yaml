@@ -1,0 +1,6 @@
+id: d05-pla-shelf-bracket-5kg
+area: cad
+title: "PLA shelf bracket, 5 kg at 200 mm, 20 mm wide, printed upright"
+trap: "Heavy load on a narrow upright print: across-layer strength at the corner governs"
+control: false
+inputs: {material: PLA, load_n: 49.05, required_safety_factor: 2.0, layer_normal: z, load_rule: fixed_x, load_x_mm: 200, max_width_mm: 20}

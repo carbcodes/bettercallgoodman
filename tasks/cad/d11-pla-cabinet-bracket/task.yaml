@@ -1,0 +1,6 @@
+id: d11-pla-cabinet-bracket
+area: cad
+title: "PLA cabinet bracket, 3 kg at 180 mm, 8 mm leg, 15 mm wide, upright"
+trap: "Below the gusset the thin leg must carry the full moment across layers; ~33 MPa even before any corner factor"
+control: false
+inputs: {material: PLA, load_n: 29.43, required_safety_factor: 2.0, layer_normal: z, load_rule: fixed_x, load_x_mm: 180, max_width_mm: 15}

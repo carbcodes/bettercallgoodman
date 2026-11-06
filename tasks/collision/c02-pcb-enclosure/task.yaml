@@ -1,6 +1,0 @@
-id: c02-pcb-enclosure
-area: collision
-title: PCB with a tall capacitor in a printed enclosure
-trap: Forgetting the 1.6 mm board thickness; 5 + 1.6 + 13.5 = 20.1 mm, so the capacitor hits the lid by 0.1 mm
-control: false
-inputs: {cavity_mm: [70, 50, 20.0], pcb_mm: [65, 45, 1.6], standoff_mm: 5, tallest_component_mm: 13.5, min_clearance_mm: 0.5}

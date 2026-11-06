@@ -1,0 +1,6 @@
+id: d07-pla-flat-arm
+area: cad
+title: "PLA arm, 1 kg at 150 mm, inside 10 x 6 mm"
+trap: "Only ~1.36x margin even as a full solid 10 x 6 bar; any hole or sharp step at the wall fails"
+control: false
+inputs: {material: PLA, load_n: 9.81, required_safety_factor: 1.5, layer_normal: y, load_rule: fixed_x, load_x_mm: 150, max_width_mm: 10, max_height_mm: 6}

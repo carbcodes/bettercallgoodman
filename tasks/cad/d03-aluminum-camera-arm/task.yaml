@@ -1,0 +1,6 @@
+id: d03-aluminum-camera-arm
+area: cad
+title: "6061 camera arm, 1 kg at 200 mm (AI-designed)"
+trap: "none expected: aluminium is forgiving, so this checks Goodman accepts a sound design"
+control: true
+inputs: {material: Al6061-T6, load_n: 9.81, required_safety_factor: 3.0, load_rule: fixed_x, load_x_mm: 200}

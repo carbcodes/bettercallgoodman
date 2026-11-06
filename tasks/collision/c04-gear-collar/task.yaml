@@ -1,6 +1,0 @@
-id: c04-gear-collar
-area: collision
-title: 40T gear sweeping past a collar on the pinion shaft
-trap: Using the pitch radius (20 mm) instead of the tip radius (21 mm); 21 + 10 = 31 mm > 30 mm center distance
-control: false
-inputs: {module_mm: 1, z_gear: 40, z_pinion: 20, center_distance_mm: 30, collar_d_mm: 20}

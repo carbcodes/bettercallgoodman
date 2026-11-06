@@ -1,0 +1,7 @@
+id: s02-aluminum-arm-step
+area: strength
+title: 6061-T6 robot arm link with a sharp step
+trap: Stress concentration at the 0.5 mm radius step (Kt ~2.3-2.5) turns a comfortable nominal safety factor (~3.4) into a failing one
+control: false
+model: cantilever_step   # strength checker model (goodman/checkers/strength.py)
+inputs: {material: Al6061-T6, yield_mpa: 276, load_n: 19.62, lever_mm: 300, section: {type: rect, thickness_mm: 3, depth_mm: 12}, step: {D_mm: 25, d_mm: 12, r_mm: 0.5}, required_safety_factor: 2.0}

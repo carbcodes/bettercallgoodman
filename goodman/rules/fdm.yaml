@@ -1,0 +1,110 @@
+# FDM 3D printing rules (0.4 mm nozzle, PLA), used by goodman/dfm/printing.py.
+# Every number has a source. "assumption" marks a value we chose where no single
+# reference gives one; it is documented here so it can be argued with.
+# Units: mm, mm^2, degrees.
+
+process: FDM
+nozzle_mm: 0.4
+
+rules:
+  supports_allowed:
+    value: true
+    meaning: >
+      Default: the printer may add support material, so overhangs, ledges, ceilings and long
+      bridges are warnings ("needs_support") and the verdict is printable_with_supports.
+      check_printing(supports=False) / --no-supports makes them failures again.
+    source: >
+      Prusa Knowledge Base, "Supports" (support is generated for any overhang past the limit);
+      Hubs FDM guide (overhangs past 45° are printable with support, at a surface-finish cost).
+  overhang_max_deg:
+    value: 45
+    meaning: Largest angle from vertical a down-facing surface can have without support.
+    source: >
+      Hubs (Protolabs Network), "How to design parts for FDM 3D printing", design table:
+      supports & overhangs 45°. Prusa Knowledge Base, "Supports": overhangs up to ~45°
+      print without support. Spec 05.
+  overhang_min_area_mm2:
+    value: 1.0
+    meaning: Overhanging regions smaller than this are ignored (tessellation noise, tiny blends).
+    source: assumption (noise filter; 1 mm² is ~6 extrusion widths square)
+  overhang_near_bed_mm:
+    value: 1.0
+    meaning: >
+      Overhangs that stay within this height of the bed (bottom-edge fillets, small chamfers)
+      are a warning, not a failure: the first ~5 layers droop by at most a fraction of this.
+    source: assumption (1 mm = 5 layers at 0.2 mm; common slicer practice is to ignore them)
+  support_lift_mm:
+    value: 0.05
+    meaning: Rays that test whether support can be pulled out start this far below the overhang face.
+    source: assumption (numerical offset, well under one 0.2 mm layer)
+  support_escape_directions:
+    value: 16
+    meaning: >
+      Horizontal directions (plus straight down and 45° down) tried from under each supported
+      face; if no ray from any sample point leaves the part, the support is trapped and can't
+      be removed, which is a failure even with supports allowed.
+    source: assumption (16 directions = 22.5° steps; support is removed by pulling it sideways or down)
+  enclosed_cavity_max_mm3:
+    value: 0
+    meaning: >
+      Any sealed internal void fails, since support (or loose material) inside can never be removed.
+    source: Hubs FDM guide, "enclosed cavities need an escape hole for support material"; Prusa KB "Supports".
+  clean_bore_max_mm:
+    value: 5.0
+    meaning: >
+      Support may not stand inside a hole narrower than this: the bore must stay clean for a screw
+      and a tool can't get in to scrape the support off.
+    source: assumption (M3/M4 clearance holes are 3.4-4.5 mm; a 5 mm bore is the smallest a file or knife reaches)
+  min_wall_mm:
+    value: 0.8
+    meaning: Thinnest wall that prints reliably (2 nozzle widths).
+    source: >
+      Hubs, "How to design parts for FDM 3D printing": supported and unsupported walls
+      0.8 mm. 2 × 0.4 mm nozzle. Spec 05.
+  bed_min_contact_mm2:
+    value: 1.0
+    meaning: The part needs a flat face on the bed plane; less than this counts as none.
+    source: Spec 05 ("must have a flat face on the bed"); 1 mm² threshold is an assumption to reject point/edge contact.
+  bridge_max_mm:
+    value: 10
+    meaning: Longest horizontal span supported only at its ends before it sags.
+    source: >
+      Hubs, "How to design parts for FDM 3D printing", design table: horizontal bridges 10 mm. Spec 05.
+  hole_undersize_mm:
+    value: [0.2, 0.3]
+    meaning: Vertical holes print this much under the drawn diameter.
+    source: >
+      Spec 05 (~0.2-0.3 mm). Hubs FDM guide notes vertical holes print undersized because the
+      perimeter is laid inside the outline; Prusa Knowledge Base "Dimensional accuracy"
+      (holes shrink, compensate in CAD or the slicer).
+  small_hole_max_mm:
+    value: 12
+    meaning: Holes up to this diameter are checked against metric fastener sizes.
+    source: assumption (covers M2-M10 clearance holes)
+  horizontal_hole_bridge:
+    value: true
+    meaning: >
+      The top of a horizontal hole no wider than bridge_max_mm is treated as a short bridge
+      (warning, not a failure), since its span is the hole diameter.
+    source: follows from bridge_max_mm (Hubs, 10 mm)
+
+# Nominal metric screw diameters and ISO 273 medium clearance holes.
+fasteners:
+  source: ISO 273 (clearance holes for bolts and screws), medium series
+  metric:
+    M2: {nominal: 2.0, clearance: 2.4}
+    M2.5: {nominal: 2.5, clearance: 2.9}
+    M3: {nominal: 3.0, clearance: 3.4}
+    M4: {nominal: 4.0, clearance: 4.5}
+    M5: {nominal: 5.0, clearance: 5.5}
+    M6: {nominal: 6.0, clearance: 6.6}
+    M8: {nominal: 8.0, clearance: 9.0}
+    M10: {nominal: 10.0, clearance: 11.0}
+
+# Build volumes (X x Y x Z, mm) from the manufacturers' spec pages.
+printers:
+  default: prusa_mk4
+  prusa_mk4: {name: Original Prusa MK4, volume: [250, 210, 220], source: Prusa Research MK4 spec page}
+  prusa_mini: {name: Original Prusa MINI+, volume: [180, 180, 180], source: Prusa Research MINI+ spec page}
+  bambu_x1c: {name: Bambu Lab X1 Carbon, volume: [256, 256, 256], source: Bambu Lab X1C spec page}
+  ender3: {name: Creality Ender-3, volume: [220, 220, 250], source: Creality Ender-3 spec page}

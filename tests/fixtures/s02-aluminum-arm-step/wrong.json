@@ -1,0 +1,26 @@
+{
+  "task_id": "s02-aluminum-arm-step",
+  "verdict": "safe",
+  "claims": [
+    {
+      "id": "k1",
+      "quantity": "moment_nmm",
+      "value": 5886,
+      "quote": "M = 5886 N·mm"
+    },
+    {
+      "id": "k2",
+      "quantity": "max_stress_mpa",
+      "value": 81.8,
+      "quote": "stress is 81.8 MPa"
+    },
+    {
+      "id": "k3",
+      "quantity": "safety_factor",
+      "value": 3.4,
+      "quote": "safety factor 3.4"
+    }
+  ],
+  "mentions": [],
+  "reviewed_by": "fixture (hand-written for tests)"
+}
