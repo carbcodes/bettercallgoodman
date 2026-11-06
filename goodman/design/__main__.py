@@ -65,6 +65,9 @@ def check(d: Path) -> dict:
     if "max_width_mm" in inp:
         width = bb[4] - bb[1]
         reqs.append({"rule": "width", "value": round(width, 1), "limit": inp["max_width_mm"], "ok": width <= inp["max_width_mm"] + 0.5})
+    if "max_height_mm" in inp:
+        height = bb[5] - bb[2]
+        reqs.append({"rule": "height", "value": round(height, 1), "limit": inp["max_height_mm"], "ok": height <= inp["max_height_mm"] + 0.5})
     reqs.append({"rule": "one solid", "value": r.solids, "limit": 1, "ok": r.solids == 1})
     reqs.append({"rule": "safety factor", "value": round(r.sf, 2), "limit": inp["required_safety_factor"], "ok": r.verdict == "safe"})
     ok = all(q["ok"] for q in reqs)
