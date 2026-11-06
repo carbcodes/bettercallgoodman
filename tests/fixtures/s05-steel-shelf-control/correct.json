@@ -1,0 +1,28 @@
+{
+  "task_id": "s05-steel-shelf-control",
+  "verdict": "safe",
+  "claims": [
+    {
+      "id": "k1",
+      "quantity": "moment_nmm",
+      "value": 30000,
+      "quote": "M = 30,000 N·mm"
+    },
+    {
+      "id": "k2",
+      "quantity": "max_stress_mpa",
+      "value": 75,
+      "quote": "about 75 MPa with the fillet"
+    },
+    {
+      "id": "k3",
+      "quantity": "safety_factor",
+      "value": 4.9,
+      "quote": "SF about 4.9"
+    }
+  ],
+  "mentions": [
+    "stress_concentration"
+  ],
+  "reviewed_by": "fixture (hand-written for tests)"
+}

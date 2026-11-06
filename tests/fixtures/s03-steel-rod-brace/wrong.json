@@ -1,0 +1,20 @@
+{
+  "task_id": "s03-steel-rod-brace",
+  "verdict": "safe",
+  "claims": [
+    {
+      "id": "k1",
+      "quantity": "max_stress_mpa",
+      "value": 28.3,
+      "quote": "compressive stress 28.3 MPa"
+    },
+    {
+      "id": "k2",
+      "quantity": "safety_factor",
+      "value": 8.8,
+      "quote": "safety factor of 8.8"
+    }
+  ],
+  "mentions": [],
+  "reviewed_by": "fixture (hand-written for tests)"
+}

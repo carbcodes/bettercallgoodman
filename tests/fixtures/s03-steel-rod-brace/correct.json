@@ -1,0 +1,22 @@
+{
+  "task_id": "s03-steel-rod-brace",
+  "verdict": "not_safe",
+  "claims": [
+    {
+      "id": "k1",
+      "quantity": "buckling_load_n",
+      "value": 785,
+      "quote": "Euler load about 785 N"
+    },
+    {
+      "id": "k2",
+      "quantity": "safety_factor",
+      "value": 0.98,
+      "quote": "SF 0.98"
+    }
+  ],
+  "mentions": [
+    "buckling"
+  ],
+  "reviewed_by": "fixture (hand-written for tests)"
+}

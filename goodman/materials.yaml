@@ -1,0 +1,48 @@
+# Material properties used by the strength checker.
+# Units: MPa for stresses and moduli, kg/m^3 for density.
+# A task's inputs (e.g. yield_mpa, E_mpa) always override these values.
+#
+# strength_mpa is the value the checker divides by to get a safety factor:
+#   metals  -> tensile yield (the tasks ask for "safety factor against yield")
+#   printed -> tensile strength, split by layer direction (FDM parts are brittle-ish
+#              and fail at the layer bonds well before the datasheet value)
+
+PLA:
+  printed: true
+  E_mpa: 3500
+  in_layer_strength_mpa: 50     # load along the extruded roads (XY)
+  across_layer_strength_mpa: 30 # load pulling layers apart (Z)
+  density_kg_m3: 1240
+  source: >
+    In-layer: typical FDM PLA datasheets list 45-60 MPa tensile strength for XY-printed
+    specimens (e.g. Ultimaker PLA TDS ~50 MPa at yield; Prusament PLA ~57 MPa). Across-layer:
+    interlayer (Z) tensile strength of FDM PLA is commonly reported at roughly 50-70% of the
+    XY value (e.g. Song et al., Materials & Design 123 (2017) 154-164, unidirectional PLA);
+    30 MPa is a mid-range engineering estimate, not a single datasheet number. E from the
+    same datasheet ranges (2.3-3.5 GPa). APPROXIMATE: printed-part strength depends on
+    printer, temperature and layer height.
+
+Al6061-T6:
+  printed: false
+  E_mpa: 68900
+  yield_mpa: 276
+  ultimate_mpa: 310
+  endurance_mpa: 96.5   # 5e8 cycles, R.R. Moore
+  density_kg_m3: 2700
+  source: ASM Aerospace Specification Metals / MatWeb, Aluminum 6061-T6 (Sy 276 MPa, Sut 310 MPa, E 68.9 GPa, fatigue 96.5 MPa)
+
+mild_steel:
+  printed: false
+  E_mpa: 200000
+  yield_mpa: 250
+  ultimate_mpa: 400
+  density_kg_m3: 7850
+  source: ASTM A36 minimums (Sy 250 MPa, Sut 400-550 MPa); E 200 GPa (Shigley 10th ed. Table A-5)
+
+1018_CR:
+  printed: false
+  E_mpa: 205000
+  yield_mpa: 370
+  ultimate_mpa: 440
+  density_kg_m3: 7870
+  source: Shigley 10th ed. Table A-20, AISI 1018 cold drawn (Sy 370 MPa, Sut 440 MPa); E 207 GPa Table A-5 rounded to 205 GPa

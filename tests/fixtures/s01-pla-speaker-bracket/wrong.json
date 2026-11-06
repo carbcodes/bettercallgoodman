@@ -1,0 +1,34 @@
+{
+  "task_id": "s01-pla-speaker-bracket",
+  "verdict": "safe",
+  "claims": [
+    {
+      "id": "k1",
+      "quantity": "moment_nmm",
+      "value": 3532,
+      "quote": "M = 3532 N·mm"
+    },
+    {
+      "id": "k2",
+      "quantity": "max_stress_mpa",
+      "value": 29.4,
+      "quote": "bending stress about 29 MPa"
+    },
+    {
+      "id": "k3",
+      "quantity": "safety_factor",
+      "value": 2.04,
+      "quote": "safety factor of about 2"
+    },
+    {
+      "id": "k4",
+      "quantity": "material_strength_mpa",
+      "value": 60,
+      "quote": "PLA tensile strength ~60 MPa"
+    }
+  ],
+  "mentions": [
+    "fillet"
+  ],
+  "reviewed_by": "fixture (hand-written for tests)"
+}

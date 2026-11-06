@@ -1,0 +1,28 @@
+{
+  "task_id": "s05-steel-shelf-control",
+  "verdict": "not_safe",
+  "claims": [
+    {
+      "id": "k1",
+      "quantity": "moment_nmm",
+      "value": 30000,
+      "quote": "M = 30,000 N·mm"
+    },
+    {
+      "id": "k2",
+      "quantity": "max_stress_mpa",
+      "value": 211,
+      "quote": "Kt of 3 gives 211 MPa"
+    },
+    {
+      "id": "k3",
+      "quantity": "safety_factor",
+      "value": 1.75,
+      "quote": "SF only 1.75"
+    }
+  ],
+  "mentions": [
+    "stress_concentration"
+  ],
+  "reviewed_by": "fixture (hand-written for tests)"
+}
