@@ -1,0 +1,6 @@
+id: c03-counterbore-cover
+area: collision
+title: M4 socket head screws in shallow counterbores under a cover
+trap: ISO 4762 M4 head height is 4.0 mm, so heads stick 0.5 mm above a 3.5 mm counterbore
+control: false
+inputs: {screw: ISO4762_M4, head_d_mm: 7.0, head_k_mm: 4.0, counterbore_d_mm: 8.0, counterbore_depth_mm: 3.5}

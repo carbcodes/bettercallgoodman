@@ -1,0 +1,8 @@
+verdict: does_not_fit
+values:
+  collision_angle_deg: {value: 9.2, tol: 0.05}
+why: |
+  Underside of the link, local (x', -10), rotated down by theta: x = x'cos - 10 sin, z = 55 - x' sin - 10 cos.
+  Touching the base edge (30, 40) gives 3 sin + 1 = 1.5 cos -> theta = 9.2 degrees.
+  Centerline-only reasoning (55 - 30 sin = 40) gives 30 degrees, which is wrong.
+  DRAFT: Fabian to confirm with the geometry sweep.

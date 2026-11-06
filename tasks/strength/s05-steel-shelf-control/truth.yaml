@@ -1,0 +1,8 @@
+verdict: safe
+values:
+  moment_nmm: {value: 30000, tol: 0.05}
+  max_stress_mpa: {value: 80, tol: 0.2}
+  safety_factor: {value: 4.6, tol: 0.25}
+why: |
+  M = 200·150 = 30000 N·mm. Z = 40·8²/6 = 426.7 mm³. sigma_nom = 70.3 MPa.
+  r/d = 5/8 = 0.63, generous: Kt ~1.1-1.2 -> sigma_max ~80 MPa -> SF ~4.6. Safe.

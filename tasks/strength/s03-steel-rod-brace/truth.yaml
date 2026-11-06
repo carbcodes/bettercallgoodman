@@ -1,0 +1,9 @@
+verdict: not_safe
+values:
+  buckling_load_n: {value: 785, tol: 0.05}
+  safety_factor: {value: 0.98, tol: 0.05}
+must_mention: [buckling]
+why: |
+  A = pi·6²/4 = 28.3 mm², sigma = 800/28.3 = 28.3 MPa -> stress SF 8.8 (looks fine).
+  I = pi·6⁴/64 = 63.6 mm⁴. Euler, pinned-pinned (K = 1): P_cr = pi²·200000·63.6 / 400² = 785 N.
+  Slenderness L/r = 400/1.5 = 267, well into the Euler range. 785 N < 800 N: it buckles. SF 0.98.

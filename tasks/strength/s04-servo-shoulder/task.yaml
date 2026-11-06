@@ -1,0 +1,6 @@
+id: s04-servo-shoulder
+area: strength
+title: MG996R shoulder servo holding a 250 mm arm
+trap: Needed torque is ~14.4 kg·cm, above the 11 kg·cm stall rating even with no margin; unit mix-ups (kg·cm vs N·m) and treating stall torque as usable torque
+control: false
+inputs: {stall_torque_kgcm: 11, arm_length_mm: 250, arm_mass_kg: 0.15, tip_mass_kg: 0.5, required_margin: 1.5}

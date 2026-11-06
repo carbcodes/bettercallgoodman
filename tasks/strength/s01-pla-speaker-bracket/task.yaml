@@ -1,0 +1,6 @@
+id: s01-pla-speaker-bracket
+area: strength
+title: PLA L-bracket holding a 3 kg speaker
+trap: Printed upright, so bending at the corner pulls the layers apart (across-layer strength is roughly half the datasheet value); 1 mm fillet adds a stress concentration
+control: false
+inputs: {material: PLA, print_orientation: upright_layers_horizontal, load_n: 29.43, lever_mm: 120, section: {type: rect, width_mm: 20, thickness_mm: 6}, fillet_mm: 1.0, required_safety_factor: 2.0}

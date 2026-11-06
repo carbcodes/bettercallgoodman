@@ -1,0 +1,6 @@
+id: c01-arm-tilt-base
+area: collision
+title: Robot arm link tilting down over its base
+trap: Checking only the bar's centerline gives exactly 30 degrees; the bar's 10 mm half-height makes its underside hit the base's top edge at ~9.2 degrees
+control: false
+inputs: {base_box_mm: [60, 60, 40], pivot_mm: [0, 0, 55], link_box_mm: [120, 15, 20], target_tilt_deg: -30}

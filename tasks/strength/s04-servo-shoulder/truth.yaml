@@ -1,0 +1,8 @@
+verdict: wont_hold
+values:
+  required_torque_nm: {value: 1.41, tol: 0.05}
+  required_torque_kgcm: {value: 14.4, tol: 0.05}
+why: |
+  Tip: 0.5·9.81·0.25 = 1.226 N·m. Arm: 0.15·9.81·0.125 = 0.184 N·m. Total 1.41 N·m = 14.4 kg·cm.
+  Stall is 11 kg·cm, so it can't hold even at margin 1.0 (needs 21.6 kg·cm for 1.5).
+  Stall torque isn't a usable continuous torque either.
