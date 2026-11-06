@@ -1,4 +1,4 @@
 numpy
 pyyaml
 pytest  # tests only
-build123d  # optional: design (cad) mode only
+build123d  # optional: design (cad) mode and the dfm checkers
