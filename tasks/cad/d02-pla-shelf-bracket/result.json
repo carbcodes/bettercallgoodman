@@ -1,6 +1,8 @@
 {
   "task_id": "d02-pla-shelf-bracket",
   "attempt": "attempt-2.json",
+  "chat_url": "https://chatgpt.com/c/6aee2275-5dfc-83ea-9b50-c0073a5a1ecf",
+  "script_sha": "7eaca4e13e42",
   "ai_verdict": "safe",
   "claimed_sf": 2.2,
   "claimed_quote": "safety factor: approximately 2.2",

@@ -1,6 +1,8 @@
 {
   "task_id": "d07-pla-flat-arm",
   "attempt": "attempt.json",
+  "chat_url": "https://chatgpt.com/c/6aee28d7-06b4-83e9-b3f5-b0f382d0dda3",
+  "script_sha": "a6467b0427a6",
   "ai_verdict": "safe",
   "claimed_sf": 1.54,
   "claimed_quote": "safety factor: approximately 1.54",

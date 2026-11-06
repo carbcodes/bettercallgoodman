@@ -51,7 +51,9 @@ def check(d: Path) -> dict:
         runner.script_from_answer(a["answer"], a.get("code"))
     step, log = runner.run(script, keep_dir=d)
     sf_claim, quote = claimed_sf(a["answer"])
-    base = {"task_id": task["id"], "attempt": a["_file"], "ai_verdict": "safe", "claimed_sf": sf_claim,
+    import hashlib
+    base = {"task_id": task["id"], "attempt": a["_file"], "chat_url": a.get("chat_url"),
+            "script_sha": hashlib.sha256((script or "").encode()).hexdigest()[:12], "ai_verdict": "safe", "claimed_sf": sf_claim,
             "claimed_quote": quote, "checker": "design", "checker_version": "0.1"}
     if step is None:
         return {**base, "outcome": "caught", "goodman_verdict": "no_part", "why": log, "requirements": [], "claims": []}

@@ -1,6 +1,8 @@
 {
   "task_id": "d01-pla-wall-hook",
   "attempt": "attempt-2.json",
+  "chat_url": "https://chatgpt.com/c/6aee2275-04b8-83e9-a640-58faeff87abd",
+  "script_sha": "bedc0dad0c75",
   "ai_verdict": "safe",
   "claimed_sf": 160.0,
   "claimed_quote": "safety factor: Approximately 160",

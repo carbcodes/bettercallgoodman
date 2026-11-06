@@ -1,6 +1,8 @@
 {
   "task_id": "d08-pla-towel-hook",
   "attempt": "attempt.json",
+  "chat_url": "https://chatgpt.com/c/6aee28d7-a710-83ea-a97e-630188478c58",
+  "script_sha": "ed79f1792550",
   "ai_verdict": "safe",
   "claimed_sf": 4.7,
   "claimed_quote": "safety factor: approximately 4.7",

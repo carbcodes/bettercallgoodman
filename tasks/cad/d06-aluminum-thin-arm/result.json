@@ -1,6 +1,8 @@
 {
   "task_id": "d06-aluminum-thin-arm",
   "attempt": "attempt.json",
+  "chat_url": "https://chatgpt.com/c/6aee28d6-c40c-83ea-ba3a-f326ee10641e",
+  "script_sha": "29972cb8deab",
   "ai_verdict": "safe",
   "claimed_sf": 3.0,
   "claimed_quote": "safety factor: approximately 3.0",

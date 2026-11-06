@@ -1,6 +1,8 @@
 {
   "task_id": "d04-pla-bag-hook-tight",
   "attempt": "attempt.json",
+  "chat_url": "https://chatgpt.com/c/6aee28d6-24e8-83ea-802f-4f0eb6950e7e",
+  "script_sha": "7b2e911c1986",
   "ai_verdict": "safe",
   "claimed_sf": 2.7,
   "claimed_quote": "safety factor: approximately 2.7",

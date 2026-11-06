@@ -1,6 +1,8 @@
 {
   "task_id": "d03-aluminum-camera-arm",
   "attempt": "attempt.json",
+  "chat_url": "https://chatgpt.com/c/6aee2275-dd00-83e9-87c5-7617f2bbcae1",
+  "script_sha": "6235f74cfe44",
   "ai_verdict": "safe",
   "claimed_sf": 14.2,
   "claimed_quote": "safety factor is approximately 14.2",
