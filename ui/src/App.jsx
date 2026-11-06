@@ -26,6 +26,23 @@ function useData() {
   return data;
 }
 
+const TABS = [
+  { id: "break", label: "Will it break?" },
+  { id: "make", label: "Can we manufacture it?" },
+  { id: "collide", label: "Will it collide with itself?" },
+];
+
+// Which process to judge a part by: PLA is printed, anything else is milled.
+const processOf = (t) => (t.inputs?.material === "PLA" ? "printing" : "cnc");
+const PROC = { printing: { name: "3D printing", ok: "Printable", bad: "Not printable" }, cnc: { name: "3-axis CNC", ok: "Machinable", bad: "Not machinable" } };
+
+// Printable / Not printable / Waiting for the manufacturing tab.
+function makeState(t, proc) {
+  const r = t.dfm?.[proc];
+  if (!r || r.error) return "waiting";
+  return r.verdict === "printable" || r.verdict === "machinable" ? "holds" : "breaks";
+}
+
 // Holds / Breaks / Waiting, from Goodman's own measurement of the AI's part.
 function state(t) {
   const r = t.result;
@@ -46,15 +63,15 @@ function accuracy(r) {
 // "Holds at the wall-leg corner: 12 MPa vs 30 MPa across layers. SF 2.59, AI claimed 2.2." -> the middle part
 const where = (why) => (why || "").replace(/^(Holds|Breaks)\s+/, "").replace(/\.\s*SF .*$/, "");
 
-function Rail({ tasks, current, go }) {
+function Rail({ tasks, current, go, stateOf, labelOf }) {
   return (
     <nav className="rail">
       {tasks.map((t) => {
-        const s = state(t);
+        const s = stateOf(t);
         return (
           <button key={t.id} className={`rail-row ${t.id === current ? "active" : ""}`} onClick={() => go(t.id)}>
             <span className="rail-title">{cleanTitle(t.title)}</span>
-            <span className={`pill s-${s}`}>{LABEL[s]}</span>
+            <span className={`pill s-${s}`}>{labelOf(t, s)}</span>
           </button>
         );
       })}
@@ -106,8 +123,47 @@ function Panel({ task }) {
   );
 }
 
+function MakePanel({ task, proc, setProc }) {
+  const r = task.dfm?.[proc];
+  const s = makeState(task, proc);
+  const P = PROC[proc];
+  const shown = (r?.findings || []).filter((f) => f.severity !== "info");
+  return (
+    <aside className="panel">
+      <h1 className="panel-title">{cleanTitle(task.title)}</h1>
+      <div className="seg">
+        {Object.entries(PROC).map(([k, v]) => (
+          <button key={k} className={k === proc ? "on" : ""} onClick={() => setProc(k)}>{v.name}</button>
+        ))}
+      </div>
+      <div className={`verdict s-${s}`}>{s === "waiting" ? "Waiting" : s === "holds" ? P.ok : P.bad}</div>
+      {r?.error && <p className="acc bad">{r.error}</p>}
+      {s !== "waiting" && shown.length === 0 && <p className="acc ok">No problems found on the AI's real geometry.</p>}
+      {shown.map((f, i) => (
+        <p key={i} className={`acc ${f.severity === "fail" ? "bad" : "warn"}`}>
+          <b>{f.rule.replace(/_/g, " ")}</b> · {f.why}
+        </p>
+      ))}
+      {proc === "cnc" && task.inputs?.material === "PLA" && (
+        <p className="where">This part is PLA, so milling is only a what-if (checked as Al 6061).</p>
+      )}
+    </aside>
+  );
+}
+
+function CollideTab() {
+  return (
+    <div className="soon">
+      <h2>Will it collide with itself?</h2>
+      <p>Range-of-motion and clearance checks for assemblies. Fabian's collision checker plugs in here.</p>
+    </div>
+  );
+}
+
 export default function App() {
   const data = useData();
+  const [tab, setTab] = useState("break");
+  const [proc, setProc] = useState(null);
   const tasks = useMemo(() => (data?.tasks || []).filter((t) => t.area === "cad").sort((a, b) => a.id.localeCompare(b.id)), [data]);
   const ids = tasks.map((t) => t.id);
   const [picked, setPicked] = useState(() => decodeURIComponent(window.location.hash.replace(/^#\/?/, "")));
@@ -129,25 +185,42 @@ export default function App() {
     return () => window.removeEventListener("keydown", on);
   });
 
-  const holds = tasks.filter((t) => state(t) === "holds").length;
-  const breaks = tasks.filter((t) => state(t) === "breaks").length;
+  const pr = proc || (task ? processOf(task) : "printing");
+  const stateOf = tab === "make" ? (t) => makeState(t, proc || processOf(t)) : state;
+  const labelOf = tab === "make" ? (t, s) => (s === "waiting" ? "Waiting" : s === "holds" ? PROC[proc || processOf(t)].ok : PROC[proc || processOf(t)].bad) : (t, s) => LABEL[s];
+  const holds = tasks.filter((t) => stateOf(t) === "holds").length;
+  const breaks = tasks.filter((t) => stateOf(t) === "breaks").length;
+  const okWord = tab === "make" ? "pass" : "hold";
+  const badWord = tab === "make" ? "fail" : "break";
+  const dfmScene = useMemo(
+    () => (task?.mesh && task.dfm?.[pr]?.findings ? { kind: "dfm", mesh: task.mesh, findings: task.dfm[pr].findings } : null),
+    [task, pr],
+  );
   return (
     <div className="app">
       <header className="top">
         <span className="brand">Better Call Goodman</span>
-        <span className="pitch">ChatGPT designs the part. Goodman measures it.</span>
-        <div className="counts">
-          <span className="o-accepted"><b className="mono">{holds}</b> hold</span>
-          <span className={breaks ? "o-caught" : "zero"}><b className="mono">{breaks}</b> break</span>
-        </div>
+        <nav className="tabs">
+          {TABS.map((t) => (
+            <button key={t.id} className={t.id === tab ? "on" : ""} onClick={() => setTab(t.id)}>{t.label}</button>
+          ))}
+        </nav>
+        {tab !== "collide" && (
+          <div className="counts">
+            <span className="o-accepted"><b className="mono">{holds}</b> {okWord}</span>
+            <span className={breaks ? "o-caught" : "zero"}><b className="mono">{breaks}</b> {badWord}</span>
+          </div>
+        )}
       </header>
       {!data ? (
         <p className="loading">Loading…</p>
+      ) : tab === "collide" ? (
+        <CollideTab />
       ) : (
         <div className="body">
-          <Rail tasks={tasks} current={current} go={go} />
-          {task && <Viewer task={task} />}
-          {task && <Panel task={task} />}
+          <Rail tasks={tasks} current={current} go={go} stateOf={stateOf} labelOf={labelOf} />
+          {task && <Viewer task={tab === "make" ? { ...task, id: `${task.id}:${pr}`, scene: dfmScene } : task} />}
+          {task && (tab === "make" ? <MakePanel task={task} proc={pr} setProc={setProc} /> : <Panel task={task} />)}
         </div>
       )}
     </div>

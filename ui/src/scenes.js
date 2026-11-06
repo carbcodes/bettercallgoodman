@@ -603,7 +603,42 @@ function designPart(s) {
   };
 }
 
+function dfmPart(s) {
+  // The AI's part with a red marker at each place the printing / CNC checker flagged (amber = warning).
+  const g = new THREE.Group();
+  const V = s.mesh.v;
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute("position", new THREE.Float32BufferAttribute(V, 3));
+  geo.setIndex(s.mesh.t);
+  geo.computeVertexNormals();
+  const solid = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color: COLORS.part, roughness: 0.8 }));
+  solid.add(new THREE.LineSegments(new THREE.EdgesGeometry(geo, 25), new THREE.LineBasicMaterial({ color: COLORS.ink, transparent: true, opacity: 0.25 })));
+  g.add(solid);
+  const bb = new THREE.Box3().setFromObject(g);
+  const r = Math.max(2.5, bb.getSize(new THREE.Vector3()).length() * 0.025);
+  let fails = 0;
+  for (const f of s.findings) {
+    if (!f.location || f.severity === "info") continue;
+    const fail = f.severity === "fail";
+    if (fail) fails++;
+    const m = new THREE.Mesh(
+      new THREE.SphereGeometry(fail ? r : r * 0.7, 20, 14),
+      new THREE.MeshBasicMaterial({ color: fail ? COLORS.red : 0xf0a020, transparent: true, opacity: 0.85, depthTest: false }),
+    );
+    m.position.set(...f.location);
+    m.renderOrder = 5;
+    g.add(m);
+  }
+  return {
+    group: g,
+    view: [0.55, -1.0, 0.45],
+    legend: { kind: fails ? "contact" : "clear", text: fails ? `${fails} problem spot${fails > 1 ? "s" : ""} marked in red` : "No problem spots" },
+    notes: [],
+  };
+}
+
 const BUILDERS = {
+  dfm: dfmPart,
   cantilever_root_fillet: cantileverL,
   cantilever_step: cantileverStep,
   column,

@@ -170,6 +170,26 @@ def _task_record(d: Path) -> dict:
     }
 
 
+def _dfm(d: Path, inp: dict) -> dict | None:
+    """Printing and 3-axis CNC checks (goodman.dfm) on the AI's STEP part, if there is one."""
+    step = d / "part.step"
+    if not step.exists():
+        return None
+    out = {}
+    try:
+        from .dfm.printing import check_printing
+        out["printing"] = check_printing(str(step))
+    except Exception as e:  # optional geometry stack, or a STEP it cannot read
+        out["printing"] = {"error": f"{type(e).__name__}: {e}"}
+    try:
+        from .dfm.cnc import check_cnc
+        out["cnc"] = check_cnc(str(step), material="Al6061-T6")
+    except Exception as e:
+        out["cnc"] = {"error": f"{type(e).__name__}: {e}"}
+    out["material"] = inp.get("material")
+    return out
+
+
 def _cad_record(d: Path) -> dict:
     """Design mode: the AI's part, measured by goodman.design (result.json + part.mesh.json)."""
     task = yaml.safe_load((d / "task.yaml").read_text())
@@ -195,6 +215,8 @@ def _cad_record(d: Path) -> dict:
                                                  "answer": attempt.get("answer", "")},
         "claims": claims, "result": result, "result_source": "result.json" if result else None,
         "outcome": (result or {}).get("outcome", "pending"),
+        "dfm": _dfm(d, inp),
+        "mesh": mesh,
         "scene": None if not (result and mesh) else {
             "kind": "design", "mesh": mesh, "sections": result.get("sections", []),
             "load_point": result.get("load_point"), "load_n": inp.get("load_n"),
