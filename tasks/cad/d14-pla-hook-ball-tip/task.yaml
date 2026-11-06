@@ -1,0 +1,8 @@
+id: d14-pla-hook-ball-tip
+area: cad
+process: printing
+title: "PLA coat hook, 1 kg, with a 16 mm ball on the tip"
+trap: "the ball on the tip is wider than the hook arm, so its lower half is a hidden ledge hanging in air that needs support"
+control: false
+expect: {strength: safe, dfm: printable_with_supports, overall: pass}
+inputs: {material: PLA, load_n: 9.81, required_safety_factor: 2.0, layer_normal: z, load_rule: lowest_inside, max_reach_mm: 70, max_width_mm: 16}

@@ -1,0 +1,8 @@
+id: d15-pla-leaf-fin-key-hook
+area: cad
+process: printing
+title: "PLA key hook, 300 g, with a 0.6 mm leaf fin"
+trap: "the 0.6 mm decorative fin is under the 0.8 mm FDM minimum wall (two 0.4 mm nozzle widths)"
+control: false
+expect: {strength: safe, dfm: not_printable, overall: fail}
+inputs: {material: PLA, load_n: 2.943, required_safety_factor: 2.0, layer_normal: z, load_rule: lowest_inside, max_reach_mm: 50, max_width_mm: 14}

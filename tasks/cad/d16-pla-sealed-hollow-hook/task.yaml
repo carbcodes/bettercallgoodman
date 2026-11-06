@@ -1,0 +1,8 @@
+id: d16-pla-sealed-hollow-hook
+area: cad
+process: printing
+title: "PLA backpack hook, 2 kg, sealed hollow arm"
+trap: "a closed hollow shell is a sealed internal cavity: support or loose material inside can never be removed; the hollow section also loses strength"
+control: false
+expect: {strength: safe, dfm: not_printable, overall: fail}
+inputs: {material: PLA, load_n: 19.62, required_safety_factor: 2.0, layer_normal: z, load_rule: lowest_inside, max_reach_mm: 70, max_width_mm: 20}
