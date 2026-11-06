@@ -3,6 +3,7 @@
   check  <task_dir>...  compare the task's claims.json with Goodman's check -> result.json
   truth  <task_dir>...  print Goodman's own calculation and verdict (no AI involved)
   report                write results/summary.md from every tasks/*/*/result.json
+  export [--out PATH]   write ui/public/data.json for the presentation UI (ui/)
 """
 
 from __future__ import annotations
@@ -110,5 +111,9 @@ def main(argv=None) -> int:
         sp.add_argument("task_dirs", nargs="+")
         sp.set_defaults(fn=fn)
     sub.add_parser("report").set_defaults(fn=cmd_report)
+    from .export import cmd_export
+    ep = sub.add_parser("export")
+    ep.add_argument("--out", default=None, help="output path (default: ui/public/data.json)")
+    ep.set_defaults(fn=cmd_export)
     args = p.parse_args(argv)
     return args.fn(args)
