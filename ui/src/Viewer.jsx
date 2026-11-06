@@ -12,7 +12,7 @@ function Legend({ legend }) {
     return (
       <div className="legend">
         <div className="legend-bar" style={{ background: COLORMAP_CSS }}>
-          <span className="tick" style={{ left: "92%" }} />
+          <span className="tick" style={{ left: "80%" }} />
         </div>
         <div className="legend-read mono">
           <span>
@@ -41,6 +41,37 @@ function Legend({ legend }) {
       <div className={`contact mono ${red ? "red" : "blue"}`}>
         <span className="swatch" /> {legend.text}
       </div>
+    </div>
+  );
+}
+
+// What Goodman did for this part, step by step, from its result.json.
+function Explain({ r, inputs }) {
+  const [dx, dy, dz] = [r.bbox[3] - r.bbox[0], r.bbox[4] - r.bbox[1], r.bbox[5] - r.bbox[2]];
+  const cuts = r.sections || [];
+  const arm = cuts.filter((q) => q.kind === "arm").length;
+  const leg = cuts.length - arm;
+  const crit = r.critical || "";
+  const where = crit.split(":")[0].replace("(wall leg)", "on the wall plate");
+  const sigma = (crit.match(/= ([\d.]+) MPa vs ([\d.]+) MPa/) || []).slice(1);
+  const kt = (crit.match(/Kt ([\d.]+)/) || [])[1];
+  const how = /across layers/.test(r.critical_note) ? "across print layers" : /yield/.test(r.critical_note) ? "yield" : "along print layers";
+  const ok = r.goodman_verdict === "safe";
+  return (
+    <div className="explain">
+      <div className="explain-head">What Goodman did</div>
+      <ol>
+        <li>Ran ChatGPT's CAD script in a sandbox and got the real part: {dx.toFixed(0)} × {dy.toFixed(0)} × {dz.toFixed(0)} mm.</li>
+        <li>Put the {inputs.load_n.toFixed(1)} N load where it acts, {r.lever_mm.toFixed(0)} mm from the wall.</li>
+        <li>Cut the part {cuts.length} times ({arm} along the arm, {leg} through the wall plate) and measured each cross-section.</li>
+        <li>
+          Worst cut, {where}: {sigma[0]} MPa{kt ? ` (corner factor ${kt})` : ""} against {sigma[1]} MPa {how}.
+        </li>
+        <li>
+          Safety factor <b>{r.safety_factor.toFixed(2)}</b> vs {inputs.required_safety_factor} required: <b className={ok ? "ok" : "bad"}>{ok ? "holds" : "breaks"}</b>
+          {r.claimed_sf != null ? `. ChatGPT said ${r.claimed_sf}.` : "."}
+        </li>
+      </ol>
     </div>
   );
 }
@@ -104,6 +135,8 @@ export default function Viewer({ task }) {
       const w = el.clientWidth, h = el.clientHeight;
       renderer.setSize(w, h, false);
       camera.aspect = w / h;
+      // design parts: push the part up and left so the explanation card has the bottom right
+      if (task.area === "cad") camera.setViewOffset(w, h, w * 0.14, h * 0.1, w, h);
       camera.updateProjectionMatrix();
     };
     resize();
@@ -139,6 +172,9 @@ export default function Viewer({ task }) {
         {!built && <div className="viewer-fallback">No 3D view for this case yet.</div>}
       </div>
       {built && <Legend legend={built.legend} />}
+      {task.area === "cad" && !String(task.id).includes(":") && task.result?.sections && (
+        <Explain r={task.result} inputs={task.inputs} />
+      )}
     </figure>
   );
 }

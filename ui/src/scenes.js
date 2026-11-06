@@ -19,17 +19,19 @@ export const COLORS = {
 };
 
 // ---------------------------------------------------------------- colour map
-// t = sigma / allowable (allowable = strength / required SF). Pale -> blue up to
-// the allowable, red beyond it.
+// t = sigma / allowable (allowable = strength / required SF). A finite-element style
+// scale: blue where the part is barely working, through green and yellow, red at the
+// allowable and deep red beyond it, so every face of the part carries a colour.
 const STOPS = [
-  [0.0, [0.91, 0.94, 0.965]],
-  [0.5, [0.60, 0.80, 0.93]],
-  [0.92, [0.09, 0.47, 0.78]],
-  [1.0, [0.898, 0.282, 0.302]],
+  [0.0, [0.16, 0.36, 0.86]],
+  [0.3, [0.13, 0.70, 0.90]],
+  [0.55, [0.22, 0.78, 0.53]],
+  [0.78, [0.98, 0.80, 0.21]],
+  [1.0, [0.94, 0.30, 0.27]],
+  [1.6, [0.62, 0.07, 0.10]],
 ];
 export function stressColor(t, out = new THREE.Color()) {
-  if (t >= 1) return out.setRGB(...STOPS[3][1], THREE.SRGBColorSpace);
-  t = Math.max(0, t);
+  t = Math.min(Math.max(0, t), STOPS[STOPS.length - 1][0]);
   for (let i = 1; i < STOPS.length; i++) {
     if (t <= STOPS[i][0]) {
       const [t0, c0] = STOPS[i - 1];
@@ -38,9 +40,10 @@ export function stressColor(t, out = new THREE.Color()) {
       return out.setRGB(c0[0] + (c1[0] - c0[0]) * f, c0[1] + (c1[1] - c0[1]) * f, c0[2] + (c1[2] - c0[2]) * f, THREE.SRGBColorSpace);
     }
   }
-  return out.setRGB(...STOPS[3][1], THREE.SRGBColorSpace);
+  return out.setRGB(...STOPS[STOPS.length - 1][1], THREE.SRGBColorSpace);
 }
-export const COLORMAP_CSS = `linear-gradient(90deg, rgb(232,240,246) 0%, rgb(153,204,237) 46%, rgb(23,120,199) 85%, rgb(229,72,77) 92%, rgb(229,72,77) 100%)`;
+// same stops for the legend bar, which spans t = 0 .. 1.25 (the tick sits at the allowable, 80%)
+export const COLORMAP_CSS = `linear-gradient(90deg, rgb(41,92,219) 0%, rgb(33,179,230) 24%, rgb(56,199,135) 44%, rgb(250,204,54) 62%, rgb(240,77,69) 80%, rgb(190,40,42) 100%)`;
 
 // ---------------------------------------------------------------- helpers
 const mat = (color, extra = {}) => new THREE.MeshStandardMaterial({ color, roughness: 0.85, metalness: 0.0, ...extra });
@@ -601,21 +604,27 @@ function designPart(s) {
   const arm = s.sections.filter((q) => q.kind === "arm").sort((a, b) => a.at - b.at);
   const leg = s.sections.filter((q) => q.kind === "leg").sort((a, b) => a.at - b.at);
   const ratio = (q) => q.sigma / (q.strength / (s.required_sf || 1));
-  const near = (list, v) => {
-    let best = null;
-    for (const q of list) if (!best || Math.abs(q.at - v) < Math.abs(best.at - v)) best = q;
-    return best && Math.abs(best.at - v) <= Math.max(2, best.depth) ? best : null;
+  // linear interpolation between the two cuts either side of v (clamped to the cut range)
+  const interp = (list, v) => {
+    if (!list.length || v < list[0].at - 2 || v > list[list.length - 1].at + 2) return null;
+    let j = list.findIndex((q) => q.at >= v);
+    if (j <= 0) return list[Math.max(j, 0)];
+    const p = list[j - 1], q = list[j], f = (v - p.at) / (q.at - p.at || 1);
+    const mix = (k) => p[k] + (q[k] - p[k]) * f;
+    return { r: ratio(p) + (ratio(q) - ratio(p)) * f, zc: mix("zc"), xc: mix("xc"), c: mix("c") };
   };
+  const fibre = (sec, d) => (sec.r ?? ratio(sec)) * Math.min(Math.abs(d) / sec.c, 1);
   const pos = geo.attributes.position;
   const col = new Float32Array(pos.count * 3);
   const c = new THREE.Color();
+  const legX = leg.length ? Math.max(...leg.map((q) => q.xc + q.c)) : -Infinity;
   for (let i = 0; i < pos.count; i++) {
     const x = pos.getX(i), z = pos.getZ(i);
     let t = 0;
-    const a = arm.length && x >= arm[0].at - 1 ? near(arm, x) : null;
-    if (a && Math.abs(z - a.zc) <= a.c * 1.05) t = Math.max(t, (ratio(a) * Math.abs(z - a.zc)) / a.c);
-    const l = leg.length ? near(leg, z) : null;
-    if (l && Math.abs(x - l.xc) <= l.c * 1.05) t = Math.max(t, (ratio(l) * Math.abs(x - l.xc)) / l.c);
+    const l = x <= legX + 0.5 ? interp(leg, z) : null;
+    if (l) t = Math.max(t, fibre(l, x - l.xc));
+    const a = interp(arm, x);
+    if (a && Math.abs(z - a.zc) <= a.c * 1.1) t = Math.max(t, fibre(a, z - a.zc));
     stressColor(t, c);
     col.set([c.r, c.g, c.b], i * 3);
   }
@@ -633,7 +642,7 @@ function designPart(s) {
     // the load: a thick arrow into the exact load point, a dot where it acts, and its size
     const [lx, ly, lz] = s.load_point;
     const span = Math.max(size.x, size.z);
-    const len = Math.max(25, span * 0.45);
+    const len = Math.max(25, span * 0.3);
     g.add(loadArrow([lx, ly, lz], len, Math.max(1.2, span * 0.012)));
     g.add(marker([lx, ly, lz], Math.max(1.2, span * 0.014), COLORS.ink));
     const kg = s.load_n / 9.81;

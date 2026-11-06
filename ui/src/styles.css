@@ -163,3 +163,11 @@ table.claims { width: 100%; border-collapse: collapse; font-size: 13.5px; }
 .acc { font-size: 13.5px; font-weight: 400; }
 .soon { display: grid; place-content: center; text-align: center; gap: 8px; background: var(--card); border-radius: 18px; box-shadow: var(--shadow); color: var(--muted); }
 .soon h2 { margin: 0; color: var(--ink); }
+
+/* "what Goodman did" card, bottom right of the 3D view */
+.explain { position: absolute; right: 14px; bottom: 58px; z-index: 1; width: min(330px, 42%); background: rgba(255, 255, 255, 0.94); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); padding: 10px 14px 10px 12px; font-size: 12px; line-height: 1.4; }
+.explain-head { font-weight: 650; font-size: 13px; margin-bottom: 6px; color: var(--ink); }
+.explain ol { margin: 0; padding-left: 18px; display: grid; gap: 4px; color: var(--ink); }
+.explain li::marker { color: var(--blue-ink); font-weight: 600; }
+.explain b.ok { color: var(--blue-ink); }
+.explain b.bad { color: var(--red); }
