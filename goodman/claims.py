@@ -34,7 +34,8 @@ QUANTITIES = {
         "buckling_load_n": ("N", "critical buckling load"),
         "stress_safety_factor": ("", "safety factor against yield/strength only, if separate from buckling"),
         "buckling_safety_factor": ("", "safety factor against buckling, if given separately"),
-        "required_torque_nm": ("N·m", "torque needed at the joint"),
+        "required_torque_nm": ("N·m", "torque the load needs at the joint, WITHOUT any safety factor or margin"),
+        "required_torque_with_margin_nm": ("N·m", "torque needed once the safety factor or margin is applied"),
         "stall_torque_nm": ("N·m", "the motor's rated/stall torque as the answer used it"),
         "torque_margin": ("", "available torque divided by required torque"),
         "deflection_mm": ("mm", "tip or maximum deflection"),
@@ -82,7 +83,7 @@ UNITS = {
     "": ("", 1.0),
 }
 # Torque quantities are stored in N·m, so N·mm values get scaled once more.
-TORQUE_NM = {"required_torque_nm", "stall_torque_nm"}
+TORQUE_NM = {"required_torque_nm", "required_torque_with_margin_nm", "stall_torque_nm"}
 
 PROMPT = """You extract claims from an engineering answer. You do NOT judge whether anything is right.
 

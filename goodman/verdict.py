@@ -92,6 +92,21 @@ def _diagnose(claim: dict, actual: float, tol: float, alternatives: list) -> str
     return f"{head} ({pct:+.0f}%)"
 
 
+# Which way a wrong number errs toward caution: overstating demand or understating capacity.
+HIGHER_IS_CAUTIOUS = {"load_n", "moment_nmm", "nominal_stress_mpa", "max_stress_mpa", "stress_concentration_kt",
+                      "required_torque_nm", "required_torque_kgcm", "deflection_mm"}
+LOWER_IS_CAUTIOUS = {"material_strength_mpa", "safety_factor", "stress_safety_factor", "buckling_safety_factor",
+                     "buckling_load_n", "stall_torque_nm", "torque_margin", "section_modulus_mm3"}
+
+
+def _conservative(q: str, claim: dict, actual: float) -> bool:
+    c = claim.get("value")
+    if c is None:
+        c = (claim.get("low", 0) + claim.get("high", 0)) / 2
+    c = float(c)
+    return (q in HIGHER_IS_CAUTIOUS and c > actual) or (q in LOWER_IS_CAUTIOUS and c < actual)
+
+
 def evaluate(task_dir: Path, claims: dict) -> dict:
     task_dir = Path(task_dir)
     task, truth = load_task(task_dir)
@@ -101,6 +116,9 @@ def evaluate(task_dir: Path, claims: dict) -> dict:
     out_claims = []
     goodman_reject = False
     ai_right = True
+    # A cautious number only passes when the verdict it leads to is right.
+    verdict_ok = normalize_verdict(claims.get("verdict")) == normalize_verdict(res.verdict) \
+        == normalize_verdict(truth.get("verdict"))
 
     for cl in claims.get("claims", []):
         q = cl.get("quantity")
@@ -112,16 +130,23 @@ def evaluate(task_dir: Path, claims: dict) -> dict:
             actual = res.values.get(q, truth_values.get(q, {}).get("value"))
             tol = float(truth_values[q]["tol"]) if q in truth_values else DEFAULT_TOL.get(q, FALLBACK_TOL)
             entry["actual"] = round(float(actual), 4)
+            safe_side = verdict_ok and _conservative(q, cl, actual)
             if _within(cl, actual, tol):
                 entry["status"] = "confirmed"
                 entry["why"] = f"Within {tol:.0%} of Goodman's {_fmt(actual)}"
+            elif safe_side:
+                # Off, but only toward caution, and the verdict is still right: flag it, don't fail it.
+                entry["status"] = "conservative"
+                entry["why"] = _diagnose(cl, actual, tol, res.alternatives.get(q, [])) + \
+                    "; errs on the safe side and the verdict is right, so it passes"
             else:
                 entry["status"] = "refuted"
                 entry["why"] = _diagnose(cl, actual, tol, res.alternatives.get(q, []))
                 if q in truth_values:
                     goodman_reject = True
             # AI-right is judged against the hand-written truth, not the checker
-            if q in truth_values and not _within(cl, float(truth_values[q]["value"]), float(truth_values[q]["tol"])):
+            if q in truth_values and not _within(cl, float(truth_values[q]["value"]), float(truth_values[q]["tol"])) \
+                    and not (verdict_ok and _conservative(q, cl, float(truth_values[q]["value"]))):
                 ai_right = False
         else:
             entry["why"] = f"Goodman does not model '{q}' for this task (model {res.model})"

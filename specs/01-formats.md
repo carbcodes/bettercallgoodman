@@ -115,7 +115,7 @@ Every claim keeps its `quote`, so any flag can point at the exact sentence the A
 }
 ```
 
-Claim status: `confirmed` (within tolerance), `refuted` (outside tolerance), `cannot_check` (the claim falls outside what we model; say why).
+Claim status: `confirmed` (within tolerance), `refuted` (outside tolerance), `conservative` (outside tolerance but only toward caution, such as a higher stress or a lower safety factor, and the verdict is right; it's flagged but passes), `cannot_check` (the claim falls outside what we model; say why).
 
 Task outcome, comparing the AI's answer against the truth:
 

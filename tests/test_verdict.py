@@ -70,3 +70,26 @@ def test_unclear_verdict_is_wrong():
     claims["verdict"] = "unclear"
     r = evaluate(ROOT / "tasks" / "strength" / "s05-steel-shelf-control", claims)
     assert r["outcome"] == "caught"
+
+
+def _shelf(verdict, sf):
+    return {"task_id": "s05-steel-shelf-control", "verdict": verdict, "mentions": [],
+            "claims": [{"id": "k1", "quantity": "safety_factor", "value": sf, "quote": "q"}]}
+
+
+def test_cautious_number_with_right_verdict_passes():
+    r = evaluate(ROOT / "tasks" / "strength" / "s05-steel-shelf-control", _shelf("safe", 3.0))
+    assert r["claims"][0]["status"] == "conservative"
+    assert r["outcome"] == "accepted"
+
+
+def test_cautious_number_with_wrong_verdict_is_caught():
+    r = evaluate(ROOT / "tasks" / "strength" / "s05-steel-shelf-control", _shelf("not_safe", 1.5))
+    assert r["claims"][0]["status"] == "refuted"
+    assert r["outcome"] == "caught"
+
+
+def test_unsafe_side_error_still_refuted():
+    r = evaluate(ROOT / "tasks" / "strength" / "s05-steel-shelf-control", _shelf("safe", 8.0))
+    assert r["claims"][0]["status"] == "refuted"
+    assert r["outcome"] == "caught"
