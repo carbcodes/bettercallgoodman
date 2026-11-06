@@ -1,0 +1,350 @@
+glb_sha256: 92511a54e1f40a4f92d2de2248dffd90d218a526adf19ed585a2689c2b4c12e0
+joints:
+- id: yaw
+  type: revolute
+  parent: null
+  origin:
+  - 0.0
+  - 0.0
+  - 81.0
+  axis:
+  - 0
+  - 0
+  - 1
+  parts:
+  - yaw-horn
+  - yaw-spindle
+  - yaw-horn-1-bolt
+  - yaw-horn-2-bolt
+  - yaw-horn-3-bolt
+  - yaw-horn-4-bolt
+  - yaw-bearing-1-inner
+  - yaw-bearing-2-inner
+  - yaw-turntable
+  - yaw-deck-1-bolt
+  - yaw-deck-2-bolt
+  - yaw-deck-3-bolt
+  - yaw-deck-4-bolt
+  - shoulder-motor
+  - shoulder-motor-socket-1
+  - shoulder-motor-socket-2
+  - shoulder-cradle
+  - shoulder-keeper
+  - shoulder-clamp-1-bolt
+  - shoulder-clamp-1-nut
+  - shoulder-clamp-2-bolt
+  - shoulder-clamp-2-nut
+  - shoulder-clamp-3-bolt
+  - shoulder-clamp-3-nut
+  - shoulder-clamp-4-bolt
+  - shoulder-clamp-4-nut
+  - shoulder-idler-bracket
+  - shoulder-idler-axle
+  - shoulder-608-inner
+  - shoulder-axle-collar-1
+  - shoulder-axle-collar-2
+  home: 0
+  limits:
+  - -150.0
+  - 150.0
+  label: Base yaw
+- id: shoulder
+  type: revolute
+  parent: yaw
+  origin:
+  - 0.0
+  - 0.0
+  - 135.0
+  axis:
+  - 0
+  - -1
+  - 0
+  parts:
+  - upper-link-left
+  - upper-link-right
+  - shoulder-horn
+  - shoulder-drive-spacer
+  - shoulder-horn-1-bolt
+  - shoulder-horn-2-bolt
+  - shoulder-horn-3-bolt
+  - shoulder-horn-4-bolt
+  - shoulder-608-outer
+  - shoulder-608-seal
+  - upper-cross-tie-1
+  - upper-cross-tie-1-bolt
+  - upper-cross-tie-1-nut
+  - upper-cross-tie-2
+  - upper-cross-tie-2-bolt
+  - upper-cross-tie-2-nut
+  - elbow-motor
+  - elbow-motor-socket-1
+  - elbow-motor-socket-2
+  - elbow-cradle
+  - elbow-keeper
+  - elbow-clamp-1-bolt
+  - elbow-clamp-1-nut
+  - elbow-clamp-2-bolt
+  - elbow-clamp-2-nut
+  - elbow-clamp-3-bolt
+  - elbow-clamp-3-nut
+  - elbow-clamp-4-bolt
+  - elbow-clamp-4-nut
+  - elbow-mount-1-bolt
+  - elbow-mount-1-nut
+  - elbow-mount-2-bolt
+  - elbow-mount-2-nut
+  - elbow-idler-bracket
+  - elbow-idler-axle
+  - elbow-idler-mount-1-bolt
+  - elbow-idler-mount-1-nut
+  - elbow-idler-mount-2-bolt
+  - elbow-idler-mount-2-nut
+  - elbow-608-inner
+  - elbow-axle-collar-1
+  - elbow-axle-collar-2
+  - upper-harness
+  - upper-harness-plug-1
+  - upper-harness-plug-2
+  home: 90
+  limits:
+  - 20.0
+  - 115.0
+  label: Shoulder elevation
+- id: elbow
+  type: revolute
+  parent: shoulder
+  origin:
+  - 0.0
+  - 0.0
+  - 295.0
+  axis:
+  - 0
+  - -1
+  - 0
+  parts:
+  - forearm-link-left
+  - forearm-link-right
+  - elbow-horn
+  - elbow-drive-spacer
+  - elbow-horn-1-bolt
+  - elbow-horn-2-bolt
+  - elbow-horn-3-bolt
+  - elbow-horn-4-bolt
+  - elbow-608-outer
+  - elbow-608-seal
+  - forearm-cross-tie-1
+  - forearm-cross-tie-1-bolt
+  - forearm-cross-tie-1-nut
+  - forearm-cross-tie-2
+  - forearm-cross-tie-2-bolt
+  - forearm-cross-tie-2-nut
+  - wrist-motor
+  - wrist-motor-socket-1
+  - wrist-motor-socket-2
+  - wrist-cradle
+  - wrist-keeper
+  - wrist-clamp-1-bolt
+  - wrist-clamp-1-nut
+  - wrist-clamp-2-bolt
+  - wrist-clamp-2-nut
+  - wrist-clamp-3-bolt
+  - wrist-clamp-3-nut
+  - wrist-clamp-4-bolt
+  - wrist-clamp-4-nut
+  - wrist-mount-1-bolt
+  - wrist-mount-1-nut
+  - wrist-mount-2-bolt
+  - wrist-mount-2-nut
+  - wrist-idler-bracket
+  - wrist-idler-axle
+  - wrist-idler-mount-1-bolt
+  - wrist-idler-mount-1-nut
+  - wrist-idler-mount-2-bolt
+  - wrist-idler-mount-2-nut
+  - wrist-608-inner
+  - wrist-axle-collar-1
+  - wrist-axle-collar-2
+  - forearm-harness
+  - forearm-harness-plug-1
+  - forearm-harness-plug-2
+  home: -90
+  limits:
+  - -125.0
+  - 5.0
+  label: Elbow bend
+- id: wrist
+  type: revolute
+  parent: elbow
+  origin:
+  - 160.0
+  - 0.0
+  - 295.0
+  axis:
+  - 0
+  - -1
+  - 0
+  parts:
+  - wrist-yoke-left
+  - wrist-yoke-right
+  - wrist-horn
+  - wrist-drive-spacer
+  - wrist-horn-1-bolt
+  - wrist-horn-2-bolt
+  - wrist-horn-3-bolt
+  - wrist-horn-4-bolt
+  - wrist-608-outer
+  - wrist-608-seal
+  - roll-motor-bridge
+  - wrist-bridge-1-bolt
+  - wrist-bridge-1-nut
+  - wrist-bridge-2-bolt
+  - wrist-bridge-2-nut
+  - roll-motor
+  - roll-motor-socket-1
+  - roll-motor-socket-2
+  - roll-retainer
+  - roll-clamp-1-bolt
+  - roll-clamp-1-nut
+  - roll-clamp-2-bolt
+  - roll-clamp-2-nut
+  - roll-clamp-3-bolt
+  - roll-clamp-3-nut
+  - roll-clamp-4-bolt
+  - roll-clamp-4-nut
+  - wrist-harness
+  - wrist-harness-plug-1
+  - wrist-harness-plug-2
+  home: -90
+  limits:
+  - -110.0
+  - 60.0
+  label: Wrist pitch
+- id: tool-roll
+  type: revolute
+  parent: wrist
+  origin:
+  - 160.0
+  - 0.0
+  - 227.0
+  axis:
+  - 0
+  - 0
+  - -1
+  parts:
+  - roll-horn
+  - gripper-palm
+  - roll-horn-1-bolt
+  - roll-horn-2-bolt
+  - roll-horn-3-bolt
+  - roll-horn-4-bolt
+  - gripper-motor
+  - gripper-motor-socket-1
+  - gripper-motor-socket-2
+  - gripper-motor-cradle
+  - gripper-palm-1-bolt
+  - gripper-palm-1-nut
+  - gripper-palm-2-bolt
+  - gripper-palm-2-nut
+  - gripper-motor-cap
+  - gripper-clamp-1-bolt
+  - gripper-clamp-1-nut
+  - gripper-clamp-2-bolt
+  - gripper-clamp-2-nut
+  - jaw-idler-clevis
+  - jaw-idler-axle
+  - jaw-105-inner
+  - gear-guard
+  home: 0
+  limits:
+  - -120.0
+  - 120.0
+  label: Tool roll
+- id: grip
+  type: revolute
+  parent: tool-roll
+  origin:
+  - 146.0
+  - 0.0
+  - 201.0
+  axis:
+  - 0
+  - 1
+  - 0
+  parts:
+  - gripper-horn
+  - gripper-jaw-left
+  - gripper-pad-left
+  - gripper-horn-1-bolt
+  - gripper-horn-2-bolt
+  - gripper-horn-3-bolt
+  - gripper-horn-4-bolt
+  home: 0
+  limits:
+  - -10.0
+  - 25.0
+  label: Gripper drive
+- id: jaw-r
+  type: revolute
+  parent: tool-roll
+  origin:
+  - 174.0
+  - 0.0
+  - 201.0
+  axis:
+  - 0
+  - 1
+  - 0
+  parts:
+  - gripper-jaw-right
+  - gripper-pad-right
+  - jaw-105-outer
+  - jaw-105-seal
+  home: 0
+  limits:
+  - -25
+  - 10
+  label: Geared right jaw
+  coupled:
+  - joint: grip
+    ratio: -1.0
+poses:
+- name: home
+  values:
+    yaw: 0
+    shoulder: 90
+    elbow: -90
+    wrist: -90
+    tool-roll: 0
+    grip: 0
+- name: reach-310mm
+  values:
+    yaw: 0
+    shoulder: 20
+    elbow: -20
+    wrist: -90
+    tool-roll: 0
+    grip: 0
+- name: table-pick
+  values:
+    yaw: 25
+    shoulder: 45
+    elbow: -85
+    wrist: -50
+    tool-roll: 0
+    grip: -8
+- name: stowed
+  values:
+    yaw: 0
+    shoulder: 100
+    elbow: -120
+    wrist: -70
+    tool-roll: 0
+    grip: -8
+- name: handoff
+  values:
+    yaw: -60
+    shoulder: 65
+    elbow: -75
+    wrist: -80
+    tool-roll: 30
+    grip: 5

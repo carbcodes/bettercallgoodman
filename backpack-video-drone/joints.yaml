@@ -1,0 +1,323 @@
+glb_sha256: d56445ec5746779d00fe90ce9be12bdd415fa21f2761d05d8e4d5722b026492f
+joints:
+- id: fold-fl
+  type: revolute
+  parent: null
+  origin:
+  - 28.0
+  - -30.0
+  - 27.0
+  axis:
+  - 0
+  - 0
+  - 1
+  parts:
+  - fl-arm
+  - fl-bushing
+  - fl-motor-base
+  - fl-stator
+  - fl-bearing-tube
+  - fl-bearing-lower
+  - fl-bearing-upper
+  - fl-motor-screw-1
+  - fl-motor-screw-2
+  - fl-motor-screw-3
+  - fl-motor-screw-4
+  - fl-phase-wire-black
+  - fl-phase-wire-blue
+  - fl-phase-wire-red
+  - fl-motor-cable-plug
+  home: 0
+  limits:
+  - -122.96347609890124
+  - 0
+  label: Fold FL
+- id: rotor-fl
+  type: revolute
+  parent: fold-fl
+  origin:
+  - 65.0
+  - -65.0
+  - 37
+  axis:
+  - 0
+  - 0
+  - 1
+  parts:
+  - fl-motor-bell
+  - fl-motor-shaft
+  - fl-propeller
+  - fl-prop-screw-1
+  - fl-prop-screw-2
+  home: 0
+  limits:
+  - -180
+  - 180
+  label: Motor phase FL
+- id: fold-fr
+  type: revolute
+  parent: null
+  origin:
+  - 28.0
+  - 30.0
+  - 27.0
+  axis:
+  - 0
+  - 0
+  - 1
+  parts:
+  - fr-arm
+  - fr-bushing
+  - fr-motor-base
+  - fr-stator
+  - fr-bearing-tube
+  - fr-bearing-lower
+  - fr-bearing-upper
+  - fr-motor-screw-1
+  - fr-motor-screw-2
+  - fr-motor-screw-3
+  - fr-motor-screw-4
+  - fr-phase-wire-black
+  - fr-phase-wire-blue
+  - fr-phase-wire-red
+  - fr-motor-cable-plug
+  home: 0
+  limits:
+  - 0
+  - 122.96347609890125
+  label: Fold FR
+- id: rotor-fr
+  type: revolute
+  parent: fold-fr
+  origin:
+  - 65.0
+  - 65.0
+  - 37
+  axis:
+  - 0
+  - 0
+  - 1
+  parts:
+  - fr-motor-bell
+  - fr-motor-shaft
+  - fr-propeller
+  - fr-prop-screw-1
+  - fr-prop-screw-2
+  home: 0
+  limits:
+  - -180
+  - 180
+  label: Motor phase FR
+- id: fold-rl
+  type: revolute
+  parent: null
+  origin:
+  - -28.0
+  - -30.0
+  - 53.0
+  axis:
+  - 0
+  - 0
+  - 1
+  parts:
+  - rl-arm
+  - rl-bushing
+  - rl-motor-base
+  - rl-stator
+  - rl-bearing-tube
+  - rl-bearing-lower
+  - rl-bearing-upper
+  - rl-motor-screw-1
+  - rl-motor-screw-2
+  - rl-motor-screw-3
+  - rl-motor-screw-4
+  - rl-phase-wire-black
+  - rl-phase-wire-blue
+  - rl-phase-wire-red
+  - rl-motor-cable-plug
+  home: 0
+  limits:
+  - 0
+  - 122.9634760989012
+  label: Fold RL
+- id: rotor-rl
+  type: revolute
+  parent: fold-rl
+  origin:
+  - -65.0
+  - -65.0
+  - 63
+  axis:
+  - 0
+  - 0
+  - 1
+  parts:
+  - rl-motor-bell
+  - rl-motor-shaft
+  - rl-propeller
+  - rl-prop-screw-1
+  - rl-prop-screw-2
+  home: 0
+  limits:
+  - -180
+  - 180
+  label: Motor phase RL
+- id: fold-rr
+  type: revolute
+  parent: null
+  origin:
+  - -28.0
+  - 30.0
+  - 53.0
+  axis:
+  - 0
+  - 0
+  - 1
+  parts:
+  - rr-arm
+  - rr-bushing
+  - rr-motor-base
+  - rr-stator
+  - rr-bearing-tube
+  - rr-bearing-lower
+  - rr-bearing-upper
+  - rr-motor-screw-1
+  - rr-motor-screw-2
+  - rr-motor-screw-3
+  - rr-motor-screw-4
+  - rr-phase-wire-black
+  - rr-phase-wire-blue
+  - rr-phase-wire-red
+  - rr-motor-cable-plug
+  home: 0
+  limits:
+  - -122.96347609890122
+  - 0
+  label: Fold RR
+- id: rotor-rr
+  type: revolute
+  parent: fold-rr
+  origin:
+  - -65.0
+  - 65.0
+  - 63
+  axis:
+  - 0
+  - 0
+  - 1
+  parts:
+  - rr-motor-bell
+  - rr-motor-shaft
+  - rr-propeller
+  - rr-prop-screw-1
+  - rr-prop-screw-2
+  home: 0
+  limits:
+  - -180
+  - 180
+  label: Motor phase RR
+- id: camera-servo
+  type: revolute
+  parent: null
+  origin:
+  - 63.0
+  - 0.0
+  - 35.0
+  axis:
+  - 0
+  - 1
+  - 0
+  parts:
+  - servo-output-horn
+  - servo-horn-screw
+  home: 0
+  limits:
+  - -40
+  - 40
+  label: Camera servo
+- id: camera-tilt
+  type: revolute
+  parent: null
+  origin:
+  - 63.0
+  - 0.0
+  - 35.0
+  axis:
+  - 0
+  - 1
+  - 0
+  parts:
+  - camera-case
+  - camera-electronics
+  - camera-lens-barrel
+  - camera-lens-glass
+  - camera-cradle
+  - camera-pad-left
+  - camera-pad-right
+  - camera-idler-axle
+  - camera-power-plug
+  - camera-tail
+  home: 20
+  limits:
+  - -20
+  - 60
+  label: Camera depression (+down)
+  coupled:
+  - joint: camera-servo
+    ratio: 1.0
+poses:
+- name: flight
+  values:
+    fold-fl: 0
+    rotor-fl: 0
+    fold-fr: 0
+    rotor-fr: 0
+    fold-rl: 0
+    rotor-rl: 0
+    fold-rr: 0
+    rotor-rr: 0
+    camera-servo: 0
+- name: stowed
+  values:
+    fold-fl: -122.96347609890124
+    rotor-fl: 122.96347609890124
+    fold-fr: 122.96347609890125
+    rotor-fr: -122.96347609890125
+    fold-rl: 122.9634760989012
+    rotor-rl: -122.9634760989012
+    fold-rr: -122.96347609890122
+    rotor-rr: 122.96347609890122
+    camera-servo: 20
+- name: selfie
+  values:
+    fold-fl: 0
+    rotor-fl: 0
+    fold-fr: 0
+    rotor-fr: 0
+    fold-rl: 0
+    rotor-rl: 0
+    fold-rr: 0
+    rotor-rr: 0
+    camera-servo: -20
+- name: look-down
+  values:
+    fold-fl: 0
+    rotor-fl: 0
+    fold-fr: 0
+    rotor-fr: 0
+    fold-rl: 0
+    rotor-rl: 0
+    fold-rr: 0
+    rotor-rr: 0
+    camera-servo: 40
+- name: folding-midway
+  values:
+    fold-fl: -61.48173804945062
+    rotor-fl: 61.48173804945062
+    fold-fr: 61.48173804945063
+    rotor-fr: -61.48173804945063
+    fold-rl: 61.4817380494506
+    rotor-rl: -61.4817380494506
+    fold-rr: -61.48173804945061
+    rotor-rr: 61.48173804945061
+    camera-servo: 0

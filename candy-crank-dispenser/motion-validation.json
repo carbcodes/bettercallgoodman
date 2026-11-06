@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "method": "manifold3d solid intersections",
+  "home_static_pairs_checked": true,
+  "crank_step_degrees": 10,
+  "lid_step_degrees": 5,
+  "pose_samples": 58,
+  "forbidden_volume_tolerance_mm3": 0.01,
+  "lid_stop_engages_at_106_degrees": true,
+  "failures": [],
+  "scope": "All undeclared contacts at home; moving bodies against different bodies at sampled poses. Involute gears and lid/hopper additionally tested even though contact is declared. Compliant flexure/cam interface excluded; grip rotation is axisymmetric. Sampling is not a continuous collision proof."
+}

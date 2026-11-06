@@ -1,0 +1,226 @@
+{
+  "step_deg_max": 2.0,
+  "single_axis_sweeps": [
+    {
+      "joint": "yaw",
+      "samples": 151,
+      "rejected_by_pose_rules": 0,
+      "contacts": []
+    },
+    {
+      "joint": "shoulder",
+      "samples": 49,
+      "rejected_by_pose_rules": 8,
+      "contacts": [
+        {
+          "value": 20.0,
+          "safe_pose_rules": false,
+          "contacts": [
+            [
+              "base-plate",
+              "gripper-clamp-1-bolt"
+            ],
+            [
+              "base-plate",
+              "gripper-jaw-left"
+            ],
+            [
+              "base-plate",
+              "gripper-jaw-right"
+            ],
+            [
+              "base-plate",
+              "gripper-motor"
+            ],
+            [
+              "base-plate",
+              "gripper-motor-cap"
+            ],
+            [
+              "base-plate",
+              "gripper-motor-cradle"
+            ],
+            [
+              "base-plate",
+              "gripper-motor-socket-2"
+            ],
+            [
+              "base-plate",
+              "gripper-pad-left"
+            ]
+          ]
+        },
+        {
+          "value": 21.9792,
+          "safe_pose_rules": false,
+          "contacts": [
+            [
+              "base-plate",
+              "gripper-clamp-1-bolt"
+            ],
+            [
+              "base-plate",
+              "gripper-jaw-left"
+            ],
+            [
+              "base-plate",
+              "gripper-motor"
+            ],
+            [
+              "base-plate",
+              "gripper-motor-cap"
+            ],
+            [
+              "base-plate",
+              "gripper-motor-cradle"
+            ],
+            [
+              "base-plate",
+              "gripper-motor-socket-2"
+            ],
+            [
+              "base-plate",
+              "gripper-pad-left"
+            ]
+          ]
+        },
+        {
+          "value": 23.9583,
+          "safe_pose_rules": false,
+          "contacts": [
+            [
+              "base-plate",
+              "gripper-clamp-1-bolt"
+            ],
+            [
+              "base-plate",
+              "gripper-motor-cap"
+            ],
+            [
+              "base-plate",
+              "gripper-motor-cradle"
+            ],
+            [
+              "base-plate",
+              "gripper-pad-left"
+            ]
+          ]
+        },
+        {
+          "value": 25.9375,
+          "safe_pose_rules": false,
+          "contacts": [
+            [
+              "base-plate",
+              "gripper-clamp-1-bolt"
+            ],
+            [
+              "base-plate",
+              "gripper-motor-cradle"
+            ],
+            [
+              "base-plate",
+              "gripper-pad-right"
+            ]
+          ]
+        },
+        {
+          "value": 27.9167,
+          "safe_pose_rules": false,
+          "contacts": [
+            [
+              "base-plate",
+              "gripper-clamp-1-bolt"
+            ],
+            [
+              "base-plate",
+              "gripper-jaw-right"
+            ],
+            [
+              "base-plate",
+              "gripper-pad-right"
+            ]
+          ]
+        },
+        {
+          "value": 29.8958,
+          "safe_pose_rules": false,
+          "contacts": [
+            [
+              "base-plate",
+              "gripper-jaw-right"
+            ],
+            [
+              "base-plate",
+              "gripper-pad-right"
+            ]
+          ]
+        },
+        {
+          "value": 31.875,
+          "safe_pose_rules": false,
+          "contacts": [
+            [
+              "base-plate",
+              "gripper-pad-right"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "joint": "elbow",
+      "samples": 66,
+      "rejected_by_pose_rules": 5,
+      "contacts": []
+    },
+    {
+      "joint": "wrist",
+      "samples": 86,
+      "rejected_by_pose_rules": 0,
+      "contacts": []
+    },
+    {
+      "joint": "tool-roll",
+      "samples": 121,
+      "rejected_by_pose_rules": 0,
+      "contacts": []
+    },
+    {
+      "joint": "grip",
+      "samples": 19,
+      "rejected_by_pose_rules": 0,
+      "contacts": []
+    }
+  ],
+  "home_to_named_pose_paths": [
+    {
+      "from": "home",
+      "to": "reach-310mm",
+      "samples": 36,
+      "failures": []
+    },
+    {
+      "from": "home",
+      "to": "table-pick",
+      "samples": 24,
+      "failures": []
+    },
+    {
+      "from": "home",
+      "to": "stowed",
+      "samples": 16,
+      "failures": []
+    },
+    {
+      "from": "home",
+      "to": "handoff",
+      "samples": 31,
+      "failures": []
+    }
+  ],
+  "scope": "Discrete mesh checks, not swept-volume proof; payload and deformable service loops excluded.",
+  "sampled_configurations": 599,
+  "safe_samples_clear": true,
+  "all_named_paths_clear": true
+}

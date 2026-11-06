@@ -1,0 +1,16 @@
+{
+ "order": 2,
+ "title": "Backpack video drone",
+ "source": "backpack-video-drone/",
+ "status": "conditional",
+ "headline": "Fold a front arm without lining its propeller up first, and the blade hits the side panel and the deck stack.",
+ "claim": {
+  "file": "validation.json",
+  "text": "No unexpected collisions (140 samples, props always parked)"
+ },
+ "notes": [
+  "Parked the way the README says, the props clear by 17 mm.",
+  "At full fold, about half of all propeller angles collide. Nothing in the hardware stops it; it relies on the operator."
+ ],
+ "compare_pose": "stowed"
+}

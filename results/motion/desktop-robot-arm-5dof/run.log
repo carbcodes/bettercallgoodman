@@ -1,0 +1,256 @@
+inputs: assembly.glb, joints.yaml, assembly.yaml=yes, geometry.py=yes (reach rule on)
+pairs: {'pairs_total': 27966, 'pairs_same_body': 4486, 'pairs_ignored': 13, 'pairs_rejected_far': 2898, 'pairs_sampled': 20569}
+[1/21] joints yaw,shoulder: 1 body pairs, 2281 part pairs, 7399 poses, 0 colliding pairs (22 s)
+[2/21] joints yaw,shoulder,elbow: 1 body pairs, 2340 part pairs, 18192 poses, 0 colliding pairs (69 s)
+[3/21] joints yaw,shoulder,elbow,wrist,tool-roll: 1 body pairs, 1196 part pairs, 17677 poses, 88 colliding pairs (101 s)
+[4/21] joints yaw,shoulder,elbow,wrist,tool-roll,grip: 2 body pairs, 572 part pairs, 17701 poses, 76 colliding pairs (123 s)
+[5/21] joints yaw,shoulder,elbow,wrist: 1 body pairs, 1560 part pairs, 17665 poses, 0 colliding pairs (155 s)
+[6/21] joints yaw: 1 body pairs, 664 part pairs, 601 poses, 0 colliding pairs (157 s)
+[7/21] joints elbow: 1 body pairs, 1594 part pairs, 261 poses, 0 colliding pairs (157 s)
+[8/21] joints elbow,wrist,tool-roll: 1 body pairs, 1035 part pairs, 20013 poses, 0 colliding pairs (183 s)
+[9/21] joints elbow,wrist,tool-roll,grip: 2 body pairs, 495 part pairs, 20021 poses, 0 colliding pairs (196 s)
+[10/21] joints elbow,wrist: 1 body pairs, 1350 part pairs, 5676 poses, 0 colliding pairs (206 s)
+[11/21] joints shoulder: 1 body pairs, 1242 part pairs, 191 poses, 0 colliding pairs (206 s)
+[12/21] joints shoulder,elbow: 1 body pairs, 1395 part pairs, 2919 poses, 0 colliding pairs (214 s)
+[13/21] joints wrist,tool-roll: 1 body pairs, 822 part pairs, 10406 poses, 0 colliding pairs (225 s)
+[14/21] joints wrist,tool-roll,grip: 2 body pairs, 397 part pairs, 20013 poses, 0 colliding pairs (238 s)
+[15/21] joints wrist: 1 body pairs, 874 part pairs, 341 poses, 0 colliding pairs (239 s)
+[16/21] joints grip: 3 body pairs, 140 part pairs, 71 poses, 0 colliding pairs (239 s)
+[17/21] joints tool-roll: 1 body pairs, 393 part pairs, 481 poses, 0 colliding pairs (239 s)
+[18/21] joints shoulder,elbow,wrist,tool-roll: 1 body pairs, 713 part pairs, 17657 poses, 36 colliding pairs (277 s)
+[19/21] joints tool-roll,grip: 2 body pairs, 235 part pairs, 2299 poses, 0 colliding pairs (278 s)
+[20/21] joints shoulder,elbow,wrist,tool-roll,grip: 2 body pairs, 341 part pairs, 17669 poses, 31 colliding pairs (311 s)
+[21/21] joints shoulder,elbow,wrist: 1 body pairs, 930 part pairs, 17651 poses, 0 colliding pairs (347 s)
+verdict: collisions (231 collisions)
+  - base-column-1 hits gripper-clamp-1-bolt at yaw -132.2°, shoulder 46.4°, elbow -117.8°, wrist -83.4°, tool-roll 92.9°; contact near (-35, -33, 59) mm
+  - base-column-1 hits gripper-motor at yaw -132.4°, shoulder 46.4°, elbow -117.8°, wrist -83.2°, tool-roll 93.0°; contact near (-33, -34, 63) mm
+  - base-column-1 hits gripper-motor-cap at yaw -126.7°, shoulder 47.0°, elbow -120.1°, wrist -89.1°, tool-roll 91.3°; contact near (-38, -38, 67) mm
+  - base-column-1 hits gripper-motor-cradle at yaw -127.4°, shoulder 67.7°, elbow -124.1°, wrist -75.6°, tool-roll 85.9°; contact near (-32, -33, 53) mm
+  - base-column-1 hits gripper-motor-socket-1 at yaw -93.2°, shoulder 49.1°, elbow -121.7°, wrist -84.6°, tool-roll -58.8°; contact near (-30, -33, 51) mm
+  - base-column-1 hits gripper-motor-socket-2 at yaw -135.0°, shoulder 46.1°, elbow -116.7°, wrist -80.5°, tool-roll 93.8°; contact near (-35, -33, 62) mm
+  - base-column-1-bolt hits gripper-clamp-1-bolt at yaw -128.1°, shoulder 68.4°, elbow -123.1°, wrist -74.5°, tool-roll 85.0°; contact near (-33, -36, 62) mm
+  - base-column-1-bolt hits gripper-motor at yaw -137.7°, shoulder 52.4°, elbow -117.5°, wrist -83.1°, tool-roll 36.8°; contact near (-34, -34, 67) mm
+  - base-column-1-bolt hits gripper-motor-cap at yaw -132.5°, shoulder 46.4°, elbow -117.7°, wrist -83.1°, tool-roll 93.0°; contact near (-33, -35, 66) mm
+  - base-column-1-bolt hits gripper-motor-cradle at yaw -132.4°, shoulder 46.4°, elbow -117.8°, wrist -83.2°, tool-roll 93.0°; contact near (-35, -35, 58) mm
+  - base-column-1-bolt hits gripper-motor-socket-2 at yaw -131.6°, shoulder 45.1°, elbow -113.6°, wrist -108.5°, tool-roll -92.5°; contact near (-35, -35, 75) mm
+  - base-column-2 hits gripper-clamp-1-bolt at yaw 131.8°, shoulder 50.0°, elbow -121.4°, wrist -82.7°, tool-roll -102.0°; contact near (-36, 33, 37) mm
+  - base-column-2 hits gripper-motor at yaw 131.6°, shoulder 50.1°, elbow -121.1°, wrist -82.1°, tool-roll -101.7°; contact near (-36, 31, 61) mm
+  - base-column-2 hits gripper-motor-cap at yaw 131.3°, shoulder 50.3°, elbow -120.4°, wrist -80.8°, tool-roll -101.2°; contact near (-35, 35, 51) mm
+  - base-column-2 hits gripper-motor-cradle at yaw 131.0°, shoulder 50.5°, elbow -119.9°, wrist -79.8°, tool-roll -100.8°; contact near (-36, 28, 66) mm
+  - base-column-2 hits gripper-motor-socket-1 at yaw 123.9°, shoulder 60.8°, elbow -120.7°, wrist -79.6°, tool-roll 77.8°; contact near (-35, 33, 65) mm
+  - base-column-2 hits gripper-motor-socket-2 at yaw 131.7°, shoulder 50.0°, elbow -121.2°, wrist -82.2°, tool-roll -101.8°; contact near (-35, 33, 65) mm
+  - base-column-2-bolt hits gripper-motor at yaw 132.4°, shoulder 49.6°, elbow -122.6°, wrist -84.8°, tool-roll -102.8°; contact near (-35, 36, 65) mm
+  - base-column-2-bolt hits gripper-motor-cap at yaw 131.8°, shoulder 50.0°, elbow -121.4°, wrist -82.6°, tool-roll -101.9°; contact near (-34, 34, 50) mm
+  - base-column-2-bolt hits gripper-motor-cradle at yaw 122.4°, shoulder 50.7°, elbow -117.8°, wrist -73.9°, tool-roll 45.1°; contact near (-40, 35, 76) mm
+  - base-column-3 hits gear-guard at yaw -70.5°, shoulder 46.8°, elbow -119.4°, wrist -81.7°, tool-roll -86.1°; contact near (41, -32, 65) mm
+  - base-column-3 hits gripper-clamp-1-bolt at yaw -49.3°, shoulder 62.1°, elbow -121.3°, wrist -70.9°, tool-roll 96.0°; contact near (34, -34, 60) mm
+  - base-column-3 hits gripper-motor at yaw -27.6°, shoulder 59.9°, elbow -122.5°, wrist -82.8°, tool-roll 17.8°; contact near (34, -34, 64) mm
+  - base-column-3 hits gripper-motor-cap at yaw -49.6°, shoulder 62.1°, elbow -121.6°, wrist -71.0°, tool-roll 96.2°; contact near (31, -35, 64) mm
+  - base-column-3 hits gripper-motor-cradle at yaw -48.7°, shoulder 62.2°, elbow -121.0°, wrist -70.7°, tool-roll 95.7°; contact near (31, -33, 66) mm
+  - base-column-3 hits gripper-motor-socket-2 at yaw -26.8°, shoulder 60.4°, elbow -122.2°, wrist -83.1°, tool-roll 18.4°; contact near (34, -37, 69) mm
+  - base-column-3-bolt hits gear-guard at yaw -43.5°, shoulder 57.4°, elbow -121.6°, wrist -106.5°, tool-roll 37.6°; contact near (34, -34, 73) mm
+  - base-column-3-bolt hits gripper-motor at yaw -27.4°, shoulder 60.0°, elbow -122.4°, wrist -82.9°, tool-roll 18.0°; contact near (34, -30, 64) mm
+  - base-column-3-bolt hits gripper-motor-cap at yaw -28.6°, shoulder 46.6°, elbow -117.5°, wrist -89.2°, tool-roll 11.3°; contact near (34, -35, 68) mm
+  - base-column-3-bolt hits gripper-motor-cradle at yaw -33.6°, shoulder 53.5°, elbow -123.3°, wrist -81.7°, tool-roll 12.4°; contact near (34, -35, 61) mm
+  - base-column-3-bolt hits gripper-motor-socket-1 at yaw -30.1°, shoulder 48.7°, elbow -119.3°, wrist -86.9°, tool-roll 11.6°; contact near (34, -34, 69) mm
+  - base-column-3-bolt hits gripper-motor-socket-2 at yaw -31.5°, shoulder 50.7°, elbow -120.9°, wrist -84.8°, tool-roll 11.9°; contact near (34, -33, 71) mm
+  - base-column-4 hits gripper-clamp-1-bolt at yaw 67.3°, shoulder 52.4°, elbow -120.1°, wrist -83.2°, tool-roll 54.9°; contact near (30, 34, 65) mm
+  - base-column-4 hits gripper-clamp-1-nut at yaw 57.9°, shoulder 58.3°, elbow -119.8°, wrist -104.2°, tool-roll -110.0°; contact near (33, 33, 63) mm
+  - base-column-4 hits gripper-motor at yaw 65.1°, shoulder 54.4°, elbow -120.5°, wrist -80.1°, tool-roll 54.8°; contact near (36, 34, 59) mm
+  - base-column-4 hits gripper-motor-cap at yaw 67.6°, shoulder 52.2°, elbow -120.0°, wrist -83.6°, tool-roll 54.9°; contact near (35, 36, 59) mm
+  - base-column-4 hits gripper-motor-cradle at yaw 68.4°, shoulder 51.5°, elbow -119.9°, wrist -84.6°, tool-roll 55.0°; contact near (35, 33, 59) mm
+  - base-column-4 hits gripper-motor-socket-2 at yaw 43.6°, shoulder 59.8°, elbow -123.2°, wrist -92.8°, tool-roll -90.3°; contact near (35, 33, 66) mm
+  - base-column-4-bolt hits gripper-clamp-1-bolt at yaw 69.4°, shoulder 50.6°, elbow -119.6°, wrist -86.0°, tool-roll 55.1°; contact near (29, 34, 70) mm
+  - base-column-4-bolt hits gripper-motor at yaw 65.7°, shoulder 53.9°, elbow -120.4°, wrist -80.9°, tool-roll 54.8°; contact near (34, 34, 73) mm
+  - base-column-4-bolt hits gripper-motor-cap at yaw 67.9°, shoulder 52.0°, elbow -120.0°, wrist -83.9°, tool-roll 55.0°; contact near (34, 34, 65) mm
+  - base-column-4-bolt hits gripper-motor-cradle at yaw 67.9°, shoulder 51.9°, elbow -119.9°, wrist -84.0°, tool-roll 55.0°; contact near (34, 33, 69) mm
+  - base-column-4-bolt hits gripper-motor-socket-1 at yaw 53.0°, shoulder 59.7°, elbow -121.4°, wrist -99.8°, tool-roll -103.2°; contact near (34, 34, 73) mm
+  - base-harness hits gripper-motor-cradle at yaw 130.9°, shoulder 50.5°, elbow -119.7°, wrist -79.4°, tool-roll -100.7°; contact near (-28, 45, 30) mm
+  - base-plate hits gear-guard at yaw 123.1°, shoulder 48.3°, elbow -119.8°, wrist -72.8°, tool-roll 45.6°; contact near (-58, 90, 6) mm
+  - base-plate hits gripper-clamp-1-bolt at yaw 47.3°, shoulder 51.5°, elbow -109.6°, wrist -62.7°, tool-roll -68.9°; contact near (81, 29, 5) mm
+  - base-plate hits gripper-clamp-1-nut at yaw 12.7°, shoulder 55.8°, elbow -120.9°, wrist -63.1°, tool-roll -117.0°; contact near (101, 13, 2) mm
+  - base-plate hits gripper-motor at yaw -66.9°, shoulder 52.8°, elbow -123.8°, wrist -61.4°, tool-roll -60.0°; contact near (107, 22, 10) mm
+  - base-plate hits gripper-motor-cap at yaw -66.7°, shoulder 54.0°, elbow -123.5°, wrist -62.4°, tool-roll -57.8°; contact near (25, -88, 3) mm
+  - base-plate hits gripper-motor-cradle at yaw 47.0°, shoulder 51.7°, elbow -109.6°, wrist -62.3°, tool-roll -68.9°; contact near (98, 13, 4) mm
+  - base-plate hits gripper-motor-socket-1 at yaw 13.1°, shoulder 54.9°, elbow -121.7°, wrist -64.1°, tool-roll -117.9°; contact near (86, 11, 4) mm
+  - base-plate hits gripper-motor-socket-2 at yaw -67.1°, shoulder 51.6°, elbow -124.3°, wrist -60.4°, tool-roll -62.5°; contact near (18, -82, 5) mm
+  - electronics-tray hits gear-guard at yaw 132.1°, shoulder 46.0°, elbow -110.5°, wrist -79.4°, tool-roll -30.8°; contact near (-99, 57, 26) mm
+  - electronics-tray hits gripper-clamp-1-bolt at yaw 131.8°, shoulder 49.9°, elbow -121.5°, wrist -82.8°, tool-roll -102.0°; contact near (-43, 55, 18) mm
+  - electronics-tray hits gripper-clamp-1-nut at yaw -145.6°, shoulder 47.9°, elbow -111.0°, wrist -69.2°, tool-roll -33.5°; contact near (-100, -12, 21) mm
+  - electronics-tray hits gripper-motor-cap at yaw 131.3°, shoulder 50.2°, elbow -120.5°, wrist -81.0°, tool-roll -101.3°; contact near (-49, 49, 15) mm
+  - electronics-tray hits gripper-motor-cradle at yaw 132.0°, shoulder 49.8°, elbow -121.9°, wrist -83.5°, tool-roll -102.3°; contact near (-44, 59, 12) mm
+  - electronics-tray hits gripper-motor-socket-2 at yaw 130.8°, shoulder 50.6°, elbow -119.4°, wrist -79.0°, tool-roll -100.5°; contact near (-44, 54, 21) mm
+  - stop-switch-cap hits gear-guard at yaw -134.9°, shoulder 46.1°, elbow -116.7°, wrist -80.6°, tool-roll 93.7°; contact near (-84, -45, 26) mm
+  - u2d2-controller hits gear-guard at yaw 123.5°, shoulder 47.1°, elbow -120.8°, wrist -72.3°, tool-roll 45.8°; contact near (-93, 25, 36) mm
+  - yaw-bearing-carrier hits gear-guard at yaw -70.8°, shoulder 47.2°, elbow -119.1°, wrist -81.9°, tool-roll -86.1°; contact near (41, -36, 69) mm
+  - stop-switch-body hits gripper-clamp-1-bolt at yaw -144.5°, shoulder 56.0°, elbow -115.8°, wrist -77.0°, tool-roll -94.0°; contact near (-83, -48, 17) mm
+  - stop-switch-cap hits gripper-clamp-1-bolt at yaw -143.5°, shoulder 57.7°, elbow -115.0°, wrist -80.1°, tool-roll -95.2°; contact near (-87, -55, 28) mm
+  - stop-switch-nut hits gripper-clamp-1-bolt at yaw -145.0°, shoulder 55.2°, elbow -116.2°, wrist -75.6°, tool-roll -93.4°; contact near (-68, -45, 19) mm
+  - stop-switch-pedestal hits gripper-clamp-1-bolt at yaw -121.7°, shoulder 41.4°, elbow -104.4°, wrist -92.8°, tool-roll -110.2°; contact near (-73, -72, 12) mm
+  - yaw-bearing-2-outer hits gripper-clamp-1-bolt at yaw 123.8°, shoulder 46.3°, elbow -121.5°, wrist -71.9°, tool-roll 45.9°; contact near (-16, 18, 73) mm
+  - yaw-bearing-carrier hits gripper-clamp-1-bolt at yaw -28.4°, shoulder 46.4°, elbow -117.3°, wrist -89.4°, tool-roll 11.2°; contact near (-12, 21, 65) mm
+  - stop-switch-pedestal hits gripper-clamp-1-nut at yaw -121.3°, shoulder 41.8°, elbow -104.6°, wrist -93.0°, tool-roll -109.9°; contact near (-74, -72, 13) mm
+  - yaw-bearing-2-outer hits gripper-clamp-1-nut at yaw 123.7°, shoulder 46.5°, elbow -121.3°, wrist -72.0°, tool-roll 45.9°; contact near (-17, 18, 70) mm
+  - yaw-bearing-2-seal hits gripper-clamp-1-nut at yaw 123.9°, shoulder 46.0°, elbow -121.8°, wrist -71.7°, tool-roll 46.0°; contact near (-16, 17, 71) mm
+  - yaw-bearing-carrier hits gripper-clamp-1-nut at yaw 121.6°, shoulder 52.9°, elbow -116.0°, wrist -74.9°, tool-roll 44.7°; contact near (-21, 23, 61) mm
+  - stop-switch-cap hits gripper-motor at yaw -144.3°, shoulder 49.6°, elbow -109.5°, wrist -70.1°, tool-roll -33.8°; contact near (-75, -52, 27) mm
+  - yaw-bearing-carrier hits gripper-motor at yaw -135.7°, shoulder 46.0°, elbow -116.4°, wrist -79.8°, tool-roll 94.0°; contact near (-34, -31, 71) mm
+  - stop-switch-body hits gripper-motor-cap at yaw -145.6°, shoulder 47.9°, elbow -111.0°, wrist -69.2°, tool-roll -33.5°; contact near (-77, -56, 20) mm
+  - stop-switch-cap hits gripper-motor-cap at yaw -144.4°, shoulder 49.5°, elbow -109.6°, wrist -70.0°, tool-roll -33.8°; contact near (-74, -54, 28) mm
+  - stop-switch-nut hits gripper-motor-cap at yaw -145.5°, shoulder 48.0°, elbow -110.8°, wrist -69.3°, tool-roll -33.5°; contact near (-85, -51, 20) mm
+  - yaw-bearing-carrier hits gripper-motor-cap at yaw -48.9°, shoulder 62.2°, elbow -121.1°, wrist -70.7°, tool-roll 95.8°; contact near (-27, -36, 71) mm
+  - stop-switch-body hits gripper-motor-cradle at yaw -145.0°, shoulder 48.6°, elbow -110.3°, wrist -69.6°, tool-roll -33.6°; contact near (-72, -50, 16) mm
+  - stop-switch-cap hits gripper-motor-cradle at yaw -120.3°, shoulder 43.0°, elbow -104.9°, wrist -93.5°, tool-roll -109.2°; contact near (-70, -44, 26) mm
+  - stop-switch-nut hits gripper-motor-cradle at yaw -144.7°, shoulder 49.1°, elbow -110.0°, wrist -69.8°, tool-roll -33.7°; contact near (-83, -45, 19) mm
+  - stop-switch-pedestal hits gripper-motor-cradle at yaw -121.6°, shoulder 41.6°, elbow -104.5°, wrist -92.8°, tool-roll -110.1°; contact near (-84, -43, 13) mm
+  - u2d2-controller hits gripper-motor-cradle at yaw 146.1°, shoulder 55.4°, elbow -114.8°, wrist -60.1°, tool-roll 61.8°; contact near (-62, 23, 32) mm
+  - yaw-bearing-2-outer hits gripper-motor-cradle at yaw 123.7°, shoulder 46.5°, elbow -121.3°, wrist -72.0°, tool-roll 45.9°; contact near (-13, 21, 69) mm
+  - yaw-bearing-2-seal hits gripper-motor-cradle at yaw 123.9°, shoulder 46.0°, elbow -121.8°, wrist -71.7°, tool-roll 46.0°; contact near (-12, 20, 70) mm
+  - yaw-bearing-carrier hits gripper-motor-cradle at yaw -128.4°, shoulder 68.7°, elbow -122.7°, wrist -74.1°, tool-roll 84.7°; contact near (-26, 20, 71) mm
+  - yaw-bearing-carrier hits gripper-motor-socket-1 at yaw -28.4°, shoulder 46.4°, elbow -117.3°, wrist -89.5°, tool-roll 11.2°; contact near (-15, 20, 64) mm
+  - stop-switch-cap hits gripper-motor-socket-2 at yaw -144.5°, shoulder 56.0°, elbow -115.8°, wrist -77.1°, tool-roll -94.0°; contact near (-80, -47, 27) mm
+  - yaw-bearing-carrier hits gripper-motor-socket-2 at yaw 63.6°, shoulder 55.8°, elbow -120.8°, wrist -78.0°, tool-roll 54.7°; contact near (17, -25, 65) mm
+  - base-column-1 hits gripper-jaw-left at yaw -119.9°, shoulder 50.8°, elbow -115.2°, wrist -85.0°, tool-roll -15.7°, grip 15.8°; contact near (-31, -38, 70) mm
+  - base-column-1 hits gripper-pad-left at yaw -119.9°, shoulder 51.0°, elbow -115.3°, wrist -85.2°, tool-roll -15.4°, grip 15.6°; contact near (-35, -38, 53) mm
+  - base-column-2 hits gripper-jaw-left at yaw 132.5°, shoulder 49.5°, elbow -122.8°, wrist -85.1°, tool-roll -103.0°, grip -2.1°; contact near (-34, 32, 64) mm
+  - base-column-2 hits gripper-pad-left at yaw 122.1°, shoulder 51.4°, elbow -117.2°, wrist -74.2°, tool-roll 45.0°, grip 13.8°; contact near (-34, 34, 51) mm
+  - base-column-2-bolt hits gripper-jaw-left at yaw 136.7°, shoulder 53.1°, elbow -116.6°, wrist -82.6°, tool-roll -31.1°, grip -6.7°; contact near (-35, 35, 72) mm
+  - base-column-2-bolt hits gripper-pad-left at yaw 137.6°, shoulder 54.5°, elbow -117.8°, wrist -83.2°, tool-roll -31.2°, grip -7.1°; contact near (-34, 34, 47) mm
+  - base-column-4 hits gripper-jaw-left at yaw 63.4°, shoulder 44.2°, elbow -112.2°, wrist -80.1°, tool-roll -51.0°, grip 10.3°; contact near (36, 37, 53) mm
+  - base-column-4 hits gripper-pad-left at yaw 23.2°, shoulder 60.8°, elbow -117.1°, wrist -89.2°, tool-roll 64.0°, grip 13.7°; contact near (33, 35, 33) mm
+  - base-plate hits gripper-jaw-left at yaw -9.0°, shoulder 50.2°, elbow -110.7°, wrist -65.0°, tool-roll -113.0°, grip 18.2°; contact near (106, -45, 5) mm
+  - base-plate hits gripper-pad-left at yaw -31.7°, shoulder 57.2°, elbow -114.9°, wrist -60.1°, tool-roll 103.4°, grip 10.4°; contact near (-57, 86, 5) mm
+  - electronics-tray hits gripper-pad-left at yaw 133.7°, shoulder 67.6°, elbow -122.9°, wrist -53.2°, tool-roll 41.7°, grip 15.0°; contact near (-74, 54, 23) mm
+  - stop-switch-cap hits gripper-jaw-left at yaw -143.8°, shoulder 48.9°, elbow -108.4°, wrist -78.3°, tool-roll 37.3°, grip -1.3°; contact near (-75, -57, 26) mm
+  - u2d2-controller hits gripper-jaw-left at yaw 144.1°, shoulder 52.4°, elbow -110.4°, wrist -75.5°, tool-roll 62.3°, grip 7.4°; contact near (-74, 28, 35) mm
+  - yaw-bearing-1-outer hits gripper-jaw-left at yaw 132.9°, shoulder 49.3°, elbow -123.6°, wrist -86.5°, tool-roll -103.5°, grip -1.4°; contact near (-7, 24, 58) mm
+  - yaw-bearing-2-outer hits gripper-jaw-left at yaw 132.7°, shoulder 49.4°, elbow -123.2°, wrist -85.8°, tool-roll -103.2°, grip -1.7°; contact near (-5, 24, 69) mm
+  - yaw-bearing-carrier hits gripper-jaw-left at yaw 132.0°, shoulder 49.8°, elbow -121.8°, wrist -83.4°, tool-roll -102.3°, grip -2.9°; contact near (-10, -25, 61) mm
+  - yaw-motor hits gripper-jaw-left at yaw 22.5°, shoulder 49.8°, elbow -121.8°, wrist -76.0°, tool-roll -42.1°, grip 3.5°; contact near (28, 10, 45) mm
+  - power-hub-pcb hits gripper-pad-left at yaw 146.2°, shoulder 53.5°, elbow -114.6°, wrist -71.7°, tool-roll 61.6°, grip 5.8°; contact near (-78, 32, 21) mm
+  - stop-switch-cap hits gripper-pad-left at yaw -143.1°, shoulder 51.3°, elbow -108.1°, wrist -71.0°, tool-roll -34.1°, grip 19.6°; contact near (-74, -63, 26) mm
+  - stop-switch-pedestal hits gripper-pad-left at yaw -143.0°, shoulder 57.3°, elbow -115.4°, wrist -54.0°, tool-roll -71.7°, grip 15.6°; contact near (-88, -54, 12) mm
+  - u2d2-controller hits gripper-pad-left at yaw 145.3°, shoulder 53.1°, elbow -112.8°, wrist -73.3°, tool-roll 61.9°, grip 6.5°; contact near (-65, 23, 27) mm
+  - yaw-bearing-1-outer hits gripper-pad-left at yaw 132.2°, shoulder 49.7°, elbow -122.2°, wrist -84.1°, tool-roll -102.6°, grip -2.6°; contact near (-8, -23, 55) mm
+  - yaw-bearing-1-seal hits gripper-pad-left at yaw 132.5°, shoulder 49.5°, elbow -122.9°, wrist -85.3°, tool-roll -103.0°, grip -2.0°; contact near (-7, 21, 56) mm
+  - yaw-bearing-2-outer hits gripper-pad-left at yaw 132.5°, shoulder 49.5°, elbow -122.8°, wrist -85.1°, tool-roll -102.9°, grip -2.1°; contact near (-9, 23, 68) mm
+  - yaw-bearing-2-seal hits gripper-pad-left at yaw 132.6°, shoulder 49.5°, elbow -122.9°, wrist -85.4°, tool-roll -103.1°, grip -2.0°; contact near (-10, 21, 68) mm
+  - yaw-bearing-carrier hits gripper-pad-left at yaw 131.5°, shoulder 50.1°, elbow -120.9°, wrist -81.7°, tool-roll -101.6°, grip -3.8°; contact near (-9, -23, 61) mm
+  - yaw-motor hits gripper-pad-left at yaw 23.8°, shoulder 50.5°, elbow -120.1°, wrist -77.0°, tool-roll -42.2°, grip 3.0°; contact near (32, 10, 42) mm
+  - base-column-1 hits gripper-jaw-right at yaw -111.7°, shoulder 49.6°, elbow -123.9°, wrist -101.0°, tool-roll 28.5°, grip 14.5°; contact near (-33, -33, 60) mm
+  - base-column-1 hits gripper-pad-right at yaw -137.8°, shoulder 52.3°, elbow -117.3°, wrist -83.0°, tool-roll 36.8°, grip -3.9°; contact near (-33, -33, 51) mm
+  - base-column-1-bolt hits gripper-jaw-right at yaw -136.2°, shoulder 53.2°, elbow -119.7°, wrist -84.3°, tool-roll 36.6°, grip -4.6°; contact near (-34, -34, 67) mm
+  - base-column-1-bolt hits gripper-pad-right at yaw -136.9°, shoulder 52.8°, elbow -118.6°, wrist -83.7°, tool-roll 36.7°, grip -4.3°; contact near (-33, -33, 51) mm
+  - base-column-2 hits gripper-jaw-right at yaw 121.0°, shoulder 67.3°, elbow -122.2°, wrist -92.3°, tool-roll -17.7°, grip 16.5°; contact near (-34, 34, 66) mm
+  - base-column-2 hits gripper-pad-right at yaw 132.2°, shoulder 49.7°, elbow -122.2°, wrist -84.0°, tool-roll -102.5°, grip -2.7°; contact near (-36, 34, 67) mm
+  - base-column-2-bolt hits gripper-jaw-right at yaw 121.2°, shoulder 65.8°, elbow -123.2°, wrist -92.1°, tool-roll -19.1°, grip 16.0°; contact near (-35, 35, 71) mm
+  - base-column-2-bolt hits gripper-pad-right at yaw 131.5°, shoulder 50.1°, elbow -120.9°, wrist -81.7°, tool-roll -101.6°, grip -3.8°; contact near (-34, 35, 70) mm
+  - base-column-3 hits gripper-jaw-right at yaw -73.7°, shoulder 50.0°, elbow -116.9°, wrist -83.3°, tool-roll -86.1°, grip 0.6°; contact near (33, -32, 61) mm
+  - base-column-3 hits gripper-pad-right at yaw -36.4°, shoulder 61.1°, elbow -122.8°, wrist -81.3°, tool-roll 7.0°, grip 4.3°; contact near (36, -31, 41) mm
+  - base-column-3-bolt hits gripper-jaw-right at yaw -70.0°, shoulder 46.3°, elbow -119.7°, wrist -81.5°, tool-roll -86.1°, grip 0.4°; contact near (35, -34, 70) mm
+  - base-column-4 hits gripper-jaw-right at yaw 24.4°, shoulder 50.8°, elbow -119.4°, wrist -77.4°, tool-roll -42.2°, grip 2.8°; contact near (37, 33, 47) mm
+  - base-column-4 hits gripper-pad-right at yaw 25.4°, shoulder 51.4°, elbow -118.0°, wrist -78.2°, tool-roll -42.3°, grip 2.3°; contact near (34, 35, 40) mm
+  - base-column-4-bolt hits gripper-jaw-right at yaw 23.2°, shoulder 50.2°, elbow -120.9°, wrist -76.6°, tool-roll -42.2°, grip 3.3°; contact near (32, 37, 72) mm
+  - base-column-4-bolt hits gripper-pad-right at yaw 24.2°, shoulder 50.8°, elbow -119.6°, wrist -77.3°, tool-roll -42.2°, grip 2.8°; contact near (34, 35, 42) mm
+  - base-harness hits gripper-pad-right at yaw 108.3°, shoulder 52.1°, elbow -118.8°, wrist -70.2°, tool-roll -95.1°, grip 14.1°; contact near (-36, 47, 29) mm
+  - base-plate hits gripper-jaw-right at yaw -66.9°, shoulder 53.2°, elbow -123.7°, wrist -61.7°, tool-roll -59.4°, grip 21.0°; contact near (48, 81, 3) mm
+  - base-plate hits gripper-pad-right at yaw -73.0°, shoulder 49.9°, elbow -116.5°, wrist -63.0°, tool-roll 8.2°, grip 12.8°; contact near (45, 81, 4) mm
+  - electronics-tray hits gripper-jaw-right at yaw 133.0°, shoulder 47.3°, elbow -111.7°, wrist -80.0°, tool-roll -30.9°, grip -5.1°; contact near (-63, 55, 22) mm
+  - electronics-tray hits gripper-pad-right at yaw 132.5°, shoulder 46.6°, elbow -111.1°, wrist -79.7°, tool-roll -30.8°, grip -5.0°; contact near (-55, 39, 12) mm
+  - hub-jst-plug-3 hits gripper-jaw-right at yaw 134.4°, shoulder 49.6°, elbow -113.6°, wrist -81.0°, tool-roll -31.0°, grip -5.7°; contact near (-59, 44, 24) mm
+  - stop-switch-body hits gripper-jaw-right at yaw -140.6°, shoulder 50.7°, elbow -113.2°, wrist -80.8°, tool-roll 37.0°, grip -2.7°; contact near (-77, -56, 16) mm
+  - stop-switch-cap hits gripper-jaw-right at yaw -139.2°, shoulder 51.5°, elbow -115.3°, wrist -82.0°, tool-roll 36.9°, grip -3.3°; contact near (-85, -55, 28) mm
+  - stop-switch-nut hits gripper-jaw-right at yaw -143.1°, shoulder 49.3°, elbow -109.5°, wrist -78.9°, tool-roll 37.3°, grip -1.6°; contact near (-85, -60, 20) mm
+  - stop-switch-pedestal hits gripper-jaw-right at yaw -145.2°, shoulder 48.4°, elbow -110.5°, wrist -69.5°, tool-roll -33.6°, grip 21.0°; contact near (-85, -61, 15) mm
+  - yaw-bearing-2-outer hits gripper-jaw-right at yaw 132.3°, shoulder 49.6°, elbow -122.5°, wrist -84.5°, tool-roll -102.7°, grip -2.4°; contact near (-16, -19, 64) mm
+  - yaw-bearing-2-seal hits gripper-jaw-right at yaw 132.5°, shoulder 49.5°, elbow -122.9°, wrist -85.3°, tool-roll -103.0°, grip -2.0°; contact near (-14, -18, 68) mm
+  - yaw-bearing-carrier hits gripper-jaw-right at yaw 131.6°, shoulder 50.0°, elbow -121.2°, wrist -82.1°, tool-roll -101.8°, grip -3.6°; contact near (-35, -38, 71) mm
+  - yaw-motor-saddle hits gripper-jaw-right at yaw -34.8°, shoulder 55.8°, elbow -124.3°, wrist -80.3°, tool-roll 11.9°, grip -1.4°; contact near (34, -18, 33) mm
+  - yaw-motor-strap-1 hits gripper-jaw-right at yaw -35.1°, shoulder 56.5°, elbow -124.1°, wrist -80.4°, tool-roll 11.2°, grip -0.6°; contact near (35, -21, 40) mm
+  - yaw-saddle-1-2-bolt hits gripper-jaw-right at yaw -34.7°, shoulder 55.3°, elbow -124.4°, wrist -80.2°, tool-roll 12.3°, grip -1.8°; contact near (33, -20, 43) mm
+  - hub-jst-plug-2 hits gripper-pad-right at yaw 148.3°, shoulder 54.6°, elbow -118.8°, wrist -67.8°, tool-roll 61.0°, grip 4.3°; contact near (-73, 45, 24) mm
+  - hub-jst-plug-3 hits gripper-pad-right at yaw 132.8°, shoulder 47.1°, elbow -111.5°, wrist -79.9°, tool-roll -30.9°, grip -5.1°; contact near (-59, 47, 25) mm
+  - power-hub-pcb hits gripper-pad-right at yaw 148.0°, shoulder 54.4°, elbow -118.1°, wrist -68.5°, tool-roll 61.1°, grip 4.6°; contact near (-54, 41, 18) mm
+  - stop-switch-body hits gripper-pad-right at yaw -141.7°, shoulder 50.1°, elbow -111.6°, wrist -80.0°, tool-roll 37.1°, grip -2.2°; contact near (-73, -53, 16) mm
+  - stop-switch-cap hits gripper-pad-right at yaw -140.2°, shoulder 50.9°, elbow -113.8°, wrist -81.2°, tool-roll 37.0°, grip -2.9°; contact near (-74, -54, 26) mm
+  - stop-switch-nut hits gripper-pad-right at yaw -143.8°, shoulder 48.9°, elbow -108.4°, wrist -78.4°, tool-roll 37.3°, grip -1.3°; contact near (-83, -62, 21) mm
+  - stop-switch-pedestal hits gripper-pad-right at yaw -144.6°, shoulder 49.2°, elbow -109.8°, wrist -69.9°, tool-roll -33.7°, grip 20.6°; contact near (-72, -66, 14) mm
+  - u2d2-controller hits gripper-pad-right at yaw 147.0°, shoulder 70.9°, elbow -123.9°, wrist -61.1°, tool-roll -70.7°, grip 4.4°; contact near (-80, 25, 31) mm
+  - yaw-bearing-1-outer hits gripper-pad-right at yaw -124.5°, shoulder 47.5°, elbow -121.0°, wrist -92.0°, tool-roll 90.2°, grip -4.9°; contact near (-18, -17, 56) mm
+  - yaw-bearing-2-outer hits gripper-pad-right at yaw 132.2°, shoulder 49.7°, elbow -122.2°, wrist -84.1°, tool-roll -102.6°, grip -2.6°; contact near (-21, 14, 68) mm
+  - yaw-bearing-2-seal hits gripper-pad-right at yaw 132.3°, shoulder 49.7°, elbow -122.4°, wrist -84.3°, tool-roll -102.6°, grip -2.5°; contact near (-19, 12, 68) mm
+  - yaw-bearing-carrier hits gripper-pad-right at yaw 131.4°, shoulder 50.2°, elbow -120.6°, wrist -81.2°, tool-roll -101.4°, grip -4.0°; contact near (-21, -21, 59) mm
+  - yaw-motor hits gripper-pad-right at yaw -34.7°, shoulder 55.2°, elbow -124.4°, wrist -80.2°, tool-roll 12.4°, grip -2.0°; contact near (30, -9, 42) mm
+  - yaw-motor-saddle hits gripper-pad-right at yaw 22.6°, shoulder 49.8°, elbow -121.7°, wrist -76.1°, tool-roll -42.1°, grip 3.5°; contact near (35, -23, 35) mm
+  - yaw-motor-strap-1 hits gripper-pad-right at yaw -35.5°, shoulder 58.0°, elbow -123.7°, wrist -80.7°, tool-roll 9.8°, grip 1.1°; contact near (32, -20, 42) mm
+  - yaw-saddle-1-2-bolt hits gripper-pad-right at yaw -35.3°, shoulder 57.3°, elbow -123.9°, wrist -80.6°, tool-roll 10.5°, grip 0.2°; contact near (33, -20, 42) mm
+  - yaw-saddle-2-2-bolt hits gripper-pad-right at yaw 22.0°, shoulder 49.5°, elbow -122.4°, wrist -75.7°, tool-roll -42.1°, grip 3.8°; contact near (33, 20, 42) mm
+  - yaw-bearing-carrier hits jaw-105-outer at yaw -46.8°, shoulder 50.7°, elbow -122.2°, wrist -99.4°, tool-roll 4.4°, grip 17.4°; contact near (36, -38, 72) mm
+  - yaw-turntable hits gear-guard at shoulder 48.9°, elbow -116.3°, wrist -82.8°, tool-roll -51.7°; contact near (50, 1, 83) mm
+  - shoulder-clamp-3-bolt hits gripper-clamp-1-bolt at shoulder 99.2°, elbow -121.3°, wrist -109.4°, tool-roll 61.3°; contact near (22, -15, 101) mm
+  - shoulder-clamp-4-bolt hits gripper-clamp-1-bolt at shoulder 51.1°, elbow -122.6°, wrist -92.3°, tool-roll 65.9°; contact near (24, 19, 147) mm
+  - shoulder-cradle hits gripper-clamp-1-bolt at shoulder 53.7°, elbow -121.9°, wrist -90.2°, tool-roll 50.5°; contact near (21, -7, 99) mm
+  - shoulder-keeper hits gripper-clamp-1-bolt at shoulder 76.3°, elbow -121.0°, wrist -107.4°, tool-roll 44.8°; contact near (19, -8, 151) mm
+  - yaw-turntable hits gripper-clamp-1-bolt at shoulder 59.9°, elbow -118.7°, wrist -104.4°, tool-roll -84.2°; contact near (28, -27, 82) mm
+  - shoulder-clamp-3-bolt hits gripper-clamp-1-nut at shoulder 64.7°, elbow -124.4°, wrist -88.5°, tool-roll 21.6°; contact near (21, -16, 148) mm
+  - shoulder-clamp-4-bolt hits gripper-clamp-1-nut at shoulder 51.0°, elbow -121.9°, wrist -91.9°, tool-roll 65.2°; contact near (21, 15, 112) mm
+  - shoulder-cradle hits gripper-clamp-1-nut at shoulder 54.2°, elbow -121.5°, wrist -89.9°, tool-roll 50.2°; contact near (20, 13, 116) mm
+  - shoulder-keeper hits gripper-clamp-1-nut at shoulder 75.1°, elbow -122.2°, wrist -106.5°, tool-roll 45.5°; contact near (19, 3, 150) mm
+  - yaw-turntable hits gripper-clamp-1-nut at shoulder 52.7°, elbow -118.2°, wrist -77.8°, tool-roll 19.4°; contact near (35, -16, 79) mm
+  - shoulder-clamp-4-bolt hits gripper-motor at shoulder 103.1°, elbow -124.7°, wrist -105.2°, tool-roll 118.3°; contact near (23, 17, 153) mm
+  - shoulder-cradle hits gripper-motor at shoulder 51.3°, elbow -123.7°, wrist -92.9°, tool-roll 67.0°; contact near (26, 6, 94) mm
+  - shoulder-keeper hits gripper-motor at shoulder 74.4°, elbow -122.8°, wrist -106.0°, tool-roll 45.8°; contact near (29, 4, 148) mm
+  - yaw-turntable hits gripper-motor at shoulder 59.6°, elbow -119.2°, wrist -104.7°, tool-roll -83.6°; contact near (40, 27, 83) mm
+  - shoulder-clamp-4-bolt hits gripper-motor-cap at shoulder 101.9°, elbow -123.1°, wrist -103.9°, tool-roll 115.3°; contact near (22, 16, 153) mm
+  - shoulder-cradle hits gripper-motor-cap at shoulder 51.4°, elbow -123.9°, wrist -93.0°, tool-roll 67.2°; contact near (24, -3, 94) mm
+  - shoulder-keeper hits gripper-motor-cap at shoulder 101.8°, elbow -122.7°, wrist -103.7°, tool-roll 114.7°; contact near (25, 17, 150) mm
+  - yaw-turntable hits gripper-motor-cap at shoulder 59.8°, elbow -118.9°, wrist -104.5°, tool-roll -84.0°; contact near (46, 15, 83) mm
+  - shoulder-clamp-3-bolt hits gripper-motor-cradle at shoulder 73.4°, elbow -123.8°, wrist -105.2°, tool-roll 46.4°; contact near (21, -14, 150) mm
+  - shoulder-clamp-4-bolt hits gripper-motor-cradle at shoulder 99.2°, elbow -121.4°, wrist -109.4°, tool-roll 61.4°; contact near (21, 16, 151) mm
+  - shoulder-cradle hits gripper-motor-cradle at shoulder 54.0°, elbow -121.7°, wrist -90.0°, tool-roll 50.3°; contact near (23, 7, 95) mm
+  - shoulder-keeper hits gripper-motor-cradle at shoulder 99.5°, elbow -121.8°, wrist -109.6°, tool-roll 61.5°; contact near (19, 1, 150) mm
+  - yaw-turntable hits gripper-motor-cradle at shoulder 60.2°, elbow -117.7°, wrist -104.0°, tool-roll -85.2°; contact near (33, -4, 83) mm
+  - shoulder-clamp-3-bolt hits gripper-motor-socket-1 at shoulder 104.7°, elbow -123.9°, wrist -104.0°, tool-roll 18.8°; contact near (22, -14, 154) mm
+  - shoulder-clamp-4-bolt hits gripper-motor-socket-1 at shoulder 51.4°, elbow -124.2°, wrist -93.2°, tool-roll 67.5°; contact near (22, 15, 97) mm
+  - shoulder-cradle hits gripper-motor-socket-1 at shoulder 72.4°, elbow -124.8°, wrist -104.4°, tool-roll 46.9°; contact near (23, 8, 98) mm
+  - shoulder-keeper hits gripper-motor-socket-1 at shoulder 112.0°, elbow -124.9°, wrist -108.8°, tool-roll 119.6°; contact near (25, 21, 151) mm
+  - yaw-turntable hits gripper-motor-socket-1 at shoulder 59.8°, elbow -118.7°, wrist -104.4°, tool-roll -84.2°; contact near (47, 9, 79) mm
+  - shoulder-clamp-3-bolt hits gripper-motor-socket-2 at shoulder 104.1°, elbow -123.5°, wrist -107.4°, tool-roll 20.0°; contact near (21, -15, 152) mm
+  - shoulder-clamp-4-bolt hits gripper-motor-socket-2 at shoulder 107.8°, elbow -124.8°, wrist -107.1°, tool-roll 119.0°; contact near (22, 15, 152) mm
+  - shoulder-cradle hits gripper-motor-socket-2 at shoulder 72.9°, elbow -124.3°, wrist -104.8°, tool-roll 46.6°; contact near (22, 1, 97) mm
+  - shoulder-keeper hits gripper-motor-socket-2 at shoulder 99.7°, elbow -122.3°, wrist -109.7°, tool-roll 61.7°; contact near (25, 17, 150) mm
+  - yaw-turntable hits gripper-motor-socket-2 at shoulder 60.1°, elbow -118.1°, wrist -104.1°, tool-roll -84.8°; contact near (32, -15, 81) mm
+  - yaw-turntable hits jaw-idler-axle at shoulder 48.4°, elbow -122.3°, wrist -106.8°, tool-roll 41.1°; contact near (51, 3, 81) mm
+  - yaw-turntable hits jaw-idler-clevis at shoulder 48.4°, elbow -122.4°, wrist -106.8°, tool-roll 41.1°; contact near (52, 1, 84) mm
+  - yaw-turntable hits gripper-horn at shoulder 55.0°, elbow -124.9°, wrist -87.3°, tool-roll 8.1°, grip 16.2°; contact near (52, 1, 82) mm
+  - yaw-turntable hits gripper-horn-1-bolt at shoulder 51.7°, elbow -122.5°, wrist -84.3°, tool-roll -42.7°, grip 10.7°; contact near (47, 15, 80) mm
+  - yaw-turntable hits gripper-horn-4-bolt at shoulder 51.5°, elbow -124.2°, wrist -93.2°, tool-roll 67.9°, grip 14.5°; contact near (51, 10, 82) mm
+  - shoulder-clamp-3-bolt hits gripper-jaw-left at shoulder 114.2°, elbow -124.4°, wrist -109.6°, tool-roll -119.4°, grip -9.5°; contact near (22, -15, 153) mm
+  - shoulder-clamp-4-bolt hits gripper-jaw-left at shoulder 54.2°, elbow -122.6°, wrist -89.6°, tool-roll 7.8°, grip 17.9°; contact near (23, 15, 152) mm
+  - shoulder-clamp-4-nut hits gripper-jaw-left at shoulder 54.4°, elbow -123.2°, wrist -89.0°, tool-roll 7.9°, grip 17.5°; contact near (22, 16, 84) mm
+  - shoulder-cradle hits gripper-jaw-left at shoulder 62.0°, elbow -121.6°, wrist -107.1°, tool-roll -80.0°, grip 5.9°; contact near (22, 13, 97) mm
+  - shoulder-keeper hits gripper-jaw-left at shoulder 113.3°, elbow -123.8°, wrist -109.2°, tool-roll -118.7°, grip -8.9°; contact near (25, -13, 150) mm
+  - shoulder-motor hits gripper-jaw-left at shoulder 103.9°, elbow -122.9°, wrist -108.4°, tool-roll 20.2°, grip 17.2°; contact near (14, 15, 144) mm
+  - yaw-turntable hits gripper-jaw-left at shoulder 56.8°, elbow -117.0°, wrist -90.6°, tool-roll 55.2°, grip 5.4°; contact near (52, 12, 81) mm
+  - shoulder-clamp-3-bolt hits gripper-pad-left at shoulder 62.0°, elbow -121.7°, wrist -107.1°, tool-roll -79.9°, grip 6.0°; contact near (22, -14, 152) mm
+  - shoulder-clamp-4-bolt hits gripper-pad-left at shoulder 51.7°, elbow -124.0°, wrist -93.1°, tool-roll 68.0°, grip 14.5°; contact near (22, 15, 149) mm
+  - shoulder-clamp-4-nut hits gripper-pad-left at shoulder 51.6°, elbow -124.1°, wrist -93.1°, tool-roll 68.0°, grip 14.5°; contact near (21, 15, 84) mm
+  - shoulder-cradle hits gripper-pad-left at shoulder 61.7°, elbow -120.4°, wrist -106.2°, tool-roll -81.6°, grip 4.6°; contact near (20, 12, 95) mm
+  - shoulder-keeper hits gripper-pad-left at shoulder 112.1°, elbow -123.0°, wrist -108.7°, tool-roll -117.7°, grip -8.2°; contact near (23, -7, 151) mm
+  - shoulder-motor hits gripper-pad-left at shoulder 53.8°, elbow -122.2°, wrist -98.9°, tool-roll -10.0°, grip 16.5°; contact near (11, 11, 96) mm
+  - yaw-bearing-2-inner hits gripper-pad-left at shoulder 52.0°, elbow -122.3°, wrist -84.2°, tool-roll -42.9°, grip 11.0°; contact near (19, -6, 68) mm
+  - yaw-turntable hits gripper-pad-left at shoulder 57.0°, elbow -118.9°, wrist -88.2°, tool-roll 47.8°, grip 11.4°; contact near (47, -5, 81) mm
+  - shoulder-clamp-3-bolt hits gripper-jaw-right at shoulder 52.9°, elbow -122.2°, wrist -103.5°, tool-roll 107.4°, grip 9.4°; contact near (24, -15, 97) mm
+  - shoulder-clamp-4-bolt hits gripper-jaw-right at shoulder 113.0°, elbow -123.6°, wrist -105.5°, tool-roll -107.7°, grip 12.4°; contact near (21, 15, 153) mm
+  - shoulder-cradle hits gripper-jaw-right at shoulder 54.6°, elbow -121.6°, wrist -103.9°, tool-roll 106.3°, grip 12.3°; contact near (25, -2, 94) mm
+  - shoulder-keeper hits gripper-jaw-right at shoulder 109.6°, elbow -121.3°, wrist -107.5°, tool-roll -115.8°, grip -6.6°; contact near (22, 7, 151) mm
+  - shoulder-motor hits gripper-jaw-right at shoulder 113.0°, elbow -123.6°, wrist -109.1°, tool-roll -118.4°, grip -8.7°; contact near (13, 3, 145) mm
+  - yaw-turntable hits gripper-jaw-right at shoulder 61.4°, elbow -115.6°, wrist -101.5°, tool-roll -15.9°, grip -1.7°; contact near (54, 3, 80) mm
+  - shoulder-clamp-3-bolt hits gripper-pad-right at shoulder 55.2°, elbow -121.4°, wrist -104.1°, tool-roll 105.9°, grip 13.3°; contact near (25, -15, 109) mm
+  - shoulder-clamp-4-bolt hits gripper-pad-right at shoulder 61.9°, elbow -121.3°, wrist -106.8°, tool-roll -80.5°, grip 5.5°; contact near (22, 15, 144) mm
+  - shoulder-cradle hits gripper-pad-right at shoulder 61.8°, elbow -120.6°, wrist -106.3°, tool-roll -81.3°, grip 4.9°; contact near (20, -1, 103) mm
+  - shoulder-keeper hits gripper-pad-right at shoulder 110.4°, elbow -121.8°, wrist -107.9°, tool-roll -116.3°, grip -7.1°; contact near (19, 17, 150) mm
+  - shoulder-motor hits gripper-pad-right at shoulder 113.3°, elbow -123.8°, wrist -109.2°, tool-roll -118.7°, grip -8.9°; contact near (19, -14, 143) mm
+  - yaw-turntable hits gripper-pad-right at shoulder 60.6°, elbow -113.9°, wrist -102.3°, tool-roll -17.7°, grip -2.5°; contact near (47, 18, 82) mm
+  - yaw-turntable hits jaw-105-outer at shoulder 51.5°, elbow -124.2°, wrist -93.2°, tool-roll 67.9°, grip 14.5°; contact near (50, -11, 82) mm
+exit=1 secs=398

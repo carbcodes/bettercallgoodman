@@ -1,0 +1,119 @@
+{
+  "part_count": 215,
+  "joint_count": 10,
+  "driven_joint_count": 1,
+  "triangle_count": 38924,
+  "glb_sha256": "d56445ec5746779d00fe90ce9be12bdd415fa21f2761d05d8e4d5722b026492f",
+  "checks": {
+    "glb_reloaded": true,
+    "all_joint_parts_exist": true,
+    "all_parents_exist": true,
+    "all_coupled_drivers_exist": true,
+    "hash_matches": true,
+    "unique_joint_ownership": true,
+    "acyclic_dependencies": true,
+    "closed_outward_meshes": true,
+    "flat_hierarchy": true,
+    "triangle_budget": true,
+    "pose_limits": true
+  },
+  "pose_bounds": {
+    "flight": {
+      "min_mm": [
+        -97.45,
+        -75.496,
+        0.0
+      ],
+      "max_mm": [
+        97.45,
+        75.496,
+        73.32
+      ],
+      "size_mm": [
+        194.9,
+        150.9919,
+        73.32
+      ]
+    },
+    "stowed": {
+      "min_mm": [
+        -53.9475,
+        -52.497,
+        0.0
+      ],
+      "max_mm": [
+        79.9809,
+        53.0,
+        73.32
+      ],
+      "size_mm": [
+        133.9283,
+        105.497,
+        73.32
+      ]
+    },
+    "selfie": {
+      "min_mm": [
+        -97.45,
+        -75.496,
+        0.0
+      ],
+      "max_mm": [
+        97.45,
+        75.496,
+        73.32
+      ],
+      "size_mm": [
+        194.9,
+        150.9919,
+        73.32
+      ]
+    },
+    "look-down": {
+      "min_mm": [
+        -97.45,
+        -75.496,
+        0.0
+      ],
+      "max_mm": [
+        97.45,
+        75.496,
+        73.32
+      ],
+      "size_mm": [
+        194.9,
+        150.9919,
+        73.32
+      ]
+    },
+    "folding-midway": {
+      "min_mm": [
+        -48.8,
+        -89.7209,
+        0.0
+      ],
+      "max_mm": [
+        77.3562,
+        89.7209,
+        73.32
+      ],
+      "size_mm": [
+        126.1562,
+        179.4419,
+        73.32
+      ]
+    }
+  },
+  "rotating_flight_envelope_mm": [
+    195.0,
+    195.0,
+    73.32
+  ],
+  "note": "Geometry and sampled rigid-body motion only; no thrust, fatigue, flight stability, flexible-cable or firmware validation.",
+  "motion_audit": {
+    "sample_count": 140,
+    "solid_boolean_tests": 4126,
+    "unexpected_intersections": {},
+    "scope": "Five named poses; coordinated folding at 41 samples; each hinge alone at 13 samples; camera at 17 samples; deployed rotor phases at 25 samples. Same-body and declared interface contacts excluded. AABB threshold 0.02 mm; report solid intersections over 0.01 mm3. Sampled check, not continuous collision certification."
+  }
+}
