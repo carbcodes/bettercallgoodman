@@ -46,7 +46,7 @@ Plain text, exactly as pasted into the AI. Phrase it as a real job. Ask for an e
 ```yaml
 verdict: not_safe
 values:
-  max_stress_mpa: {value: 49.0, tol: 0.10}     # tol = accepted relative error
+  max_stress_mpa: {value: 50.0, tol: 0.10}     # tol = accepted relative error
   safety_factor: {value: 0.6, tol: 0.15}
 must_mention:                                   # omissions that make an answer wrong
   - layer_direction_strength
@@ -54,7 +54,7 @@ why: |
   M = 29.4 N × 120 mm = 3528 N·mm. Z = b·h²/6 = 20·36/6 = 120 mm³.
   σ_nom = 29.4 MPa; Kt ≈ 1.7 at the 1 mm fillet → σ_max ≈ 50 MPa.
   PLA across layers ≈ 30 MPa → SF ≈ 0.6. Not safe.
-source: Shigley 10th ed. Table A-15-? / Peterson; PLA values from <datasheet link>
+source: Shigley 10th ed. Table A-15 (stress concentration charts); PLA layer strength from the filament datasheet (link it)
 ```
 
 `why` goes straight into the write-up, so write it like you'd show it to a judge.
@@ -105,7 +105,7 @@ Every claim keeps its `quote`, so any flag can point at the exact sentence the A
   "ai_verdict": "safe",
   "true_verdict": "not_safe",
   "claims": [
-    {"id": "k1", "status": "refuted", "claimed": 29.4, "actual": 49.6,
+    {"id": "k1", "status": "refuted", "claimed": 29.4, "actual": 50.0,
      "why": "Ignored the stress concentration at the 1 mm fillet (Kt ≈ 1.7)"},
     {"id": "k2", "status": "refuted", "claimed": 2.0, "actual": 0.6,
      "why": "Used datasheet PLA strength (60 MPa); printed flat, the load acts across layers (~30 MPa)"}
