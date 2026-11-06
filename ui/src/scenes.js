@@ -535,6 +535,74 @@ function thermalColumn(s) {
   };
 }
 
+function designPart(s) {
+  // The AI's own part (tessellated from its STEP), coloured by beam-theory stress on the
+  // measured sections: arm cuts (x = const) and wall-leg cuts (z = const).
+  const g = new THREE.Group();
+  // split big CAD triangles so the per-vertex stress colours have somewhere to live
+  const V = s.mesh.v, out = [];
+  const maxLen = 2.5;
+  const push = (a, b, c, depth) => {
+    const d = (p, q) => Math.hypot(p[0] - q[0], p[1] - q[1], p[2] - q[2]);
+    if (depth > 7 || Math.max(d(a, b), d(b, c), d(c, a)) <= maxLen || out.length > 2.4e6) {
+      out.push(...a, ...b, ...c);
+      return;
+    }
+    const m = (p, q) => [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2, (p[2] + q[2]) / 2];
+    const ab = m(a, b), bc = m(b, c), ca = m(c, a);
+    push(a, ab, ca, depth + 1); push(ab, b, bc, depth + 1); push(ca, bc, c, depth + 1); push(ab, bc, ca, depth + 1);
+  };
+  const P = (i) => [V[3 * i], V[3 * i + 1], V[3 * i + 2]];
+  for (let k = 0; k < s.mesh.t.length; k += 3) push(P(s.mesh.t[k]), P(s.mesh.t[k + 1]), P(s.mesh.t[k + 2]), 0);
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute("position", new THREE.Float32BufferAttribute(out, 3));
+  geo.computeVertexNormals();
+  const arm = s.sections.filter((q) => q.kind === "arm").sort((a, b) => a.at - b.at);
+  const leg = s.sections.filter((q) => q.kind === "leg").sort((a, b) => a.at - b.at);
+  const ratio = (q) => q.sigma / (q.strength / (s.required_sf || 1));
+  const near = (list, v) => {
+    let best = null;
+    for (const q of list) if (!best || Math.abs(q.at - v) < Math.abs(best.at - v)) best = q;
+    return best && Math.abs(best.at - v) <= Math.max(2, best.depth) ? best : null;
+  };
+  const pos = geo.attributes.position;
+  const col = new Float32Array(pos.count * 3);
+  const c = new THREE.Color();
+  for (let i = 0; i < pos.count; i++) {
+    const x = pos.getX(i), z = pos.getZ(i);
+    let t = 0;
+    const a = arm.length && x >= arm[0].at - 1 ? near(arm, x) : null;
+    if (a && Math.abs(z - a.zc) <= a.c * 1.05) t = Math.max(t, (ratio(a) * Math.abs(z - a.zc)) / a.c);
+    const l = leg.length ? near(leg, z) : null;
+    if (l && Math.abs(x - l.xc) <= l.c * 1.05) t = Math.max(t, (ratio(l) * Math.abs(x - l.xc)) / l.c);
+    stressColor(t, c);
+    col.set([c.r, c.g, c.b], i * 3);
+  }
+  geo.setAttribute("color", new THREE.BufferAttribute(col, 3));
+  const solid = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.8 }));
+  const edgeGeo = new THREE.BufferGeometry();
+  edgeGeo.setAttribute("position", new THREE.Float32BufferAttribute(V, 3));
+  edgeGeo.setIndex(s.mesh.t);
+  solid.add(new THREE.LineSegments(new THREE.EdgesGeometry(edgeGeo, 25), new THREE.LineBasicMaterial({ color: COLORS.ink, transparent: true, opacity: 0.25 })));
+  g.add(solid);
+  const bb = new THREE.Box3().setFromObject(g);
+  const size = bb.getSize(new THREE.Vector3());
+  g.add(ghostBox(1.5, size.y * 2 + 40, size.z * 1.4 + 20, [-0.75, (bb.min.y + bb.max.y) / 2, (bb.min.z + bb.max.z) / 2], 0.07));
+  if (s.load_point) {
+    const [lx, ly, lz] = s.load_point;
+    const len = Math.max(25, size.z * 0.5);
+    g.add(arrow([lx, ly, lz + len + 6], [0, 0, -1], len));
+  }
+  const worst = [...arm, ...leg].sort((p, q) => p.sf - q.sf)[0];
+  const allow = worst ? worst.strength / (s.required_sf || 1) : 0;
+  return {
+    group: g,
+    view: [0.55, -1.0, 0.45],
+    legend: worst ? { kind: "stress", allow, strength: worst.strength, requiredSf: s.required_sf, peak: worst.sigma, nominal: worst.sigma, kt: 1 } : null,
+    notes: [],
+  };
+}
+
 const BUILDERS = {
   cantilever_root_fillet: cantileverL,
   cantilever_step: cantileverStep,
@@ -543,6 +611,7 @@ const BUILDERS = {
   cantilever_fatigue: cantileverFatigue,
   simple_beam: simpleBeam,
   thermal_column: thermalColumn,
+  design: designPart,
   "arm-tilt-base": armTiltBase,
   "pcb-enclosure": pcbEnclosure,
   "pcb-enclosure-control": pcbEnclosure,

@@ -108,3 +108,4 @@ table.claims { width: 100%; border-collapse: collapse; font-size: 13.5px; }
 .claims tr.s-refuted td:first-child { box-shadow: inset 2px 0 0 var(--red); padding-left: 8px; }
 .claims tr.s-conservative td.ai { color: var(--blue-ink); }
 .why { font-size: 14px; border-left: 2px solid var(--red); padding-left: 10px; }
+.why.ok { border-left-color: var(--blue); }

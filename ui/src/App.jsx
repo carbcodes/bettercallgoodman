@@ -32,6 +32,7 @@ const QTY = {
   reach_deg: ["Reach", "°"],
 };
 
+const AREA = { cad: "AI designs the part", strength: "AI analyzes a part", collision: "Collision" };
 const words = (v) => (v == null ? "–" : String(v).replace(/_/g, " "));
 const num = (x) => {
   if (x == null) return "–";
@@ -83,9 +84,9 @@ function outcomeNote(t) {
 function Rail({ tasks, current, go }) {
   return (
     <nav className="rail">
-      {["strength", "collision"].map((area) => (
+      {["cad", "strength", "collision"].map((area) => (
         <div key={area} className="rail-group">
-          <div className="rail-head">{area}</div>
+          <div className="rail-head">{AREA[area] || area}</div>
           {tasks
             .filter((t) => t.area === area)
             .map((t) => (
@@ -139,11 +140,13 @@ function Claims({ task }) {
 
 function Panel({ task }) {
   const r = task.result;
-  const why = r?.claims.find((c) => c.status === "refuted")?.why || r?.missing?.[0]?.why;
+  const why = task.area === "cad"
+    ? r?.why
+    : r?.claims.find((c) => c.status === "refuted")?.why?.split(": ").pop() || r?.missing?.[0]?.why;
   return (
     <aside className="panel">
       <div className="panel-id mono">
-        {shortId(task.id)} · {task.area}
+        {shortId(task.id)} · {AREA[task.area] || task.area}
         {task.control ? " · control" : ""}
       </div>
       <h1 className="panel-title">{task.title.replace(/\s*\(control\)/i, "")}</h1>
@@ -165,7 +168,7 @@ function Panel({ task }) {
       </dl>
 
       <Claims task={task} />
-      {why && <p className="why">{why.split(": ").pop()}</p>}
+      {why && <p className={`why ${task.outcome === "accepted" ? "ok" : ""}`}>{why}</p>}
     </aside>
   );
 }
@@ -188,7 +191,7 @@ function Counts({ tasks }) {
 export default function App() {
   const data = useData();
   const tasks = useMemo(() => {
-    const order = { strength: 0, collision: 1 };
+    const order = { cad: 0, strength: 1, collision: 2 };
     return [...(data?.tasks || [])].sort((a, b) => order[a.area] - order[b.area] || a.id.localeCompare(b.id));
   }, [data]);
   const ids = tasks.map((t) => t.id);

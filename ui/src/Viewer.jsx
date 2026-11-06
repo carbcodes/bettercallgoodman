@@ -131,7 +131,7 @@ export default function Viewer({ task }) {
     };
   }, [task.id, task.scene]);
 
-  const tag = task.area === "strength" ? (task.scene?.kind === "arm_torque" ? "Torque" : "Beam-theory stress") : "Geometry";
+  const tag = task.area === "cad" ? "The AI's part · beam-theory stress" : task.area === "strength" ? (task.scene?.kind === "arm_torque" ? "Torque" : "Beam-theory stress") : "Geometry";
   return (
     <figure className="viewer" style={{ margin: 0 }}>
       <div className="viewer-canvas" ref={host}>

@@ -79,6 +79,14 @@ def check(d: Path) -> dict:
         claims.append({"id": "k1", "quantity": "safety_factor", "claimed": sf_claim, "actual": round(r.sf, 3),
                        "status": st, "quote": quote})
     crit = r.critical
+    if crit:
+        where = "at the wall-leg corner" if crit.kind == "leg" else f"{crit.at - r.bbox[0]:.0f} mm from the wall"
+        how = "across layers" if "across layers" in crit.kt_note else ("yield" if "yield" in crit.kt_note else "along layers")
+        short = (f"{'Holds' if ok else 'Breaks'} {where}: {crit.sigma:.0f} MPa vs {crit.strength:.0f} MPa {how}"
+                 f"{' with a sharp corner' if 'sharp' in crit.kt_note and crit.kt > 1 else ''}. SF {r.sf:.2f}"
+                 f"{f', AI claimed {sf_claim:g}' if sf_claim is not None else ''}.")
+    else:
+        short = "No load path found."
     if ok:
         why = f"Holds: worst section {describe(crit)}"
     else:
@@ -92,7 +100,7 @@ def check(d: Path) -> dict:
             "safety_factor": round(r.sf, 3), "lever_mm": round(r.lever_mm, 1), "load_point": [round(v, 2) for v in r.load_point],
             "bbox": bb, "volume_mm3": round(r.volume, 1), "notes": r.notes, "requirements": reqs, "claims": claims,
             "critical": describe(crit) if crit else None, "critical_note": crit.kt_note if crit else None,
-            "why": why,
+            "why": short, "why_long": why,
             "sections": [{"kind": s.kind, "at": round(s.at, 2), "depth": round(s.depth, 2), "zc": round(s.centroid[2], 2),
                           "xc": round(s.centroid[0], 2), "c": round(s.c, 2), "sigma": round(s.sigma, 2),
                           "strength": s.strength, "sf": round(s.sf, 3)} for s in r.sections]}
