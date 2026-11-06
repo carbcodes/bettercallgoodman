@@ -1,0 +1,8 @@
+id: d42-al-gripper-finger-slot
+area: cad
+process: cnc
+title: "6061 gripper finger, 1 kg at 75 mm, 3 mm slot 25 mm deep"
+trap: "a 3 mm wide slot limits the tool to 3 mm, and 25 mm deep is ~8x the tool diameter (limit 4x)"
+control: false
+expect: {strength: safe, dfm: not_machinable, overall: fail}
+inputs: {material: Al6061-T6, load_n: 9.81, required_safety_factor: 3.0, load_rule: fixed_x, load_x_mm: 75, max_reach_mm: 85}

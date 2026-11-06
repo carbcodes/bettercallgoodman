@@ -1,0 +1,8 @@
+id: d40-al-stepped-clamp-arm
+area: cad
+process: cnc
+title: "6061 stepped arm, 25 kg at 145 mm, square shoulder and square nameplate recess"
+trap: "combo: the square shoulder from the 30 mm block down to a 12 x 16 arm has Kt ~2.5 (SF ~1.3 vs 3), and the square-cornered nameplate recess has sharp vertical inside corners"
+control: false
+expect: {strength: not_safe, dfm: not_machinable, overall: fail}
+inputs: {material: Al6061-T6, load_n: 245.25, required_safety_factor: 3.0, load_rule: fixed_x, load_x_mm: 145, max_reach_mm: 155}

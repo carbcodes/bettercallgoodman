@@ -1,0 +1,9 @@
+id: d38-steel-plate-shelf-bracket
+area: cad
+process: cnc
+title: "Mild-steel plate shelf bracket, 40 kg at 140 mm, R5 corners (control)"
+trap: "none expected: a 12 mm plate profile cut through, R5 inside corners, through holes; steel carries 40 kg easily"
+control: true
+expect: {strength: safe, dfm: machinable, overall: pass}
+checker_risk: "the CLI and export run CNC with Al6061-T6; the steel wall limit is the same 0.8 mm, so the verdict should not change"
+inputs: {material: mild_steel, load_n: 392.4, required_safety_factor: 3.0, load_rule: fixed_x, load_x_mm: 140, max_reach_mm: 155}

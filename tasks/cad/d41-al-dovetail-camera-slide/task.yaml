@@ -1,0 +1,9 @@
+id: d41-al-dovetail-camera-slide
+area: cad
+process: cnc
+title: "6061 camera slide arm, 2.5 kg at 150 mm, female dovetail with an end stop"
+trap: "the dovetail flanks lean over the groove: an undercut a straight end mill can't reach from any of the six axis setups (needs a dovetail cutter)"
+control: false
+expect: {strength: safe, dfm: not_machinable, overall: fail}
+checker_risk: "where the groove is open at one end, rays along it may count the flanks as reachable from the -x setup"
+inputs: {material: Al6061-T6, load_n: 24.525, required_safety_factor: 3.0, load_rule: fixed_x, load_x_mm: 150, max_reach_mm: 165}
