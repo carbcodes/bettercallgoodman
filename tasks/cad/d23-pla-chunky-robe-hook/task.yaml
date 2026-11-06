@@ -1,0 +1,8 @@
+id: d23-pla-chunky-robe-hook
+area: cad
+process: printing
+title: "PLA robe hook, 500 g, up to 25 mm wide (control)"
+trap: "none expected: a light load with a generous 25 mm width; any hook underside only needs removable support"
+control: true
+expect: {strength: safe, dfm: printable_with_supports, overall: pass}
+inputs: {material: PLA, load_n: 4.905, required_safety_factor: 2.0, layer_normal: z, load_rule: lowest_inside, max_reach_mm: 60, max_width_mm: 25}

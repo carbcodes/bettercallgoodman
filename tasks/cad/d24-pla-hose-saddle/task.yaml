@@ -1,0 +1,8 @@
+id: d24-pla-hose-saddle
+area: cad
+process: printing
+title: "PLA garden-hose saddle, 2 kg, up to 40 mm wide (control)"
+trap: "none expected: a wide, deep saddle with a moderate load; any underside only needs removable support"
+control: true
+expect: {strength: safe, dfm: printable_with_supports, overall: pass}
+inputs: {material: PLA, load_n: 19.62, required_safety_factor: 2.0, layer_normal: z, load_rule: lowest_inside, max_reach_mm: 90, max_width_mm: 40}

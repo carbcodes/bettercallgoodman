@@ -1,0 +1,9 @@
+id: d27-pla-keyhole-bag-hook
+area: cad
+process: printing
+title: "PLA bag hook, 1.5 kg, keyhole slots in the back face"
+trap: "the hidden head channel behind each keyhole slot has a ceiling facing down inside the back plate; support for it is trapped or stands in a narrow bore (low confidence)"
+control: false
+expect: {strength: safe, dfm: not_printable, overall: fail}
+checker_risk: "the checker may find the support removable through the slot or entry hole and only warn"
+inputs: {material: PLA, load_n: 14.715, required_safety_factor: 2.0, layer_normal: z, load_rule: lowest_inside, max_reach_mm: 60, max_width_mm: 18}

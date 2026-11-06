@@ -1,0 +1,8 @@
+id: d26-pla-hollow-box-shelf-arm
+area: cad
+process: printing
+title: "PLA shelf arm, 10 kg at 150 mm, sealed hollow 15 x 20 box"
+trap: "combo: a sealed 1.5 mm-walled box arm is an enclosed cavity, and a 15 x 20 mm hollow box at 150 mm under 10 kg is too weak (~SF 1.7 before any corner factor)"
+control: false
+expect: {strength: not_safe, dfm: not_printable, overall: fail}
+inputs: {material: PLA, load_n: 98.1, required_safety_factor: 2.0, layer_normal: z, load_rule: fixed_x, load_x_mm: 150, max_reach_mm: 160, max_width_mm: 15}
