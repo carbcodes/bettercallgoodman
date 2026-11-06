@@ -150,38 +150,61 @@ class _PairSweeper:
 def sweep(kin: Kinematics, world: CollisionWorld, plan: PairPlan, rule, named_poses, *,
           n_halton: int = 20000, seed: int = 0,
           progress: Callable[[str], None] | None = None) -> SweepResult:
+    """Body pairs that share the same relevant joints share one set of samples (relative poses depend only on
+    those joints); each sample gets one FK pass and a vectorised bounding-sphere test before FCL."""
     t0 = time.time()
     stats = dict(plan.stats, poses_checked=0, poses_unreachable=0, pairs_unreachable=0)
+    groups: dict[tuple[str, ...], list[tuple[tuple[str, str], list[tuple[str, str]]]]] = {}
+    for body_pair, part_pairs in plan.candidates.items():
+        joints = tuple(kin.relevant_joints(*body_pair))
+        if joints:
+            groups.setdefault(joints, []).append((body_pair, part_pairs))
+    names = sorted({p for pairs in plan.candidates.values() for pair in pairs for p in pair})
     spheres = {}
-    for pairs in plan.candidates.values():
-        for name in {p for pair in pairs for p in pair}:
-            if name not in spheres:
-                v = world.parts[name].vertices
-                c = (v.min(axis=0) + v.max(axis=0)) / 2
-                spheres[name] = (c, float(np.linalg.norm(v - c, axis=1).max()))
+    for name in names:
+        v = world.parts[name].vertices
+        c = (v.min(axis=0) + v.max(axis=0)) / 2
+        spheres[name] = (c, float(np.linalg.norm(v - c, axis=1).max()))
     findings = []
-    for idx, (body_pair, part_pairs) in enumerate(plan.candidates.items()):
-        joints = kin.relevant_joints(*body_pair)
-        if not joints:
-            continue
-        sw = _PairSweeper(kin, world, rule, body_pair, part_pairs, joints, spheres,
-                          np.random.default_rng(seed + idx))
+    for gi, (joints, members) in enumerate(groups.items()):
+        joints = list(joints)
         k = len(joints)
+        rng = np.random.default_rng(seed + gi)
+        pairs = [(bp, pair) for bp, pp in members for pair in pp]
+        body_of_pair = {pair: bp for bp, pair in pairs}
+        a_c = np.array([spheres[a][0] for _, (a, _) in pairs])
+        b_c = np.array([spheres[b][0] for _, (_, b) in pairs])
+        rsum = np.array([spheres[a][1] + spheres[b][1] for _, (a, b) in pairs])
+        a_body = [bp[0] for bp, _ in pairs]
+        b_body = [bp[1] for bp, _ in pairs]
+        only = {b for bp, _ in members for b in bp} - {"ground"}
+        sweepers = {bp: _PairSweeper(kin, world, rule, bp, pp, joints, spheres, rng) for bp, pp in members}
+        any_sw = next(iter(sweepers.values()))
         samples = samples_for(joints, kin, named_poses, n_halton=n_halton, seed=seed)
         drawn, reach_s, reach_f = len(samples), [], []
         hit_rows: dict[tuple[str, str], list[tuple[int, Contact]]] = {}
 
         def run(batch):
             for s in batch:
-                f = sw.full(s)
+                f = any_sw.full(s)
                 if f is None:
                     stats["poses_unreachable"] += 1
                     continue
                 row = len(reach_s)
                 reach_s.append(s)
                 reach_f.append(f)
-                for pair, c in sw.check(f, part_pairs).items():
-                    hit_rows.setdefault(pair, []).append((row, c))
+                T = kin.body_transforms(f, only=only)
+                Ra = np.array([T[b][:3, :3] for b in a_body])
+                ta = np.array([T[b][:3, 3] for b in a_body])
+                Rb = np.array([T[b][:3, :3] for b in b_body])
+                tb = np.array([T[b][:3, 3] for b in b_body])
+                pa = np.einsum("nij,nj->ni", Ra, a_c) + ta
+                pb = np.einsum("nij,nj->ni", Rb, b_c) + tb
+                for n in np.nonzero(np.linalg.norm(pa - pb, axis=1) <= rsum)[0]:
+                    bp, (a, b) = pairs[n]
+                    c = world.collide(a, T[bp[0]], b, T[bp[1]])
+                    if c is not None:
+                        hit_rows.setdefault((a, b), []).append((row, c))
 
         run(samples)
         if k >= 3:
@@ -191,13 +214,14 @@ def sweep(kin: Kinematics, world: CollisionWorld, plan: PairPlan, rule, named_po
                 run(more)
         stats["poses_checked"] += len(reach_s)
         if not reach_s:
-            stats["pairs_unreachable"] += 1
+            stats["pairs_unreachable"] += len(members)
             continue
         S = np.array(reach_s, float)
-        for pair in part_pairs:
+        for _, pair in pairs:
             rows = hit_rows.get(pair)
             if not rows:
                 continue
+            sw = sweepers[body_of_pair[pair]]
             hit_idx = np.array([r for r, _ in rows])
             clear_mask = np.ones(len(S), bool)
             clear_mask[hit_idx] = False
@@ -218,7 +242,8 @@ def sweep(kin: Kinematics, world: CollisionWorld, plan: PairPlan, rule, named_po
                 colliding_range={j: (float(H[:, n].min()), float(H[:, n].max())) for n, j in enumerate(joints)},
             ))
         if progress:
-            progress(f"{body_pair[0]}–{body_pair[1]}: {k} joints, {len(reach_s)} poses, "
-                     f"{sum(len(v) for v in hit_rows.values())} hits")
+            progress(f"[{gi + 1}/{len(groups)}] joints {','.join(joints)}: {len(members)} body pairs, "
+                     f"{len(pairs)} part pairs, {len(reach_s)} poses, {len(hit_rows)} colliding pairs "
+                     f"({time.time() - t0:.0f} s)")
     stats["seconds"] = round(time.time() - t0, 1)
     return SweepResult(findings=findings, ignored=list(plan.ignored), stats=stats)

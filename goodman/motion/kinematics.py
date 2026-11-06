@@ -8,16 +8,19 @@ from __future__ import annotations
 from collections.abc import Iterable, Mapping
 
 import numpy as np
-from scipy.spatial.transform import Rotation
-
 from goodman.motion.inputs import Joint, MotionFile
 
 GROUND = "ground"
 
 
 def rotation_about(origin: np.ndarray, axis: np.ndarray, deg: float) -> np.ndarray:
+    """Rodrigues rotation about a unit axis through origin (right-hand rule), as 4x4."""
+    t = np.radians(deg)
+    c, s = np.cos(t), np.sin(t)
+    x, y, z = axis
+    K = np.array([[0, -z, y], [z, 0, -x], [-y, x, 0]])
+    R = np.eye(3) + s * K + (1 - c) * (K @ K)
     T = np.eye(4)
-    R = Rotation.from_rotvec(axis * np.radians(deg)).as_matrix()
     T[:3, :3] = R
     T[:3, 3] = origin - R @ origin
     return T
@@ -76,10 +79,16 @@ class Kinematics:
             value(jid)
         return values
 
-    def body_transforms(self, indep: Mapping[str, float]) -> dict[str, np.ndarray]:
+    def body_transforms(self, indep: Mapping[str, float],
+                        only: Iterable[str] | None = None) -> dict[str, np.ndarray]:
+        """4x4 per body. With `only`, computes just those bodies and their ancestors."""
         v = self.joint_values(indep)
         M = {GROUND: np.eye(4)}
-        for jid in self._order:
+        order = self._order
+        if only is not None:
+            need = {b for o in only for b in self._chain(o)}
+            order = [j for j in order if j in need]
+        for jid in order:
             j = self.joints[jid]
             parent = M[j.parent] if j.parent is not None else M[GROUND]
             M[jid] = parent @ rotation_about(j.origin, j.axis, v[jid] - j.home)

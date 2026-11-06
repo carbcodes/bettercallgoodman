@@ -23,9 +23,13 @@ class ReachRule:
         self.wrist_joint, self.yaw_joint = wrist_joint, yaw_joint
         self.table_z, self.eps = table_z, eps
         self.tip_dir_home = np.asarray(tip_dir_home, float)
+        chain = kin.path_to_ancestor(wrist_joint, "ground")
+        self._w_drivers = set().union(*(kin.drivers(j) for j in chain[1:])) if len(chain) > 1 else set()
+        self._tip_drivers = self._w_drivers | kin.drivers(wrist_joint)
+        self._only = {wrist_joint, yaw_joint}
 
     def points(self, indep: Mapping[str, float]) -> tuple[np.ndarray, np.ndarray]:
-        T = self.kin.body_transforms(indep)
+        T = self.kin.body_transforms(indep, only=self._only)
         W = self.kin.joint_origin(self.wrist_joint, T)
         tip = W + T[self.wrist_joint][:3, :3] @ self.tip_dir_home * self.c.TOOL
         return W, tip
@@ -38,25 +42,33 @@ class ReachRule:
         d = p - o
         return float(np.linalg.norm(d - (d @ a) * a))
 
-    def allows(self, indep: Mapping[str, float]) -> bool:
-        T = self.kin.body_transforms(indep)
-        W = self.kin.joint_origin(self.wrist_joint, T)
-        tip = W + T[self.wrist_joint][:3, :3] @ self.tip_dir_home * self.c.TOOL
+    def _w_ok(self, W: np.ndarray, T) -> bool:
         c, e, z0 = self.c, self.eps, self.table_z
         if W[2] - z0 < c.W_Z_MIN - e:
             return False
-        if self._yaw_distance(W, T) < c.NEAR_R - e and W[2] - z0 < c.W_Z_NEAR - e:
+        return not (self._yaw_distance(W, T) < c.NEAR_R - e and W[2] - z0 < c.W_Z_NEAR - e)
+
+    def allows(self, indep: Mapping[str, float]) -> bool:
+        T = self.kin.body_transforms(indep, only=self._only)
+        W = self.kin.joint_origin(self.wrist_joint, T)
+        if not self._w_ok(W, T):
             return False
-        return tip[2] - z0 >= c.TIP_Z_MIN - e
+        tip = W + T[self.wrist_joint][:3, :3] @ self.tip_dir_home * self.c.TOOL
+        return tip[2] - self.table_z >= self.c.TIP_Z_MIN - self.eps
 
     def complete(self, partial: Mapping[str, float], rng: np.random.Generator,
                  tries: int = 200) -> dict[str, float] | None:
-        free = [j for j in self.kin.independent if j not in partial]
+        free = [j for j in self.kin.independent if j not in partial and j in self._tip_drivers]
         full = {**self.kin.home, **partial}
         if self.allows(full):
             return full
         if not free:
             return None
+        if not (self._w_drivers & set(free)):
+            # W is fixed by the given joints: if W fails, no setting of the free joints can help
+            T = self.kin.body_transforms(full, only=self._only)
+            if not self._w_ok(self.kin.joint_origin(self.wrist_joint, T), T):
+                return None
         for _ in range(tries):
             for j in free:
                 lo, hi = self.kin.limits[j]

@@ -54,3 +54,12 @@ def test_c01_tilt(tmp_path):
     T = kin.body_transforms({"tilt": 30})["tilt"]
     far_end = T @ np.array([120, 0, 55, 1.0])
     assert np.allclose(far_end[:3], [120 * np.cos(np.radians(30)), 0, 55 - 120 * np.sin(np.radians(30))], atol=1e-6)
+
+
+def test_body_transforms_subset_matches_full(arm):
+    kin = _arm_kin(arm)
+    pose = {"yaw": 30, "shoulder": 50, "elbow": -40, "wrist": 20, "crank-a": 0}
+    full = kin.body_transforms(pose)
+    sub = kin.body_transforms(pose, only={"wrist"})
+    assert set(sub) >= {"ground", "yaw", "shoulder", "elbow", "wrist"} and "jaw-a" not in sub
+    assert all(np.allclose(sub[b], full[b]) for b in sub)

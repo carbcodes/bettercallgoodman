@@ -37,3 +37,11 @@ def test_complete_fills_free_joints(arm):
     full = rule.complete({"shoulder": 20, "elbow": -70}, np.random.default_rng(0))
     assert full is not None and full["shoulder"] == 20 and set(full) == {"yaw", "shoulder", "elbow", "wrist", "crank-a"}
     assert rule.allows(full)
+
+
+def test_complete_fast_none_when_wrist_point_fixed_too_low(arm):
+    import time
+    rule, _ = _arm_rule(arm)
+    t = time.time()
+    assert rule.complete({"yaw": 0, "shoulder": 20, "elbow": -90}, np.random.default_rng(0)) is None
+    assert time.time() - t < 0.02

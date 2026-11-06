@@ -58,3 +58,26 @@ def test_all_unreachable_counted(tmp_path):
             return None
     r = _sweep_c01(tmp_path, pivot_z=55.0, rule=Never())
     assert r.findings == [] and r.stats["pairs_unreachable"] == 1
+
+
+def test_shared_joint_sets_sampled_once(tmp_path):
+    # two links on the same joint against the base: one joint set, one sample pass, two findings
+    from tests.motion.synth import _box, write_glb
+    import yaml
+    glb = write_glb(tmp_path / "assembly.glb", {
+        "base": _box([-30, -30, 0], [30, 30, 40]),
+        "link": _box([0, -7.5, 45], [120, 7.5, 65]),
+        "link2": _box([0, 10, 45], [120, 20, 65]),
+    })
+    jy = tmp_path / "joints.yaml"
+    jy.write_text(yaml.safe_dump({"joints": [{"id": "tilt", "parent": None, "origin": [0, 0, 55], "axis": [0, 1, 0],
+                                              "parts": ["link"], "home": 0, "limits": [0, 30]},
+                                             {"id": "tilt2", "parent": None, "origin": [0, 0, 55], "axis": [0, 1, 0],
+                                              "parts": ["link2"], "home": 0, "limits": [0, 30],
+                                              "coupled": [{"joint": "tilt", "ratio": 1}]}]}))
+    parts = load_parts(glb)
+    kin = Kinematics(load_joints(jy), parts.keys())
+    world = CollisionWorld(parts)
+    r = sweep(kin, world, plan_pairs(kin, world, parts, set()), None, {})
+    assert sorted(f.parts for f in r.findings) == [("base", "link"), ("base", "link2")]
+    assert r.stats["poses_checked"] == 61

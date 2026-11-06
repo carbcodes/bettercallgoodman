@@ -2,3 +2,4 @@
 __pycache__/
 .superpowers/
 motion-out/
+.cache/
