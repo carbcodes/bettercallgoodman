@@ -10,3 +10,4 @@ ui/node_modules/
 ui/dist/
 ui/public/data.json
 ui/public/motion/
+.DS_Store
