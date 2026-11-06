@@ -4,10 +4,15 @@
 
 AI models now answer engineering questions with confidence: "this bracket holds 20 kg with a safety factor of 2", "the arm clears the base through its full range", "this part is ready to mill". Those answers often sound right and are wrong.
 
-Goodman is a design checker. It reads an AI's answer to a real design task, pulls out every engineering claim it makes, and checks each one with physics and geometry instead of opinion:
+Goodman is a design checker. It works two ways:
+
+1. **AI designs the part.** Ask an AI for a part that must carry a load ("a PLA hook that holds 300 g, safety factor 2"). It writes the CAD code. Goodman runs that code, measures the real geometry it produced (lever arm, the cross-section at the wall, sharp corners), and works out on its own whether the part actually holds the load.
+2. **AI analyzes a part.** Ask an AI whether a described part is safe or fits. Goodman pulls out every number in its answer and recomputes each one with physics and geometry instead of opinion.
 
 | Area | Owner | Checks |
 | --- | --- | --- |
+| Design (CAD) | Carlos | Runs the AI's CAD code, measures the part, checks it carries the load |
+
 | Strength | Carlos | Stress, deflection, safety factor, buckling, fatigue, stress concentration |
 | Simulation | Fabian | Collisions, clearances, range of motion |
 | 3D printing (stretch) | Fabian | Overhangs, thin walls, bed contact, hole sizes |
