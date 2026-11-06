@@ -8,7 +8,7 @@ from goodman.verdict import evaluate
 
 ROOT = Path(__file__).resolve().parent.parent
 FIX = Path(__file__).resolve().parent / "fixtures"
-CASES = sorted(p.name for p in FIX.iterdir() if p.is_dir())
+CASES = sorted(p.name for p in FIX.iterdir() if (p / "correct.json").exists())
 
 SPEC_KEYS = {"task_id", "outcome", "ai_verdict", "true_verdict", "claims", "missing", "checker", "checker_version"}
 

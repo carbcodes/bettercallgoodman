@@ -1,3 +1,5 @@
 numpy
 pyyaml
 pytest  # tests only
+# optional: geometry stack for goodman/dfm (printing / CNC checks on STEP files)
+build123d>=0.12  # optional
