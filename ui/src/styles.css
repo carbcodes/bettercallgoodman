@@ -190,3 +190,6 @@ table.claims { width: 100%; border-collapse: collapse; font-size: 13.5px; }
 .passed-head { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
 .chip { font-size: 12px; padding: 3px 10px; border-radius: 999px; background: var(--blue-soft); color: var(--blue-ink); }
 .contact.amber { color: #a35f00; }
+.prompt { font-size: 13px; color: var(--muted); }
+.prompt summary { cursor: pointer; color: var(--ink); }
+.prompt p { margin-top: 8px; white-space: pre-wrap; line-height: 1.45; }

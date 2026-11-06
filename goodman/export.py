@@ -170,6 +170,10 @@ def _task_record(d: Path) -> dict:
     }
 
 
+# a shop can flip the part: judge milling from all six axis directions, not just from the top
+SIX_SETUPS = [(0, 0, 1), (0, 0, -1), (1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0)]
+
+
 def _dfm(d: Path, inp: dict) -> dict | None:
     """Printing and 3-axis CNC checks (goodman.dfm) on the AI's STEP part, if there is one."""
     step = d / "part.step"
@@ -183,7 +187,7 @@ def _dfm(d: Path, inp: dict) -> dict | None:
         out["printing"] = {"error": f"{type(e).__name__}: {e}"}
     try:
         from .dfm.cnc import check_cnc
-        out["cnc"] = check_cnc(str(step), material="Al6061-T6")
+        out["cnc"] = check_cnc(str(step), setups=SIX_SETUPS, material="Al6061-T6")
     except Exception as e:
         out["cnc"] = {"error": f"{type(e).__name__}: {e}"}
     out["material"] = inp.get("material")

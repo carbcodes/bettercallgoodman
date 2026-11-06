@@ -146,13 +146,15 @@ function MakePanel({ task, proc, setProc }) {
   const word = s === "waiting" ? "Waiting" : VERDICT_WORD[r.verdict] || (s === "breaks" ? P.bad : P.ok);
   // one card per rule: fails first, then warnings, repeats folded into a count
   const groups = [];
+  const hasUndercut = (r?.findings || []).some((f) => f.rule === "undercut" && f.severity === "fail");
   for (const f of r?.findings || []) {
     if (f.severity === "info") continue;
+    if (hasUndercut && f.rule === "setups") continue; // same face, said twice
     const g = groups.find((x) => x.rule === f.rule && x.severity === f.severity);
     if (g) g.n++;
     else groups.push({ rule: f.rule, severity: f.severity, why: f.why, n: 1 });
   }
-  const passed = (r?.findings || []).filter((f) => f.severity === "info" && ["bed_contact", "min_wall", "build_volume", "thin_wall", "hole_depth"].includes(f.rule));
+  const passed = (r?.findings || []).filter((f) => f.severity === "info" && ["bed_contact", "min_wall", "build_volume", "thin_wall", "hole_depth", "setups"].includes(f.rule));
   const note = proc === "printing" ? r?.support_summary : null;
   return (
     <aside className="panel">
@@ -188,6 +190,18 @@ function MakePanel({ task, proc, setProc }) {
       )}
       {proc === "cnc" && task.inputs?.material === "PLA" && (
         <p className="where">This part is PLA, so milling is only a what-if (checked as Al 6061).</p>
+      )}
+      {proc === "cnc" && <p className="where">Judged with the part flipped to any of its six sides.</p>}
+      {task.prompt && (
+        <details className="prompt">
+          <summary>Prompt we gave ChatGPT</summary>
+          <p>{task.prompt}</p>
+        </details>
+      )}
+      {task.attempt?.chat_url && (
+        <a className="chat-link" href={task.attempt.chat_url} target="_blank" rel="noreferrer">
+          Open the ChatGPT chat
+        </a>
       )}
     </aside>
   );
@@ -235,7 +249,7 @@ export default function App() {
   const okWord = tab === "make" ? "pass" : "hold";
   const badWord = tab === "make" ? "fail" : "break";
   const dfmScene = useMemo(
-    () => (task?.mesh && task.dfm?.[pr]?.findings ? { kind: "dfm", mesh: task.mesh, findings: task.dfm[pr].findings } : null),
+    () => (task?.mesh && task.dfm?.[pr]?.findings ? { kind: "dfm", mesh: task.mesh, findings: task.dfm[pr].findings.filter((f) => !(f.rule === "setups" && f.severity === "fail")) } : null),
     [task, pr],
   );
   return (
