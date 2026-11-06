@@ -19,15 +19,20 @@ def finding(rule, value, limit, location, why, severity="fail", **extra) -> dict
     return f
 
 
-def result(checker, ok_word, bad_word, findings, **meta) -> dict:
+def result(checker, ok_word, bad_word, findings, mid_word=None, mid=False, **meta) -> dict:
+    """verdict = bad_word if any finding fails, else mid_word if `mid` (e.g. printable_with_supports),
+    else ok_word."""
     order = {s: i for i, s in enumerate(SEVERITIES)}
     findings = sorted(findings, key=lambda f: order[f["severity"]])
     fails = any(f["severity"] == "fail" for f in findings)
-    return {"checker": checker, "verdict": bad_word if fails else ok_word, "findings": findings, **meta}
+    verdict = bad_word if fails else (mid_word if mid and mid_word else ok_word)
+    return {"checker": checker, "verdict": verdict, "findings": findings, **meta}
 
 
 def format_text(res: dict) -> str:
     lines = [f"{res['checker']}: {res['verdict'].upper()}  ({res.get('file', '')})"]
+    if res.get("support_summary"):
+        lines.append(f"  {res['support_summary']}")
     for f in res["findings"]:
         lines.append(f"  [{f['severity']}] {f['rule']}: {f['why']}")
     return "\n".join(lines)

@@ -170,8 +170,26 @@ def _task_record(d: Path) -> dict:
     }
 
 
+PRINT_VERDICTS = ("printable", "printable_with_supports", "not_printable")
+PRINT_LABEL = {"printable": "Prints without supports", "printable_with_supports": "Prints with supports",
+               "not_printable": "Can't be printed"}
+
+
+def _printing_summary(pr: dict | None) -> dict | None:
+    """The three-way FDM verdict for the UI, with its label, support flag and summary line."""
+    if not pr or pr.get("verdict") not in PRINT_VERDICTS:
+        return None
+    return {"verdict": pr["verdict"], "label": PRINT_LABEL[pr["verdict"]],
+            "support_needed": bool(pr.get("support_needed")), "support_summary": pr.get("support_summary"),
+            "problems": [f["why"] for f in pr.get("findings", []) if f.get("severity") == "fail"]}
+
+
 def _cad_record(d: Path) -> dict:
-    """Design mode: the AI's part, measured by goodman.design (result.json + part.mesh.json)."""
+    """Design mode: the AI's part, measured by goodman.design (result.json + part.mesh.json).
+
+    record["printing"] is the FDM check goodman.design stored in result.json: verdict is one of
+    printable / printable_with_supports / not_printable, with support_needed and a one-line
+    support_summary (None when the result predates the printing check)."""
     task = yaml.safe_load((d / "task.yaml").read_text())
     attempt, attempt_file = _latest_attempt(d)
     result = _read_json(d / "result.json")
@@ -195,6 +213,7 @@ def _cad_record(d: Path) -> dict:
                                                  "answer": attempt.get("answer", "")},
         "claims": claims, "result": result, "result_source": "result.json" if result else None,
         "outcome": (result or {}).get("outcome", "pending"),
+        "printing": _printing_summary((result or {}).get("printing")),
         "scene": None if not (result and mesh) else {
             "kind": "design", "mesh": mesh, "sections": result.get("sections", []),
             "load_point": result.get("load_point"), "load_n": inp.get("load_n"),

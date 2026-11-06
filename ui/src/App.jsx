@@ -90,6 +90,16 @@ function Panel({ task }) {
           </div>
           {acc && <p className={`acc ${acc.tone}`}>{acc.text}</p>}
           <p className="where">Weakest spot: {where(r.why)}</p>
+          {task.printing && (
+            <p className={`acc ${task.printing.verdict === "not_printable" ? "bad" : "ok"}`}>
+              {task.printing.label}
+              {task.printing.verdict === "not_printable"
+                ? ` — ${task.printing.problems[0] || ""}`
+                : task.printing.support_needed
+                  ? ` — ${task.printing.support_summary}`
+                  : ""}
+            </p>
+          )}
           {bad.map((q) => (
             <p key={q.rule} className="acc bad">
               Too big: {q.rule} {q.value} mm, limit {q.limit} mm

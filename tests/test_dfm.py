@@ -59,8 +59,8 @@ def results(tmp_path_factory):
     return out
 
 
-def test_twelve_fixtures():
-    assert len([c for c in CASES if c.startswith("p")]) == 6
+def test_thirteen_fixtures():
+    assert len([c for c in CASES if c.startswith("p")]) == 7
     assert len([c for c in CASES if c.startswith("m")]) == 6
 
 
@@ -83,10 +83,56 @@ def test_fixture_verdict_and_key_finding(results, name):
 
 
 def test_overhang_location_is_under_the_lip(results):
-    f = _rules(results["p01_overhang_60"][1], "overhang")[0]
+    res = results["p01_overhang_60"][1]
+    f = _rules(res, "needs_support")[0]
     x, _, z = f["location"]
     assert 20 < x < 28 and 18 < z < 23
-    assert "60°" in f["why"] and "45°" in f["why"]
+    assert "60°" in f["why"] and "45°" in f["why"] and "support" in f["why"]
+    assert f["area_mm2"] == pytest.approx(185, abs=5) and f["support_height_mm"] == pytest.approx(21, abs=1.5)
+    assert res["support_needed"] is True and "185 mm²" in res["support_summary"]
+
+
+def test_no_supports_keeps_the_old_behaviour(results):
+    exp, _, path = results["p01_overhang_60"]
+    res = check_printing(path, supports=False)
+    assert res["verdict"] == exp["no_supports"]["verdict"]
+    f = _rules(res, exp["no_supports"]["key_rule"])
+    assert f and f[0]["severity"] == exp["no_supports"]["key_severity"] and f[0]["value"] == pytest.approx(60)
+    assert res["support_needed"] is False and not _rules(res, "needs_support")
+
+
+def test_control_needs_no_support(results):
+    res = results["p06_bracket_control"][1]
+    assert res["verdict"] == "printable" and res["support_needed"] is False
+    assert res["support_summary"] == "No support needed."
+
+
+def test_thin_wall_fails_even_with_supports(results):
+    res = results["p03_wall_0p5"][1]
+    assert res["verdict"] == "not_printable" and _rules(res, "min_wall")[0]["severity"] == "fail"
+
+
+def test_enclosed_cavity_is_also_trapped_from_the_outside(results):
+    res = results["p07_enclosed_cavity"][1]
+    assert res["verdict"] == "not_printable"
+    assert not _rules(res, "needs_support"), "the cavity's ceiling must not be counted as ordinary support"
+
+
+def test_support_in_small_bore_fails(tmp_path):
+    # a shelf whose support column would land inside the Ø3.4 mm (M3) blind hole in the base below it
+    part = (Box(10, 10, 30, align=A) + Pos(10, 0, 27) * Box(10, 10, 3, align=A)
+            + Pos(10, 0, 0) * Box(10, 10, 6, align=A)) - Pos(10, 0, 1) * Cylinder(1.7, 5, align=A)
+    res = check_printing(_step(part, tmp_path))
+    f = _rules(res, "support_in_bore")
+    assert res["verdict"] == "not_printable" and f and f[0]["value"] == pytest.approx(3.4) and f[0]["limit"] == 5
+
+
+def test_tunnel_support_can_come_out(tmp_path):
+    # a 20 mm square tunnel through a block: its ceiling needs support, removable through the open ends
+    part = Box(40, 40, 40, align=A) - Pos(0, 0, 10) * Box(20, 50, 20, align=A)
+    res = check_printing(_step(part, tmp_path))
+    assert res["verdict"] == "printable_with_supports", res["findings"]
+    assert not _rules(res, "trapped_support")
 
 
 def test_m3_hole_warning_names_the_fastener(results):
@@ -110,18 +156,26 @@ def test_short_bridge_passes(tmp_path):
     assert res["summary"]["bridges_mm"] == [pytest.approx(8, abs=0.3)]
 
 
-def test_long_bridge_fails(tmp_path):
-    res = check_printing(_step(_bridge_part(20), tmp_path))
+def test_long_bridge_needs_support(tmp_path):
+    path = _step(_bridge_part(20), tmp_path)
+    res = check_printing(path)
+    f = _rules(res, "needs_support")
+    assert res["verdict"] == "printable_with_supports" and f and f[0]["value"] == pytest.approx(20, abs=0.5)
+    assert f[0]["support_height_mm"] == pytest.approx(10, abs=0.5) and f[0]["support_on"] == "part"
+    res = check_printing(path, supports=False)
     f = _rules(res, "bridge")
-    assert res["verdict"] == "not_printable" and f
-    assert f[0]["value"] == pytest.approx(20, abs=0.5)
+    assert res["verdict"] == "not_printable" and f and f[0]["value"] == pytest.approx(20, abs=0.5)
 
 
 def test_cantilever_shelf_is_overhang(tmp_path):
     part = Box(10, 10, 20, align=A) + Pos(10, 0, 17) * Box(10, 10, 3, align=A)
-    res = check_printing(_step(part, tmp_path))
-    f = _rules(res, "overhang")
-    assert res["verdict"] == "not_printable" and f[0]["value"] == 90
+    path = _step(part, tmp_path)
+    res = check_printing(path)
+    f = _rules(res, "needs_support")
+    assert res["verdict"] == "printable_with_supports" and f[0]["value"] == 90
+    assert f[0]["support_height_mm"] == pytest.approx(17, abs=0.5) and f[0]["support_on"] == "bed"
+    res = check_printing(path, supports=False)
+    assert res["verdict"] == "not_printable" and _rules(res, "overhang")[0]["value"] == 90
 
 
 def test_build_volume(tmp_path):
@@ -135,7 +189,7 @@ def test_build_dir_changes_the_answer(results):
     _, _, path = results["p01_overhang_60"]
     # Lying on its back face (-X down): the lip underside now faces sideways/up, no overhang.
     res = check_printing(path, build_dir=(1, 0, 0))
-    assert not [f for f in _rules(res, "overhang") if f["value"] > 50], res["findings"]
+    assert not [f for f in _rules(res, "needs_support") + _rules(res, "overhang") if f["value"] > 50], res["findings"]
 
 
 def test_flip_setup_fixes_tslot_listing(results):
@@ -170,7 +224,10 @@ def test_thin_wall_cnc(tmp_path):
 
 def test_cli(results, capsys):
     _, _, p = results["p01_overhang_60"]
-    assert cli(["printing", str(p), "--up", "0", "0", "1"]) == 1
+    assert cli(["printing", str(p), "--up", "0", "0", "1"]) == 0
+    out = capsys.readouterr().out
+    assert "PRINTABLE_WITH_SUPPORTS" in out and "needs_support" in out and "needs support" in out
+    assert cli(["printing", str(p), "--no-supports"]) == 1
     assert "overhang" in capsys.readouterr().out
     _, _, m = results["m06_plate_control"]
     assert cli(["cnc", str(m), "--setups", "0,0,1", "--json"]) == 0

@@ -1,13 +1,16 @@
 """Printing: block with a lip whose underside overhangs 60° from vertical.
 
-Expected: not_printable. Key finding: overhang ~60° under the lip (limit 45°).
+Expected: printable_with_supports (supports allowed, the default); the key finding is a needs_support
+warning of ~60° under the lip (limit 45°). With supports=False it is not_printable.
 """
 import math
 
 from build123d import Plane, Polyline, extrude, make_face
 
-EXPECTED = {"checker": "printing", "verdict": "not_printable", "key_rule": "overhang", "key_severity": "fail",
-            "key_value": 60.0, "key": "60° overhang under the lip; FDM limit 45° without support"}
+EXPECTED = {"checker": "printing", "verdict": "printable_with_supports", "key_rule": "needs_support",
+            "key_severity": "warn", "key_value": 60.0,
+            "key": "60° overhang under the lip needs support; FDM limit 45° without support",
+            "no_supports": {"verdict": "not_printable", "key_rule": "overhang", "key_severity": "fail"}}
 
 
 def build(angle_deg=60.0):

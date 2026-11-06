@@ -39,7 +39,7 @@ from OCP.GeomAPI import GeomAPI_ProjectPointOnSurf
 from OCP.GProp import GProp_GProps
 from OCP.IntCurvesFace import IntCurvesFace_ShapeIntersector
 from OCP.STEPControl import STEPControl_Reader
-from OCP.TopAbs import TopAbs_EDGE, TopAbs_FACE, TopAbs_IN, TopAbs_REVERSED, TopAbs_SOLID
+from OCP.TopAbs import TopAbs_EDGE, TopAbs_FACE, TopAbs_IN, TopAbs_REVERSED, TopAbs_SHELL, TopAbs_SOLID
 from OCP.TopExp import TopExp, TopExp_Explorer
 from OCP.TopLoc import TopLoc_Location
 from OCP.TopoDS import TopoDS
@@ -298,6 +298,29 @@ def load_part(step_path) -> Part:
         if len(uniq) == 2:
             part.edge_faces.append((e, uniq[0], uniq[1]))
     return part
+
+
+def inner_shells(part: Part) -> list:
+    """Sealed internal voids: every shell of the solid except the outer one.
+    Returns [(volume_mm3, centroid, face_indices)]."""
+    shells = []
+    ex = TopExp_Explorer(part.shape, TopAbs_SHELL)
+    while ex.More():
+        sh = ex.Current()
+        props = GProp_GProps()
+        BRepGProp.VolumeProperties_s(sh, props)
+        c = props.CentreOfMass()
+        fids = set()
+        fx = TopExp_Explorer(sh, TopAbs_FACE)
+        while fx.More():
+            fids.add(part.face_index(fx.Current()))
+            fx.Next()
+        shells.append((abs(props.Mass()), np.array([c.X(), c.Y(), c.Z()]), fids))
+        ex.Next()
+    if len(shells) < 2:
+        return []
+    shells.sort(key=lambda s: -s[0])
+    return shells[1:]
 
 
 def _downcast(kind: str):
