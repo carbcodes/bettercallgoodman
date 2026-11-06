@@ -27,3 +27,4 @@ Built for Mercor Hack Day at Georgia Tech, November 6, 2026.
 6. [3D printing checker](specs/05-printing.md) (stretch)
 7. [CNC milling checker](specs/06-cnc.md) (stretch)
 8. [Write-up and demo](specs/07-writeup-demo.md)
+9. [Next step: automatic setup](specs/08-auto-setup.md): Goodman sets up each problem itself, measured against our hand-written setups

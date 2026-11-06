@@ -60,6 +60,8 @@ Each person writes their own cases **and** their correct answers. Whoever writes
 
 **Hard rule:** don't start stretch work until all core cases run end to end.
 
+**Next step after the core:** [08 · automatic setup](08-auto-setup.md). Today a person writes each `task.yaml`; the upgrade has Goodman build it from the question and measures how often it gets the setup right.
+
 ## Case mix (per area)
 
 - 5 cases at minimum: **3–4 with a trap** the AI is likely to miss, plus **1 control** that is genuinely fine. The control shows the check doesn't just flag everything (fairness).
