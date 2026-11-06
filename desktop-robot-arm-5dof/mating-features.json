@@ -1,0 +1,772 @@
+[
+  {
+    "part": "base-plate",
+    "mate": "base-column-1-nut",
+    "removed_mm3": 108.776
+  },
+  {
+    "part": "base-plate",
+    "mate": "base-column-2-nut",
+    "removed_mm3": 108.776
+  },
+  {
+    "part": "base-plate",
+    "mate": "base-column-3-nut",
+    "removed_mm3": 108.776
+  },
+  {
+    "part": "base-plate",
+    "mate": "base-column-4-nut",
+    "removed_mm3": 108.776
+  },
+  {
+    "part": "base-plate",
+    "mate": "yaw-saddle-1-1-bolt",
+    "removed_mm3": 8.632
+  },
+  {
+    "part": "base-plate",
+    "mate": "yaw-saddle-1-2-bolt",
+    "removed_mm3": 8.632
+  },
+  {
+    "part": "base-plate",
+    "mate": "yaw-saddle-2-1-bolt",
+    "removed_mm3": 8.632
+  },
+  {
+    "part": "base-plate",
+    "mate": "yaw-saddle-2-2-bolt",
+    "removed_mm3": 8.632
+  },
+  {
+    "part": "yaw-bearing-carrier",
+    "mate": "base-column-1-bolt",
+    "removed_mm3": 72.085
+  },
+  {
+    "part": "yaw-bearing-carrier",
+    "mate": "base-column-2-bolt",
+    "removed_mm3": 72.085
+  },
+  {
+    "part": "yaw-bearing-carrier",
+    "mate": "base-column-3-bolt",
+    "removed_mm3": 72.085
+  },
+  {
+    "part": "yaw-bearing-carrier",
+    "mate": "base-column-4-bolt",
+    "removed_mm3": 72.085
+  },
+  {
+    "part": "yaw-bearing-carrier",
+    "mate": "yaw-bearing-1-outer",
+    "removed_mm3": 182.53
+  },
+  {
+    "part": "yaw-bearing-carrier",
+    "mate": "yaw-bearing-2-outer",
+    "removed_mm3": 182.53
+  },
+  {
+    "part": "yaw-bearing-carrier",
+    "mate": "base-column-1",
+    "removed_mm3": 272.855
+  },
+  {
+    "part": "yaw-bearing-carrier",
+    "mate": "base-column-2",
+    "removed_mm3": 272.855
+  },
+  {
+    "part": "yaw-bearing-carrier",
+    "mate": "base-column-3",
+    "removed_mm3": 272.855
+  },
+  {
+    "part": "yaw-bearing-carrier",
+    "mate": "base-column-4",
+    "removed_mm3": 272.855
+  },
+  {
+    "part": "yaw-motor-saddle",
+    "mate": "yaw-motor",
+    "removed_mm3": 1550.015
+  },
+  {
+    "part": "yaw-motor-saddle",
+    "mate": "yaw-saddle-1-1-bolt",
+    "removed_mm3": 219.216
+  },
+  {
+    "part": "yaw-motor-saddle",
+    "mate": "yaw-saddle-1-1-nut",
+    "removed_mm3": 35.816
+  },
+  {
+    "part": "yaw-motor-saddle",
+    "mate": "yaw-saddle-1-2-bolt",
+    "removed_mm3": 219.216
+  },
+  {
+    "part": "yaw-motor-saddle",
+    "mate": "yaw-saddle-1-2-nut",
+    "removed_mm3": 35.816
+  },
+  {
+    "part": "yaw-motor-saddle",
+    "mate": "yaw-saddle-2-1-bolt",
+    "removed_mm3": 219.216
+  },
+  {
+    "part": "yaw-motor-saddle",
+    "mate": "yaw-saddle-2-1-nut",
+    "removed_mm3": 35.816
+  },
+  {
+    "part": "yaw-motor-saddle",
+    "mate": "yaw-saddle-2-2-bolt",
+    "removed_mm3": 219.216
+  },
+  {
+    "part": "yaw-motor-saddle",
+    "mate": "yaw-saddle-2-2-nut",
+    "removed_mm3": 35.816
+  },
+  {
+    "part": "yaw-motor-saddle",
+    "mate": "base-harness-plug-2",
+    "removed_mm3": 50.588
+  },
+  {
+    "part": "yaw-motor-strap-1",
+    "mate": "yaw-saddle-1-1-bolt",
+    "removed_mm3": 30.026
+  },
+  {
+    "part": "yaw-motor-strap-1",
+    "mate": "yaw-saddle-1-2-bolt",
+    "removed_mm3": 30.026
+  },
+  {
+    "part": "yaw-motor-strap-2",
+    "mate": "yaw-saddle-2-1-bolt",
+    "removed_mm3": 30.026
+  },
+  {
+    "part": "yaw-motor-strap-2",
+    "mate": "yaw-saddle-2-2-bolt",
+    "removed_mm3": 30.026
+  },
+  {
+    "part": "yaw-spindle",
+    "mate": "yaw-bearing-1-inner",
+    "removed_mm3": 0.0
+  },
+  {
+    "part": "yaw-spindle",
+    "mate": "yaw-deck-1-bolt",
+    "removed_mm3": 31.152
+  },
+  {
+    "part": "yaw-spindle",
+    "mate": "yaw-deck-2-bolt",
+    "removed_mm3": 31.152
+  },
+  {
+    "part": "yaw-spindle",
+    "mate": "yaw-deck-3-bolt",
+    "removed_mm3": 31.152
+  },
+  {
+    "part": "yaw-spindle",
+    "mate": "yaw-deck-4-bolt",
+    "removed_mm3": 31.152
+  },
+  {
+    "part": "yaw-turntable",
+    "mate": "yaw-deck-1-bolt",
+    "removed_mm3": 60.052
+  },
+  {
+    "part": "yaw-turntable",
+    "mate": "yaw-deck-2-bolt",
+    "removed_mm3": 60.052
+  },
+  {
+    "part": "yaw-turntable",
+    "mate": "yaw-deck-3-bolt",
+    "removed_mm3": 60.052
+  },
+  {
+    "part": "yaw-turntable",
+    "mate": "yaw-deck-4-bolt",
+    "removed_mm3": 60.052
+  },
+  {
+    "part": "yaw-turntable",
+    "mate": "shoulder-clamp-1-bolt",
+    "removed_mm3": 23.645
+  },
+  {
+    "part": "yaw-turntable",
+    "mate": "shoulder-clamp-1-nut",
+    "removed_mm3": 46.063
+  },
+  {
+    "part": "yaw-turntable",
+    "mate": "shoulder-clamp-2-bolt",
+    "removed_mm3": 23.645
+  },
+  {
+    "part": "yaw-turntable",
+    "mate": "shoulder-clamp-2-nut",
+    "removed_mm3": 46.063
+  },
+  {
+    "part": "yaw-turntable",
+    "mate": "shoulder-clamp-3-bolt",
+    "removed_mm3": 23.645
+  },
+  {
+    "part": "yaw-turntable",
+    "mate": "shoulder-clamp-3-nut",
+    "removed_mm3": 46.063
+  },
+  {
+    "part": "yaw-turntable",
+    "mate": "shoulder-clamp-4-bolt",
+    "removed_mm3": 23.645
+  },
+  {
+    "part": "yaw-turntable",
+    "mate": "shoulder-clamp-4-nut",
+    "removed_mm3": 46.063
+  },
+  {
+    "part": "electronics-tray",
+    "mate": "pcb-standoff-1",
+    "removed_mm3": 40.186
+  },
+  {
+    "part": "electronics-tray",
+    "mate": "pcb-standoff-2",
+    "removed_mm3": 40.186
+  },
+  {
+    "part": "electronics-tray",
+    "mate": "pcb-standoff-3",
+    "removed_mm3": 40.186
+  },
+  {
+    "part": "electronics-tray",
+    "mate": "pcb-standoff-4",
+    "removed_mm3": 40.186
+  },
+  {
+    "part": "electronics-tray",
+    "mate": "dc-input-jack",
+    "removed_mm3": 67.745
+  },
+  {
+    "part": "electronics-tray",
+    "mate": "base-harness",
+    "removed_mm3": 17.141
+  },
+  {
+    "part": "electronics-tray",
+    "mate": "base-harness-plug-1",
+    "removed_mm3": 69.007
+  },
+  {
+    "part": "electronics-tray",
+    "mate": "base-column-2",
+    "removed_mm3": 79.8
+  },
+  {
+    "part": "shoulder-cradle",
+    "mate": "yaw-deck-1-bolt",
+    "removed_mm3": 73.215
+  },
+  {
+    "part": "shoulder-cradle",
+    "mate": "yaw-deck-2-bolt",
+    "removed_mm3": 73.214
+  },
+  {
+    "part": "shoulder-cradle",
+    "mate": "yaw-deck-3-bolt",
+    "removed_mm3": 73.214
+  },
+  {
+    "part": "shoulder-cradle",
+    "mate": "yaw-deck-4-bolt",
+    "removed_mm3": 73.214
+  },
+  {
+    "part": "shoulder-cradle",
+    "mate": "shoulder-motor",
+    "removed_mm3": 567.842
+  },
+  {
+    "part": "shoulder-cradle",
+    "mate": "shoulder-motor-socket-1",
+    "removed_mm3": 360.912
+  },
+  {
+    "part": "shoulder-cradle",
+    "mate": "shoulder-motor-socket-2",
+    "removed_mm3": 360.912
+  },
+  {
+    "part": "shoulder-cradle",
+    "mate": "shoulder-clamp-1-nut",
+    "removed_mm3": 21.626
+  },
+  {
+    "part": "shoulder-cradle",
+    "mate": "shoulder-clamp-2-nut",
+    "removed_mm3": 21.626
+  },
+  {
+    "part": "shoulder-cradle",
+    "mate": "shoulder-clamp-3-nut",
+    "removed_mm3": 21.626
+  },
+  {
+    "part": "shoulder-cradle",
+    "mate": "shoulder-clamp-4-nut",
+    "removed_mm3": 21.626
+  },
+  {
+    "part": "shoulder-cradle",
+    "mate": "yaw-turntable",
+    "removed_mm3": 1011.467
+  },
+  {
+    "part": "upper-link-left",
+    "mate": "elbow-mount-1-bolt",
+    "removed_mm3": 29.822
+  },
+  {
+    "part": "upper-link-left",
+    "mate": "elbow-mount-2-bolt",
+    "removed_mm3": 29.822
+  },
+  {
+    "part": "upper-link-left",
+    "mate": "elbow-idler-mount-1-bolt",
+    "removed_mm3": 45.039
+  },
+  {
+    "part": "upper-link-left",
+    "mate": "elbow-idler-mount-2-bolt",
+    "removed_mm3": 45.039
+  },
+  {
+    "part": "upper-link-left",
+    "mate": "upper-harness-plug-1",
+    "removed_mm3": 22.247
+  },
+  {
+    "part": "upper-link-right",
+    "mate": "elbow-mount-1-bolt",
+    "removed_mm3": 29.822
+  },
+  {
+    "part": "upper-link-right",
+    "mate": "elbow-mount-1-nut",
+    "removed_mm3": 6.922
+  },
+  {
+    "part": "upper-link-right",
+    "mate": "elbow-mount-2-bolt",
+    "removed_mm3": 29.822
+  },
+  {
+    "part": "upper-link-right",
+    "mate": "elbow-mount-2-nut",
+    "removed_mm3": 6.922
+  },
+  {
+    "part": "shoulder-idler-bracket",
+    "mate": "shoulder-motor",
+    "removed_mm3": 3091.201
+  },
+  {
+    "part": "shoulder-idler-bracket",
+    "mate": "shoulder-motor-socket-1",
+    "removed_mm3": 28.73
+  },
+  {
+    "part": "shoulder-idler-bracket",
+    "mate": "shoulder-motor-socket-2",
+    "removed_mm3": 28.73
+  },
+  {
+    "part": "shoulder-idler-bracket",
+    "mate": "shoulder-cradle",
+    "removed_mm3": 218.539
+  },
+  {
+    "part": "elbow-cradle",
+    "mate": "elbow-motor",
+    "removed_mm3": 395.127
+  },
+  {
+    "part": "elbow-cradle",
+    "mate": "elbow-motor-socket-1",
+    "removed_mm3": 308.352
+  },
+  {
+    "part": "elbow-cradle",
+    "mate": "elbow-motor-socket-2",
+    "removed_mm3": 308.352
+  },
+  {
+    "part": "elbow-cradle",
+    "mate": "elbow-mount-1-bolt",
+    "removed_mm3": 525.453
+  },
+  {
+    "part": "elbow-cradle",
+    "mate": "elbow-mount-2-bolt",
+    "removed_mm3": 525.453
+  },
+  {
+    "part": "forearm-link-left",
+    "mate": "wrist-mount-1-bolt",
+    "removed_mm3": 37.532
+  },
+  {
+    "part": "forearm-link-left",
+    "mate": "wrist-mount-2-bolt",
+    "removed_mm3": 37.532
+  },
+  {
+    "part": "forearm-link-left",
+    "mate": "wrist-idler-mount-1-bolt",
+    "removed_mm3": 19.948
+  },
+  {
+    "part": "forearm-link-left",
+    "mate": "wrist-idler-mount-1-nut",
+    "removed_mm3": 30.775
+  },
+  {
+    "part": "forearm-link-left",
+    "mate": "wrist-idler-mount-2-bolt",
+    "removed_mm3": 19.948
+  },
+  {
+    "part": "forearm-link-left",
+    "mate": "wrist-idler-mount-2-nut",
+    "removed_mm3": 30.775
+  },
+  {
+    "part": "forearm-link-left",
+    "mate": "forearm-harness-plug-1",
+    "removed_mm3": 16.994
+  },
+  {
+    "part": "forearm-link-left",
+    "mate": "forearm-harness-plug-2",
+    "removed_mm3": 16.994
+  },
+  {
+    "part": "forearm-link-right",
+    "mate": "wrist-mount-1-bolt",
+    "removed_mm3": 37.532
+  },
+  {
+    "part": "forearm-link-right",
+    "mate": "wrist-mount-1-nut",
+    "removed_mm3": 54.633
+  },
+  {
+    "part": "forearm-link-right",
+    "mate": "wrist-mount-2-bolt",
+    "removed_mm3": 37.532
+  },
+  {
+    "part": "forearm-link-right",
+    "mate": "wrist-mount-2-nut",
+    "removed_mm3": 54.633
+  },
+  {
+    "part": "elbow-idler-bracket",
+    "mate": "elbow-idler-mount-1-bolt",
+    "removed_mm3": 45.039
+  },
+  {
+    "part": "elbow-idler-bracket",
+    "mate": "elbow-idler-mount-1-nut",
+    "removed_mm3": 54.633
+  },
+  {
+    "part": "elbow-idler-bracket",
+    "mate": "elbow-idler-mount-2-bolt",
+    "removed_mm3": 45.039
+  },
+  {
+    "part": "elbow-idler-bracket",
+    "mate": "elbow-idler-mount-2-nut",
+    "removed_mm3": 54.633
+  },
+  {
+    "part": "elbow-idler-bracket",
+    "mate": "elbow-axle-collar-1",
+    "removed_mm3": 139.604
+  },
+  {
+    "part": "elbow-idler-bracket",
+    "mate": "upper-link-left",
+    "removed_mm3": 1935.563
+  },
+  {
+    "part": "wrist-cradle",
+    "mate": "wrist-motor",
+    "removed_mm3": 395.134
+  },
+  {
+    "part": "wrist-cradle",
+    "mate": "wrist-motor-socket-1",
+    "removed_mm3": 308.352
+  },
+  {
+    "part": "wrist-cradle",
+    "mate": "wrist-motor-socket-2",
+    "removed_mm3": 308.352
+  },
+  {
+    "part": "wrist-cradle",
+    "mate": "wrist-mount-1-bolt",
+    "removed_mm3": 367.818
+  },
+  {
+    "part": "wrist-cradle",
+    "mate": "wrist-mount-2-bolt",
+    "removed_mm3": 367.818
+  },
+  {
+    "part": "wrist-yoke-left",
+    "mate": "wrist-bridge-1-bolt",
+    "removed_mm3": 4.448
+  },
+  {
+    "part": "wrist-yoke-left",
+    "mate": "wrist-bridge-2-bolt",
+    "removed_mm3": 4.448
+  },
+  {
+    "part": "wrist-yoke-left",
+    "mate": "wrist-harness-plug-1",
+    "removed_mm3": 49.674
+  },
+  {
+    "part": "wrist-yoke-left",
+    "mate": "wrist-harness-plug-2",
+    "removed_mm3": 49.674
+  },
+  {
+    "part": "wrist-yoke-right",
+    "mate": "wrist-bridge-1-bolt",
+    "removed_mm3": 4.448
+  },
+  {
+    "part": "wrist-yoke-right",
+    "mate": "wrist-bridge-2-bolt",
+    "removed_mm3": 4.448
+  },
+  {
+    "part": "wrist-idler-bracket",
+    "mate": "wrist-idler-mount-1-bolt",
+    "removed_mm3": 146.377
+  },
+  {
+    "part": "wrist-idler-bracket",
+    "mate": "wrist-idler-mount-2-bolt",
+    "removed_mm3": 146.377
+  },
+  {
+    "part": "wrist-idler-bracket",
+    "mate": "wrist-axle-collar-1",
+    "removed_mm3": 76.859
+  },
+  {
+    "part": "wrist-idler-bracket",
+    "mate": "forearm-link-left",
+    "removed_mm3": 129.671
+  },
+  {
+    "part": "roll-motor-bridge",
+    "mate": "wrist-bridge-1-bolt",
+    "removed_mm3": 532.961
+  },
+  {
+    "part": "roll-motor-bridge",
+    "mate": "wrist-bridge-2-bolt",
+    "removed_mm3": 532.961
+  },
+  {
+    "part": "roll-motor-bridge",
+    "mate": "roll-motor-socket-1",
+    "removed_mm3": 77.512
+  },
+  {
+    "part": "roll-motor-bridge",
+    "mate": "roll-motor-socket-2",
+    "removed_mm3": 77.512
+  },
+  {
+    "part": "roll-motor-bridge",
+    "mate": "roll-clamp-1-bolt",
+    "removed_mm3": 45.039
+  },
+  {
+    "part": "roll-motor-bridge",
+    "mate": "roll-clamp-1-nut",
+    "removed_mm3": 54.633
+  },
+  {
+    "part": "roll-motor-bridge",
+    "mate": "roll-clamp-2-bolt",
+    "removed_mm3": 45.039
+  },
+  {
+    "part": "roll-motor-bridge",
+    "mate": "roll-clamp-2-nut",
+    "removed_mm3": 54.633
+  },
+  {
+    "part": "roll-motor-bridge",
+    "mate": "roll-clamp-3-bolt",
+    "removed_mm3": 45.039
+  },
+  {
+    "part": "roll-motor-bridge",
+    "mate": "roll-clamp-3-nut",
+    "removed_mm3": 54.633
+  },
+  {
+    "part": "roll-motor-bridge",
+    "mate": "roll-clamp-4-bolt",
+    "removed_mm3": 45.039
+  },
+  {
+    "part": "roll-motor-bridge",
+    "mate": "roll-clamp-4-nut",
+    "removed_mm3": 54.633
+  },
+  {
+    "part": "roll-retainer",
+    "mate": "roll-clamp-1-bolt",
+    "removed_mm3": 30.026
+  },
+  {
+    "part": "roll-retainer",
+    "mate": "roll-clamp-2-bolt",
+    "removed_mm3": 30.026
+  },
+  {
+    "part": "roll-retainer",
+    "mate": "roll-clamp-3-bolt",
+    "removed_mm3": 30.026
+  },
+  {
+    "part": "roll-retainer",
+    "mate": "roll-clamp-4-bolt",
+    "removed_mm3": 30.026
+  },
+  {
+    "part": "gripper-palm",
+    "mate": "gripper-palm-1-bolt",
+    "removed_mm3": 33.085
+  },
+  {
+    "part": "gripper-palm",
+    "mate": "gripper-palm-2-bolt",
+    "removed_mm3": 37.532
+  },
+  {
+    "part": "gripper-motor-cradle",
+    "mate": "roll-horn-4-bolt",
+    "removed_mm3": 16.644
+  },
+  {
+    "part": "gripper-motor-cradle",
+    "mate": "gripper-motor-socket-1",
+    "removed_mm3": 172.462
+  },
+  {
+    "part": "gripper-motor-cradle",
+    "mate": "gripper-motor-socket-2",
+    "removed_mm3": 172.462
+  },
+  {
+    "part": "gripper-motor-cradle",
+    "mate": "gripper-palm-1-bolt",
+    "removed_mm3": 49.918
+  },
+  {
+    "part": "gripper-motor-cradle",
+    "mate": "gripper-palm-1-nut",
+    "removed_mm3": 53.731
+  },
+  {
+    "part": "gripper-motor-cradle",
+    "mate": "gripper-palm-2-bolt",
+    "removed_mm3": 30.026
+  },
+  {
+    "part": "gripper-motor-cradle",
+    "mate": "gripper-palm-2-nut",
+    "removed_mm3": 22.496
+  },
+  {
+    "part": "gripper-motor-cradle",
+    "mate": "gripper-clamp-1-bolt",
+    "removed_mm3": 226.365
+  },
+  {
+    "part": "gripper-motor-cradle",
+    "mate": "gripper-clamp-1-nut",
+    "removed_mm3": 11.63
+  },
+  {
+    "part": "gripper-motor-cradle",
+    "mate": "gripper-clamp-2-bolt",
+    "removed_mm3": 121.113
+  },
+  {
+    "part": "gripper-motor-cradle",
+    "mate": "gripper-clamp-2-nut",
+    "removed_mm3": 27.159
+  },
+  {
+    "part": "gripper-motor-cap",
+    "mate": "gripper-clamp-1-bolt",
+    "removed_mm3": 3.558
+  },
+  {
+    "part": "gripper-motor-cap",
+    "mate": "gripper-motor-cradle",
+    "removed_mm3": 108.442
+  },
+  {
+    "part": "gripper-jaw-left",
+    "mate": "gripper-horn-1-bolt",
+    "removed_mm3": 17.612
+  },
+  {
+    "part": "jaw-idler-clevis",
+    "mate": "gripper-palm",
+    "removed_mm3": 540.0
+  },
+  {
+    "part": "gear-guard",
+    "mate": "jaw-idler-clevis",
+    "removed_mm3": 49.5
+  }
+]

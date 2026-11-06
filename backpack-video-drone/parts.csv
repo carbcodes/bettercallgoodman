@@ -1,0 +1,216 @@
+part_id,joint,category,material,description,mesh_volume_mm3
+lower-deck,fixed,custom,carbon fibre,CNC carbon fibre 76 x 40 x 2; M2 clearances,6020.7300
+upper-deck,fixed,custom,carbon fibre,CNC carbon fibre 76 x 40 x 1.5,4537.7737
+deck-1-spacer,fixed,custom,aluminium,M2 female 25.25 mm spacer,411.7164
+deck-1-bolt-lower,fixed,hardware,,M2 x 5 socket screw,28.0278
+deck-1-bolt-upper,fixed,hardware,,M2 x 5 socket screw,28.0278
+deck-2-spacer,fixed,custom,aluminium,M2 female 25.25 mm spacer,411.7164
+deck-2-bolt-lower,fixed,hardware,,M2 x 5 socket screw,28.0278
+deck-2-bolt-upper,fixed,hardware,,M2 x 5 socket screw,28.0278
+deck-3-spacer,fixed,custom,aluminium,M2 female 25.25 mm spacer,411.7164
+deck-3-bolt-lower,fixed,hardware,,M2 x 5 socket screw,28.0278
+deck-3-bolt-upper,fixed,hardware,,M2 x 5 socket screw,28.0278
+deck-4-spacer,fixed,custom,aluminium,M2 female 25.25 mm spacer,411.7164
+deck-4-bolt-lower,fixed,hardware,,M2 x 5 socket screw,28.0278
+deck-4-bolt-upper,fixed,hardware,,M2 x 5 socket screw,28.0278
+battery-3s-650mah,fixed,purchased,,"Tattu 650mAh 3S 75C, 58 x 31 x 16, XT30",28768.0000
+battery-foam-pad,fixed,custom,,1 mm silicone isolation pad,1798.0000
+battery-strap,fixed,custom,nylon,"9 mm hook-and-loop wrap, buckle omitted",1314.0000
+landing-skid-left,fixed,custom,TPU,TPU skid with two 18 mm legs,1472.0000
+landing-skid-right,fixed,custom,TPU,TPU skid with two 18 mm legs,1472.0000
+side-panel-left,fixed,custom,PA12,1.2 mm PA12 vented panel,1428.0001
+side-panel-right,fixed,custom,PA12,1.2 mm PA12 vented panel,1428.0001
+speedybee-esc-pcb,fixed,purchased,,SpeedyBee F405 Mini / BLS 35A Mini V2; 20 x 20 mount,1616.5174
+esc-grommet-1,fixed,hardware,,M2 silicone soft mounting grommet,47.9618
+esc-grommet-2,fixed,hardware,,M2 silicone soft mounting grommet,47.9618
+esc-grommet-3,fixed,hardware,,M2 silicone soft mounting grommet,47.9618
+esc-grommet-4,fixed,hardware,,M2 silicone soft mounting grommet,47.9618
+esc-mosfet-1,fixed,purchased,,Simplified power MOSFET package,15.6000
+esc-mosfet-2,fixed,purchased,,Simplified power MOSFET package,15.6000
+esc-mosfet-3,fixed,purchased,,Simplified power MOSFET package,15.6000
+esc-mosfet-4,fixed,purchased,,Simplified power MOSFET package,15.6000
+esc-mosfet-5,fixed,purchased,,Simplified power MOSFET package,15.6000
+esc-mosfet-6,fixed,purchased,,Simplified power MOSFET package,15.6000
+esc-mosfet-7,fixed,purchased,,Simplified power MOSFET package,15.6000
+esc-mosfet-8,fixed,purchased,,Simplified power MOSFET package,15.6000
+speedybee-fc-pcb,fixed,purchased,,SpeedyBee F405 Mini / BLS 35A Mini V2; 20 x 20 mount,1475.9953
+fc-grommet-1,fixed,hardware,,M2 silicone soft mounting grommet,47.9618
+fc-grommet-2,fixed,hardware,,M2 silicone soft mounting grommet,47.9618
+fc-grommet-3,fixed,hardware,,M2 silicone soft mounting grommet,47.9618
+fc-grommet-4,fixed,hardware,,M2 silicone soft mounting grommet,47.9618
+mcu,fixed,purchased,,Electronic package envelope,58.8000
+imu,fixed,purchased,,Electronic package envelope,9.0000
+barometer,fixed,purchased,,Electronic package envelope,9.0000
+usb-c-shell,fixed,purchased,,USB-C receptacle shell,66.9000
+stack-1-bolt,fixed,hardware,,M2 x 20 stack screw,74.6152
+stack-1-spacer-lower,fixed,hardware,,M2 nylon stack spacer,26.9974
+stack-1-spacer-middle,fixed,hardware,,M2 nylon stack spacer,53.9948
+stack-1-nut,fixed,hardware,,M2 nylon-lock nut envelope,11.1555
+stack-2-bolt,fixed,hardware,,M2 x 20 stack screw,74.6152
+stack-2-spacer-lower,fixed,hardware,,M2 nylon stack spacer,26.9974
+stack-2-spacer-middle,fixed,hardware,,M2 nylon stack spacer,53.9948
+stack-2-nut,fixed,hardware,,M2 nylon-lock nut envelope,11.1555
+stack-3-bolt,fixed,hardware,,M2 x 20 stack screw,74.6152
+stack-3-spacer-lower,fixed,hardware,,M2 nylon stack spacer,26.9974
+stack-3-spacer-middle,fixed,hardware,,M2 nylon stack spacer,53.9948
+stack-3-nut,fixed,hardware,,M2 nylon-lock nut envelope,11.1555
+stack-4-bolt,fixed,hardware,,M2 x 20 stack screw,74.6152
+stack-4-spacer-lower,fixed,hardware,,M2 nylon stack spacer,26.9974
+stack-4-spacer-middle,fixed,hardware,,M2 nylon stack spacer,53.9948
+stack-4-nut,fixed,hardware,,M2 nylon-lock nut envelope,11.1555
+esc-sh8-socket,fixed,purchased,,JST-SH 1.0 mm eight-pin socket,54.0000
+fc-sh8-socket,fixed,purchased,,JST-SH 1.0 mm eight-pin socket,54.0000
+fc-esc-harness,fixed,purchased,,8-pin flexible silicone harness; home shape,27.1248
+xt30-airframe,fixed,purchased,,AMASS XT30 mating shell envelope,480.0000
+xt30-battery,fixed,purchased,,AMASS XT30 mating plug envelope,480.0000
+power-lead-red,fixed,purchased,,20AWG silicone wire,21.4109
+battery-lead-red,fixed,purchased,,20AWG silicone battery lead,52.2930
+power-lead-black,fixed,purchased,,20AWG silicone wire,21.4109
+battery-lead-black,fixed,purchased,,20AWG silicone battery lead,52.2930
+balance-jst-xh4,fixed,purchased,,JST-XH 2.54 mm four-pin 3S balance plug,330.0000
+balance-harness,fixed,purchased,,3S balance harness,22.7154
+receiver-ep2-pcb,fixed,purchased,,HappyModel EP2 ELRS receiver 10 x 10 mm nominal envelope,100.0000
+receiver-ceramic-antenna,fixed,purchased,,2.4 GHz integrated antenna envelope,48.0000
+receiver-foam,fixed,custom,,Foam mounting pad,200.0000
+receiver-shelf,fixed,custom,PA12,PA12 receiver shelf bonded to side panel,144.0000
+receiver-shelf-bracket,fixed,custom,PA12,PA12 shelf support,39.0000
+gps-mount,fixed,custom,,Silicone GNSS isolation pad,968.0000
+gps-pcb,fixed,purchased,,"Matek M10Q-5883, 20 x 20 x 12.4 overall",400.0000
+gps-shield,fixed,purchased,,GNSS receiver shield envelope,896.0000
+gps-patch,fixed,purchased,,15 x 15 x 4 ceramic GNSS patch,900.0000
+gps-patch-spacer,fixed,purchased,,GNSS internal stack envelope,315.0000
+gps-gh6-plug,fixed,purchased,,"JST-GH 6 pin, 1.25 mm nominal pitch",108.0000
+gps-harness,fixed,purchased,,Flexible six-wire GNSS harness,69.3172
+status-led,fixed,custom,,Status light lens on top deck,8.0000
+fl-arm,fold-fl,custom,carbon fibre,"4 mm CF arm, 50.9313 mm pivot-to-motor; M2 on 9 mm PCD",2719.7364
+fl-bushing,fold-fl,custom,bronze,"Custom flanged bronze bush 3.1 ID / 6 OD, 4 mm journal",124.1943
+fl-clevis,fixed,custom,6061-T6,CNC 6061-T6 double-shear hinge bracket with lower stop flange,3289.1525
+fl-mount,fixed,custom,6061-T6,PA12/6061 frame-to-hinge saddle,1690.0000
+fl-mount-screw-1,fixed,hardware,,M2 x 6 bracket screw,31.1336
+fl-mount-screw-2,fixed,hardware,,M2 x 6 bracket screw,31.1336
+fl-shoulder-axle,fixed,hardware,,"M3 shoulder axle, 3 mm smooth journal; simplified thread",126.0402
+fl-locknut,fixed,hardware,,M3 Nyloc nut; preload/friction lock,37.6498
+fl-stop-deployed,fixed,hardware,,3 mm dowel travel stop press-fit into clevis,41.9287
+fl-stop-stowed,fixed,hardware,,3 mm dowel travel stop press-fit into clevis,41.9287
+fl-motor-base,fold-fl,purchased,,"HappyModel EX1404 4800KV, 3S, base envelope",255.0328
+fl-stator,fold-fl,purchased,,EX1404 stator envelope 14 x 4; winding detail omitted,496.9326
+fl-bearing-tube,fold-fl,purchased,,Motor fixed bearing housing envelope,48.9168
+fl-bearing-lower,fold-fl,purchased,,Nominal 1.5 x 4 x 2 bearing envelope; verify vendor internals,21.3526
+fl-bearing-upper,fold-fl,purchased,,Nominal 1.5 x 4 x 2 bearing envelope; verify vendor internals,21.3526
+fl-motor-bell,rotor-fl,purchased,,"EX1404 17.8 OD outrunner bell, simplified sealed skin",863.5972
+fl-motor-shaft,rotor-fl,purchased,,1.5 mm steel motor shaft envelope,30.7477
+fl-motor-screw-1,fold-fl,hardware,,"M2 x 6 motor screw, 4 mm arm + 2 mm engagement",31.1336
+fl-motor-screw-2,fold-fl,hardware,,"M2 x 6 motor screw, 4 mm arm + 2 mm engagement",31.1336
+fl-motor-screw-3,fold-fl,hardware,,"M2 x 6 motor screw, 4 mm arm + 2 mm engagement",31.1336
+fl-motor-screw-4,fold-fl,hardware,,"M2 x 6 motor screw, 4 mm arm + 2 mm engagement",31.1336
+fl-propeller,rotor-fl,purchased,,"HQProp T65 two-blade, 65 mm dia, 38.1 mm pitch; envelope blade profile",498.5210
+fl-prop-screw-1,rotor-fl,hardware,,M1.6 x 5 T-mount screw,16.3379
+fl-prop-screw-2,rotor-fl,hardware,,M1.6 x 5 T-mount screw,16.3379
+fl-phase-wire-black,fold-fl,purchased,,26 AWG silicone phase wire fixed to arm; flex loop omitted from rigid kinematics,15.6653
+fl-phase-wire-blue,fold-fl,purchased,,26 AWG silicone phase wire fixed to arm; flex loop omitted from rigid kinematics,15.6653
+fl-phase-wire-red,fold-fl,purchased,,26 AWG silicone phase wire fixed to arm; flex loop omitted from rigid kinematics,15.6653
+fl-motor-cable-plug,fold-fl,purchased,,JST 1.25 mm 3-pin motor plug envelope; bench-verify current,40.0000
+fr-arm,fold-fr,custom,carbon fibre,"4 mm CF arm, 50.9313 mm pivot-to-motor; M2 on 9 mm PCD",2719.7364
+fr-bushing,fold-fr,custom,bronze,"Custom flanged bronze bush 3.1 ID / 6 OD, 4 mm journal",124.1943
+fr-clevis,fixed,custom,6061-T6,CNC 6061-T6 double-shear hinge bracket with lower stop flange,3289.1525
+fr-mount,fixed,custom,6061-T6,PA12/6061 frame-to-hinge saddle,1690.0000
+fr-mount-screw-1,fixed,hardware,,M2 x 6 bracket screw,31.1336
+fr-mount-screw-2,fixed,hardware,,M2 x 6 bracket screw,31.1336
+fr-shoulder-axle,fixed,hardware,,"M3 shoulder axle, 3 mm smooth journal; simplified thread",126.0402
+fr-locknut,fixed,hardware,,M3 Nyloc nut; preload/friction lock,37.6498
+fr-stop-deployed,fixed,hardware,,3 mm dowel travel stop press-fit into clevis,41.9287
+fr-stop-stowed,fixed,hardware,,3 mm dowel travel stop press-fit into clevis,41.9287
+fr-motor-base,fold-fr,purchased,,"HappyModel EX1404 4800KV, 3S, base envelope",255.0328
+fr-stator,fold-fr,purchased,,EX1404 stator envelope 14 x 4; winding detail omitted,496.9326
+fr-bearing-tube,fold-fr,purchased,,Motor fixed bearing housing envelope,48.9168
+fr-bearing-lower,fold-fr,purchased,,Nominal 1.5 x 4 x 2 bearing envelope; verify vendor internals,21.3526
+fr-bearing-upper,fold-fr,purchased,,Nominal 1.5 x 4 x 2 bearing envelope; verify vendor internals,21.3526
+fr-motor-bell,rotor-fr,purchased,,"EX1404 17.8 OD outrunner bell, simplified sealed skin",863.5972
+fr-motor-shaft,rotor-fr,purchased,,1.5 mm steel motor shaft envelope,30.7477
+fr-motor-screw-1,fold-fr,hardware,,"M2 x 6 motor screw, 4 mm arm + 2 mm engagement",31.1336
+fr-motor-screw-2,fold-fr,hardware,,"M2 x 6 motor screw, 4 mm arm + 2 mm engagement",31.1336
+fr-motor-screw-3,fold-fr,hardware,,"M2 x 6 motor screw, 4 mm arm + 2 mm engagement",31.1336
+fr-motor-screw-4,fold-fr,hardware,,"M2 x 6 motor screw, 4 mm arm + 2 mm engagement",31.1336
+fr-propeller,rotor-fr,purchased,,"HQProp T65 two-blade, 65 mm dia, 38.1 mm pitch; envelope blade profile",563.6225
+fr-prop-screw-1,rotor-fr,hardware,,M1.6 x 5 T-mount screw,16.3379
+fr-prop-screw-2,rotor-fr,hardware,,M1.6 x 5 T-mount screw,16.3379
+fr-phase-wire-black,fold-fr,purchased,,26 AWG silicone phase wire fixed to arm; flex loop omitted from rigid kinematics,15.6653
+fr-phase-wire-blue,fold-fr,purchased,,26 AWG silicone phase wire fixed to arm; flex loop omitted from rigid kinematics,15.6653
+fr-phase-wire-red,fold-fr,purchased,,26 AWG silicone phase wire fixed to arm; flex loop omitted from rigid kinematics,15.6653
+fr-motor-cable-plug,fold-fr,purchased,,JST 1.25 mm 3-pin motor plug envelope; bench-verify current,40.0000
+rl-arm,fold-rl,custom,carbon fibre,"4 mm CF arm, 50.9313 mm pivot-to-motor; M2 on 9 mm PCD",2719.7364
+rl-bushing,fold-rl,custom,bronze,"Custom flanged bronze bush 3.1 ID / 6 OD, 4 mm journal",124.1943
+rl-clevis,fixed,custom,6061-T6,CNC 6061-T6 double-shear hinge bracket with lower stop flange,3289.1525
+rl-mount,fixed,custom,6061-T6,PA12/6061 frame-to-hinge saddle,1690.0000
+rl-mount-screw-1,fixed,hardware,,M2 x 6 bracket screw,31.1336
+rl-mount-screw-2,fixed,hardware,,M2 x 6 bracket screw,31.1336
+rl-shoulder-axle,fixed,hardware,,"M3 shoulder axle, 3 mm smooth journal; simplified thread",126.0402
+rl-locknut,fixed,hardware,,M3 Nyloc nut; preload/friction lock,37.6498
+rl-stop-deployed,fixed,hardware,,3 mm dowel travel stop press-fit into clevis,41.9287
+rl-stop-stowed,fixed,hardware,,3 mm dowel travel stop press-fit into clevis,41.9287
+rl-motor-base,fold-rl,purchased,,"HappyModel EX1404 4800KV, 3S, base envelope",255.0328
+rl-stator,fold-rl,purchased,,EX1404 stator envelope 14 x 4; winding detail omitted,496.9326
+rl-bearing-tube,fold-rl,purchased,,Motor fixed bearing housing envelope,48.9168
+rl-bearing-lower,fold-rl,purchased,,Nominal 1.5 x 4 x 2 bearing envelope; verify vendor internals,21.3526
+rl-bearing-upper,fold-rl,purchased,,Nominal 1.5 x 4 x 2 bearing envelope; verify vendor internals,21.3526
+rl-motor-bell,rotor-rl,purchased,,"EX1404 17.8 OD outrunner bell, simplified sealed skin",863.5972
+rl-motor-shaft,rotor-rl,purchased,,1.5 mm steel motor shaft envelope,30.7477
+rl-motor-screw-1,fold-rl,hardware,,"M2 x 6 motor screw, 4 mm arm + 2 mm engagement",31.1336
+rl-motor-screw-2,fold-rl,hardware,,"M2 x 6 motor screw, 4 mm arm + 2 mm engagement",31.1336
+rl-motor-screw-3,fold-rl,hardware,,"M2 x 6 motor screw, 4 mm arm + 2 mm engagement",31.1336
+rl-motor-screw-4,fold-rl,hardware,,"M2 x 6 motor screw, 4 mm arm + 2 mm engagement",31.1336
+rl-propeller,rotor-rl,purchased,,"HQProp T65 two-blade, 65 mm dia, 38.1 mm pitch; envelope blade profile",563.6225
+rl-prop-screw-1,rotor-rl,hardware,,M1.6 x 5 T-mount screw,16.3379
+rl-prop-screw-2,rotor-rl,hardware,,M1.6 x 5 T-mount screw,16.3379
+rl-phase-wire-black,fold-rl,purchased,,26 AWG silicone phase wire fixed to arm; flex loop omitted from rigid kinematics,15.6653
+rl-phase-wire-blue,fold-rl,purchased,,26 AWG silicone phase wire fixed to arm; flex loop omitted from rigid kinematics,15.6653
+rl-phase-wire-red,fold-rl,purchased,,26 AWG silicone phase wire fixed to arm; flex loop omitted from rigid kinematics,15.6653
+rl-motor-cable-plug,fold-rl,purchased,,JST 1.25 mm 3-pin motor plug envelope; bench-verify current,40.0000
+rr-arm,fold-rr,custom,carbon fibre,"4 mm CF arm, 50.9313 mm pivot-to-motor; M2 on 9 mm PCD",2719.7364
+rr-bushing,fold-rr,custom,bronze,"Custom flanged bronze bush 3.1 ID / 6 OD, 4 mm journal",124.1943
+rr-clevis,fixed,custom,6061-T6,CNC 6061-T6 double-shear hinge bracket with lower stop flange,3289.1525
+rr-mount,fixed,custom,6061-T6,PA12/6061 frame-to-hinge saddle,1690.0000
+rr-mount-screw-1,fixed,hardware,,M2 x 6 bracket screw,31.1336
+rr-mount-screw-2,fixed,hardware,,M2 x 6 bracket screw,31.1336
+rr-shoulder-axle,fixed,hardware,,"M3 shoulder axle, 3 mm smooth journal; simplified thread",126.0402
+rr-locknut,fixed,hardware,,M3 Nyloc nut; preload/friction lock,37.6498
+rr-stop-deployed,fixed,hardware,,3 mm dowel travel stop press-fit into clevis,41.9287
+rr-stop-stowed,fixed,hardware,,3 mm dowel travel stop press-fit into clevis,41.9287
+rr-motor-base,fold-rr,purchased,,"HappyModel EX1404 4800KV, 3S, base envelope",255.0328
+rr-stator,fold-rr,purchased,,EX1404 stator envelope 14 x 4; winding detail omitted,496.9326
+rr-bearing-tube,fold-rr,purchased,,Motor fixed bearing housing envelope,48.9168
+rr-bearing-lower,fold-rr,purchased,,Nominal 1.5 x 4 x 2 bearing envelope; verify vendor internals,21.3526
+rr-bearing-upper,fold-rr,purchased,,Nominal 1.5 x 4 x 2 bearing envelope; verify vendor internals,21.3526
+rr-motor-bell,rotor-rr,purchased,,"EX1404 17.8 OD outrunner bell, simplified sealed skin",863.5972
+rr-motor-shaft,rotor-rr,purchased,,1.5 mm steel motor shaft envelope,30.7477
+rr-motor-screw-1,fold-rr,hardware,,"M2 x 6 motor screw, 4 mm arm + 2 mm engagement",31.1336
+rr-motor-screw-2,fold-rr,hardware,,"M2 x 6 motor screw, 4 mm arm + 2 mm engagement",31.1336
+rr-motor-screw-3,fold-rr,hardware,,"M2 x 6 motor screw, 4 mm arm + 2 mm engagement",31.1336
+rr-motor-screw-4,fold-rr,hardware,,"M2 x 6 motor screw, 4 mm arm + 2 mm engagement",31.1336
+rr-propeller,rotor-rr,purchased,,"HQProp T65 two-blade, 65 mm dia, 38.1 mm pitch; envelope blade profile",498.5210
+rr-prop-screw-1,rotor-rr,hardware,,M1.6 x 5 T-mount screw,16.3379
+rr-prop-screw-2,rotor-rr,hardware,,M1.6 x 5 T-mount screw,16.3379
+rr-phase-wire-black,fold-rr,purchased,,26 AWG silicone phase wire fixed to arm; flex loop omitted from rigid kinematics,15.6653
+rr-phase-wire-blue,fold-rr,purchased,,26 AWG silicone phase wire fixed to arm; flex loop omitted from rigid kinematics,15.6653
+rr-phase-wire-red,fold-rr,purchased,,26 AWG silicone phase wire fixed to arm; flex loop omitted from rigid kinematics,15.6653
+rr-motor-cable-plug,fold-rr,purchased,,JST 1.25 mm 3-pin motor plug envelope; bench-verify current,40.0000
+camera-case,camera-tilt,purchased,,"RunCam Thumb Pro W 54 x 25.5 x 21, landscape orientation",39474.0000
+camera-electronics,camera-tilt,purchased,,Camera internal PCB envelope; approximate,1536.0000
+camera-lens-barrel,camera-tilt,purchased,,Camera optical barrel envelope,232.9371
+camera-lens-glass,camera-tilt,purchased,,Protective lens glass envelope,73.8007
+camera-cradle,camera-tilt,custom,PA12,"PA12 split cradle, 1 mm lateral clearance and 2 mm side cheeks",4004.0000
+camera-pad-left,camera-tilt,custom,,0.5 mm compliant camera isolation pad,96.0000
+camera-pad-right,camera-tilt,custom,,0.5 mm compliant camera isolation pad,96.0000
+camera-bracket-left,fixed,custom,6061-T6,6061 camera side bracket; 6 mm idler bearing bore,964.9358
+camera-bracket-right,fixed,custom,6061-T6,6061 camera side bracket; 6 mm idler bearing bore,933.8923
+camera-idler-bearing,fixed,hardware,,MR63 bearing 3 x 6 x 2.5,52.4109
+camera-idler-axle,camera-tilt,hardware,,3 mm shoulder trunnion,34.9406
+tilt-servo-case,fixed,purchased,,"Hitec HS-40 case 20 x 8.6 x 17, output axis +Y",2862.3650
+servo-mount,fixed,custom,PA12,PA12 servo retention strap,619.2000
+servo-mount-foot,fixed,custom,PA12,PA12 servo mounting bridge,704.0000
+servo-output-horn,camera-servo,purchased,,Hitec 15T / 4 mm spline horn; keyed to cradle,177.0322
+servo-horn-screw,camera-servo,hardware,,M2 servo spline retention screw,24.9219
+camera-power-plug,camera-tilt,purchased,,RunCam 1.25 mm four-pin power/UART plug envelope,72.0000
+camera-tail,camera-tilt,purchased,,"Camera flex tail, moving end only; service loop not rigidly modeled",10.6290
+servo-jr-plug,fixed,purchased,,3-pin 2.54 mm servo connector envelope,120.0000
+servo-wire,fixed,purchased,,3-wire servo cable,105.3659

@@ -1,0 +1,114 @@
+part_id,quantity,source,specification,print_file,solid_volume_cm3
+base,1,print,"PETG; 5 perimeters, 30% infill",stl/base.stl,196.566
+rubber-foot-1,1,buy,"Adhesive silicone foot, 18 x 4 mm",,1.015
+rubber-foot-2,1,buy,"Adhesive silicone foot, 18 x 4 mm",,1.015
+rubber-foot-3,1,buy,"Adhesive silicone foot, 18 x 4 mm",,1.015
+rubber-foot-4,1,buy,"Adhesive silicone foot, 18 x 4 mm",,1.015
+left-cheek,1,print,PETG structural cheek with bearing shoulders and captive-nut pockets,stl/left-cheek.stl,99.243
+left-foot-washer-a,1,buy,M4 flat washer,,0.039
+left-foot-bolt-a,1,buy,M4 x 16 socket screw; ISO 4762 envelope,,0.328
+left-foot-nut-a,1,buy,M4 hex nut; 7 AF x 3.2 thick,,0.096
+left-foot-washer-b,1,buy,M4 flat washer,,0.039
+left-foot-bolt-b,1,buy,M4 x 16 socket screw; ISO 4762 envelope,,0.328
+left-foot-nut-b,1,buy,M4 hex nut; 7 AF x 3.2 thick,,0.096
+right-cheek,1,print,PETG structural cheek with bearing shoulders and captive-nut pockets,stl/right-cheek.stl,97.988
+right-foot-washer-a,1,buy,M4 flat washer,,0.039
+right-foot-bolt-a,1,buy,M4 x 16 socket screw; ISO 4762 envelope,,0.328
+right-foot-nut-a,1,buy,M4 hex nut; 7 AF x 3.2 thick,,0.096
+right-foot-washer-b,1,buy,M4 flat washer,,0.039
+right-foot-bolt-b,1,buy,M4 x 16 socket screw; ISO 4762 envelope,,0.328
+right-foot-nut-b,1,buy,M4 hex nut; 7 AF x 3.2 thick,,0.096
+hopper-body,1,print,"PETG; integrated metering sleeve, funnel, rim, hinge and 105-degree stops",stl/hopper-body.stl,79.231
+inlet-wiper,1,print,TPU 95A compliant candy cutoff blade; 1.2 mm tip; two M3 fixings,stl/inlet-wiper.stl,0.980
+wiper-bolt-1,1,buy,M3 x 8 socket screw; ISO 4762 envelope,,0.110
+wiper-bolt-2,1,buy,M3 x 8 socket screw; ISO 4762 envelope,,0.110
+housing-washer-1,1,buy,M3 flat washer,,0.015
+housing-spacer-1,1,buy,"M3 spacer, 3.2 ID x 6 OD x 3 mm",,0.060
+housing-bolt-1,1,buy,M3 x 60 socket screw; ISO 4762 envelope,,0.474
+housing-nut-1,1,buy,M3 hex nut; 5.5 AF x 2.4 thick,,0.046
+housing-washer-2,1,buy,M3 flat washer,,0.015
+housing-spacer-2,1,buy,"M3 spacer, 3.2 ID x 6 OD x 3 mm",,0.060
+housing-bolt-2,1,buy,M3 x 60 socket screw; ISO 4762 envelope,,0.474
+housing-nut-2,1,buy,M3 hex nut; 5.5 AF x 2.4 thick,,0.046
+housing-washer-3,1,buy,M3 flat washer,,0.015
+housing-spacer-3,1,buy,"M3 spacer, 3.2 ID x 6 OD x 3 mm",,0.060
+housing-bolt-3,1,buy,M3 x 60 socket screw; ISO 4762 envelope,,0.474
+housing-nut-3,1,buy,M3 hex nut; 5.5 AF x 2.4 thick,,0.046
+housing-washer-4,1,buy,M3 flat washer,,0.015
+housing-spacer-4,1,buy,"M3 spacer, 3.2 ID x 6 OD x 3 mm",,0.060
+housing-bolt-4,1,buy,M3 x 60 socket screw; ISO 4762 envelope,,0.474
+housing-nut-4,1,buy,M3 hex nut; 5.5 AF x 2.4 thick,,0.046
+metering-drum,1,print,"Six 19 mm radial pockets, 11 mm central depth; 8 mm D bore",stl/metering-drum.stl,95.885
+main-shaft,1,make-metal,"8 mm stainless shaft, 99 mm long; local D flats x=3.1 mm, round bearing journals",,4.669
+main-bearing-left,1,buy,"608-2RS sealed deep-groove ball bearing, 8 x 22 x 7 mm; envelope model",,2.302
+main-retainer-left,1,print,Bearing outer-race retaining plate; center clears inner race,stl/main-retainer-left.stl,0.739
+main-retainer-bolt-left-a,1,buy,M3 x 10 socket screw; ISO 4762 envelope,,0.124
+main-retainer-nut-left-a,1,buy,M3 hex nut; 5.5 AF x 2.4 thick,,0.046
+main-retainer-bolt-left-b,1,buy,M3 x 10 socket screw; ISO 4762 envelope,,0.124
+main-retainer-nut-left-b,1,buy,M3 hex nut; 5.5 AF x 2.4 thick,,0.046
+main-bearing-right,1,buy,"608-2RS sealed deep-groove ball bearing, 8 x 22 x 7 mm; envelope model",,2.302
+main-retainer-right,1,print,Bearing outer-race retaining plate; center clears inner race,stl/main-retainer-right.stl,0.739
+main-retainer-bolt-right-a,1,buy,M3 x 10 socket screw; ISO 4762 envelope,,0.124
+main-retainer-nut-right-a,1,buy,M3 hex nut; 5.5 AF x 2.4 thick,,0.046
+main-retainer-bolt-right-b,1,buy,M3 x 10 socket screw; ISO 4762 envelope,,0.124
+main-retainer-nut-right-b,1,buy,M3 hex nut; 5.5 AF x 2.4 thick,,0.046
+main-spacer-left,1,buy,"8 mm ID shaft spacer, OD 9.8, length 2 mm",,0.048
+main-spacer-right,1,buy,"8 mm ID shaft spacer, OD 9.8, length 5.5 mm",,0.131
+main-shaft-collar,1,buy,"8 mm bore set-screw shaft collar, 14 OD x 6 wide",,0.591
+main-collar-grub,1,buy,M3 x 4 grub screw onto shaft flat,,0.028
+agitator-shaft,1,make-metal,"8 mm stainless shaft, 78 mm long; local D flats x=3.1 mm, round bearing journals",,3.763
+agitator-bearing-left,1,buy,"608-2RS sealed deep-groove ball bearing, 8 x 22 x 7 mm; envelope model",,2.302
+agitator-retainer-left,1,print,Bearing outer-race retaining plate; center clears inner race,stl/agitator-retainer-left.stl,0.739
+agitator-retainer-bolt-left-a,1,buy,M3 x 10 socket screw; ISO 4762 envelope,,0.124
+agitator-retainer-nut-left-a,1,buy,M3 hex nut; 5.5 AF x 2.4 thick,,0.046
+agitator-retainer-bolt-left-b,1,buy,M3 x 10 socket screw; ISO 4762 envelope,,0.124
+agitator-retainer-nut-left-b,1,buy,M3 hex nut; 5.5 AF x 2.4 thick,,0.046
+agitator-bearing-right,1,buy,"608-2RS sealed deep-groove ball bearing, 8 x 22 x 7 mm; envelope model",,2.302
+agitator-retainer-right,1,print,Bearing outer-race retaining plate; center clears inner race,stl/agitator-retainer-right.stl,0.739
+agitator-retainer-bolt-right-a,1,buy,M3 x 10 socket screw; ISO 4762 envelope,,0.124
+agitator-retainer-nut-right-a,1,buy,M3 hex nut; 5.5 AF x 2.4 thick,,0.046
+agitator-retainer-bolt-right-b,1,buy,M3 x 10 socket screw; ISO 4762 envelope,,0.124
+agitator-retainer-nut-right-b,1,buy,M3 hex nut; 5.5 AF x 2.4 thick,,0.046
+agitator-spacer-left,1,buy,"8 mm ID shaft spacer, OD 9.8, length 2 mm",,0.048
+agitator-spacer-right,1,buy,"8 mm ID shaft spacer, OD 9.8, length 5.5 mm",,0.131
+agitator-shaft-collar,1,buy,"8 mm bore set-screw shaft collar, 14 OD x 6 wide",,0.591
+agitator-collar-grub,1,buy,M3 x 4 grub screw onto shaft flat,,0.028
+drive-gear-18t,1,print,"Module 2, 18 teeth, 20 degree involute, 8 mm face, D bore",stl/drive-gear-18t.stl,7.407
+agitator-gear-36t,1,print,"Module 2, 36 teeth, 20 degree involute, 8 mm face, D bore",stl/agitator-gear-36t.stl,31.627
+agitator-paddle,1,print,"TPU 95A two-wing paddle; 28 mm span, 24 mm working width",stl/agitator-paddle.stl,3.369
+crank-arm,1,print,"50 mm crank, 8 mm D bore; M4 captive grip nut",stl/crank-arm.stl,9.271
+free-spinning-grip,1,print,"30 mm long, 22 OD; two 625 bearings; circumferential grip grooves",stl/free-spinning-grip.stl,8.050
+grip-bearing-inboard,1,buy,"625-2RS bearing, 5 x 16 x 5 mm; envelope model",,0.905
+grip-bearing-outboard,1,buy,"625-2RS bearing, 5 x 16 x 5 mm; envelope model",,0.905
+grip-inner-spacer,1,buy,"5 mm ID, 7.6 OD x 20 mm inner-race spacer",,0.496
+grip-axle-bolt,1,make-metal,"Precision shoulder screw: 5 mm shoulder x 30, M4 threaded tip x 10, head 9 x 4; smooth bearing journals",,0.945
+grip-captive-nut,1,buy,M4 hex nut; 7 AF x 3.2 thick,,0.096
+grip-inboard-washer,1,buy,"M4 washer/spacer, 4.3 ID x 10 OD x 2 mm",,0.127
+crank-axial-spacer,1,buy,8 ID x 9.8 OD x 5 spacer,,0.119
+crank-end-collar,1,make-metal,8 mm set-screw collar; 14 OD x 5 mm wide; M3 tapped radial hole,,0.489
+crank-end-grub,1,buy,M3 x 4 grub screw,,0.028
+agitator-gear-end-collar,1,make-metal,8 mm set-screw collar; 14 OD x 3 mm wide; M2 tapped radial hole,,0.297
+agitator-gear-end-grub,1,buy,M2 x 4 grub screw,,0.012
+six-click-cam,1,print,Six 1 mm scallops; dry-side PETG click cam,stl/six-click-cam.stl,3.679
+cam-inner-spacer,1,buy,"8 mm ID shaft spacer, 9.8 OD x 1.5 mm",,0.036
+cam-end-washer,1,buy,"M3 large washer, 12 OD x 1.5 mm",,0.156
+cam-retention-bolt,1,buy,M3 x 10 socket screw; ISO 4762 envelope,,0.124
+click-flexure,1,print,"Replaceable PETG cantilever, 26 x 6 x 1.2 mm, compliant bump; print flat",stl/click-flexure.stl,0.324
+click-flexure-bolt,1,buy,M3 x 10 socket screw; ISO 4762 envelope,,0.124
+gear-guard,1,print,Clear PETG enclosure; 2 mm shell; all gear teeth behind guard,stl/gear-guard.stl,36.387
+guard-bolt-1,1,buy,M3 x 25 socket screw; ISO 4762 envelope,,0.229
+guard-nut-1,1,buy,M3 hex nut; 5.5 AF x 2.4 thick,,0.046
+guard-bolt-2,1,buy,M3 x 25 socket screw; ISO 4762 envelope,,0.229
+guard-nut-2,1,buy,M3 hex nut; 5.5 AF x 2.4 thick,,0.046
+guard-bolt-3,1,buy,M3 x 25 socket screw; ISO 4762 envelope,,0.229
+guard-nut-3,1,buy,M3 hex nut; 5.5 AF x 2.4 thick,,0.046
+guard-bolt-4,1,buy,M3 x 25 socket screw; ISO 4762 envelope,,0.229
+guard-nut-4,1,buy,M3 hex nut; 5.5 AF x 2.4 thick,,0.046
+hinged-lid,1,print,"0 to 105 degree rear hinge, integral finger tab and hard-stop tabs",stl/hinged-lid.stl,33.712
+lid-hinge-pin,1,make-metal,"3 mm stainless dowel, cut to 122 mm; retain with two 3 mm push-on caps",,0.857
+hinge-cap-left,1,buy,3 mm push-on shaft cap,,0.028
+hinge-cap-right,1,buy,3 mm push-on shaft cap,,0.028
+delivery-chute,1,print,"Open trough, 34 mm clear width, 23-degree slope; integral support; print on side",stl/delivery-chute.stl,26.670
+chute-bolt-1,1,buy,M3 x 10 socket screw; ISO 4762 envelope,,0.124
+chute-bolt-2,1,buy,M3 x 10 socket screw; ISO 4762 envelope,,0.124
+catch-tray,1,print,Removable shallow catch tray; 3.5 mm floor and 3 mm walls,stl/catch-tray.stl,28.949

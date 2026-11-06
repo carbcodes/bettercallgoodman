@@ -1,0 +1,222 @@
+{
+  "verdict": "no_collisions",
+  "inputs": {
+    "glb": "candy-crank-dispenser/assembly.glb",
+    "joints": "candy-crank-dispenser/joints.yaml",
+    "assembly_yaml": "candy-crank-dispenser/assembly.yaml",
+    "geometry_py": "candy-crank-dispenser/geometry.py",
+    "glb_sha256": "65697151599760fba6cf51021c06e5d82c22c800ea799440ff81aea8861c33e5",
+    "joints_sha256": "07384b87827125596cb6349f3cd1e96078f10946fddafe49c8d00806088c0408",
+    "reach_rule": null
+  },
+  "swept_joints": {
+    "crank": [
+      0.0,
+      360.0
+    ],
+    "grip": [
+      0.0,
+      360.0
+    ],
+    "lid": [
+      0.0,
+      105.0
+    ]
+  },
+  "collisions": [],
+  "ignored_pairs": [
+    {
+      "parts": [
+        "agitator-bearing-left",
+        "agitator-shaft"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "agitator-bearing-left",
+        "agitator-spacer-left"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "agitator-bearing-right",
+        "agitator-shaft"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "agitator-bearing-right",
+        "agitator-spacer-right"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "drive-gear-18t",
+        "agitator-gear-36t"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "agitator-retainer-left",
+        "agitator-shaft"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "agitator-retainer-right",
+        "agitator-shaft"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "left-cheek",
+        "agitator-shaft"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "right-cheek",
+        "agitator-shaft"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "click-flexure",
+        "six-click-cam"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "grip-bearing-inboard",
+        "free-spinning-grip"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "grip-bearing-outboard",
+        "free-spinning-grip"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "hopper-body",
+        "hinged-lid"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "lid-hinge-pin",
+        "hinged-lid"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "left-cheek",
+        "main-shaft"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "main-bearing-left",
+        "main-shaft"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "main-bearing-left",
+        "main-spacer-left"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "main-bearing-right",
+        "main-shaft"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "main-bearing-right",
+        "main-spacer-right"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "main-retainer-bolt-left-a",
+        "metering-drum"
+      ],
+      "reason": "in contact at home"
+    },
+    {
+      "parts": [
+        "main-retainer-bolt-left-b",
+        "metering-drum"
+      ],
+      "reason": "in contact at home"
+    },
+    {
+      "parts": [
+        "main-retainer-bolt-right-a",
+        "metering-drum"
+      ],
+      "reason": "in contact at home"
+    },
+    {
+      "parts": [
+        "main-retainer-bolt-right-b",
+        "metering-drum"
+      ],
+      "reason": "in contact at home"
+    },
+    {
+      "parts": [
+        "main-retainer-left",
+        "main-shaft"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "main-retainer-right",
+        "main-shaft"
+      ],
+      "reason": "allow_contact"
+    },
+    {
+      "parts": [
+        "right-cheek",
+        "main-shaft"
+      ],
+      "reason": "allow_contact"
+    }
+  ],
+  "stats": {
+    "pairs_total": 6328,
+    "pairs_same_body": 3486,
+    "pairs_ignored": 26,
+    "pairs_rejected_far": 1344,
+    "pairs_sampled": 1472,
+    "poses_checked": 64201,
+    "poses_unreachable": 0,
+    "pairs_unreachable": 0,
+    "seconds": 18.3
+  }
+}

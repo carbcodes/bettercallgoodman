@@ -1,0 +1,15 @@
+{
+ "order": 1,
+ "title": "Desktop robot arm, 5-axis",
+ "source": "desktop-robot-arm-5dof/",
+ "status": "collides",
+ "headline": "With the elbow folded back and the wrist pitched down, the gripper swings into the base, the turntable and the shoulder clamps.",
+ "claim": {
+  "file": "motion-checks.json",
+  "text": "Safe poses clear (599 samples, one joint at a time)"
+ },
+ "notes": [
+  "Every pose shown is one the design's own firmware reach rule allows.",
+  "Re-checked with the design's own kinematics code: all 231 pairs really intersect."
+ ]
+}

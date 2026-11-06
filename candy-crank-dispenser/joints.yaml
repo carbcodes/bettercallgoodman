@@ -1,0 +1,131 @@
+glb_sha256: 65697151599760fba6cf51021c06e5d82c22c800ea799440ff81aea8861c33e5
+joints:
+- id: crank
+  type: revolute
+  parent: null
+  origin:
+  - 0.0
+  - 0.0
+  - 112.0
+  axis:
+  - 0
+  - 1
+  - 0
+  parts:
+  - metering-drum
+  - main-shaft
+  - drive-gear-18t
+  - crank-arm
+  - six-click-cam
+  - main-shaft-collar
+  - main-collar-grub
+  - main-spacer-left
+  - main-spacer-right
+  - crank-axial-spacer
+  - crank-end-collar
+  - crank-end-grub
+  - grip-axle-bolt
+  - grip-captive-nut
+  - grip-inner-spacer
+  - grip-inboard-washer
+  - grip-bearing-inboard
+  - grip-bearing-outboard
+  - cam-inner-spacer
+  - cam-end-washer
+  - cam-retention-bolt
+  home: 0
+  limits:
+  - 0.0
+  - 360.0
+  label: Crank / metering drum (one periodic turn)
+- id: agitator
+  type: revolute
+  parent: null
+  origin:
+  - 0.0
+  - 0.0
+  - 166.0
+  axis:
+  - 0
+  - 1
+  - 0
+  parts:
+  - agitator-shaft
+  - agitator-paddle
+  - agitator-gear-36t
+  - agitator-shaft-collar
+  - agitator-collar-grub
+  - agitator-spacer-left
+  - agitator-spacer-right
+  - agitator-gear-end-collar
+  - agitator-gear-end-grub
+  home: 0
+  limits:
+  - -180.0
+  - 0.0
+  label: Agitator / 36-tooth gear
+  coupled:
+  - joint: crank
+    ratio: -0.5
+- id: grip
+  type: revolute
+  parent: crank
+  origin:
+  - 50.0
+  - 70.0
+  - 112.0
+  axis:
+  - 0
+  - 1
+  - 0
+  parts:
+  - free-spinning-grip
+  home: 0
+  limits:
+  - 0.0
+  - 360.0
+  label: Free-spinning hand grip (one periodic turn)
+- id: lid
+  type: revolute
+  parent: null
+  origin:
+  - 0.0
+  - 47.0
+  - 246.0
+  axis:
+  - -1
+  - 0
+  - 0
+  parts:
+  - hinged-lid
+  home: 0
+  limits:
+  - 0.0
+  - 105.0
+  label: Refill lid / physical rear stops
+poses:
+- name: ready
+  values:
+    crank: 0
+    grip: 0
+    lid: 0
+- name: first-click
+  values:
+    crank: 60
+    grip: 300
+    lid: 0
+- name: second-click
+  values:
+    crank: 120
+    grip: 240
+    lid: 0
+- name: half-turn
+  values:
+    crank: 180
+    grip: 180
+    lid: 0
+- name: refill
+  values:
+    crank: 0
+    grip: 0
+    lid: 105

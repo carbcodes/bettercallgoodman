@@ -1,0 +1,14 @@
+{
+ "order": 3,
+ "title": "Candy crank dispenser",
+ "source": "candy-crank-dispenser/",
+ "status": "clear",
+ "headline": "Nothing touches anywhere in the crank, agitator, grip and lid travel.",
+ "claim": {
+  "file": "motion-validation.json",
+  "text": "PASS (58 samples)"
+ },
+ "notes": [
+  "Goodman checked 64,201 poses, about 1,100 times as many, and agrees."
+ ]
+}

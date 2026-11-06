@@ -1,0 +1,15 @@
+{
+ "order": 4,
+ "title": "Mechy robot arm v4, run 2",
+ "source": "Mechy 24-hourrobotarm/design/v4",
+ "status": "collides",
+ "headline": "The gripper reaches down into the electronics bay; a folded elbow clips the shoulder inside its allowed range.",
+ "claim": {
+  "file": "geometry.py",
+  "text": "Gripper meets the lower shank only past −135°"
+ },
+ "notes": [
+  "None of run 1's 39 collisions were fixed; a bigger USB keepout added 9 more.",
+  "The reach rule bounds only the wrist point and fingertip; the gripper hangs 80–90 mm below."
+ ]
+}
