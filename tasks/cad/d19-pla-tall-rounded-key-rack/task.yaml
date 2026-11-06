@@ -1,0 +1,8 @@
+id: d19-pla-tall-rounded-key-rack
+area: cad
+process: printing
+title: "PLA key rack, 1 kg, 180 mm tall with fully rounded ends"
+trap: "the fully rounded bottom end touches the bed along a line only: no flat face on the bed for a 180 mm tall, 12 mm wide part"
+control: false
+expect: {strength: safe, dfm: not_printable, overall: fail}
+inputs: {material: PLA, load_n: 9.81, required_safety_factor: 2.0, layer_normal: z, load_rule: lowest_inside, max_reach_mm: 45, max_width_mm: 12}

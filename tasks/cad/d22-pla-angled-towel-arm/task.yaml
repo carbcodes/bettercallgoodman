@@ -1,0 +1,8 @@
+id: d22-pla-angled-towel-arm
+area: cad
+process: printing
+title: "PLA towel-ring arm, 1 kg, rising at 50° (control)"
+trap: "none expected: a straight arm rising 50° above horizontal has its underside 40° from vertical, inside the 45° limit"
+control: true
+expect: {strength: safe, dfm: printable, overall: pass}
+inputs: {material: PLA, load_n: 9.81, required_safety_factor: 2.0, layer_normal: z, load_rule: fixed_x, load_x_mm: 50, max_reach_mm: 55, max_width_mm: 20}

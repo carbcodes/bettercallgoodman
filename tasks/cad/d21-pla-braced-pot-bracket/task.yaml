@@ -1,0 +1,8 @@
+id: d21-pla-braced-pot-bracket
+area: cad
+process: printing
+title: "PLA plant-pot bracket, 1 kg at 60 mm, solid 45° brace (control)"
+trap: "none expected: the solid triangular arm with a 45° lower brace prints without support and is well within strength"
+control: true
+expect: {strength: safe, dfm: printable, overall: pass}
+inputs: {material: PLA, load_n: 9.81, required_safety_factor: 2.0, layer_normal: z, load_rule: fixed_x, load_x_mm: 60, max_reach_mm: 65, max_width_mm: 20}
