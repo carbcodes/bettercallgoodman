@@ -170,8 +170,42 @@ def _task_record(d: Path) -> dict:
     }
 
 
+def _cad_record(d: Path) -> dict:
+    """Design mode: the AI's part, measured by goodman.design (result.json + part.mesh.json)."""
+    task = yaml.safe_load((d / "task.yaml").read_text())
+    attempt, attempt_file = _latest_attempt(d)
+    result = _read_json(d / "result.json")
+    mesh = _read_json(d / "part.mesh.json")
+    claims = None
+    if result and result.get("claims"):
+        claims = {"verdict": result.get("ai_verdict"),
+                  "claims": [{"id": c["id"], "quantity": c["quantity"], "value": c["claimed"], "quote": c.get("quote")}
+                             for c in result["claims"]]}
+    inp = task.get("inputs") or {}
+    return {
+        "id": task["id"], "area": "cad", "title": task.get("title", task["id"]), "trap": task.get("trap"),
+        "control": bool(task.get("control")), "inputs": inp,
+        "prompt": (d / "prompt.md").read_text().strip() if (d / "prompt.md").exists() else "",
+        "truth": {"verdict": None, "values": {}, "must_mention": [], "why": None, "source": None},
+        "check": {"source": "goodman.design (measured from the AI's part)", "model": "design",
+                  "verdict": (result or {}).get("goodman_verdict"), "steps": [], "notes": (result or {}).get("notes", []),
+                  "values": {}},
+        "attempt": None if attempt is None else {"file": attempt_file, "model": attempt.get("model"),
+                                                 "date": attempt.get("date"), "answer": attempt.get("answer", "")},
+        "claims": claims, "result": result, "result_source": "result.json" if result else None,
+        "outcome": (result or {}).get("outcome", "pending"),
+        "scene": None if not (result and mesh) else {
+            "kind": "design", "mesh": mesh, "sections": result.get("sections", []),
+            "load_point": result.get("load_point"), "load_n": inp.get("load_n"),
+            "required_sf": inp.get("required_safety_factor"), "sf": result.get("safety_factor"),
+            "critical": result.get("critical"),
+        },
+    }
+
+
 def build(root: Path) -> dict:
-    tasks = [_task_record(p.parent) for p in sorted(Path(root).glob("tasks/*/*/task.yaml"))]
+    tasks = [(_cad_record if p.parent.parent.name == "cad" else _task_record)(p.parent)
+             for p in sorted(Path(root).glob("tasks/*/*/task.yaml"))]
     return {"generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"), "tasks": tasks}
 
 
