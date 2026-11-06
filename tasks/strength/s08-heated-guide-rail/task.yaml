@@ -1,0 +1,6 @@
+id: s08-heated-guide-rail
+area: strength
+title: Steel guide rod fixed at both ends, heated 30 °C
+trap: Thermal stress (72 MPa) is far below yield, but the restrained expansion force (3.6 kN) exceeds the fixed-fixed buckling load (1.6 kN): the rod bows at about +13 °C
+control: false
+inputs: {material: steel, E_mpa: 200000, yield_mpa: 250, alpha_per_c: 12.0e-6, diameter_mm: 8, length_mm: 1000, end_condition: fixed_fixed, delta_t_c: 30}

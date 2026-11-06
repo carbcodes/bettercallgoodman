@@ -1,0 +1,11 @@
+verdict: not_safe
+values:
+  thermal_stress_mpa: {value: 72.0, tol: 0.05}
+  thermal_force_n: {value: 3619, tol: 0.05}
+  buckling_load_n: {value: 1587, tol: 0.05}
+must_mention: [buckling]
+why: |
+  Fully restrained: sigma = E·alpha·dT = 200000·12e-6·30 = 72 MPa (SF 3.5 on yield, which is the trap).
+  A = pi·8²/4 = 50.3 mm² -> axial force = 72·50.3 = 3619 N.
+  I = pi·8⁴/64 = 201 mm⁴; fixed-fixed K = 0.5: P_cr = pi²·E·I/(0.5·L)² = pi²·200000·201/500² = 1587 N.
+  3619 N > 1587 N: the rod buckles (bows sideways) once dT exceeds 1587/(E·alpha·A) = 13.2 °C. Not OK.
