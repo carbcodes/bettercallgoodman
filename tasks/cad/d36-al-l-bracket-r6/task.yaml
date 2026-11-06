@@ -1,0 +1,8 @@
+id: d36-al-l-bracket-r6
+area: cad
+process: cnc
+title: "6061 L-bracket, 10 kg at 90 mm, R6 inside corner (control)"
+trap: "none expected: an L from solid with an R6 inside fillet across the 40 mm width (tool 12 mm, ~3.3x depth) and plain through holes"
+control: true
+expect: {strength: safe, dfm: machinable, overall: pass}
+inputs: {material: Al6061-T6, load_n: 98.1, required_safety_factor: 3.0, load_rule: fixed_x, load_x_mm: 90, max_reach_mm: 105}

@@ -1,0 +1,8 @@
+id: d34-al-sensor-board-recess
+area: cad
+process: cnc
+title: "6061 flat arm, 0.8 kg, square-cornered 30 x 20 board recess"
+trap: "a square-cornered recess has sharp vertical inside corners an end mill can't cut (needs dog-bones or corner reliefs)"
+control: false
+expect: {strength: safe, dfm: not_machinable, overall: fail}
+inputs: {material: Al6061-T6, load_n: 7.848, required_safety_factor: 3.0, load_rule: fixed_x, load_x_mm: 80, max_reach_mm: 105}

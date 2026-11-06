@@ -1,0 +1,8 @@
+id: d35-al-windowed-plate-arm
+area: cad
+process: cnc
+title: "6061 plate arm, 3 kg at 170 mm, two R4 through-windows (control)"
+trap: "none expected: through-windows with R4 corners in 10 mm plate cut from one side, and the flanges carry 3 kg easily"
+control: true
+expect: {strength: safe, dfm: machinable, overall: pass}
+inputs: {material: Al6061-T6, load_n: 29.43, required_safety_factor: 3.0, load_rule: fixed_x, load_x_mm: 170, max_reach_mm: 185}
